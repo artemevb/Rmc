@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={jost.className}>
         <div className='flex flex-col w-full mx-auto'>
-          <Header locale={locale} />
+          <Header  />
           <main>{children}</main>
-          <Footer locale={locale} />
+          <Footer  />
         </div>
       </body>
     </html>
