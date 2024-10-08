@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Slider from "react-slick";
+import React from "react";
+import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
+
 import Link from 'next/link';
 
 import build1 from "@/public/images/main/whyus/slide1.png";
@@ -15,8 +16,54 @@ import build4 from "@/public/images/main/whyus/slide1.png";
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
 
+// Динамический импорт Slider с отключенным SSR
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
+
+// Определение интерфейса для стрелок, если CustomArrowProps недоступен
+interface CustomArrowProps {
+    className?: string;
+    style?: React.CSSProperties;
+    onClick?: () => void;
+}
+
+const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
+    <div
+        className="absolute top-1/2 right-2 z-10 transform -translate-y-1/2 cursor-pointer"
+        onClick={onClick}
+    >
+        <Image
+            src={arrowright}
+            alt="Следующий"
+            width={70}
+            height={70}
+        />
+    </div>
+);
+
+const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
+    <div
+        className="absolute top-1/2 left-2 z-10 transform -translate-y-1/2 cursor-pointer"
+        onClick={onClick}
+    >
+        <Image
+            src={arrowleft}
+            alt="Предыдущий"
+            width={70}
+            height={70}
+        />
+    </div>
+);
+
+interface EquipmentItem {
+    title: string;
+    description: string;
+    image: StaticImageData;
+    price: string;
+    slug: string;
+}
+
 export default function Banner() {
-    const equipmentData = [
+    const equipmentData: EquipmentItem[] = [
         {
             title: "Safa One",
             description: "Luxury Apartment",
@@ -47,40 +94,8 @@ export default function Banner() {
         },
     ];
 
-    const NextArrow = (props) => {
-        const { onClick } = props;
-        return (
-            <div
-                className="absolute top-[-50px] right-[10px] z-10 transform -translate-y-1/2 cursor-pointer"
-                onClick={onClick}
-            >
-                <Image
-                    src={arrowright}
-                    alt="NEXT"
-                    className="object-cover  h-full w-[70px]"
-                />
-            </div>
-        );
-    };
-
-    const PrevArrow = (props) => {
-        const { onClick } = props;
-        return (
-            <div
-                className="absolute top-[-50px] right-[90px] z-10 transform -translate-y-1/2 cursor-pointer"
-                onClick={onClick}
-            >
-                <Image
-                    src={arrowleft}
-                    alt="NEXT"
-                    className="object-cover w-[70px] h-full"
-                />
-            </div>
-        );
-    };
-
     const settings = {
-        arrows: false,
+        arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
@@ -94,8 +109,7 @@ export default function Banner() {
                 settings: {
                     slidesToShow: 2, // Показывать 2 слайда
                     slidesToScroll: 1,
-                    nextArrow: false,
-                    prevArrow: false,
+                    arrows: false,
                 },
             },
             {
@@ -103,40 +117,42 @@ export default function Banner() {
                 settings: {
                     slidesToShow: 1, // Показывать 1 слайд
                     slidesToScroll: 1,
-                    nextArrow: false,
-                    prevArrow: false,
+                    arrows: false,
                 },
             },
         ],
     };
 
-
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            <div className="mx-[10px]">
-                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px]">
+            <div className="mx-2.5">
+                <h2 className="text-2xl mdx:text-4xl mdl:text-5xl xl:text-6xl 2xl:text-7xl font-medium pb-10">
                     Новостройки
                 </h2>
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (
-                        <div key={index} className="max-mdx:px-[6px] px-[10px]">
+                        <div key={index} className="px-2.5 mdx:px-1.5">
                             <div className="relative flex flex-col items-center max-h-[600px] overflow-hidden">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     className="object-cover w-full h-full"
+                                    layout="responsive"
+                                    priority={index < 2} // Оптимизация загрузки первых изображений
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                                    <h3 className="max-mdx:text-[28px] mdx:text-[30px] text-[35px] font-medium">{item.title}</h3>
-                                    <p className="text-[16px] mdx:text-[20px] text-white">{item.price}</p>
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
+                                    <h3 className="text-xl mdx:text-2xl text-3xl font-medium text-white">{item.title}</h3>
+                                    <p className="text-base mdx:text-lg text-white">{item.price}</p>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </Slider>
                 <div className="flex w-full justify-center mt-10">
-                    <Link href="/buildings" className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-[#fff] font-semibold text-[17px] max-w-[223px] w-full">
-                        Смотреть все
+                    <Link href="/buildings">
+                        <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
+                            Смотреть все
+                        </button>
                     </Link>
                 </div>
             </div>

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 
-export default function Footer({locale}) {
+export default function Footer() {
   return (
     <div className="bg-snowy w-full px-2 pt-12">
       <div className="w-full max-w-[1440px] flex flex-col gap-12 mx-auto">

@@ -8,7 +8,7 @@ import BuildingsSlider from "./BuildingsSlider";
 import Counter from "./Counter";
 import Form from "./Form";
 
-export default function Main({locale}) {
+export default function Main() {
   return (
     <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
       <Banner />
