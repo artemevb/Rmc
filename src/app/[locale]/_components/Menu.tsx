@@ -1,5 +1,7 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ChangeEvent, useTransition } from "react";
+import { useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import close from "@/public/svg/close-white.svg";
@@ -14,21 +16,22 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
-  const [languageMenu, setLanguageMenu] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("RU");
+  const [, setLanguageMenu] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const router = useRouter();
+  const localActive = useLocale();
 
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const toggleLanguageMenu = () => {
-    setLanguageMenu(!languageMenu);
+
+  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const nextLocale = e.target.value;
+    startTransition(() => {
+      router.replace(`/${nextLocale}`);
+    });
   };
 
-  const changeLanguage = (lang: string) => {
-    setSelectedLanguage(lang);
-    setLanguageMenu(false);
-    // Implement language change logic here, e.g., using next-intl's functions
-  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -49,9 +52,8 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
 
   return (
     <div
-      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${
-        menu ? "transform translate-x-0" : "transform translate-x-full"
-      } transition-transform duration-300 ease-in-out`}
+      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "transform translate-x-0" : "transform translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
     >
       {/* Header with Language Switcher and Close Button */}
       <div className="border-b py-4 flex">
@@ -59,7 +61,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center gap-[12px]">
               {/* Language Switcher */}
-              <div ref={menuRef} className="relative z-40">
+              {/* <div ref={menuRef} className="relative z-40">
                 <button
                   id="dropdownButton"
                   className="inline-flex items-center text-[19px] font-medium bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full"
@@ -77,7 +79,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
                   </svg>
                 </button>
 
-                {/* Language Dropdown */}
+              
                 {languageMenu && (
                   <div className="absolute top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
                     <ul className="py-1">
@@ -96,9 +98,30 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
                     </ul>
                   </div>
                 )}
-              </div>
+              </div> */}
+              <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full'>
+                <span className='sr-only'>Change language</span>
+                <select
+                  defaultValue={localActive}
+                  className='bg-transparent appearance-none'
+                  onChange={onSelectChange}
+                  disabled={isPending}
+                >
+                  <option value='en'>En</option>
+                  <option value='ru'>Ru</option>
+                  <option value='uz'>O`z</option>
+                </select>
+                <svg
+                  className="w-4 h-4 "
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </label>
 
-              {/* Close Menu Button */}
               <button onClick={closeMenu} className="bg-[#333333] px-4 py-4 rounded-full">
                 <Image
                   src={close}
@@ -112,16 +135,12 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           </div>
         </div>
       </div>
-
-      {/* Navigation Menu */}
       <nav className="flex flex-col font-semibold mt-2">
-        {/* Services Menu Toggle */}
         <div className="pt-4" onClick={toggleServicesMenu}>
-          <div className="flex justify-start mx-4 items-center">
+          <div className="flex justify-start mx-4 items-center cursor-pointer">
             <p
-              className={`text-[20px] mdx:text-[24px] ${
-                servicesMenuOpen ? 'text-[#E1AF93]' : ''
-              }`}
+              className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-[#E1AF93]' : ''
+                }`}
             >
               Услуги
             </p>
@@ -137,21 +156,21 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           </div>
         </div>
 
-        {/* Services Submenu */}
         {servicesMenuOpen && (
-          <div className="pl-[34px]">
-            {navOptions.slice(0, 4).map((item, index) => (
-              <Link
-                onClick={closeMenu}
-                href={`/${item.slug}`}
-                key={index}
-                className="py-2"
-              >
-                <div className="flex justify-between my-[12px] text-[16px] mdx:text-[20px]">
-                  <p>{item.title}</p>
-                </div>
-              </Link>
-            ))}
+          <div className="pl-[34px] font-normal ">
+            <div
+              onClick={closeMenu}
+
+              className="pt-2"
+            >
+              <div className="flex flex-col justify-between text-[16px] mdx:text-[20px] gap-[12px]">
+                <a href="/buy">Купить</a>
+                <a href="/rent">Арендовать</a>
+                <a href="/sell">Продать</a>
+                <a href="/evaluation">Оценка недвижимости</a>
+              </div>
+            </div>
+
           </div>
         )}
 
@@ -168,6 +187,11 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
             </div>
           </Link>
         ))}
+        <div className="flex flex-col gap-[32px] pl-[20px] font-normal mt-[32px] text-[20px] mdx:text-[24px]">
+          <a href="/categories/catalog/">О нас</a>
+          <a href="/categories/catalog/">Блог</a>
+          <a href="/categories/catalog/">Контакты</a>
+        </div>
       </nav>
 
       {/* Footer Button */}

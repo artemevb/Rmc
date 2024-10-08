@@ -37,14 +37,14 @@ const Navigation = ({ navOptions }: NavigationProps) => {
   };
 
   return (
-    <nav className="h-full flex gap-10 items-center max-2xl:hidden relative">
+    <nav className="h-full flex gap-10 items-center max-2xl:hidden relative font-normal">
       {navOptions.map((item, i) => {
         if (item.title === 'Услуги') {
           return (
             <div key={i} className="relative">
               <div onClick={handleServicesClick} className="cursor-pointer flex items-center">
                 <span
-                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap ${isServicesOpen ? 'text-[#E1AF93]' : 'text-[#252324] hover:text-[#E1AF93]'}`}
+                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap font-normal ${isServicesOpen ? 'text-[#E1AF93]' : 'text-[#252324] hover:text-[#E1AF93]'}`}
                 >
                   {item.title}
                 </span>
@@ -62,7 +62,7 @@ const Navigation = ({ navOptions }: NavigationProps) => {
                 <div className="absolute top-full mt-2 bg-white shadow-lg rounded-md z-50 w-[340px]">
                   {servicesOptions.map((service, index) => (
                     <Link href={`/${service.slug}`} key={index}>
-                      <div className="px-4 py-[10px] text-[18px] hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b last:border-none">
+                      <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b last:border-none">
                         {service.title}
                       </div>
                     </Link>
@@ -74,7 +74,7 @@ const Navigation = ({ navOptions }: NavigationProps) => {
         } else {
           return (
             <Link href={`/${item.slug}`} key={i}>
-              <div className="text-[#252324] font-medium text-[18px] hover:text-[#E1AF93] transition-all duration-300 whitespace-nowrap">
+              <div className="text-[#252324] font-normal text-[18px] hover:text-[#E1AF93] transition-all duration-300 whitespace-nowrap">
                 {item.title}
               </div>
             </Link>

@@ -10,6 +10,10 @@ import Image from 'next/image';
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 import photo1 from "@/public/images/main/Full-photo.png";
+import photo2 from "@/public/images/main/Full-photo-2.png";
+import photo3 from "@/public/images/main/Full-photo-3.png";
+import photo4 from "@/public/images/main/Full-photo-4.png";
+import photo5 from "@/public/images/main/Full-photo-5.png";
 
 export default function Banner() {
   const prevRef = useRef(null);
@@ -22,9 +26,24 @@ export default function Banner() {
       description: 'Откройте двери в новое будущее с нами'
     },
     {
-      imageSrc: photo1,
-      title: 'Ваш новый дом ждет вас',
-      description: 'Сделайте первый шаг к вашей мечте'
+      imageSrc: photo2,
+      title: 'Дубай — дом вашей мечты',
+      description: 'Найдите идеальное жилье в Дубае с комфортом и роскошью, о которых вы мечтали'
+    },
+    {
+      imageSrc: photo3,
+      title: 'Ваш дом в самом динамичном городе мира',
+      description: 'Ваш уют, комфорт и спокойствие в центре городской жизни'
+    },
+    {
+      imageSrc: photo4,
+      title: 'Ташкент — пространство для вашего уюта',
+      description: 'Найдите свой идеальный дом в самом сердце Ташкента'
+    },
+    {
+      imageSrc: photo5,
+      title: 'Квартира вашей мечты в Ташкенте',
+      description: 'Комфорт и удобство в каждом квадратном метре'
     }
   ];
 
@@ -56,6 +75,7 @@ export default function Banner() {
             <SwiperSlide key={index}>
               <Image
                 src={slide.imageSrc}
+                quality={100}
                 alt={`Slide ${index + 1}`}
                 layout="responsive"
                 className="w-full h-auto min-h-[650px] object-cover"
@@ -73,10 +93,10 @@ export default function Banner() {
         </Swiper>
         <div className='max-xl:mx-2'>
           <div ref={prevRef} className="absolute mdx:right-[100px] 3xl:right-[16%] max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer">
-            <Image src={arrowLeft} alt="Previous" className='w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]' />
+            <Image src={arrowLeft} quality={100} alt="Previous" className='w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]' />
           </div>
           <div ref={nextRef} className="absolute mdx:right-5 3xl:right-[10.4%] mdx:bottom-2 max-mdx:top-[45%] max-mdx:left-[70px] transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer">
-            <Image src={arrowRight} alt="Next" className='w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]' />
+            <Image src={arrowRight} quality={100} alt="Next" className='w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]' />
           </div>
         </div>
       </div>

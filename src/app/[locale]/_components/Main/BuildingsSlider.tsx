@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
 import React from "react";
 import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image, { StaticImageData } from 'next/image';
-
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import build1 from "@/public/images/main/whyus/slide1.png";
 import build2 from "@/public/images/main/whyus/slide1.png";
@@ -19,16 +19,16 @@ import arrowright from "@/public/svg/ArrowRightSlider.png";
 // Динамический импорт Slider с отключенным SSR
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-// Определение интерфейса для стрелок, если CustomArrowProps недоступен
+// Определение интерфейса для стрелок
 interface CustomArrowProps {
     className?: string;
     style?: React.CSSProperties;
-    onClick?: () => void;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
-        className="absolute top-1/2 right-2 z-10 transform -translate-y-1/2 cursor-pointer"
+        className="absolute top-[-100px] right-2 z-10 cursor-pointer "
         onClick={onClick}
     >
         <Image
@@ -42,7 +42,7 @@ const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
 
 const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
-        className="absolute top-1/2 left-2 z-10 transform -translate-y-1/2 cursor-pointer"
+        className="absolute top-[-100px] right-[85px] z-10 cursor-pointer"
         onClick={onClick}
     >
         <Image
@@ -54,6 +54,7 @@ const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     </div>
 );
 
+// Определение интерфейса для элементов недвижимости
 interface EquipmentItem {
     title: string;
     description: string;
@@ -62,7 +63,29 @@ interface EquipmentItem {
     slug: string;
 }
 
+// Определение интерфейса для настроек слайдера
+interface SliderSettings {
+    arrows: boolean;
+    dots: boolean;
+    infinite: boolean;
+    speed: number;
+    slidesToShow: number;
+    slidesToScroll: number;
+    nextArrow: React.ReactElement;
+    prevArrow: React.ReactElement;
+    responsive: {
+        breakpoint: number;
+        settings: {
+            slidesToShow: number;
+            slidesToScroll: number;
+            arrows: boolean;
+        };
+    }[];
+}
+
 export default function Banner() {
+    const t = useTranslations('Main.Buildings');
+
     const equipmentData: EquipmentItem[] = [
         {
             title: "Safa One",
@@ -94,7 +117,7 @@ export default function Banner() {
         },
     ];
 
-    const settings = {
+    const settings: SliderSettings = {
         arrows: true,
         dots: false,
         infinite: true,
@@ -125,9 +148,9 @@ export default function Banner() {
 
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            <div className="mx-2.5">
-                <h2 className="text-2xl mdx:text-4xl mdl:text-5xl xl:text-6xl 2xl:text-7xl font-medium pb-10">
-                    Новостройки
+            <div className="relative mx-2.5">
+                <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10">
+                    Новостройки{t('title')}
                 </h2>
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (

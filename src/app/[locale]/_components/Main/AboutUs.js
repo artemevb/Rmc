@@ -7,6 +7,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
 import photo1 from "@/public/images/main/photo.png";
+import photo2 from "@/public/images/main/photo2_new.png";
+import photo3 from "@/public/images/main/photo3_new.png";
 
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
@@ -65,7 +67,7 @@ export default function Banner() {
                     </div>
                 </div>
 
-                <div className="relative mySwiper mt-8">
+                <div className="relative mySwiper mt-8 ">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         navigation={{
@@ -73,7 +75,7 @@ export default function Banner() {
                             nextEl: nextRef.current,
                         }}
                         autoplay={{
-                            delay: 3000, // 3 seconds
+                            delay: 4500, // 3 seconds
                             disableOnInteraction: false,
                         }}
                         loop={true}
@@ -90,6 +92,7 @@ export default function Banner() {
                         <SwiperSlide>
                             <Image
                                 src={photo1}
+                                quality={100}
                                 alt="Image 1"
                                 layout="responsive"
                                 objectFit="w-full h-auto object-cover"
@@ -97,10 +100,20 @@ export default function Banner() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <Image
-                                src={photo1}
+                                src={photo2}
+                                quality={100}
                                 alt="Image 2"
                                 layout="responsive"
-                                objectFit="w-full h-auto object-cover"
+                                objectFit="w-full h-auto object-cover "
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Image
+                                src={photo3}
+                                quality={100}
+                                alt="Image 2"
+                                layout="responsive"
+                                objectFit="w-full h-auto object-cover "
                             />
                         </SwiperSlide>
                     </Swiper>
