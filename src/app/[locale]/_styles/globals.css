@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 20px;
+}
+
+.lh-main {
+    line-height: 70px;
+}
+
+.lh {
+    line-height: normal;
+}
+
+.counter-shadow {
+    box-shadow: 0px 0px 30px 0px rgba(15, 17, 18, 0.05); 
+}

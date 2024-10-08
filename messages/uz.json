@@ -1,0 +1,16 @@
+{
+  "IndexPage": {
+    "title": "next-intl misoli",
+    "description": "Next.js xalqaro tillar qo'llab-quvvatlash (i18n) misoliga xush kelibsiz! Ushbu demo App Router imkoniyatlarini va next-intl yordamida ko'p tilli kontentni qanday oson boshqarishni namoyish etadi."
+  },
+  "NotFoundPage": {
+    "title": "Sahifa topilmadi",
+    "description": "Voy! Siz mavjud bo'lmagan sahifaga tushib qoldingiz shekilli. Xavotir olmang, bizning xalqaro tillar sehrimiz boshqa qismlarda hanuz davom etmoqda. Ilovamizni o'rganish uchun qaytishingiz mumkin!"
+  },
+  "Navigation": {
+    "home": "Bosh sahifa"
+  },
+  "Footer": {
+    "copyright": "© 2024 Sizning Ilovangiz. Barcha huquqlar himoyalangan."
+  }
+}
