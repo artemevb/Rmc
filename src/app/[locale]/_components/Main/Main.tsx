@@ -7,6 +7,7 @@ import WhyUs from "./WhyUs";
 import BuildingsSlider from "./BuildingsSlider";
 import Counter from "./Counter";
 import Form from "./Form";
+import BlogSlider from "./Blogs";
 
 export default function Main() {
   return (
@@ -20,6 +21,7 @@ export default function Main() {
       <BuildingsSlider />
       <Counter />
       <Form />
+      <BlogSlider />
     </div>
   );
 }

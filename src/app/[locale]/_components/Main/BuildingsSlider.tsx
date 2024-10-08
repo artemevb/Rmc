@@ -150,7 +150,7 @@ export default function Banner() {
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
             <div className="relative mx-2.5">
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10">
-                    Новостройки{t('title')}
+                    {t('title')}
                 </h2>
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (
@@ -174,7 +174,7 @@ export default function Banner() {
                 <div className="flex w-full justify-center mt-10">
                     <Link href="/buildings">
                         <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
-                            Смотреть все
+                            {t('button-more')}
                         </button>
                     </Link>
                 </div>

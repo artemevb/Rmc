@@ -1,7 +1,50 @@
 {
   "Main": {
+    "Banner": {
+      "button-more": "More details",
+      "slides": {
+        "slide1": {
+          "title": "Find the Perfect Place to Live",
+          "description": "Open the doors to a new future with us"
+        },
+        "slide2": {
+          "title": "Dubai — The Home of Your Dreams",
+          "description": "Find the perfect home in Dubai with the comfort and luxury you've always dreamed of"
+        },
+        "slide3": {
+          "title": "Your Home in the World's Most Dynamic City",
+          "description": "Your coziness, comfort, and peace in the heart of city life"
+        },
+        "slide4": {
+          "title": "Tashkent — A Space for Your Comfort",
+          "description": "Find your ideal home in the very heart of Tashkent"
+        },
+        "slide5": {
+          "title": "Your Dream Apartment in Tashkent",
+          "description": "Comfort and convenience in every square meter"
+        }
+      }
+    },
     "Buildings": {
-      "title": "Новостройкиen"
+      "title": "New buildings",
+      "button-more": "See all"
+    },
+    "AboutUs": {
+      "title": "About the company",
+      "tabs": {
+        "rent": {
+          "label": "Rent",
+          "content": "Wide selection of properties: We offer a variety of rental options—from apartments and houses to commercial spaces—to meet any needs.\nReliable tenants: Conducting thorough screening and selection of tenants to ensure steady income and minimize risks."
+        },
+        "buy": {
+          "label": "Buy - Sell",
+          "content": "We buy and sell real estate properties under the most favorable conditions, ensuring transparency and legal cleanliness of transactions.\nSupport at all stages of the transaction, including legal and financial consultations."
+        },
+        "manage": {
+          "label": "Management",
+          "content": "Managing real estate with maximum efficiency and care for each client.\nProfessional maintenance and support at all stages."
+        }
+      }
     }
   }
 }

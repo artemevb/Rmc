@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import { useTranslations } from 'next-intl';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
@@ -16,36 +17,38 @@ import photo4 from "@/public/images/main/Full-photo-4.png";
 import photo5 from "@/public/images/main/Full-photo-5.png";
 
 export default function Banner() {
+  const t = useTranslations('Main.Banner');
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   const slides = [
     {
       imageSrc: photo1,
-      title: 'Найдите идеальное место для жизни',
-      description: 'Откройте двери в новое будущее с нами'
+      title: t('slides.slide1.title'),
+      description: t('slides.slide1.description')
     },
     {
       imageSrc: photo2,
-      title: 'Дубай — дом вашей мечты',
-      description: 'Найдите идеальное жилье в Дубае с комфортом и роскошью, о которых вы мечтали'
+      title: t('slides.slide2.title'),
+      description: t('slides.slide2.description')
     },
     {
       imageSrc: photo3,
-      title: 'Ваш дом в самом динамичном городе мира',
-      description: 'Ваш уют, комфорт и спокойствие в центре городской жизни'
+      title: t('slides.slide3.title'),
+      description: t('slides.slide3.description')
     },
     {
       imageSrc: photo4,
-      title: 'Ташкент — пространство для вашего уюта',
-      description: 'Найдите свой идеальный дом в самом сердце Ташкента'
+      title: t('slides.slide4.title'),
+      description: t('slides.slide4.description')
     },
     {
       imageSrc: photo5,
-      title: 'Квартира вашей мечты в Ташкенте',
-      description: 'Комфорт и удобство в каждом квадратном метре'
+      title: t('slides.slide5.title'),
+      description: t('slides.slide5.description')
     }
   ];
+
 
   return (
     <div className="w-full h-auto flex flex-col mx-auto">
@@ -85,7 +88,7 @@ export default function Banner() {
                 <p className="text-[16px] mdx:text-[20px] mt-[8px] mdx:mt-[12px] xl:mt-[20px]" >{slide.description}</p>
 
                 <div>
-                  <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px]">Подробнее</button>
+                  <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px]">{t('button-more')}</button>
                 </div>
               </div>
             </SwiperSlide>

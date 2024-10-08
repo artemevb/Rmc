@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import { useTranslations } from 'next-intl';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
@@ -14,23 +15,24 @@ import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 
 export default function Banner() {
+    const t = useTranslations('Main.AboutUs');
     const [activeTab, setActiveTab] = useState('rent');
 
     const tabs = [
         {
             id: 'rent',
-            label: 'Аренда',
-            content: "Широкий выбор объектов: Мы предлагаем разнообразные варианты аренды — от квартир и домов до коммерческих помещений, удовлетворяющие любые потребности. \n Надежные арендаторы: Проведение тщательной проверки и отбора арендаторов для обеспечения стабильного дохода и минимизации рисков."
+            label: t('tabs.rent.label'),
+            content: t('tabs.rent.content')
         },
         {
             id: 'buy',
-            label: 'Купля - продажа',
-            content: "Продаем и покупаем объекты недвижимости по самым выгодным условиям, обеспечивая прозрачность и юридическую чистоту сделок. \n Сопровождение на всех этапах сделки, включая юридические и финансовые консультации."
+            label: t('tabs.buy.label'),
+            content: t('tabs.buy.content')
         },
         {
             id: 'manage',
-            label: 'Управление',
-            content: "Продаем и покупаем объекты недвижимости по самым выгодным условиям, обеспечивая прозрачность и юридическую чистоту сделок. \n Сопровождение на всех этапах сделки, включая юридические и финансовые консультации."
+            label: t('tabs.manage.label'),
+            content: t('tabs.manage.content')
         },
     ];
 
@@ -42,7 +44,7 @@ export default function Banner() {
             <div className='mx-[10px]'>
                 <div className="flex flex-col xl:flex-row xl:justify-between gap-[35px]">
                     <div className='lh'>
-                        <h2 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-gray-800">О компании</h2>
+                        <h2 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-gray-800">{t('title')}</h2>
                         <h3 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-[#E1AF93]">RMC DE LUXE</h3>
                     </div>
 
@@ -93,7 +95,7 @@ export default function Banner() {
                             <Image
                                 src={photo1}
                                 quality={100}
-                                alt="Image 1"
+                                alt="Building"
                                 layout="responsive"
                                 objectFit="w-full h-auto object-cover"
                             />
@@ -102,7 +104,7 @@ export default function Banner() {
                             <Image
                                 src={photo2}
                                 quality={100}
-                                alt="Image 2"
+                                alt="Building"
                                 layout="responsive"
                                 objectFit="w-full h-auto object-cover "
                             />
@@ -111,7 +113,7 @@ export default function Banner() {
                             <Image
                                 src={photo3}
                                 quality={100}
-                                alt="Image 2"
+                                alt="Building"
                                 layout="responsive"
                                 objectFit="w-full h-auto object-cover "
                             />

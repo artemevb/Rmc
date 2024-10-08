@@ -1,7 +1,50 @@
 {
   "Main": {
+    "Banner": {
+      "button-more": "Batafsil",
+      "slides": {
+        "slide1": {
+          "title": "Yashash uchun Mukammal Joyni Toping",
+          "description": "Yangi kelajakning eshiklarini biz bilan oching"
+        },
+        "slide2": {
+          "title": "Dubay — Orzuingizdagi Uy",
+          "description": "Dubayda har doim orzu qilgan qulaylik va hashamat bilan mukammal uyni toping"
+        },
+        "slide3": {
+          "title": "Dunyoning Eng Dinamik Shahriidagi Uy",
+          "description": "Shahar hayotining markazida sizning qulayligingiz, tasalli va tinchligingiz"
+        },
+        "slide4": {
+          "title": "Toshkent — Sizning qulayligingiz uchun joy",
+          "description": "Toshkentning markazida o'zingizning ideal uyingizni toping"
+        },
+        "slide5": {
+          "title": "Toshkentda Orzuingizdagi Kvartira",
+          "description": "Har bir kvadrat metrda qulaylik va nafislik"
+        }
+      }
+    },
     "Buildings": {
-      "title": "Новостройкиuz"
+      "title": "Yangi binolar",
+      "button-more": "Hammasini ko'rish"
+    },
+    "AboutUs": {
+      "title": "Kompaniya haqida",
+      "tabs": {
+        "rent": {
+          "label": "Ijaraga Berish",
+          "content": "Keng ko‘lamli obyektlar: Biz har qanday ehtiyojlarga javob beradigan kvartiralar va uylaridan tijorat joylariga qadar turli ijaraga olish variantlarini taklif etamiz.\nIshonchli ijarachilar: Barqaror daromadni ta'minlash va xavflarni kamaytirish uchun ijarachilarni diqqat bilan tekshirish va tanlash."
+        },
+        "buy": {
+          "label": "Sotib Olish - Sotish",
+          "content": "Biz eng qulay shartlarda ko‘chmas mulk obyektlarini sotib olamiz va sotamiz, tranzaktsiyalarning shaffofligi va huquqiy tozaligini ta'minlaymiz.\nTranzaktsiyaning barcha bosqichlarida, jumladan, huquqiy va moliyaviy maslahatlar bilan birga qo‘llab-quvvatlash."
+        },
+        "manage": {
+          "label": "Boshqaruv",
+          "content": "Har bir mijozga maksimal samaradorlik va g'amxo‘rlik bilan ko‘chmas mulkni boshqarish.\nBarcha bosqichlarda professional texnik xizmat va qo‘llab-quvvatlash."
+        }
+      }
     }
   }
 }
