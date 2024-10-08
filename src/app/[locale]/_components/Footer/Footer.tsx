@@ -75,7 +75,7 @@ export default function Footer() {
             <div className="flex-1 flex flex-col text-sm gap-4 text-[#808080] lg:pr-7">
               <h2 className="text-lg font-semibold text-[#252324] uppercase">Каталог</h2>
               <a href="/categories/catalog/">УЗД оборудование</a>
-              <a href="/categories/catalog/">Жизнеобеспечение и <brd />мониторинг паицента</a>
+              <a href="/categories/catalog/">Жизнеобеспечение и <br />мониторинг паицента</a>
               <a href="/categories/catalog/">Лабораторное оборудование</a>
               <a href="/categories/catalog/">Реагенты и расходные материалы</a>
               <a
