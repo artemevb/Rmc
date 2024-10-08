@@ -34,7 +34,7 @@ const Header = () => {
       <div className="w-full max-w-[1440px] flex items-center justify-between gap-2 h-full mx-auto">
         <Logo />
         <Navigation navOptions={data} />
-        <Tools />
+        <Tools navOptions={data}/>
       </div>
     </header>
   );

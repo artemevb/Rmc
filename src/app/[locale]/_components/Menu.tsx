@@ -5,36 +5,34 @@ import Link from "next/link";
 import close from "@/public/svg/close-white.svg";
 import arrow_black from "@/public/svg/arrow-down-black.svg";
 import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
+import { NavItem } from "./Header/NavItem"; // Adjust the path as needed
 
-const servicesOptions = [
-  { title: 'Купить', slug: 'buy' },
-  { title: 'Арендовать', slug: 'rent' },
-  { title: 'Продать', slug: 'sell' },
-  { title: 'Оценка недвижимости', slug: 'evaluation' },
-  { title: 'О нас', slug: 'about' },
-  { title: 'Блог', slug: 'blog' },
-  { title: 'Контакты', slug: 'contacts' }
-];
+interface MenuProps {
+  menu: boolean;
+  closeMenu: () => void;
+  navOptions: NavItem[];
+}
 
-const Menu = ({ menu, closeMenu }) => {
+const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
   const [languageMenu, setLanguageMenu] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("RU");
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleLanguageMenu = () => {
     setLanguageMenu(!languageMenu);
   };
 
-  const changeLanguage = (lang) => {
+  const changeLanguage = (lang: string) => {
     setSelectedLanguage(lang);
     setLanguageMenu(false);
+    // Implement language change logic here, e.g., using next-intl's functions
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setLanguageMenu(false);
       }
     };
@@ -51,14 +49,17 @@ const Menu = ({ menu, closeMenu }) => {
 
   return (
     <div
-      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "transform translate-x-0" : "transform translate-x-full"
-        }`}
+      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${
+        menu ? "transform translate-x-0" : "transform translate-x-full"
+      } transition-transform duration-300 ease-in-out`}
     >
+      {/* Header with Language Switcher and Close Button */}
       <div className="border-b py-4 flex">
         <div className="w-full flex justify-end mx-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center gap-[12px]">
-              <div ref={menuRef} className="mdx:relative xl:flex xl:items-center xl:text-left z-40">
+              {/* Language Switcher */}
+              <div ref={menuRef} className="relative z-40">
                 <button
                   id="dropdownButton"
                   className="inline-flex items-center text-[19px] font-medium bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full"
@@ -75,6 +76,8 @@ const Menu = ({ menu, closeMenu }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </button>
+
+                {/* Language Dropdown */}
                 {languageMenu && (
                   <div className="absolute top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
                     <ul className="py-1">
@@ -94,7 +97,9 @@ const Menu = ({ menu, closeMenu }) => {
                   </div>
                 )}
               </div>
-              <button onClick={closeMenu} className="bg-[#333333] max-mdx:px-3 max-mdx:py-3 px-4 py-4 rounded-full">
+
+              {/* Close Menu Button */}
+              <button onClick={closeMenu} className="bg-[#333333] px-4 py-4 rounded-full">
                 <Image
                   src={close}
                   height={100}
@@ -107,11 +112,16 @@ const Menu = ({ menu, closeMenu }) => {
           </div>
         </div>
       </div>
+
+      {/* Navigation Menu */}
       <nav className="flex flex-col font-semibold mt-2">
+        {/* Services Menu Toggle */}
         <div className="pt-4" onClick={toggleServicesMenu}>
           <div className="flex justify-start mx-4 items-center">
             <p
-              className={`text-[20px] mdx:text-[24px] ${servicesMenuOpen ? 'text-[#E1AF93]' : ''}`}
+              className={`text-[20px] mdx:text-[24px] ${
+                servicesMenuOpen ? 'text-[#E1AF93]' : ''
+              }`}
             >
               Услуги
             </p>
@@ -127,9 +137,10 @@ const Menu = ({ menu, closeMenu }) => {
           </div>
         </div>
 
+        {/* Services Submenu */}
         {servicesMenuOpen && (
           <div className="pl-[34px]">
-            {servicesOptions.slice(0, 4).map((item, index) => (
+            {navOptions.slice(0, 4).map((item, index) => (
               <Link
                 onClick={closeMenu}
                 href={`/${item.slug}`}
@@ -143,7 +154,9 @@ const Menu = ({ menu, closeMenu }) => {
             ))}
           </div>
         )}
-        {servicesOptions.slice(4).map((item, index) => (
+
+        {/* Other Navigation Items */}
+        {navOptions.slice(4).map((item, index) => (
           <Link
             onClick={closeMenu}
             href={`/${item.slug}`}
@@ -156,8 +169,12 @@ const Menu = ({ menu, closeMenu }) => {
           </Link>
         ))}
       </nav>
+
+      {/* Footer Button */}
       <div className="absolute bottom-0 left-0 right-0 p-[20px]">
-        <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">Задать вопрос</button>
+        <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
+          Задать вопрос
+        </button>
       </div>
     </div>
   );
