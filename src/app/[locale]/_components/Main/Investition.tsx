@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import build1 from "@/public/images/main/build1.png";
-import build1_big from "@/public/images/main/build1-big.png";
+import build1_big from "@/public/images/main/Build1-big.png";
 import build2 from "@/public/images/main/build1.5.png";
 
 export default function Banner() {
