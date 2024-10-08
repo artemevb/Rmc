@@ -1,3 +1,4 @@
+// import necessary modules
 "use client";
 import Link from "next/link";
 import { useState } from "react";
@@ -5,17 +6,33 @@ import arrow_black from "@/public/svg/arrow-down-black.svg";
 import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
 import Image from "next/image";
 
-const servicesOptions = [
+// Define the structure of servicesOptions items
+interface ServiceOption {
+  title: string;
+  slug: string;
+}
+
+// Define the structure of navOptions items
+interface NavItem {
+  title: string;
+  slug: string;
+}
+
+const servicesOptions: ServiceOption[] = [
   { title: 'Купить', slug: 'buy' },
   { title: 'Арендовать', slug: 'rent' },
   { title: 'Продать', slug: 'sell' },
   { title: 'Оценка недвижимости', slug: 'evaluation' }
 ];
 
-export default function Navigation({ navOptions }) {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+interface NavigationProps {
+  navOptions: NavItem[];
+}
 
-  const handleServicesClick = () => {
+const Navigation = ({ navOptions }: NavigationProps) => {
+  const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
+
+  const handleServicesClick = (): void => {
     setIsServicesOpen(!isServicesOpen);
   };
 
@@ -27,8 +44,7 @@ export default function Navigation({ navOptions }) {
             <div key={i} className="relative">
               <div onClick={handleServicesClick} className="cursor-pointer flex items-center">
                 <span
-                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap ${isServicesOpen ? 'text-[#E1AF93]' : 'text-[#252324] hover:text-[#E1AF93]'
-                    }`}
+                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap ${isServicesOpen ? 'text-[#E1AF93]' : 'text-[#252324] hover:text-[#E1AF93]'}`}
                 >
                   {item.title}
                 </span>
@@ -68,3 +84,5 @@ export default function Navigation({ navOptions }) {
     </nav>
   );
 }
+
+export default Navigation;
