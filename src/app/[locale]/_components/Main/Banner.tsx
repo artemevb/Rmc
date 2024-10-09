@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
@@ -20,6 +20,23 @@ export default function Banner() {
   const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
+  
+  // Явное определение типа состояния navigation
+  const [navigation, setNavigation] = useState<{
+    prevEl: HTMLDivElement | null;
+    nextEl: HTMLDivElement | null;
+  }>({
+    prevEl: null,
+    nextEl: null,
+  });
+
+  // Установка навигационных элементов после монтирования компонента
+  useEffect(() => {
+    setNavigation({
+      prevEl: prevRef.current,
+      nextEl: nextRef.current,
+    });
+  }, []);
 
   const slides = [
     {
@@ -54,10 +71,7 @@ export default function Banner() {
       <div className="relative mySwiper">
         <Swiper
           modules={[Navigation, Autoplay]}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
+          navigation={navigation}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
@@ -66,14 +80,6 @@ export default function Banner() {
           className="relative"
           spaceBetween={30}
           slidesPerView={1}
-          onSwiper={(swiper) => {
-            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }
-          }}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
