@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
@@ -36,8 +36,25 @@ export default function Banner() {
         },
     ];
 
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
+    const prevRef = useRef<HTMLDivElement | null>(null);
+    const nextRef = useRef<HTMLDivElement | null>(null);
+
+    // Состояние для навигационных элементов
+    const [navigation, setNavigation] = useState<{
+        prevEl: HTMLDivElement | null;
+        nextEl: HTMLDivElement | null;
+    }>({
+        prevEl: null,
+        nextEl: null,
+    });
+
+    // Установка навигационных элементов после монтирования компонента
+    useEffect(() => {
+        setNavigation({
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+        });
+    }, []);
 
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
@@ -72,12 +89,9 @@ export default function Banner() {
                 <div className="relative mySwiper mt-8 ">
                     <Swiper
                         modules={[Navigation, Autoplay]}
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
+                        navigation={navigation}
                         autoplay={{
-                            delay: 4500, // 3 seconds
+                            delay: 4500, // 4.5 seconds
                             disableOnInteraction: false,
                         }}
                         loop={true}
@@ -99,7 +113,7 @@ export default function Banner() {
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                objectFit="w-full h-auto object-cover"
+                                className="w-full h-auto object-cover"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -108,7 +122,7 @@ export default function Banner() {
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                objectFit="w-full h-auto object-cover "
+                                className="w-full h-auto object-cover"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -117,7 +131,7 @@ export default function Banner() {
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                objectFit="w-full h-auto object-cover "
+                                className="w-full h-auto object-cover"
                             />
                         </SwiperSlide>
                     </Swiper>
