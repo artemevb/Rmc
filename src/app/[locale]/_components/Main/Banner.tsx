@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useRef } from 'react';
-import { Swiper as SwiperType } from 'swiper';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
@@ -50,37 +49,31 @@ export default function Banner() {
     },
   ];
 
-  useEffect(() => {
-    if (prevRef.current && nextRef.current) {
-      const swiperContainer = document.querySelector('.swiper-container') as HTMLElement & { swiper: SwiperType };
-      const swiperInstance = swiperContainer?.swiper;
-
-      if (
-        swiperInstance &&
-        swiperInstance.params.navigation &&
-        typeof swiperInstance.params.navigation !== 'boolean'
-      ) {
-        swiperInstance.params.navigation.prevEl = prevRef.current;
-        swiperInstance.params.navigation.nextEl = nextRef.current;
-        swiperInstance.navigation.init();
-        swiperInstance.navigation.update();
-      }
-    }
-  }, []);
-
   return (
     <div className="w-full h-auto flex flex-col mx-auto">
       <div className="relative mySwiper">
         <Swiper
           modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
           }}
           loop={true}
-          className="swiper-container relative"
+          className="relative"
           spaceBetween={30}
           slidesPerView={1}
+          onSwiper={(swiper) => {
+            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }
+          }}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
