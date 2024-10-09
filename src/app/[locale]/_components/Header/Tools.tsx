@@ -1,7 +1,7 @@
 'use client';
 import { useState, ChangeEvent, useTransition } from "react";
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import phoneIcon from "@/public/svg/tools/phone-icon.svg";
 import Menu from "../Menu";
 import searchIcon from "@/public/svg/tools/search-icon.svg";
@@ -19,6 +19,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
   const [menu, setMenu] = useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const pathname = usePathname();
   const localActive = useLocale();
 
   const handleOpenMenu = () => {
@@ -32,7 +33,14 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      const segments = pathname.split('/');
+      if (['ru', 'uz', 'en'].includes(segments[1])) {
+        segments[1] = nextLocale;
+      } else {
+        segments.splice(1, 0, nextLocale);
+      }
+      const newPath = segments.join('/') || '/';
+      router.replace(newPath);
     });
   };
 
@@ -64,7 +72,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
             src={phoneIcon}
             height={100}
             width={100}
-            alt={`Tools Item HeartIcon : Favorites`}
+            alt={`Tools Item PhoneIcon`}
             className="w-7 h-7 max-mdx:w-3 max-mdx:h-3"
           />
         </a>

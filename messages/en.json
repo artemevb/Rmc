@@ -102,6 +102,47 @@
       "mortgage_calculator": "Mortgage Calculator",
       "dubai_investments": "Dubai Real Estate Investments",
       "info": "2024 © RMC De Luxe real estate LLC. All rights reserved"
+    },
+    "investmentsDubai": {
+    "Banner": {
+      "title": "Investments in Dubai Real Estate",
+      "subtitle": "Learn about the opportunities and advantages of investing in Dubai"
+    },
+    "invest": {
+      "title": "Invest in the Future: \nReal Estate in Dubai",
+      "subtitle": "Dubai, one of the world's fastest-growing cities, offers enormous opportunities for real estate investments. A favorable investment climate, sustainable economic growth, and a high standard of living make this city attractive to investors from around the world",
+      "text-1": "No taxes on real estate income",
+      "text-2": "Stable economy and growing market",
+      "text-3": "Growth and opportunities for high returns",
+      "text-4": "Strategic location and infrastructure"
+    },
+    "Types": {
+      "title": "Types of Real Estate",
+      "subtitle-1": "Residential Complexes",
+      "subtitle-2": "Commercial \nReal Estate",
+      "subtitle-3": "Offices and Coworking Spaces",
+      "subtitle-4": "Hotels and Hotel \nApartments",
+      "subtitle-5": "Villas and Townhouses"
+    },
+    "Scheme": {
+      "title": "Real Estate Purchase Process",
+      "text-1": "Consultation and Property Selection",
+      "text-1-subtitle": "We arrange property viewings and help you assess their advantages and disadvantages",
+      "text-2": "Legal Support",
+      "text-2-subtitle": "Ensuring compliance with legislation and protecting the client's interests",
+      "text-3": "Deal Execution",
+      "text-3-subtitle": "Preparation and signing of all necessary documents. Payment processing",
+      "text-4": "Property Management Services",
+      "text-4-subtitle": "Our specialists provide a full range of services to manage your property"
+    },
+    "PopularReviews": {
+      "title": "Frequently Asked Questions",
+      "faq_question_1": "Rules for foreigners buying real estate",
+      "faq_answer_1": "The rules for foreigners buying real estate depend on the country. Usually, there are requirements and restrictions. In many countries, foreigners can purchase real estate only with the permission of local authorities or under a special license. Restrictions may pertain to the type of real estate: for example, foreigners may have the right to purchase only residential properties, not commercial or land. Also, foreigners must have a certain legal status, such as residents or investors. Often, proof of financial capability and sources of income is required, and there may be additional taxes or fees upon purchase. The purchase process may involve legal and administrative steps, such as notarial certification and registration of ownership rights. In some countries, there are regional or zone restrictions where foreigners can acquire real estate. For accurate information, it's best to consult local legal specialists or real estate agencies",
+      "faq_question_2": "Minimum investment amount",
+      "faq_question_3": "Deal execution procedure",
+      "faq_question_4": "Maintenance costs and utility payments"
     }
+  }
   }
 }

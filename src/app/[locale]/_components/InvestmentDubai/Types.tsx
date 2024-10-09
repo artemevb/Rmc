@@ -9,8 +9,6 @@ import build7 from "@/public/images/investmentsDubai/type-4.png";
 import build8 from "@/public/images/investmentsDubai/type-5-pc.png";
 import build9 from "@/public/images/investmentsDubai/type-5.png";
 
-import Link from 'next/link';
-
 import { useTranslations } from 'next-intl';
 
 export default function Invest() {

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import build1 from "@/public/images/investmentsDubai/table.png";
 import build2 from "@/public/images/investmentsDubai/pc.png";
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 export default function Invest() {

@@ -102,6 +102,47 @@
       "mortgage_calculator": "Ipoteka kalkulyatori",
       "dubai_investments": "Dubay ko'chmas mulkiga investitsiyalar",
       "info": "2024 © RMC De Luxe real estate LLC. Huquqlar himoyalangan"
+    },
+    "investmentsDubai": {
+    "Banner": {
+      "title": "Dubayda Ko'chmas Mulkga Sarmoya",
+      "subtitle": "Dubayda sarmoya qilish imkoniyatlari va afzalliklari haqida bilib oling"
+    },
+    "invest": {
+      "title": "Kelajakka Sarmoya Qiling: \nDubayda Ko'chmas Mulk",
+      "subtitle": "Dunyoning eng tez rivojlanayotgan shaharlardan biri bo'lmish Dubay, ko'chmas mulkka sarmoya qilish uchun katta imkoniyatlarni taqdim etadi. Foydali sarmoya muhiti, barqaror iqtisodiy o'sish va yuqori hayot darajasi bu shaharni butun dunyo bo'ylab sarmoyadorlar uchun jozibador qiladi",
+      "text-1": "Ko'chmas mulk daromadiga soliqlar yo'q",
+      "text-2": "Barqaror iqtisodiyot va o'sayotgan bozor",
+      "text-3": "O'sish va yuqori daromad olish imkoniyatlari",
+      "text-4": "Strategik joylashuv va infratuzilma"
+    },
+    "Types": {
+      "title": "Ko'chmas Mulk Turlari",
+      "subtitle-1": "Yashash majmualari",
+      "subtitle-2": "Savdo \nko'chmas mulk",
+      "subtitle-3": "Ofislar va Coworking Space'lar",
+      "subtitle-4": "Mehmonxonalar va mehmonxona \napartamentlari",
+      "subtitle-5": "Villar va Townhouse'lar"
+    },
+    "Scheme": {
+      "title": "Ko'chmas Mulk Sotib Olish Jarayoni",
+      "text-1": "Konsultatsiya va Mulk Tanlash",
+      "text-1-subtitle": "Biz mulklarni ko'rishlarni tashkil qilamiz va ularning afzalliklari va kamchiliklarini baholashingizga yordam beramiz",
+      "text-2": "Huquqiy Qo'llab-quvvatlash",
+      "text-2-subtitle": "Qonunchilikka rioya qilinishini ta'minlash va mijoz manfaatlarini himoya qilish",
+      "text-3": "Bitimni Yozib Olish",
+      "text-3-subtitle": "Barcha kerakli hujjatlarni tayyorlash va imzolash. To'lovlarni amalga oshirish",
+      "text-4": "Ko'chmas Mulkni Boshqarish Xizmatlari",
+      "text-4-subtitle": "Mutaxassislarimiz mulkingizni boshqarish bo'yicha to'liq xizmatlarni taqdim etadi"
+    },
+    "PopularReviews": {
+      "title": "Tez-tez So'raladigan Savollar",
+      "faq_question_1": "Chet elliklar uchun ko'chmas mulk sotib olish qoidalari",
+      "faq_answer_1": "Chet elliklar uchun ko'chmas mulk sotib olish qoidalari mamlakatga bog'liq. Odatda talablar va cheklovlar mavjud. Ko'pgina mamlakatlarda chet elliklar faqat mahalliy hukumatlarning ruxsati yoki maxsus litsenziya asosida ko'chmas mulk sotib olishlari mumkin. Cheklovlar ko'chmas mulk turiga tegishli bo'lishi mumkin: masalan, chet elliklar faqat yashash joylarini sotib olish huquqiga ega bo'lishi mumkin, savdo yoki yerlarni emas. Shuningdek, chet elliklar ma'lum bir huquqiy maqomga ega bo'lishlari kerak, masalan, rezidentlar yoki sarmoyadorlar. Ko'pincha moliyaviy qobiliyat va daromad manbalarini tasdiqlash talab qilinadi, shuningdek, sotib olishda qo'shimcha soliqlar yoki to'lovlar bo'lishi mumkin. Sotib olish jarayoni huquqiy va ma'muriy qadamlarni o'z ichiga olishi mumkin, masalan notarial tasdiqlash va mulk huquqlarini ro'yxatdan o'tkazish. Ba'zi mamlakatlarda chet elliklar ko'chmas mulk sotib olishlari mumkin bo'lgan hududlar yoki zonalar bo'yicha cheklovlar mavjud. Aniq ma'lumot uchun mahalliy huquqiy mutaxassislar yoki ko'chmas mulk agentliklariga murojaat qilish eng yaxshisi",
+      "faq_question_2": "Minimal sarmoya miqdori",
+      "faq_question_3": "Bitimni yozib olish tartibi",
+      "faq_question_4": "Texnik xizmat ko'rsatish va kommunal to'lovlar narxi"
     }
+  }
   }
 }
