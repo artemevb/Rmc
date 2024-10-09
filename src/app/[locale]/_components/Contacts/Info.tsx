@@ -10,23 +10,25 @@ export default function Scheme() {
             </h2>
             <div className='w-full flex flex-col gap-[16px]'>
 
-                <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
-                    <div className=' pb-[20px]'>
-                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Телефон</p>
-                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (90) 123 45 67</p>
+                <div className='mdx:grid mdx:flex-row w-full'>
+                    <div className='border p-[24px] flex flex-col items-start justify-between w-full mb-[16px]'>
+                        <div className=' pb-[20px]'>
+                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Телефон</p>
+                            <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (90) 123 45 67</p>
+                        </div>
+                        <hr className='w-full' />
+                        <div className=' pt-[20px]'>
+                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>E-mail</p>
+                            <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>name@domain.uz</p>
+                        </div>
                     </div>
-                    <hr className='w-full' />
-                    <div className=' pt-[20px]'>
-                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>E-mail</p>
-                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>name@domain.uz</p>
-                    </div>
-                </div>
 
-                <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
-                    <div >
-                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
-                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
-                            пн-пт</p>
+                    <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
+                        <div >
+                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
+                            <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
+                                пн-пт</p>
+                        </div>
                     </div>
                 </div>
 

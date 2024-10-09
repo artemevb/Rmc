@@ -2,9 +2,6 @@ import Info from "../_components/Contacts/Info";
 import Invest from "../_components/InvestmentDubai/invest";
 import Form from "../_components/Main/Form";
 
-interface NewsCompProps {
-  locale: string;
-}
 
 export default function Main() {
   return (
