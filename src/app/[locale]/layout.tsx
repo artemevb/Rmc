@@ -38,7 +38,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={jost.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
+          <Header locale={locale}/>
           {children}
           <Footer />
         </NextIntlClientProvider>

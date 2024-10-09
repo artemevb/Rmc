@@ -13,9 +13,10 @@ import { NavItem } from "./NavItem"; // Adjust the path as needed
 
 interface NavigationProps {
   navOptions: NavItem[];
+  locale: string;
 }
 
-const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
+const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const [menu, setMenu] = useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -67,7 +68,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
             />
           </button>
         </Link>
-        <a href="tel:+998990909095" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
+        <a href="tel:+998901234567" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
           <Image
             src={phoneIcon}
             height={100}
@@ -113,7 +114,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions }) => {
 
         {/* Render Menu Component */}
         {menu && (
-          <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} />
+          <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} locale={locale}/>
         )}
       </div>
     </div>

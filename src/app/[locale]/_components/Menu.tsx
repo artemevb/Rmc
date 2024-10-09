@@ -1,42 +1,52 @@
-"use client";
+'use client';
 import { useState, useEffect, useRef, ChangeEvent, useTransition } from "react";
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import close from "@/public/svg/close-white.svg";
 import arrow_black from "@/public/svg/arrow-down-black.svg";
 import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
-import { NavItem } from "./Header/NavItem"; // Adjust the path as needed
+import { NavItem } from "./Header/NavItem";
+import { useTranslations } from 'next-intl';
 
 interface MenuProps {
   menu: boolean;
   closeMenu: () => void;
   navOptions: NavItem[];
+  locale: string;
 }
 
-const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
-  const [, setLanguageMenu] = useState(false);
+const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
+  const t = useTranslations('Header');
+  // Removed setLanguageMenu as it was not used
   const [isPending, startTransition] = useTransition();
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const localActive = useLocale();
 
   const menuRef = useRef<HTMLDivElement>(null);
 
-
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      const segments = pathname.split('/');
+      if (['ru', 'uz', 'en'].includes(segments[1])) {
+        segments[1] = nextLocale;
+      } else {
+        segments.splice(1, 0, nextLocale);
+      }
+      const newPath = segments.join('/') || '/';
+      router.replace(newPath);
     });
   };
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setLanguageMenu(false);
+        // If you plan to use the menu for a language switcher, uncomment and use setLanguageMenu
+        // setLanguageMenu(false);
       }
     };
 
@@ -61,55 +71,17 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center gap-[12px]">
               {/* Language Switcher */}
-              {/* <div ref={menuRef} className="relative z-40">
-                <button
-                  id="dropdownButton"
-                  className="inline-flex items-center text-[19px] font-medium bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full"
-                  onClick={toggleLanguageMenu}
-                >
-                  {selectedLanguage}
-                  <svg
-                    className="w-5 h-5 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-
-              
-                {languageMenu && (
-                  <div className="absolute top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg">
-                    <ul className="py-1">
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => changeLanguage("RU")}
-                      >
-                        Русский
-                      </li>
-                      <li
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => changeLanguage("UZ")}
-                      >
-                        <p>O&apos;zbekcha</p>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div> */}
               <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full'>
-                <span className='sr-only'>Change language</span>
+                <span className='sr-only'>{t('menu.changeLanguage')}</span>
                 <select
                   defaultValue={localActive}
                   className='bg-transparent appearance-none'
                   onChange={onSelectChange}
                   disabled={isPending}
                 >
-                  <option value='en'>En</option>
-                  <option value='ru'>Ru</option>
-                  <option value='uz'>O`z</option>
+                  <option value='en'>{t('menu.languages.en')}</option>
+                  <option value='ru'>{t('menu.languages.ru')}</option>
+                  <option value='uz'>{t('menu.languages.uz')}</option>
                 </select>
                 <svg
                   className="w-4 h-4 "
@@ -142,7 +114,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
               className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-[#E1AF93]' : ''
                 }`}
             >
-              Услуги
+              {t('nav.services')}
             </p>
             <span className="ml-2">
               <Image
@@ -160,17 +132,15 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           <div className="pl-[34px] font-normal ">
             <div
               onClick={closeMenu}
-
               className="pt-2"
             >
               <div className="flex flex-col justify-between text-[16px] mdx:text-[20px] gap-[12px]">
-                <a href="/buy">Купить</a>
-                <a href="/rent">Арендовать</a>
-                <a href="/sell">Продать</a>
-                <a href="/evaluation">Оценка недвижимости</a>
+                <Link href={`/${locale}/buy`}>{t('nav.servicesOptions.buy')}</Link>
+                <Link href={`/${locale}/rent`}>{t('nav.servicesOptions.rent')}</Link>
+                <Link href={`/${locale}/sell`}>{t('nav.servicesOptions.sell')}</Link>
+                <Link href={`/${locale}/evaluation`}>{t('nav.servicesOptions.evaluation')}</Link>
               </div>
             </div>
-
           </div>
         )}
 
@@ -178,7 +148,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
         {navOptions.slice(4).map((item, index) => (
           <Link
             onClick={closeMenu}
-            href={`/${item.slug}`}
+            href={`/${locale}/${item.slug}`}
             key={index}
             className="pt-[32px]"
           >
@@ -188,16 +158,16 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions }) => {
           </Link>
         ))}
         <div className="flex flex-col gap-[32px] pl-[20px] font-normal mt-[32px] text-[20px] mdx:text-[24px]">
-          <a href="/categories/catalog/">О нас</a>
-          <a href="/categories/catalog/">Блог</a>
-          <a href="/categories/catalog/">Контакты</a>
+          <Link href={`/${locale}/about`}>{t('nav.about')}</Link>
+          <Link href={`/${locale}/blog`}>{t('nav.blog')}</Link>
+          <Link href={`/${locale}/contacts`}>{t('nav.contacts')}</Link>
         </div>
       </nav>
 
       {/* Footer Button */}
       <div className="absolute bottom-0 left-0 right-0 p-[20px]">
         <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
-          Задать вопрос
+          {t('menu.askQuestion')}
         </button>
       </div>
     </div>

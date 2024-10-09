@@ -1,4 +1,28 @@
 {
+  "Header": {
+    "nav": {
+      "services": "Услуги",
+      "about": "О нас",
+      "blog": "Блог",
+      "contacts": "Контакты",
+      "servicesOptions": {
+        "buy": "Купить",
+        "rent": "Арендовать",
+        "sell": "Продать",
+        "evaluation": "Оценка недвижимости"
+      }
+    },
+    "menu": {
+      "closeMenu": "Закрыть меню",
+      "askQuestion": "Задать вопрос",
+      "changeLanguage": "Сменить язык",
+      "languages": {
+        "en": "En",
+        "ru": "Ru",
+        "uz": "Uz"
+      }
+    }
+  },
   "Main": {
     "Banner": {
       "button-more": "Подробнее",
@@ -65,7 +89,11 @@
       "five": "Ежемесячный платеж",
       "six": "Сумма кредита",
       "seven": "Процентная ставка",
-      "eight": "Дата последнего платежа"
+      "eight": "Дата последнего платежа",
+      "enter_cost": "Введите стоимость ",
+      "enter_down_payment": "Введите размер взноса",
+      "enter_term": "Введите срок",
+      "enter_rate": "Введите размер ставки"
     },
     "Form": {
       "validFullName": "Правильно",

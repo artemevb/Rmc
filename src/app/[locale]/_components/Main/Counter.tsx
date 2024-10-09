@@ -4,35 +4,22 @@ import { useTranslations } from "next-intl";
 
 export default function MortgageCalculator() {
     const t = useTranslations('Main.Counter');
-    // Line 15: Define state for property cost
-    const [propertyCost, setPropertyCost] = useState<number>(0);
-
-    // Line 16: Define state for down payment
-    const [downPayment, setDownPayment] = useState<number>(0);
-
-    // Line 17: Define state for loan term in years
-    const [loanTerm, setLoanTerm] = useState<number>(0);
-
-    // Line 22: Define state for interest rate
-    const [interestRate, setInterestRate] = useState<number>(0);
-
-    // Line 23: Define state for monthly payment
+    const [propertyCost, setPropertyCost] = useState<number | string>(""); // Updated default state to an empty string
+    const [downPayment, setDownPayment] = useState<number | string>(""); // Updated default state to an empty string
+    const [loanTerm, setLoanTerm] = useState<number | string>(""); // Updated default state to an empty string
+    const [interestRate, setInterestRate] = useState<number | string>(""); // Updated default state to an empty string
     const [monthlyPayment, setMonthlyPayment] = useState<string | null>(null);
-
-    // Line 24: Define state for loan amount
     const [loanAmount, setLoanAmount] = useState<string | null>(null);
-
-    // Line 25: Define state for final payment date
     const [finalDate, setFinalDate] = useState<string | null>(null);
 
-    // Line 47: Define the calculateMortgage function
-    const calculateMortgage = (): void => {
-        // Ensure numerical calculations by parsing inputs
-        const principal: number = propertyCost - downPayment;
-        const monthlyRate: number = interestRate / 100 / 12;
-        const numPayments: number = loanTerm * 12;
+    // Проверка, что все поля заполнены
+    const isButtonDisabled = !propertyCost || !downPayment || !loanTerm || !interestRate;
 
-        // Avoid division by zero or negative interest rates
+    const calculateMortgage = (): void => {
+        const principal: number = parseFloat(propertyCost as string) - parseFloat(downPayment as string);
+        const monthlyRate: number = parseFloat(interestRate as string) / 100 / 12;
+        const numPayments: number = parseFloat(loanTerm as string) * 12;
+
         if (monthlyRate === 0) {
             const payment = principal / numPayments;
             setMonthlyPayment(payment.toFixed(2));
@@ -46,7 +33,18 @@ export default function MortgageCalculator() {
         setLoanAmount(principal.toFixed(2));
 
         const finalPaymentDate = new Date();
-        finalPaymentDate.setMonth(finalPaymentDate.getMonth() + numPayments);
+        const totalMonths = numPayments;
+        const finalYear = finalPaymentDate.getFullYear() + Math.floor(totalMonths / 12);
+        const finalMonth = finalPaymentDate.getMonth() + (totalMonths % 12);
+
+        if (finalMonth > 11) {
+            finalPaymentDate.setFullYear(finalYear + 1);
+            finalPaymentDate.setMonth(finalMonth - 12);
+        } else {
+            finalPaymentDate.setFullYear(finalYear);
+            finalPaymentDate.setMonth(finalMonth);
+        }
+
         setFinalDate(
             finalPaymentDate.toLocaleDateString("ru-RU", {
                 year: "numeric",
@@ -56,25 +54,23 @@ export default function MortgageCalculator() {
         );
     };
 
-    // Line 85: Define the handleInputChange function
     const handleInputChange = (
         e: ChangeEvent<HTMLInputElement>
     ): void => {
         const { id, value } = e.target;
-        const numericValue = parseFloat(value) || 0;
 
         switch (id) {
             case "propertyCost":
-                setPropertyCost(numericValue);
+                setPropertyCost(value);
                 break;
             case "downPayment":
-                setDownPayment(numericValue);
+                setDownPayment(value);
                 break;
             case "loanTerm":
-                setLoanTerm(numericValue);
+                setLoanTerm(value);
                 break;
             case "interestRate":
-                setInterestRate(numericValue);
+                setInterestRate(value);
                 break;
             default:
                 break;
@@ -89,12 +85,9 @@ export default function MortgageCalculator() {
             <div className="bg-white px-[20px] py-[25px] counter-shadow 2xl:p-[0px]">
                 <div className="mdl:flex mdl:justify-between 2xl:p-[40px]">
                     <div className="mdl:w-[55%] max-mdl:pb-[30px] max-mdl:border-b 2xl:border-r mdx:pr-[20px] slg:pr-[40px] 2xl:pr-[70px] 3xl:pr-[100px] 2xl:grid 2xl:grid-cols-2 2xl:gap-[40px] 2xl:pb-0">
-                        {/* Property Cost Input */}
+                        {/* Поле стоимости недвижимости */}
                         <div className="mb-4">
-                            <label
-                                className="block text-[#858585] mb-2"
-                                htmlFor="propertyCost"
-                            >
+                            <label className="block text-[#858585] mb-2" htmlFor="propertyCost">
                                 {t("price")} (у.е.)
                             </label>
                             <input
@@ -103,17 +96,14 @@ export default function MortgageCalculator() {
                                 value={propertyCost}
                                 onChange={handleInputChange}
                                 className="appearance-none border w-full py-3 px-3 mdx:py-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline no-spinner"
-                                placeholder="Введите стоимость"
+                                placeholder={t("enter_cost")}
                                 min="0"
                             />
                         </div>
 
-                        {/* Down Payment Input */}
+                        {/* Поле первоначального взноса */}
                         <div className="mb-4">
-                            <label
-                                className="block text-[#858585] mb-2"
-                                htmlFor="downPayment"
-                            >
+                            <label className="block text-[#858585] mb-2" htmlFor="downPayment">
                                 {t("one")} (у.е.)
                             </label>
                             <input
@@ -122,18 +112,15 @@ export default function MortgageCalculator() {
                                 value={downPayment}
                                 onChange={handleInputChange}
                                 className="appearance-none border w-full py-3 px-3 mdx:py-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline no-spinner"
-                                placeholder="Введите размер взноса"
+                                placeholder={t("enter_down_payment")}
                                 min="0"
-                                max={propertyCost}
+                                max={parseFloat(propertyCost as string) || 0}
                             />
                         </div>
 
-                        {/* Loan Term Input */}
+                        {/* Поле срока кредита */}
                         <div className="mb-4">
-                            <label
-                                className="block text-[#858585] mb-2"
-                                htmlFor="loanTerm"
-                            >
+                            <label className="block text-[#858585] mb-2" htmlFor="loanTerm">
                                 {t("two")}
                             </label>
                             <input
@@ -142,17 +129,14 @@ export default function MortgageCalculator() {
                                 value={loanTerm}
                                 onChange={handleInputChange}
                                 className="appearance-none border w-full py-3 px-3 mdx:py-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline no-spinner"
-                                placeholder="Введите срок"
+                                placeholder={t("enter_term")}
                                 min="1"
                             />
                         </div>
 
-                        {/* Interest Rate Input */}
+                        {/* Поле процентной ставки */}
                         <div className="mb-6">
-                            <label
-                                className="block text-[#858585] mb-2"
-                                htmlFor="interestRate"
-                            >
+                            <label className="block text-[#858585] mb-2" htmlFor="interestRate">
                                 {t("three")} (%)
                             </label>
                             <input
@@ -161,26 +145,26 @@ export default function MortgageCalculator() {
                                 value={interestRate}
                                 onChange={handleInputChange}
                                 className="appearance-none border w-full py-3 px-3 mdx:py-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline no-spinner"
-                                placeholder="Введите размер ставки"
+                                placeholder={t("enter_rate")}
                                 min="0"
                                 step="0.01"
                             />
                         </div>
 
-                        {/* Calculate Button */}
+                        {/* Кнопка расчета */}
                         <button
                             onClick={calculateMortgage}
-                            className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px]  w-[223px] font-semibold"
+                            className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold"
                             type="button"
+                            disabled={isButtonDisabled} // Устанавливаем атрибут disabled
                         >
                             {t("four")}
                         </button>
                     </div>
 
-                    {/* Results Section */}
+                    {/* Результаты */}
                     {monthlyPayment !== null && (
                         <div className="mt-6 text-left p-[15px] mdl:w-[45%] mdl:mt-0 2xl:flex 2xl:flex-wrap 2xl:justify-between 2xl:ml-[30px] 3xl:ml-[50px] 2xl:p-0 max-mdl:gap-[16px] max-2xl:gap-[40px] max-2xl:flex max-2xl:flex-col">
-                            {/* Monthly Payment */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
                                     {t("five")}
@@ -190,7 +174,6 @@ export default function MortgageCalculator() {
                                 </p>
                             </div>
 
-                            {/* Loan Amount */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
                                     {t("six")}
@@ -200,7 +183,6 @@ export default function MortgageCalculator() {
                                 </p>
                             </div>
 
-                            {/* Interest Rate */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
                                     {t("seven")}
@@ -210,7 +192,6 @@ export default function MortgageCalculator() {
                                 </p>
                             </div>
 
-                            {/* Final Payment Date */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
                                     {t("eight")}

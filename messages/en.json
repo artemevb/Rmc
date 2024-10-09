@@ -1,4 +1,28 @@
 {
+  "Header": {
+    "nav": {
+      "services": "Services",
+      "about": "About Us",
+      "blog": "Blog",
+      "contacts": "Contacts",
+      "servicesOptions": {
+        "buy": "Buy",
+        "rent": "Rent",
+        "sell": "Sell",
+        "evaluation": "Property Evaluation"
+      }
+    },
+    "menu": {
+      "closeMenu": "Close Menu",
+      "askQuestion": "Ask a Question",
+      "changeLanguage": "Change Language",
+      "languages": {
+        "en": "En",
+        "ru": "Ru",
+        "uz": "Uz"
+      }
+    }
+  },
   "Main": {
     "Banner": {
       "button-more": "More details",
@@ -65,7 +89,11 @@
       "five": "Monthly payment",
       "six": "Loan amount",
       "seven": "Interest rate",
-      "eight": "Date of the last payment"
+      "eight": "Date of the last payment",
+      "enter_cost": "Enter the cost",
+      "enter_down_payment": "Enter the down payment amount",
+      "enter_term": "Enter the term",
+      "enter_rate": "Enter the rate amount"
     },
     "Form": {
       "validFullName": "Correct",
@@ -102,8 +130,9 @@
       "mortgage_calculator": "Mortgage Calculator",
       "dubai_investments": "Dubai Real Estate Investments",
       "info": "2024 © RMC De Luxe real estate LLC. All rights reserved"
-    },
-    "investmentsDubai": {
+    }
+  },
+  "investmentsDubai": {
     "Banner": {
       "title": "Investments in Dubai Real Estate",
       "subtitle": "Learn about the opportunities and advantages of investing in Dubai"
@@ -143,6 +172,5 @@
       "faq_question_3": "Deal execution procedure",
       "faq_question_4": "Maintenance costs and utility payments"
     }
-  }
   }
 }

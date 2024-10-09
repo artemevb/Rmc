@@ -1,4 +1,28 @@
 {
+  "Header": {
+    "nav": {
+      "services": "Xizmatlar",
+      "about": "Biz Haqimizda",
+      "blog": "Blog",
+      "contacts": "Kontaktlar",
+      "servicesOptions": {
+        "buy": "Sotib olish",
+        "rent": "Ijaraga berish",
+        "sell": "Sotish",
+        "evaluation": "Ko'chmas mulk baholash"
+      }
+    },
+    "menu": {
+      "closeMenu": "Menuni yopish",
+      "askQuestion": "Savol berish",
+      "changeLanguage": "Tilni o'zgartirish",
+      "languages": {
+        "en": "En",
+        "ru": "Ru",
+        "uz": "Uz"
+      }
+    }
+  },
   "Main": {
     "Banner": {
       "button-more": "Batafsil",
@@ -65,7 +89,11 @@
       "five": "Oylik to'lov",
       "six": "Kredit summasi",
       "seven": "Foiz stavkasi",
-      "eight": "Oxirgi to'lov sanasi"
+      "eight": "Oxirgi to'lov sanasi",
+      "enter_cost": "Narxni kiriting",
+      "enter_down_payment": "Avans miqdorini kiriting",
+      "enter_term": "Muddatni kiriting",
+      "enter_rate": "Foiz miqdorini kiriting"
     },
     "Form": {
       "validFullName": "To'g'ri",
@@ -102,8 +130,9 @@
       "mortgage_calculator": "Ipoteka kalkulyatori",
       "dubai_investments": "Dubay ko'chmas mulkiga investitsiyalar",
       "info": "2024 © RMC De Luxe real estate LLC. Huquqlar himoyalangan"
-    },
-    "investmentsDubai": {
+    }
+  },
+  "investmentsDubai": {
     "Banner": {
       "title": "Dubayda Ko'chmas Mulkga Sarmoya",
       "subtitle": "Dubayda sarmoya qilish imkoniyatlari va afzalliklari haqida bilib oling"
@@ -143,6 +172,5 @@
       "faq_question_3": "Bitimni yozib olish tartibi",
       "faq_question_4": "Texnik xizmat ko'rsatish va kommunal to'lovlar narxi"
     }
-  }
   }
 }
