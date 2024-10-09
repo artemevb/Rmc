@@ -1,7 +1,9 @@
 "use client";
 import { useState, ChangeEvent } from "react";
+import { useTranslations } from "next-intl";
 
 export default function MortgageCalculator() {
+    const t = useTranslations('Main.Counter');
     // Line 15: Define state for property cost
     const [propertyCost, setPropertyCost] = useState<number>(0);
 
@@ -81,8 +83,8 @@ export default function MortgageCalculator() {
 
     return (
         <div className="px-[15px] max-w-[1440px] w-full mx-auto flex flex-col">
-            <h2 className="font-bold text-[27px] md:text-[35px] mdx:text-[40px] mb-4">
-                Рассчитайте ипотеку
+            <h2 className="font-medium text-[30px] md:text-[45px] mdx:text-[55px] mb-4">
+                {t("title")}
             </h2>
             <div className="bg-white px-[20px] py-[25px] counter-shadow 2xl:p-[0px]">
                 <div className="mdl:flex mdl:justify-between 2xl:p-[40px]">
@@ -93,7 +95,7 @@ export default function MortgageCalculator() {
                                 className="block text-[#858585] mb-2"
                                 htmlFor="propertyCost"
                             >
-                                Стоимость недвижимости (у.е.)
+                                {t("price")} (у.е.)
                             </label>
                             <input
                                 id="propertyCost"
@@ -112,7 +114,7 @@ export default function MortgageCalculator() {
                                 className="block text-[#858585] mb-2"
                                 htmlFor="downPayment"
                             >
-                                Первоначальный взнос (у.е.)
+                                {t("one")} (у.е.)
                             </label>
                             <input
                                 id="downPayment"
@@ -132,7 +134,7 @@ export default function MortgageCalculator() {
                                 className="block text-[#858585] mb-2"
                                 htmlFor="loanTerm"
                             >
-                                Срок в годах
+                                {t("two")}
                             </label>
                             <input
                                 id="loanTerm"
@@ -151,7 +153,7 @@ export default function MortgageCalculator() {
                                 className="block text-[#858585] mb-2"
                                 htmlFor="interestRate"
                             >
-                                Ставка (%)
+                                {t("three")} (%)
                             </label>
                             <input
                                 id="interestRate"
@@ -171,7 +173,7 @@ export default function MortgageCalculator() {
                             className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px]  w-[223px] font-semibold"
                             type="button"
                         >
-                            Рассчитать
+                            {t("four")}
                         </button>
                     </div>
 
@@ -181,7 +183,7 @@ export default function MortgageCalculator() {
                             {/* Monthly Payment */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
-                                    Ежемесячный платеж
+                                    {t("five")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
                                     {monthlyPayment} у.е.
@@ -191,7 +193,7 @@ export default function MortgageCalculator() {
                             {/* Loan Amount */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
-                                    Сумма кредита
+                                    {t("six")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
                                     {loanAmount} у.е.
@@ -201,7 +203,7 @@ export default function MortgageCalculator() {
                             {/* Interest Rate */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
-                                    Процентная ставка
+                                    {t("seven")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
                                     {interestRate}%
@@ -211,7 +213,7 @@ export default function MortgageCalculator() {
                             {/* Final Payment Date */}
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
-                                    Дата последнего платежа
+                                    {t("eight")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
                                     {finalDate}

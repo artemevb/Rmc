@@ -9,8 +9,9 @@ import blog3 from "@/public/images/main/blogs/slide-3.png";
 import NewCardMain from './NewCardMain';
 import { StaticImageData } from 'next/image';
 import Slider from 'react-slick';
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
-// Interfaces
 interface NewsPhoto {
     url: StaticImageData;
 }
@@ -18,6 +19,7 @@ interface NewsPhoto {
 interface NewsHead {
     heading: string;
     date: string;
+    views: string;
     photo: NewsPhoto;
 }
 
@@ -31,6 +33,7 @@ interface NewsCompProps {
 }
 
 export default function NewsComp({ locale }: NewsCompProps) {
+    const t = useTranslations('Main.Blogs');
     const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]); // Only visibleNews state
 
     // Temporary data
@@ -38,33 +41,37 @@ export default function NewsComp({ locale }: NewsCompProps) {
         {
             slug: 'news-1',
             head: {
-                heading: 'Заголовок новости 1',
-                date: 'Дата новости 1',
+                heading: 'Тенденции и прогнозы рынка недвижимости на 2024 год',
+                date: '31.07.2024',
                 photo: { url: blog2 },
+                views: '102',
             },
         },
         {
             slug: 'news-2',
             head: {
-                heading: 'Заголовок новости 2',
-                date: 'Дата новости 2',
+                heading: 'Лучшие районы для инвестиций в недвижимость',
+                date: '31.07.2024',
                 photo: { url: blog3 },
+                views: '102',
             },
         },
         {
             slug: 'news-3',
             head: {
-                heading: 'Заголовок новости 3',
-                date: 'Дата новости 3',
+                heading: 'Топ-10 новых жилых комплексов',
+                date: '31.07.2024',
                 photo: { url: blog1 },
+                views: '112',
             },
         },
         {
             slug: 'news-4',
             head: {
-                heading: 'Заголовок новости 4',
-                date: 'Дата новости 4',
+                heading: 'Лучшие районы для инвестиций в недвижимость',
+                date: '31.07.2024',
                 photo: { url: blog2 },
+                views: '152',
             },
         },
 
@@ -119,19 +126,20 @@ export default function NewsComp({ locale }: NewsCompProps) {
     }, []);
 
     return (
-        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] mt-[90px] mdx:mt-[120px]'>
-            <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-semibold'>
-                Блог
+        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
+            <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
+                {t("title")}
             </h2>
             <div className='w-full h-auto hidden xl:block'>
                 <Slider {...settings} className='h-auto w-full '>
                     {visibleNews.map((item, i) => (
-                        <div className='px-[10px] xl:h-[520px] 3xl:h-[540px] max-h-full' key={i}>
+                        <div className='px-[10px] xl:h-[420px] max-h-full' key={i}>
                             <a href={`/${locale}/doctors/${item.slug}`}>
                                 <NewCardMain
                                     subtitle={item.head.heading}
                                     date={item.head.date}
                                     imageSrc={item.head.photo?.url}
+                                    views={item.head.views}
                                 />
                             </a>
                         </div>
@@ -145,14 +153,15 @@ export default function NewsComp({ locale }: NewsCompProps) {
                             subtitle={item.head.heading}
                             date={item.head.date}
                             imageSrc={item.head.photo?.url}
+                            views={item.head.views}
                         />
                     </a>
                 ))}
             </div>
             <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
-                <a href={`/${locale}/news`} className='bg-[#E1AF93] hover:bg-[#EAC7B4] text-white py-[12px] px-4 w-[223px]  flex justify-center font-semibold text-[17px]'>
-                    Все статьи
-                </a>
+                <Link href={`/${locale}/news`} className='bg-[#E1AF93] hover:bg-[#EAC7B4] text-white py-[12px] px-4 w-[223px]  flex justify-center font-semibold text-[17px]'>
+                    {t("button-more")}
+                </Link>
             </div>
         </div>
     );

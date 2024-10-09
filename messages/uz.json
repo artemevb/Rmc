@@ -45,6 +45,63 @@
           "content": "Har bir mijozga maksimal samaradorlik va g'amxo‘rlik bilan ko‘chmas mulkni boshqarish.\nBarcha bosqichlarda professional texnik xizmat va qo‘llab-quvvatlash."
         }
       }
+    },
+    "Blogs": {
+      "title": "Blog",
+      "button-more": "Barcha maqolalar"
+    },
+    "Slider": {
+      "Blog": {
+        "button-more": "Batafsil"
+      }
+    },
+    "Counter": {
+      "title": "Ipotekangizni hisoblang",
+      "price": "Mulk qiymati",
+      "one": "Boshlang'ich to'lov",
+      "two": "Yillar davomida muddat",
+      "three": "Foiz stavkasi",
+      "four": "Hisoblash",
+      "five": "Oylik to'lov",
+      "six": "Kredit summasi",
+      "seven": "Foiz stavkasi",
+      "eight": "Oxirgi to'lov sanasi"
+    },
+    "Form": {
+      "validFullName": "To'g'ri",
+      "enterFullName": "To'liq ismingizni kiriting",
+      "validPhoneNumber": "To'g'ri",
+      "enterValidPhoneNumber": "To'g'ri telefon raqamini kiriting",
+      "validEmail": "To'g'ri",
+      "enterValidEmail": "To'g'ri emailni kiriting",
+      "haveQuestions": "Savollaringiz bormi?",
+      "contactUs": "Biz bilan bog'laning!",
+      "fullName": "To'liq ismingiz",
+      "phoneNumber": "Telefon raqami",
+      "email": "E-mail",
+      "question": "Savolingiz",
+      "submit": "Yuborish"
+    },
+    "Footer": {
+      "services": "Xizmatlar",
+      "buy": "Sotib olish",
+      "rent": "Ijaraga olish",
+      "sell": "Sotish",
+      "evaluate": "Baholash",
+      "real_estate": "Ko'chmas mulk",
+      "apartments": "Kvartiralar",
+      "new_buildings": "Yangi binolar",
+      "houses_and_land": "Ular va yerlar",
+      "commercial": "Tijorat",
+      "company": "Kompaniya",
+      "about_us": "Biz haqimizda",
+      "blog": "Blog",
+      "contacts": "Kontaktlar",
+      "contact_us": "Biz bilan bog'lanish",
+      "other": "Boshqa",
+      "mortgage_calculator": "Ipoteka kalkulyatori",
+      "dubai_investments": "Dubay ko'chmas mulkiga investitsiyalar",
+      "info": "2024 © RMC De Luxe real estate LLC. Huquqlar himoyalangan"
     }
   }
 }

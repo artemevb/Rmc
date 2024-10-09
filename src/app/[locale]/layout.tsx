@@ -1,3 +1,5 @@
+// src/app/[locale]/RootLayout.tsx или layout.tsx
+
 import type { Metadata } from 'next';
 import { Jost } from 'next/font/google';
 import './_styles/globals.css';
@@ -15,6 +17,9 @@ export const metadata: Metadata = {
   description: 'Rmc',
 };
 
+// Экспортируем тип Locales
+export type Locales = 'ru' | 'uz' | 'en';
+
 export default async function RootLayout({
   children,
   params,
@@ -22,13 +27,8 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale?: string };
 }>) {
-  type Locales = 'ru' | 'uz' | 'en';
-
-
-  
   const locale: Locales = params?.locale === 'uz' ? 'uz' : params?.locale === 'en' ? 'en' : 'ru';
 
-  
   unstable_setRequestLocale(locale);
 
   // Получаем сообщения для текущей локали

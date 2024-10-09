@@ -2,8 +2,13 @@ import Image from 'next/image';
 import build1 from "@/public/images/main/build1.png";
 import build1_big from "@/public/images/main/Build1-big.png";
 import build2 from "@/public/images/main/build1.5.png";
+import Link from 'next/link';
 
-export default function Banner() {
+interface local {
+    locale: string;
+}
+
+export default function Banner({ locale }: local) {
     return (
         <div className='w-full h-auto flex flex-col mx-auto bg-[#EDF3F5] py-[30px] mdx:py-[40px] xl:py-[80px]'>
             <div className='mx-2 xl:flex xl:items-center xl:flex-row max-w-[1440px] xl:mx-auto'>
@@ -16,7 +21,9 @@ export default function Banner() {
                         Наши услуги включают управление вашей инвестиционной недвижимостью, обеспечивая её сохранность и стабильный доход. Мы берем на себя все аспекты управления, включая подбор и проверку арендаторов, техническое обслуживание, финансовую отчетность и юридическую поддержку.
                     </h4>
                     <div>
-                        <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">Подробнее</button>
+                        <Link href={`/${locale}/investmentDubai`}>
+                            <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">Подробнее</button>
+                        </Link>
                     </div>
                 </div>
                 <div className='xl:w-1/2 xl:pl-4 grid grid-cols-2 gap-[12px] xl:hidden'>
@@ -72,7 +79,9 @@ export default function Banner() {
                 Наши услуги включают управление вашей инвестиционной недвижимостью, обеспечивая её сохранность и стабильный доход. Мы берем на себя все аспекты управления, включая подбор и проверку арендаторов, техническое обслуживание, финансовую отчетность и юридическую поддержку.
             </h4>
             <div className='max-xl:px-[10px]'>
-                <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">Подробнее</button>
+                <Link href={`/${locale}/investmentDubai`}>
+                    <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">Подробнее</button>
+                </Link>
             </div>
         </div>
     );

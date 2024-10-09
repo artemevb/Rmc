@@ -45,6 +45,63 @@
           "content": "Managing real estate with maximum efficiency and care for each client.\nProfessional maintenance and support at all stages."
         }
       }
+    },
+    "Blogs": {
+      "title": "Blog",
+      "button-more": "All articles"
+    },
+    "Slider": {
+      "Blog": {
+        "button-more": "More details"
+      }
+    },
+    "Counter": {
+      "title": "Calculate your mortgage",
+      "price": "Property value",
+      "one": "Down payment",
+      "two": "Term in years",
+      "three": "Rate",
+      "four": "Calculate",
+      "five": "Monthly payment",
+      "six": "Loan amount",
+      "seven": "Interest rate",
+      "eight": "Date of the last payment"
+    },
+    "Form": {
+      "validFullName": "Correct",
+      "enterFullName": "Enter your full name",
+      "validPhoneNumber": "Correct",
+      "enterValidPhoneNumber": "Enter a valid phone number",
+      "validEmail": "Correct",
+      "enterValidEmail": "Enter a valid email",
+      "haveQuestions": "Have questions?",
+      "contactUs": "Contact us!",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "E-mail",
+      "question": "Your question",
+      "submit": "Submit"
+    },
+    "Footer": {
+      "services": "Services",
+      "buy": "Buy",
+      "rent": "Rent",
+      "sell": "Sell",
+      "evaluate": "Evaluate",
+      "real_estate": "Real Estate",
+      "apartments": "Apartments",
+      "new_buildings": "New Buildings",
+      "houses_and_land": "Houses and Land",
+      "commercial": "Commercial",
+      "company": "Company",
+      "about_us": "About Us",
+      "blog": "Blog",
+      "contacts": "Contacts",
+      "contact_us": "Contact Us",
+      "other": "Other",
+      "mortgage_calculator": "Mortgage Calculator",
+      "dubai_investments": "Dubai Real Estate Investments",
+      "info": "2024 © RMC De Luxe real estate LLC. All rights reserved"
     }
   }
 }

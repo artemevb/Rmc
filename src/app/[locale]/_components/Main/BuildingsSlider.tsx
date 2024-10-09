@@ -26,6 +26,10 @@ interface CustomArrowProps {
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+interface local {
+    locale: string;
+}
+
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
         className="absolute top-[-100px] right-2 z-10 cursor-pointer "
@@ -83,7 +87,7 @@ interface SliderSettings {
     }[];
 }
 
-export default function Banner() {
+export default function Banner({ locale }: local) {
     const t = useTranslations('Main.Buildings');
 
     const equipmentData: EquipmentItem[] = [
@@ -172,7 +176,7 @@ export default function Banner() {
                     ))}
                 </Slider>
                 <div className="flex w-full justify-center mt-10">
-                    <Link href="/buildings">
+                    <Link href={`/${locale}/buildings`}>
                         <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
                             {t('button-more')}
                         </button>

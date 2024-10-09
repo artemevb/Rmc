@@ -9,19 +9,23 @@ import Counter from "./Counter";
 import Form from "./Form";
 import BlogSlider from "./Blogs";
 
-export default function Main() {
+interface NewsCompProps {
+  locale: string;
+}
+
+export default function Main({ locale }: NewsCompProps) {
   return (
     <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
       <Banner />
       <AboutUs />
-      <Investition />
+      <Investition locale={locale} />
       <Service />
       <Consalting />
       <WhyUs />
-      <BuildingsSlider />
+      <BuildingsSlider locale={locale} />
       <Counter />
       <Form />
-      <BlogSlider />
+      <BlogSlider locale={locale} />
     </div>
   );
 }
