@@ -26,7 +26,7 @@ export default function Invest() {
                             {formatText(t('subtitle'))}
                         </div>
 
-                        <div className='grid grid-cols-2 gap-y-[45px] gap-x-[12px] w-full mt-[70px] auto-rows-fr text-[20px] '>
+                        <div className='xl:grid grid-cols-2 gap-y-[45px] gap-x-[12px] w-full mt-[70px] auto-rows-fr text-[20px] hidden'>
                             <div className='flex'>
                                 <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
                                     {formatText(t('text-1'))}
