@@ -23,7 +23,7 @@ export default function Scheme() {
                         </div>
                     </div>
 
-                    <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
+                    <div className='border p-[24px] flex flex-col items-start justify-between w-full 2xl:hidden'>
                         <div >
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
                             <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
@@ -35,7 +35,14 @@ export default function Scheme() {
                 <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
                     <div >
                         <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Адрес</p>
-                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px] lh mt-[4px]'>Узбекистан, г.Ташкент, ул.Такая-то, дом такой-то, Ориентир такой-то</p>
+                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px] lh mt-[4px] 2xl:leading-[36px]'>Узбекистан, г.Ташкент, ул.Такая-то, дом такой-то, Ориентир такой-то</p>
+                    </div>
+                </div>
+                <div className='border p-[24px] flex-col items-start justify-between w-full hidden 2xl:block'>
+                    <div >
+                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
+                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
+                            <br />пн-пт</p>
                     </div>
                 </div>
 
