@@ -70,10 +70,10 @@ const FaqSection: React.FC = () => {
       {faqData.map((item, index) => (
         <div key={index} className="mb-4">
           <button
-            className="w-full flex justify-between items-start text-left p-4 text-lg transition-all duration-700"
+            className="w-full flex justify-between items-start text-left p-4 text-lg transition-all duration-700 "
             onClick={() => toggleFAQ(index)}
           >
-            <span className={`text-[22px] mdx:text-[26px] xl:text-[30px] ${openIndex === index ? '' : 'text-black transition-all duration-1000'}`}>
+            <span className={`text-[22px] mdx:text-[26px] xl:text-[30px] max-mdx:max-w-[80%] ${openIndex === index ? '' : 'text-black transition-all duration-1000'}`}>
               {t(item.question)}
             </span>
             <span className="flex-shrink-0">

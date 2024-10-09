@@ -19,7 +19,7 @@
       "languages": {
         "en": "En",
         "ru": "Ru",
-        "uz": "Uz"
+        "uz": "O'z"
       }
     }
   },
@@ -130,6 +130,44 @@
       "mortgage_calculator": "Ipoteka kalkulyatori",
       "dubai_investments": "Dubay ko'chmas mulkiga investitsiyalar",
       "info": "2024 © RMC De Luxe real estate LLC. Huquqlar himoyalangan"
+    },
+    "WhyUs": {
+      "title": "Nega bizni tanlashadi",
+      "experienceTitle": "Tajriba va professionallik",
+      "experienceDescription": "Bizning mutaxassislarimiz ko'p yillik tajribaga ega bo'lib, ko'chmas mulk sohasida yuqori sifatli xizmatlarni ta'minlaydi",
+      "transparencyTitle": "Shaffoflik va ishonch",
+      "transparencyDescription": "Barcha operatsiyalarning to'liq shaffofligini ta'minlash va hisobotlar taqdim etish. Ish prinsiplarimiz halollik va ishonchga asoslangan, bu sharhlar bilan tasdiqlangan",
+      "serviceTitle": "Yuqori xizmat darajasi",
+      "serviceDescription": "Har doim sizga yordam berishga tayyormiz",
+      "individualTitle": "Individual yondashuv",
+      "individualDescription": "Biz har bir mijozning o'ziga xos ehtiyojlarini hisobga olgan holda shaxsiy yechimlarni ishlab chiqamiz",
+      "comprehensiveTitle": "Kompleks xizmat",
+      "comprehensiveDescription": "Ijaradan tortib, sotish, boshqaruv va ko'chmas mulk investitsiyalarini o'z ichiga olgan to'liq xizmatlar spektri.",
+      "imageAlt": "bino"
+    },
+    "Investition": {
+      "title": "Dubayda ko'chmas mulkka sarmoya kiritish",
+      "subtitle": "Dubaydagi ko'chmas mulk barqaror daromad va kapital o'sishi uchun ajoyib imkoniyatlarni taqdim etadi.\n\nTo'liq sarmoya tsikli: Bozor tahlili va mulk tanlashdan tortib sarmoyalarni boshqarish va ularni amalga oshirishgacha.\n\nMutaxassislarimiz sarmoyaviy jarayonning barcha bosqichlarida sizga yordam beradi, yuqori sifatli xizmat va ishonchlilikni ta'minlaydi.\n\nBizning xizmatlarimiz sizning sarmoyaviy mulkingizni boshqarishni o'z ichiga oladi, uning saqlanishi va barqaror daromadini ta'minlaydi. Biz boshqaruvning barcha jihatlarini o'z zimmamizga olamiz, shu jumladan ijarachilarni tanlash va tekshirish, texnik xizmat ko'rsatish, moliyaviy hisobot va yuridik yordam.",
+      "button": "Batafsil"
+    },
+    "Consalting": {
+      "title": "Biznesni ochish va ro'yxatdan o'tkazishda konsalting va yordam",
+      "subtitle": "Bizning yordamiz bilan Dubayda biznes ochish oddiy va tez jarayon! Biz to'liq qo'llab-quvvatlashni taklif etamiz: kompaniya shaklini tanlashdan tortib ro'yxatdan o'tkazish va litsenziyalarni olishgacha. Har bir bosqichda mutaxassis yordami biznesingizning BAAda muvaffaqiyatli boshlanishini ta'minlaydi.",
+      "button": "Batafsil"
+    },
+    "Service": {
+      "title": "Ko'chmas mulkni boshqarish \nxizmatiga kiradigan narsalar",
+      "points": {
+        "tenantCheck": "Ijarachini tekshirish (kredit tarixi, tavsiyalar)",
+        "maintenance": "Muntazam texnik xizmat ko'rsatish",
+        "leaseContracts": "Ijaraga berish shartnomalarini tayyorlash va imzolash",
+        "repairs": "Ta'mirlash ishlarini tashkil qilish va bajarish",
+        "rentCollection": "Ijara haqini yig'ish",
+        "propertyControl": "Ko'chmas mulkning holatini nazorat qilish",
+        "tenantRequests": "Ijarachilarning so'rovlari va shikoyatlarini qayta ishlash",
+        "tenantSelection": "Ishonchli ijarachilarni tanlash",
+        "leaseCompliance": "Ijara shartlariga rioya qilishni nazorat qilish"
+      }
     }
   },
   "investmentsDubai": {
@@ -171,6 +209,10 @@
       "faq_question_2": "Minimal sarmoya miqdori",
       "faq_question_3": "Bitimni yozib olish tartibi",
       "faq_question_4": "Texnik xizmat ko'rsatish va kommunal to'lovlar narxi"
+    },
+    "Contacts": {
+      "title-1": "Biz bilan bog'laning:",
+      "title-2": "Sizning ideal uyingiz atigi bir qadam narida"
     }
   }
 }

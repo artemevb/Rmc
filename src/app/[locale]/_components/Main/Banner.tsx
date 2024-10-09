@@ -73,13 +73,14 @@ export default function Banner() {
           modules={[Navigation, Autoplay]}
           navigation={navigation}
           autoplay={{
-            delay: 4000,
+            delay: 5500,
             disableOnInteraction: false,
           }}
           loop={true}
           className="relative"
           spaceBetween={30}
           slidesPerView={1}
+          speed={1200}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>

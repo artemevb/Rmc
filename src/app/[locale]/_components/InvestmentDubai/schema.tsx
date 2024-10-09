@@ -16,7 +16,7 @@ export default function Scheme() {
                 </div>
                 <div className="grid w-full h-auto grid-cols-1 xl:grid-cols-4 grid-rows-4 xl:grid-rows-1 max-xl:pl-4">
                     <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
-                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px]  xl:left-[38px] px-2 5xl:px-3 text-black">
+                        <div className="absolute xl:-top-[6px]  max-xl:-left-[14px]  xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
                                 alt="Medical Equipment"
@@ -42,7 +42,7 @@ export default function Scheme() {
                         </div>
                     </div>
                     <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
-                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] xl:left-[38px] px-2 5xl:px-3 text-black">
+                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
                                 alt="Medical Equipment"
@@ -68,7 +68,7 @@ export default function Scheme() {
                         </div>
                     </div>
                     <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
-                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] xl:left-[38px] px-2 5xl:px-3 text-black">
+                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
                                 alt="Medical Equipment"
@@ -94,7 +94,7 @@ export default function Scheme() {
                         </div>
                     </div>
                     <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
-                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] xl:left-[38px] px-2 5xl:px-3 text-black">
+                        <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
                                 alt="Medical Equipment"

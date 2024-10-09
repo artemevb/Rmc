@@ -91,13 +91,14 @@ export default function Banner() {
                         modules={[Navigation, Autoplay]}
                         navigation={navigation}
                         autoplay={{
-                            delay: 4500, // 4.5 seconds
+                            delay: 5500, // 4.5 seconds
                             disableOnInteraction: false,
                         }}
                         loop={true}
                         className="relative"
                         spaceBetween={30}
                         slidesPerView={1}
+                        speed={1200}
                         onSwiper={(swiper) => {
                             if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
                                 swiper.params.navigation.prevEl = prevRef.current;
@@ -107,13 +108,13 @@ export default function Banner() {
                             }
                         }}
                     >
-                        <SwiperSlide>
+                        <SwiperSlide >
                             <Image
                                 src={photo1}
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-full object-cover min-h-[220px]"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -122,7 +123,7 @@ export default function Banner() {
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-full object-cover min-h-[220px]"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -131,15 +132,15 @@ export default function Banner() {
                                 quality={100}
                                 alt="Building"
                                 layout="responsive"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-full object-cover min-h-[220px]"
                             />
                         </SwiperSlide>
                     </Swiper>
-                    <div ref={prevRef} className="absolute xl:left-5 left-2 top-2 mdx:left-3 mdx:top-4 xl:top-7 z-10 cursor-pointer">
-                        <Image src={arrowLeft} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Previous" />
+                    <div ref={prevRef} className="absolute xl:left-5 left-3 top-2 mdx:left-3 mdx:top-4 xl:top-7 z-10 cursor-pointer">
+                        <Image src={arrowLeft} quality={100} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Previous" />
                     </div>
-                    <div ref={nextRef} className="absolute xl:left-[100px] left-[65px] mdx:left-[85px] top-2 mdx:top-4 xl:top-7 z-10 cursor-pointer ">
-                        <Image src={arrowRight} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Next" />
+                    <div ref={nextRef} className="absolute xl:left-[100px] left-[68px] mdx:left-[85px] top-2 mdx:top-4 xl:top-7 z-10 cursor-pointer ">
+                        <Image src={arrowRight} quality={100} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Next" />
                     </div>
                 </div>
             </div>

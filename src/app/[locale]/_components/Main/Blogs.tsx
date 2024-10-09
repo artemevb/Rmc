@@ -134,28 +134,28 @@ export default function NewsComp({ locale }: NewsCompProps) {
                 <Slider {...settings} className='h-auto w-full '>
                     {visibleNews.map((item, i) => (
                         <div className='px-[10px] xl:h-[420px] max-h-full' key={i}>
-                            <a href={`/${locale}/doctors/${item.slug}`}>
+                            <Link href={`/${locale}/blog/${item.slug}`}>
                                 <NewCardMain
                                     subtitle={item.head.heading}
                                     date={item.head.date}
                                     imageSrc={item.head.photo?.url}
                                     views={item.head.views}
                                 />
-                            </a>
+                            </Link>
                         </div>
                     ))}
                 </Slider>
             </div>
             <div className='w-full h-auto grid mdx:grid-cols-2 gap-[30px] mdx:gap-[16px] xl:hidden'>
                 {visibleNews.map((item, i) => (
-                    <a key={i} href={`/${locale}/blogs/${item.slug}`}>
+                    <Link key={i} href={`/${locale}/blog/${item.slug}`}>
                         <NewCardMain
                             subtitle={item.head.heading}
                             date={item.head.date}
                             imageSrc={item.head.photo?.url}
                             views={item.head.views}
                         />
-                    </a>
+                    </Link>
                 ))}
             </div>
             <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">

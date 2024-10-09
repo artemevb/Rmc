@@ -77,7 +77,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             className="w-7 h-7 max-mdx:w-3 max-mdx:h-3"
           />
         </a>
-        <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full xl:flex hidden '>
+        <label className='items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full xl:flex hidden '>
           <span className='sr-only'>Change language</span>
           <select
             defaultValue={localActive}

@@ -8,7 +8,11 @@ import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
 
-export default function Footer() {
+interface LocaleProps {
+  locale: string;
+}
+
+export default function Footer({ locale }: LocaleProps) {
   const t = useTranslations('Main.Footer');
 
   return (
@@ -85,19 +89,19 @@ export default function Footer() {
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('services')}
                 </h2>
-                <a href="/categories/catalog/">{t('buy')}</a>
-                <a href="/categories/catalog/">{t('rent')}</a>
-                <a href="/categories/catalog/">{t('sell')}</a>
-                <a href="/categories/catalog/">{t('evaluate')}</a>
+                <Link href={`/${locale}/buy`}>{t('buy')}</Link>
+                <Link href={`/${locale}/rent`}>{t('rent')}</Link>
+                <Link href={`/${locale}/sell`}>{t('sell')}</Link>
+                <Link href={`/${locale}/evaluation`}>{t('evaluate')}</Link>
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('real_estate')}
                 </h2>
-                <a href="/about">{t('apartments')}</a>
-                <a href="/partners">{t('new_buildings')}</a>
-                <a href="/contacts">{t('houses_and_land')}</a>
-                <a href="/news">{t('commercial')}</a>
+                <Link href={`/${locale}/about`}>{t('apartments')}</Link>
+                <Link href={`/${locale}/partners`}>{t('new_buildings')}</Link>
+                <Link href={`/${locale}/contacts`}>{t('houses_and_land')}</Link>
+                <Link href={`/${locale}/news`}>{t('commercial')}</Link>
               </div>
             </div>
             <div className="lg:w-1/2 w-full flex flex-row max-mdx:gap-5 xl:gap-[138px]">
@@ -105,17 +109,17 @@ export default function Footer() {
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('company')}
                 </h2>
-                <a href="/categories/catalog/">{t('about_us')}</a>
-                <a href="/categories/catalog/">{t('blog')}</a>
-                <a href="/categories/catalog/">{t('contacts')}</a>
-                <a href="/categories/catalog/">{t('contact_us')}</a>
+                <Link href={`/${locale}/about`}>{t('about_us')}</Link>
+                <Link href={`/${locale}/blog`}>{t('blog')}</Link>
+                <Link href={`/${locale}/contacts`}>{t('contacts')}</Link>
+                <Link href={`/${locale}/phone`}>{t('contact_us')}</Link>
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[253px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('other')}
                 </h2>
-                <a href="/about">{t('mortgage_calculator')}</a>
-                <a href="/partners">{t('dubai_investments')}</a>
+                <Link href={`/${locale}/about`}>{t('mortgage_calculator')}</Link>
+                <Link href={`/${locale}/about`}>{t('dubai_investments')}</Link>
               </div>
             </div>
           </div>

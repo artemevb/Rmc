@@ -19,7 +19,7 @@
       "languages": {
         "en": "En",
         "ru": "Ru",
-        "uz": "Uz"
+        "uz": "O'z"
       }
     }
   },
@@ -130,6 +130,44 @@
       "mortgage_calculator": "Mortgage Calculator",
       "dubai_investments": "Dubai Real Estate Investments",
       "info": "2024 © RMC De Luxe real estate LLC. All rights reserved"
+    },
+    "WhyUs": {
+      "title": "Why choose us",
+      "experienceTitle": "Experience and professionalism",
+      "experienceDescription": "Our specialists have many years of experience in various areas of real estate, ensuring high-quality services",
+      "transparencyTitle": "Transparency and trust",
+      "transparencyDescription": "Ensuring full transparency of all operations and providing reports. Work is based on principles of honesty and trust, as confirmed by reviews",
+      "serviceTitle": "High level of service",
+      "serviceDescription": "We are always available to assist you at any time",
+      "individualTitle": "Individual approach",
+      "individualDescription": "We develop personalized solutions, considering the unique needs of each client",
+      "comprehensiveTitle": "Comprehensive service",
+      "comprehensiveDescription": "A full range of services, including rent, buying and selling, management, and real estate investment.",
+      "imageAlt": "building"
+    },
+    "Investition": {
+      "title": "Investing in Real Estate in Dubai",
+      "subtitle": "Real estate in Dubai provides excellent opportunities for stable income and capital growth.\n\nFull investment cycle: From market analysis and property selection to investment management and realization.\n\nOur experts will assist you at all stages of the investment process, ensuring high-quality service and reliability.\n\nOur services include managing your investment property, ensuring its preservation and stable income. We handle all aspects of management, including tenant selection and verification, maintenance, financial reporting, and legal support.",
+      "button": "Learn More"
+    },
+    "Consalting": {
+      "title": "Consulting and Support for Business Formation and Registration",
+      "subtitle": "Starting a business in Dubai with our help is a simple and fast process! We offer full support: from choosing the company form to registration and obtaining licenses. Expert support at every stage to ensure a successful start for your business in the UAE.",
+      "button": "Learn More"
+    },
+    "Service": {
+      "title": "What’s included in property \nmanagement service",
+      "points": {
+        "tenantCheck": "Tenant screening (credit history, recommendations)",
+        "maintenance": "Regular maintenance",
+        "leaseContracts": "Preparation and signing of lease agreements",
+        "repairs": "Organization and execution of repairs",
+        "rentCollection": "Rent collection",
+        "propertyControl": "Monitoring property conditions",
+        "tenantRequests": "Handling tenant requests and complaints",
+        "tenantSelection": "Selection of reliable tenants",
+        "leaseCompliance": "Monitoring lease compliance"
+      }
     }
   },
   "investmentsDubai": {
@@ -171,6 +209,10 @@
       "faq_question_2": "Minimum investment amount",
       "faq_question_3": "Deal execution procedure",
       "faq_question_4": "Maintenance costs and utility payments"
+    },
+    "Contacts": {
+      "title-1": "Contact us:",
+      "title-2": "Your perfect home is just one step away"
     }
   }
 }

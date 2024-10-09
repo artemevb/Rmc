@@ -75,13 +75,13 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
                 <span className='sr-only'>{t('menu.changeLanguage')}</span>
                 <select
                   defaultValue={localActive}
-                  className='bg-transparent appearance-none'
+                  className='bg-transparent appearance-none w-7'
                   onChange={onSelectChange}
                   disabled={isPending}
                 >
                   <option value='en'>{t('menu.languages.en')}</option>
                   <option value='ru'>{t('menu.languages.ru')}</option>
-                  <option value='uz'>{t('menu.languages.uz')}</option>
+                  <option value='O`z'>{t('menu.languages.uz')}</option>
                 </select>
                 <svg
                   className="w-4 h-4 "
@@ -147,7 +147,10 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
         {/* Other Navigation Items */}
         {navOptions.slice(4).map((item, index) => (
           <Link
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu(); // Закрытие модального окна
+              router.push(`/${locale}/${item.slug}`); // Перенаправление по URL
+            }}
             href={`/${locale}/${item.slug}`}
             key={index}
             className="pt-[32px]"
@@ -158,9 +161,33 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </Link>
         ))}
         <div className="flex flex-col gap-[32px] pl-[20px] font-normal mt-[32px] text-[20px] mdx:text-[24px]">
-          <Link href={`/${locale}/about`}>{t('nav.about')}</Link>
-          <Link href={`/${locale}/blog`}>{t('nav.blog')}</Link>
-          <Link href={`/${locale}/contacts`}>{t('nav.contacts')}</Link>
+          <Link
+            onClick={() => {
+              closeMenu(); // Закрытие модального окна
+              router.push(`/${locale}/about`); // Перенаправление по URL
+            }}
+            href={`/${locale}/about`}
+          >
+            {t('nav.about')}
+          </Link>
+          <Link
+            onClick={() => {
+              closeMenu(); // Закрытие модального окна
+              router.push(`/${locale}/blog`);
+            }}
+            href={`/${locale}/blog`}
+          >
+            {t('nav.blog')}
+          </Link>
+          <Link
+            onClick={() => {
+              closeMenu(); // Закрытие модального окна
+              router.push(`/${locale}/contacts`);
+            }}
+            href={`/${locale}/contacts`}
+          >
+            {t('nav.contacts')}
+          </Link>
         </div>
       </nav>
 
