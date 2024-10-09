@@ -1,5 +1,6 @@
 "use client";
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
@@ -20,7 +21,6 @@ export default function Banner() {
   const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
-  const [swiperReady, setSwiperReady] = useState(false);
 
   const slides = [
     {
@@ -50,9 +50,22 @@ export default function Banner() {
     },
   ];
 
-  // Устанавливаем состояние готовности навигации после монтирования компонента
   useEffect(() => {
-    setSwiperReady(true);
+    if (prevRef.current && nextRef.current) {
+      const swiperContainer = document.querySelector('.swiper-container') as HTMLElement & { swiper: SwiperType };
+      const swiperInstance = swiperContainer?.swiper;
+
+      if (
+        swiperInstance &&
+        swiperInstance.params.navigation &&
+        typeof swiperInstance.params.navigation !== 'boolean'
+      ) {
+        swiperInstance.params.navigation.prevEl = prevRef.current;
+        swiperInstance.params.navigation.nextEl = nextRef.current;
+        swiperInstance.navigation.init();
+        swiperInstance.navigation.update();
+      }
+    }
   }, []);
 
   return (
@@ -60,30 +73,14 @@ export default function Banner() {
       <div className="relative mySwiper">
         <Swiper
           modules={[Navigation, Autoplay]}
-          navigation={
-            swiperReady
-              ? {
-                  prevEl: prevRef.current,
-                  nextEl: nextRef.current,
-                }
-              : false // Отключаем навигацию до готовности ссылок
-          }
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
           }}
           loop={true}
-          className="relative"
+          className="swiper-container relative"
           spaceBetween={30}
           slidesPerView={1}
-          onSwiper={(swiper) => {
-            if (swiperReady && swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }
-          }}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
