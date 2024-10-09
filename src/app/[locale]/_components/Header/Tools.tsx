@@ -81,7 +81,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
           <span className='sr-only'>Change language</span>
           <select
             defaultValue={localActive}
-            className='bg-transparent appearance-none w-10'
+            className='bg-transparent appearance-none w-auto'
             onChange={onSelectChange}
             disabled={isPending}
           >
