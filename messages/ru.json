@@ -103,7 +103,7 @@
       "validEmail": "Правильно",
       "enterValidEmail": "Введите правильный email",
       "haveQuestions": "Остались вопросы?",
-      "contactUs": "Свяжитесь с нами!",
+      "contactUs": "Свяжитесь с нами",
       "fullName": "ФИО",
       "phoneNumber": "Номер телефона",
       "email": "E-mail",
@@ -214,5 +214,8 @@
   "Contacts": {
     "title-1": "Свяжитесь с нами:",
     "title-2": "Ваше идеальное жилье всего в одном шаге"
+  },
+  "Partners": {
+    "title": "Наши партнеры"
   }
 }

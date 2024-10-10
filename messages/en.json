@@ -103,7 +103,7 @@
       "validEmail": "Correct",
       "enterValidEmail": "Enter a valid email",
       "haveQuestions": "Have questions?",
-      "contactUs": "Contact us!",
+      "contactUs": "Contact us",
       "fullName": "Full Name",
       "phoneNumber": "Phone Number",
       "email": "E-mail",
@@ -214,5 +214,8 @@
       "title-1": "Contact us:",
       "title-2": "Your perfect home is just one step away"
     }
+  },
+  "Partners": {
+    "title": "Our Partners"
   }
 }

@@ -103,7 +103,7 @@
       "validEmail": "To'g'ri",
       "enterValidEmail": "To'g'ri emailni kiriting",
       "haveQuestions": "Savollaringiz bormi?",
-      "contactUs": "Biz bilan bog'laning!",
+      "contactUs": "Biz bilan bog'laning",
       "fullName": "To'liq ismingiz",
       "phoneNumber": "Telefon raqami",
       "email": "E-mail",
@@ -214,5 +214,8 @@
       "title-1": "Biz bilan bog'laning:",
       "title-2": "Sizning ideal uyingiz atigi bir qadam narida"
     }
+  },
+  "Partners": {
+    "title": "Hamkorlarimiz"
   }
 }

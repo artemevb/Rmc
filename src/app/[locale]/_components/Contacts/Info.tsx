@@ -5,22 +5,23 @@ export default function Scheme() {
 
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto px-2 flex flex-col gap-10">
-            <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium hr max-w-[612px]">
+            <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium hr max-w-[612px] leading-[38px] mdx:leading-[50px] xl:leading-[70px]">
                 <p className='text-[#E1AF93]'>{t('title-1')}</p>{t('title-2')}
             </h2>
             <div className='w-full flex flex-col 2xl:flex-row gap-[16px]'>
 
                 <div className='slg:flex slg:flex-row slg:gap-[16px] w-full'>
                     <div className='border p-[24px] flex flex-col items-start justify-between w-full max-slg:mb-[16px]'>
-                        <div className=' pb-[20px]'>
+                        <div className='pb-[20px]'>
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Телефон</p>
-                            <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (90) 123 45 67</p>
+                            <a href="tel:+998901234567" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (90) 123 45 67</a>
                         </div>
                         <hr className='w-full' />
-                        <div className=' pt-[20px]'>
+                        <div className='pt-[20px]'>
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>E-mail</p>
-                            <p className='text-[22px] mdx:text-[28px] xl:text-[30px]'>name@domain.uz</p>
+                            <a href="mailto:name@domain.uz" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>name@domain.uz</a>
                         </div>
+
                     </div>
 
                     <div className='border p-[24px] flex flex-col items-start justify-between w-full 2xl:hidden'>
