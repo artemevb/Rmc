@@ -58,7 +58,7 @@ const PartnersComp: React.FC = () => {
         speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false, 
+        arrows: false,
         autoplay: true,
         autoplaySpeed: 5000,
         responsive: [

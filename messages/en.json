@@ -209,13 +209,107 @@
       "faq_question_2": "Minimum investment amount",
       "faq_question_3": "Deal execution procedure",
       "faq_question_4": "Maintenance costs and utility payments"
-    },
-    "Contacts": {
-      "title-1": "Contact us:",
-      "title-2": "Your perfect home is just one step away"
     }
+  },
+  "Contacts": {
+    "title-1": "Contact us:",
+    "title-2": "Your perfect home is just one step away",
+    "telephone": "Phone",
+    "time-work": "Working Hours",
+    "work-day": "Mon-Fri",
+    "addres": "Address",
+    "addres-2": "Uzbekistan, Tashkent city, Chinabad street 2",
+    "email": "Email"
   },
   "Partners": {
     "title": "Our Partners"
+  },
+  "About": {
+    "title": "RMC DE LUXE",
+    "subtitle": "Real estate agency in Tashkent",
+    "title-about": "About the Company",
+    "text-about-1": "PRMC De Luxe is a real estate agency in Tashkent, specializing in appraisal, rental, and sale of real estate. The company aims to provide high-quality and comprehensive real estate services for individuals and corporate clients.",
+    "text-about-2": "To meet the needs of clients, the company ensures a professional approach, personalized service, and innovative solutions.",
+    "Service": {
+      "title": "Services",
+      "subtitle": "We offer a wide range of services for our clients",
+      "card-1": "Property Appraisal",
+      "card1": {
+        "title": "Property Appraisal",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Conducting expert evaluations of property market value"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Market analysis and report preparation"
+          }
+        },
+        "imageAlt": "Property Appraisal"
+      },
+      "card2": {
+        "title": "Property Rental",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Preparing the property for rent"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Finding tenants"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Managing rental relationships and concluding contracts"
+          }
+        },
+        "imageAlt": "Property Rental"
+      },
+      "card3": {
+        "title": "Property Search for Rent",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Searching for suitable rental properties"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Organizing viewings"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Handling lease agreements"
+          }
+        },
+        "imageAlt": "Property Search for Rent"
+      },
+      "card4": {
+        "title": "Buying/Selling Property",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Organizing property purchases and sales"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Legal support for transactions"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Conducting negotiations"
+          },
+          "3": {
+            "alt": "Check",
+            "text": "Property evaluation"
+          },
+          "4": {
+            "alt": "Check",
+            "text": "Marketing"
+          }
+        },
+        "imageAlt": "Buying/Selling Property"
+      }
+    }
   }
 }

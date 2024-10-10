@@ -13,8 +13,8 @@ export default function Scheme() {
                 <div className='slg:flex slg:flex-row slg:gap-[16px] w-full'>
                     <div className='border p-[24px] flex flex-col items-start justify-between w-full max-slg:mb-[16px]'>
                         <div className='pb-[20px]'>
-                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Телефон</p>
-                            <a href="tel:+998901234567" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (90) 123 45 67</a>
+                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'> {t('telephone')}</p>
+                            <a href="tel:+998785558787" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (78) 555 87 87</a>
                         </div>
                         <hr className='w-full' />
                         <div className='pt-[20px]'>
@@ -26,39 +26,43 @@ export default function Scheme() {
 
                     <div className='border p-[24px] flex flex-col items-start justify-between w-full 2xl:hidden'>
                         <div >
-                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
+                            <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>{t('time-work')}</p>
                             <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
-                                <br />пн-пт</p>
+                                <br />{t('work-day')}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className='border p-[24px] flex flex-col items-start justify-between w-full'>
                     <div >
-                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>Адрес</p>
-                        <p className='text-[22px] mdx:text-[28px] xl:text-[30px] lh mt-[4px] 2xl:leading-[36px]'>Узбекистан, г.Ташкент, ул.Такая-то, дом такой-то, Ориентир такой-то</p>
+                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>{t('addres')}</p>
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=41.3513907,69.2888885"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className='text-[22px] mdx:text-[28px] xl:text-[30px] lh mt-[4px] 2xl:leading-[36px]  hover:text-[#868585]'>
+                            {t('addres-2')}
+                        </a>
                     </div>
                 </div>
                 <div className='border p-[24px] flex-col items-start justify-between w-full hidden 2xl:block'>
                     <div >
-                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>График работы</p>
+                        <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>{t('time-work')}</p>
                         <p className='text-[22px] mdx:text-[28px] xl:text-[30px] mt-[4px]'>09:00 - 18:00
-                            <br />пн-пт</p>
+                            <br />{t('work-day')}</p>
                     </div>
                 </div>
 
             </div>
             <div className="h-[300px] mdx:h-[350px] xl:h-[550px] w-full ">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.0640191323969!2d55.30726323929795!3d25.266277951561523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43e4158d75a1%3A0x352852e5ebff102d!2sCasiani%20Furs!5e0!3m2!1sru!2s!4v1723103423605!5m2!1sru!2s"
-                    width="100%"
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2995.0443057814678!2d69.2888885!3d41.351390699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDIxJzA1LjAiTiA2OcKwMTcnMjAuMCJF!5e0!3m2!1sru!2s!4v1728543183772!5m2!1sru!2s" width="100%"
                     height="400"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="relative top-0 left-0 w-full h-full border-none"
-                    frameBorder="0">
-                </iframe>
+                    frameBorder="0"></iframe>
             </div>
         </div >
     )

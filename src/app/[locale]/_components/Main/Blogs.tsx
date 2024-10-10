@@ -130,7 +130,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
                 {t("title")}
             </h2>
-            <div className='w-full h-auto hidden xl:block'>
+            <div className='w-full h-auto '>
                 <Slider {...settings} className='h-auto w-full '>
                     {visibleNews.map((item, i) => (
                         <div className='px-[10px] xl:h-[420px] max-h-full' key={i}>
@@ -146,7 +146,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
                     ))}
                 </Slider>
             </div>
-            <div className='w-full h-auto grid mdx:grid-cols-2 gap-[30px] mdx:gap-[16px] xl:hidden'>
+            {/* <div className='w-full h-auto grid mdx:grid-cols-2 gap-[30px] mdx:gap-[16px] xl:hidden'>
                 {visibleNews.map((item, i) => (
                     <Link key={i} href={`/${locale}/blog/${item.slug}`}>
                         <NewCardMain
@@ -157,7 +157,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
                         />
                     </Link>
                 ))}
-            </div>
+            </div> */}
             <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
                 <Link href={`/${locale}/news`} className='bg-[#E1AF93] hover:bg-[#EAC7B4] text-white py-[12px] px-4 w-[223px]  flex justify-center font-semibold text-[17px]'>
                     {t("button-more")}

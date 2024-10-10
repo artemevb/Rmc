@@ -136,10 +136,10 @@ export default function Banner() {
                             />
                         </SwiperSlide>
                     </Swiper>
-                    <div ref={prevRef} className="absolute xl:left-5 left-3 top-2 mdx:left-3 mdx:top-4 xl:top-7 z-10 cursor-pointer">
+                    <div ref={prevRef} className="absolute xl:left-5 left-3 top-2 mdx:left-3 mdx:top-4 xl:top-7 z-10 cursor-pointer hidden xl:block">
                         <Image src={arrowLeft} quality={100} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Previous" />
                     </div>
-                    <div ref={nextRef} className="absolute xl:left-[100px] left-[68px] mdx:left-[85px] top-2 mdx:top-4 xl:top-7 z-10 cursor-pointer ">
+                    <div ref={nextRef} className="absolute xl:left-[100px] left-[68px] mdx:left-[85px] top-2 mdx:top-4 xl:top-7 z-10 cursor-pointer hidden xl:block">
                         <Image src={arrowRight} quality={100} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Next" />
                     </div>
                 </div>

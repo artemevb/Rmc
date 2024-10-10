@@ -209,13 +209,107 @@
       "faq_question_2": "Minimal sarmoya miqdori",
       "faq_question_3": "Bitimni yozib olish tartibi",
       "faq_question_4": "Texnik xizmat ko'rsatish va kommunal to'lovlar narxi"
-    },
-    "Contacts": {
-      "title-1": "Biz bilan bog'laning:",
-      "title-2": "Sizning ideal uyingiz atigi bir qadam narida"
     }
+  },
+  "Contacts": {
+    "title-1": "Biz bilan bog'laning:",
+    "title-2": "Sizning ideal uyingiz atigi bir qadam narida",
+    "telephone": "Telefon",
+    "time-work": "Ish vaqti",
+    "work-day": "du-juma",
+    "addres": "Manzil",
+    "addres-2": "O‘zbekiston, Toshkent shahri, Chinobod ko‘chasi 2",
+    "email": "Elektron pochta"
   },
   "Partners": {
     "title": "Hamkorlarimiz"
+  },
+  "About": {
+    "title": "RMC DE LUXE",
+    "subtitle": "Realtorlik agentligi Toshkentda",
+    "title-about": "Kompaniya Haqida",
+    "text-about-1": "PRMC De Luxe Toshkentda joylashgan, mulk baholash, ijaraga berish va sotish bo'yicha ixtisoslashgan ko'chmas mulk agentligi. Kompaniya jismoniy shaxslar va korporativ mijozlar uchun yuqori sifatli va kompleks ko'chmas mulk xizmatlarini taqdim etishga yo'naltirilgan.",
+    "text-about-2": "Mijozlarning ehtiyojlarini qondirish maqsadida, kompaniya professional yondashuv, shaxsiylashtirilgan xizmat va innovatsion yechimlarni ta'minlaydi.",
+    "Service": {
+      "title": "Xizmatlar",
+      "subtitle": "Biz mijozlarimiz uchun keng ko‘lamli xizmatlarni taklif etamiz",
+      "card-1": "Mulk Baholash",
+      "card1": {
+        "title": "Mulk Baholash",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Mulk bozor qiymatini ekspert baholash"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Bozor tahlili va hisobot tayyorlash"
+          }
+        },
+        "imageAlt": "Mulk Baholash"
+      },
+      "card2": {
+        "title": "Mulkni Ijara Berish",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Ijara uchun mulkni tayyorlash"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Ijara oluvchilarni topish"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Ijara munosabatlarini boshqarish va shartnomalarni yakunlash"
+          }
+        },
+        "imageAlt": "Mulkni Ijara Berish"
+      },
+      "card3": {
+        "title": "Ijara Uchun Mulk Qidirish",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Ijara uchun mos mulklarni qidirish"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Ko‘rsatmalarni tashkil etish"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Ijara shartnomalarini tuzish"
+          }
+        },
+        "imageAlt": "Ijara Uchun Mulk Qidirish"
+      },
+      "card4": {
+        "title": "Mulk Sotib/Olish/Sotish",
+        "items": {
+          "0": {
+            "alt": "Check",
+            "text": "Mulk sotib olish va sotishni tashkil etish"
+          },
+          "1": {
+            "alt": "Check",
+            "text": "Bitimlarga huquqiy qo‘llab-quvvatlash"
+          },
+          "2": {
+            "alt": "Check",
+            "text": "Suhbatlarni olib borish"
+          },
+          "3": {
+            "alt": "Check",
+            "text": "Mulk baholash"
+          },
+          "4": {
+            "alt": "Check",
+            "text": "Marketing"
+          }
+        },
+        "imageAlt": "Mulk Sotib/Olish/Sotish"
+      }
+    }
   }
 }

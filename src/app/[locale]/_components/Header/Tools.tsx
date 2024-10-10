@@ -68,7 +68,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             />
           </button>
         </Link>
-        <a href="tel:+998901234567" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
+        <a href="tel:+998785558787" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
           <Image
             src={phoneIcon}
             height={100}

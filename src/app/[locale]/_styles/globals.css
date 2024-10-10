@@ -21,3 +21,14 @@
 .counter-shadow {
     box-shadow: 0px 0px 30px 0px rgba(15, 17, 18, 0.05); 
 }
+/* Скрыть полосы прокрутки для Chrome, Safari и Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Скрыть полосы прокрутки для Firefox */
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE и Edge */
+  }
+  

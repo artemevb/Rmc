@@ -20,7 +20,7 @@ export default function Banner() {
   const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
-  
+
   // Явное определение типа состояния navigation
   const [navigation, setNavigation] = useState<{
     prevEl: HTMLDivElement | null;
@@ -103,9 +103,9 @@ export default function Banner() {
                 </p>
 
                 <div>
-                  <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px]">
+                  {/* <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px]">
                     {t('button-more')}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </SwiperSlide>
@@ -114,7 +114,7 @@ export default function Banner() {
         <div className="max-xl:mx-2">
           <div
             ref={prevRef}
-            className="absolute mdx:right-[100px] 3xl:right-[16%] max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer"
+            className="absolute mdx:right-[100px] 3xl:right-[16%] max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
             <Image
               src={arrowLeft}
@@ -125,7 +125,7 @@ export default function Banner() {
           </div>
           <div
             ref={nextRef}
-            className="absolute mdx:right-5 3xl:right-[10.4%] mdx:bottom-2 max-mdx:top-[45%] max-mdx:left-[70px] transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer"
+            className="absolute mdx:right-5 3xl:right-[10.4%] mdx:bottom-2 max-mdx:top-[45%] max-mdx:left-[70px] transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
             <Image
               src={arrowRight}
