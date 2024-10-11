@@ -9,9 +9,9 @@ import Image, { StaticImageData } from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import build1 from "@/public/images/main/whyus/slide1.png";
-import build2 from "@/public/images/main/whyus/slide1.png";
-import build3 from "@/public/images/main/whyus/slide1.png";
-import build4 from "@/public/images/main/whyus/slide1.png";
+import build2 from "@/public/images/main/whyus/slide2.png";
+import build3 from "@/public/images/main/whyus/slide3.png";
+import build4 from "@/public/images/main/whyus/slide4.png";
 
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
@@ -159,7 +159,7 @@ export default function Banner() {
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (
                         <div key={index} className="px-2.5 mdx:px-1.5">
-                            <div className="relative flex flex-col items-center max-h-[600px] overflow-hidden">
+                            <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
                                 <Image
                                     src={item.image}
                                     alt={item.title}

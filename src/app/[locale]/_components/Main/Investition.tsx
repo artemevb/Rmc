@@ -2,6 +2,7 @@ import Image from 'next/image';
 import build1 from "@/public/images/main/build1.png";
 import build1_big from "@/public/images/main/Build1-big.png";
 import build2 from "@/public/images/main/build1.5.png";
+import build2_big from "@/public/images/main/build1-sm.png";
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
@@ -47,7 +48,7 @@ export default function Banner({ locale }: local) {
                             className='w-full h-full min-h-[220px]' />
                     </div>
                     <div>
-                        <Image src={build2}
+                        <Image src={build2_big}
                             alt="buildings2"
                             width={1000}
                             height={1000}

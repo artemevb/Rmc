@@ -19,7 +19,7 @@ export default function Footer({ locale }: LocaleProps) {
     <div className="bg-[#F7F7F7] w-full px-2 pt-12">
       <div className="w-full max-w-[1440px] flex flex-col gap-12 mx-auto">
         <div className="w-full flex justify-between flex-col gap-12">
-          <div className="flex  justify-between flex-row gap-5 border-b pb-[25px] xl:pb-[50px]">
+          <div className="flex  justify-between flex-row gap-5 border-b pb-[25px] xl:pb-[50px] items-center">
             <div className="flex flex-col gap-5 ">
               <Link href="/" className="h-auto w-auto items-center flex">
                 <div className="flex flex-row gap-[8px] items-center">
@@ -104,7 +104,7 @@ export default function Footer({ locale }: LocaleProps) {
                 <Link href={`/${locale}/news`}>{t('commercial')}</Link>
               </div>
             </div>
-            <div className="lg:w-1/2 w-full flex flex-row max-mdx:gap-5 xl:gap-[138px]">
+            <div className="lg:w-1/2 w-full flex flex-row max-mdx:mt-[35px] max-mdx:gap-5 xl:gap-[138px]">
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[108px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('company')}
