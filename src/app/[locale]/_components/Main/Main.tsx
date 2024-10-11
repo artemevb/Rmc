@@ -22,7 +22,7 @@ export default function Main({ locale }: NewsCompProps) {
       <Service />
       <Consalting />
       <WhyUs />
-      <BuildingsSlider locale={locale} />
+      <BuildingsSlider/>
       <Counter />
       <Form />
       <BlogSlider locale={locale} />
