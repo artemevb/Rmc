@@ -332,6 +332,8 @@
   },
   "Blog": {
     "title": "Articles",
+    "title-popular": "Popular articles",
+    "itemsPerPage": "Items per page:",
     "sort": "Sort",
     "filter-1": "By date: newest first",
     "filter-2": "By date: oldest first",

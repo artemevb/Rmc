@@ -332,6 +332,8 @@
   },
   "Blog": {
     "title": "Maqolalar",
+    "title-popular": "Mashhur maqolalar",
+    "itemsPerPage": "Sahifadagi narsalar soni:",
     "sort": "Saralash",
     "filter-1": "Sana bo'yicha: yangilari birinchi",
     "filter-2": "Sana bo'yicha: eskilari birinchi",

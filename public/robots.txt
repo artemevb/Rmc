@@ -1,0 +1,11 @@
+# Разрешить доступ всем роботам ко всему сайту
+User-agent: *
+Disallow:
+
+# Запретить доступ к определённой директории
+# User-agent: *
+# Disallow: /private/
+
+# Запретить доступ к определённым файлам
+# User-agent: *
+# Disallow: /secret.html

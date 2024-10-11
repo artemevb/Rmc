@@ -78,7 +78,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
-                {t("title")}
+                {t("title-popular")}
             </h2>
             {/* Grid Layout */}
             <div className='w-full h-auto grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px]'>
