@@ -108,7 +108,7 @@
       "phoneNumber": "Номер телефона",
       "email": "E-mail",
       "question": "Ваш вопрос",
-      "pleaseFillAllFields":"Заполните поле",
+      "pleaseFillAllFields": "Заполните поле",
       "submit": "Отправить"
     },
     "Footer": {
@@ -326,8 +326,15 @@
     "services-1": "Регистрация компании",
     "services-2": "Консалтинг",
     "services-3": "Лицензирование",
-    "your_message_sent":"Вопрос отправлен!",
-    "your_message_has_been_sent":"Наши менеджеры свяжутся с вами ближайшее время",
+    "your_message_sent": "Вопрос отправлен!",
+    "your_message_has_been_sent": "Наши менеджеры свяжутся с вами ближайшее время",
     "close": "Ок"
+  },
+  "Blog": {
+    "title": "Статьи",
+    "sort": "Сортировать",
+    "filter-1": "По дате: сначала новые",
+    "filter-2": "По дате: сначала старые",
+    "filter-3": "По популярности"
   }
 }

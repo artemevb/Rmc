@@ -329,5 +329,12 @@
     "your_message_sent": "Question sent!",
     "your_message_has_been_sent": "Our managers will contact you shortly",
     "close": "OK"
+  },
+  "Blog": {
+    "title": "Articles",
+    "sort": "Sort",
+    "filter-1": "By date: newest first",
+    "filter-2": "By date: oldest first",
+    "filter-3": "By popularity"
   }
 }

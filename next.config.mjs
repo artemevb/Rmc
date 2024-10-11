@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['rmc.mrjtrade.uz'], // Добавьте домен, откуда будут загружаться изображения
+  },
 };
 
 export default withNextIntl(nextConfig);

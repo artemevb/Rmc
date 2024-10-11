@@ -329,5 +329,12 @@
     "your_message_sent": "Savolingiz yuborildi!",
     "your_message_has_been_sent": "Bizning menejerlarimiz yaqin vaqt ichida siz bilan bog'lanadi",
     "close": "OK"
+  },
+  "Blog": {
+    "title": "Maqolalar",
+    "sort": "Saralash",
+    "filter-1": "Sana bo'yicha: yangilari birinchi",
+    "filter-2": "Sana bo'yicha: eskilari birinchi",
+    "filter-3": "Ommaboplik bo'yicha"
   }
 }

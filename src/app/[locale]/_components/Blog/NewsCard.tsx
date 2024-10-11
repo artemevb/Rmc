@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import { StaticImageData } from 'next/image';
 import Arrow_Gold from '@/public/svg/arrow-right-gold.svg';
 import Eyes from '@/public/svg/eyes-slider.svg';
 import { useTranslations } from 'next-intl';
@@ -10,7 +9,7 @@ interface NewCardProps {
   subtitle: string;
   date: string;
   views: string;  // Adding views count
-  imageSrc: StaticImageData;
+  imageSrc: string;
 }
 
 const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) => {
@@ -26,11 +25,11 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           height={800}
           quality={100}
           alt={`News Image`}
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover xl:max-w-[466px] xl:max-h-[300px]"
         />
 
         {/* Date and Views Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full flex items-end p-4">
+        <div className="absolute top-0 left-0 w-full h-full flex items-end p-4 ">
           <div className="flex justify-between items-center w-full">
             {/* Date */}
             <p className=" bg-opacity-70  px-2 py-1 text-[16px] xl:text-[20px] text-[#fff]">
