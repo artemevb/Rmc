@@ -374,7 +374,7 @@ export default function Services() {
             {/* Карточка 4 */}
             <div className='flex-col w-full mt-[20px]'>
                 <div
-                    className='w-full h-[390px] mdx:h-[360px] mdx:w-[266px] bg-[#EDF3F5] p-[22px] relative overflow-hidden overflow-y-auto hide-scrollbar cursor-pointer'
+                    className='w-full h-[390px] mdx:h-[360px] mdx:w-[266px] bg-[#EDF3F5] p-[22px] relative overflow-hidden mdx:overflow-y-auto mdx:hide-scrollbar cursor-pointer'
                     onClick={() => handleClick(4)}
                 >
                     <h4 className='text-[22px] mdx:text-[22px] xl:text-[24px] font-medium'>{t('card4.title')}</h4>

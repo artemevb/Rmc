@@ -4,8 +4,9 @@ import build1 from "@/public/images/main/Form1.png";
 import build2 from "@/public/images/main/Form2.png";
 import Image from 'next/image';
 import { useTranslations } from "next-intl";
+import axios, { AxiosError } from 'axios'; // Импортируем Axios и тип AxiosError
 
-// Define the shape of the form values
+// Определяем форму значений
 interface FormValues {
     fullName: string;
     phoneNumber: string;
@@ -13,7 +14,12 @@ interface FormValues {
     question: string;
 }
 
-// Define the validation result structure
+// Интерфейс для ответа об ошибке от API
+interface ErrorResponse {
+    message: string;
+}
+
+// Результат валидации
 interface ValidationResult {
     isValid: boolean;
     message: string;
@@ -30,6 +36,9 @@ export default function ContAddress() {
     });
 
     const [focusedInput, setFocusedInput] = useState<keyof FormValues | null>(null);
+    const [loading, setLoading] = useState<boolean>(false); // Состояние загрузки
+    const [error, setError] = useState<string | null>(null); // Состояние ошибки
+
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
@@ -59,9 +68,94 @@ export default function ContAddress() {
         return { isValid: true, message: "" };
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        console.log("Form submitted:", values);
+        setError(null);
+
+
+        // Проверка всех полей перед отправкой
+        let isFormValid = true;
+        let firstInvalidField: keyof FormValues | null = null;
+        let validationMessage = "";
+
+        for (const field of ["fullName", "phoneNumber", "email", "question"] as Array<keyof FormValues>) {
+            const validation = validateInput(field, values[field]);
+            if (!validation.isValid) {
+                isFormValid = false;
+                firstInvalidField = field;
+                validationMessage = validation.message;
+                break;
+            }
+        }
+
+        // Дополнительная проверка для незаполненных полей (например, вопрос)
+        for (const field of ["fullName", "phoneNumber", "email"] as Array<keyof FormValues>) {
+            if (!values[field].trim()) {
+                isFormValid = false;
+                firstInvalidField = field;
+                validationMessage = t('pleaseFillAllFields');
+                break;
+            }
+        }
+
+        if (!isFormValid) {
+            setError(validationMessage || t('pleaseFillAllFields'));
+            if (firstInvalidField) {
+                setFocusedInput(firstInvalidField);
+            }
+            return;
+        }
+
+        setLoading(true);
+
+        // Подготовка данных для API
+        const payload = {
+            fullName: values.fullName,
+            phoneNum: values.phoneNumber, // Преобразуем имя поля
+            email: values.email,
+            question: values.question,
+        };
+
+        try {
+            const response = await axios.post('https://rmc.mrjtrade.uz/api/application/create', payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            // Предполагаем, что API возвращает успешный статус
+            if (response.status === 200 || response.status === 201) {
+
+                setValues({
+                    fullName: "",
+                    phoneNumber: "",
+                    email: "",
+                    question: "",
+                });
+            } else {
+                setError(t('unexpectedResponse'));
+            }
+        } catch (err: unknown) {
+            // Обработка ошибок с использованием AxiosError
+            if (axios.isAxiosError(err)) {
+                const axiosError = err as AxiosError<ErrorResponse>;
+                if (axiosError.response) {
+                    // Сервер ответил с ошибкой
+                    setError(axiosError.response.data.message || t('submissionFailed'));
+                } else if (axiosError.request) {
+                    // Запрос был сделан, но ответа не было
+                    setError(t('noResponseFromServer'));
+                } else {
+                    // Произошла другая ошибка
+                    setError(t('errorOccurred'));
+                }
+            } else {
+                // Неизвестная ошибка
+                setError(t('errorOccurred'));
+            }
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -79,17 +173,18 @@ export default function ContAddress() {
                         <div className="relative" key={field}>
                             <input
                                 type={field === "email" ? "email" : "text"}
-                                name={field}
+                                name={field === "phoneNumber" ? "phoneNumber" : field} // Убедитесь, что имена полей совпадают
                                 value={values[field]}
                                 onChange={handleInputChange}
                                 onFocus={() => setFocusedInput(field)}
                                 onBlur={() => setFocusedInput(null)}
-                                className={`block w-full px-4 py-3 bg-transparent text-gray-800 placeholder-transparent focus:outline-none border-b-2 ${focusedInput === field
+                                className={`block w-full px-4 py-3 bg-transparent text-gray-800 placeholder-transparent focus:outline-none border-b-2 ${
+                                    focusedInput === field
                                         ? validateInput(field, values[field]).isValid
                                             ? "border-gray-300"
                                             : "border-red-500"
                                         : "border-gray-300"
-                                    }`}
+                                }`}
                                 placeholder={t(field)}
                             />
                             <label
@@ -108,21 +203,43 @@ export default function ContAddress() {
                                 {focusedInput === field && values[field].length > 0
                                     ? validateInput(field, values[field]).message
                                     : field === "fullName"
-                                        ? <p>{t('fullName')}<span className="text-red-500 ml-2">*</span></p>
+                                        ? (
+                                            <span>
+                                                {t('fullName')}
+                                                <span className="text-red-500 ml-2">*</span>
+                                            </span>
+                                        )
                                         : field === "phoneNumber"
-                                            ? <p>{t('phoneNumber')}<span className="text-red-500 ml-2">*</span></p>
+                                            ? (
+                                                <span>
+                                                    {t('phoneNumber')}
+                                                    <span className="text-red-500 ml-2">*</span>
+                                                </span>
+                                            )
                                             : field === "email"
-                                                ? "E-mail"
+                                                ? (
+                                                    <span>
+                                                        E-mail
+                                                        <span className="text-red-500 ml-2">*</span>
+                                                    </span>
+                                                )
                                                 : t('question')}
                             </label>
                         </div>
                     ))}
+                    {/* Отображение сообщений об ошибках или успехе */}
+                    {error && <p className="text-red-500">{error}</p>}
+                    {/* Отключено отображение сообщения об успехе */}
+                    {/* {success && <p className="text-green-500">{success}</p>} */}
                     <div>
                         <button
                             type="submit"
-                            className="py-3 w-full max-w-[228px] px-8 text-white bg-[#E1AF93] font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] 2xl:mt-[34px] 3xl:mt-[34px]"
+                            disabled={loading} // Отключить кнопку при загрузке
+                            className={`py-3 w-full max-w-[228px] px-8 text-white bg-[#E1AF93] font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] 2xl:mt-[34px] 3xl:mt-[34px] ${
+                                loading ? "opacity-50 cursor-not-allowed" : ""
+                            }`}
                         >
-                            {t('submit')}
+                            {loading ? t('submitting') : t('submit')}
                         </button>
                     </div>
                 </form>

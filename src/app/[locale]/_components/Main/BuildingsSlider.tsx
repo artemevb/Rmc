@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import build1 from "@/public/images/main/whyus/slide1.png";
@@ -26,9 +26,9 @@ interface CustomArrowProps {
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-interface local {
-    locale: string;
-}
+// interface local {
+//     locale: string;
+// }
 
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
@@ -86,8 +86,8 @@ interface SliderSettings {
         };
     }[];
 }
-
-export default function Banner({ locale }: local) {
+// export default function Banner({ locale }: local) {
+export default function Banner() {
     const t = useTranslations('Main.Buildings');
 
     const equipmentData: EquipmentItem[] = [
@@ -175,13 +175,13 @@ export default function Banner({ locale }: local) {
                         </div>
                     ))}
                 </Slider>
-                <div className="flex w-full justify-center mt-10">
+                {/* <div className="flex w-full justify-center mt-10">
                     <Link href={`/${locale}/buildings`}>
                         <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
                             {t('button-more')}
                         </button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );

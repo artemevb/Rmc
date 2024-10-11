@@ -108,6 +108,7 @@
       "phoneNumber": "Номер телефона",
       "email": "E-mail",
       "question": "Ваш вопрос",
+      "pleaseFillAllFields":"Заполните поле",
       "submit": "Отправить"
     },
     "Footer": {
@@ -311,5 +312,22 @@
         "imageAlt": "Купля/Продажа недвижимости"
       }
     }
+  },
+  "Modal": {
+    "full-name": "ФИО",
+    "company-name": "Название компании",
+    "telephone-number": "Номер телефона",
+    "text-3": "Выберите услугу",
+    "message": "Сообщение",
+    "send": "Отправить",
+    "enter_full_name": "Введите полное имя",
+    "type-of-service": "Заявка на инвестиции",
+    "enter_valid_phone_number": "Введите номер телефона",
+    "services-1": "Регистрация компании",
+    "services-2": "Консалтинг",
+    "services-3": "Лицензирование",
+    "your_message_sent":"Вопрос отправлен!",
+    "your_message_has_been_sent":"Наши менеджеры свяжутся с вами ближайшее время",
+    "close": "Ок"
   }
 }

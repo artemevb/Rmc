@@ -29,7 +29,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
                     alt={`News Image`}
                     className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0  opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3">
+                <div className="absolute inset-0  opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 xl:p-5">
 
                     <div className="flex justify-between items-center">
                         {/* Дата */}
@@ -53,7 +53,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
 
                     {/* Нижняя часть наложения: Заголовок и кнопка */}
                     <div className="flex flex-col">
-                        <p className="text-[20px] mdx:text-[22px] font-medium text-[#fff] mt-[8px] line-clamp-2">
+                        <p className="text-[20px] mdx:text-[22px] lh font-medium text-[#fff] mt-[8px] line-clamp-2">
                             {subtitle}
                         </p>
                         <div className="flex flex-row gap-[5px] items-center mt-[7px]">

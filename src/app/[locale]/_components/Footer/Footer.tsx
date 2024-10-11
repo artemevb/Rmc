@@ -130,11 +130,11 @@ export default function Footer({ locale }: LocaleProps) {
             <p className="w-full max-mdx:max-w-[150px] text-[#B3B3B3] text-[14px] xl:text-[16px]">
               {t('info')}
             </p>
-            <a href="https://result-me.uz" target="_blank">
+            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank">
               <Image
                 src={resultLogo}
-                width={500}
-                height={500}
+                width={800}
+                height={800}
                 quality={100}
                 alt="Result Logo"
                 className="h-8 w-auto"

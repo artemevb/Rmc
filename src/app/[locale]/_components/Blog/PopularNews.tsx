@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import blog1 from "@/public/images/main/blogs/slide-1.png";
 import blog2 from "@/public/images/main/blogs/slide-2.png";
 import blog3 from "@/public/images/main/blogs/slide-3.png";
-import NewCardMain from './NewCardMain';
+import NewCardMain from './PopularCardMain';
 import { StaticImageData } from 'next/image';
 import { useTranslations } from "next-intl";
 import Link from "next/link";

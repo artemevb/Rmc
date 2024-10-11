@@ -1,11 +1,22 @@
+"use client"
+import { useState } from 'react';
 import Image from 'next/image';
 import build1 from "@/public/images/main/build2.png";
 import build1_big from "@/public/images/main/build2-big.png";
 import build2 from "@/public/images/main/build3.png";
 import { useTranslations } from 'next-intl';
+import Application from '../Modal/Application';
 
 export default function Banner() {
     const t = useTranslations('Main.Consalting');
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // Function to open the modal
+    const openModal = () => setIsModalOpen(true);
+
+    // Function to close the modal
+    const closeModal = () => setIsModalOpen(false);
 
     const processText = (text: string) => {
         return text.split('\n').map((line, index) => (
@@ -25,7 +36,9 @@ export default function Banner() {
                         {processText(t('subtitle'))}
                     </h4>
                     <div>
-                        <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
+                        <button
+                            onClick={openModal}
+                            className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
                     </div>
                 </div>
                 <div className='xl:w-1/2 xl:pl-4 grid grid-cols-2 gap-[12px] xl:hidden'>
@@ -78,6 +91,7 @@ export default function Banner() {
             <div className='max-xl:px-[10px]'>
                 <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">{t('button')}</button>
             </div>
+            <Application isOpen={isModalOpen} onClose={closeModal} />
         </div>
     );
 }
