@@ -138,7 +138,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
     return (
         <div className='mx-auto w-full max-3xl:px-[10px] max-w-[1440px]'>
             <h2 className='mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium'
-            >Статьи</h2>
+            >{t('title')}</h2>
             <div className="flex flex-row justify-between items-start xl:items-center space-y-4 xl:space-y-0">
 
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-[8px]">
@@ -203,8 +203,8 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
                     {/* Пагинация и выбор количества элементов на странице */}
                     <div className='w-full flex justify-center mdx:justify-between items-center mt-[60px] mdx:mt-[80px] xl:mt-[100px]'>
-                        <div className="mdx:flex items-center space-x-2 hidden">
-                            <label htmlFor="itemsPerPage" className="text-sm">
+                        <div className="mdx:flex items-center space-x-2 hidden xl:max-h-[40px]">
+                            <label htmlFor="itemsPerPage" className="text-sm xl:text-[17px] text-[#858585]">
                                 {t('itemsPerPage')}:
                             </label>
                             <select
