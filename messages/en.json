@@ -338,5 +338,10 @@
     "filter-1": "By date: newest first",
     "filter-2": "By date: oldest first",
     "filter-3": "By popularity"
+  },
+  "not-found": {
+    "text-1": "Oops...",
+    "text-2": "Page not found",
+    "goHome": "Go to homepage"
   }
 }

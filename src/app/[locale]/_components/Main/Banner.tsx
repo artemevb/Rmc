@@ -111,10 +111,10 @@ export default function Banner() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="max-xl:mx-2">
+        <div className="max-xl:mx-2 ">
           <div
             ref={prevRef}
-            className="absolute mdx:right-[100px] 3xl:right-[16%] max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
+            className="absolute mdx:right-[100px] 3xl:right-[15.5%] 4xl:right-[14.4%]  max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
             <Image
               src={arrowLeft}

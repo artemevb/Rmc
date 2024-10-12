@@ -1,24 +1,22 @@
 'use client';
 import Image from 'next/image';
-import { StaticImageData } from 'next/image';
 import Arrow_Gold from '@/public/svg/arrow-right-gold.svg';
 import Eyes from '@/public/svg/eyes-slider.svg';
 import { useTranslations } from 'next-intl';
 
-// Интерфейс для пропсов
+
 interface NewCardProps {
   subtitle: string;
   date: string;
-  views: string;  // Adding views count
-  imageSrc: StaticImageData;
+  views: string;  
+  imageSrc: string;
 }
 
 const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) => {
   const t = useTranslations('Main.Slider.Blog');
 
   return (
-    <div className="w-full bg-white h-full flex flex-col justify-between relative">
-      {/* Image Wrapper with Overlayed Date and Views */}
+    <div className="w-full bg-white h-full flex flex-col justify-between relative ">
       <div className="relative">
         <Image
           src={imageSrc}
@@ -26,18 +24,13 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           height={800}
           quality={100}
           alt={`News Image`}
-          className="w-full h-auto object-cover"
+          className="w-full h-full object-cover min-h-[240px] max-h-[240px] mdx:min-h-[290px] mdx:max-h-[290px] xl:min-h-[300px] lg:max-h-[300px]"
         />
-
-        {/* Date and Views Overlay */}
         <div className="absolute top-0 left-0 w-full h-full flex items-end p-4">
           <div className="flex justify-between items-center w-full">
-            {/* Date */}
             <p className=" bg-opacity-70  px-2 py-1 text-[16px] xl:text-[20px] text-[#fff]">
               {date}
             </p>
-
-            {/* Views */}
             <div className="flex items-center space-x-1  bg-opacity-70 px-2 py-1 text-[16px] xl:text-[20px] text-[#fff]">
               < Image
                 src={Eyes}
@@ -53,7 +46,6 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
         </div>
       </div>
 
-      {/* Subtitle and Button */}
       <div className="w-full flex flex-col flex-grow justify-between mt-[10px] xl:mt-[15px]">
         <p className="text-[20px] mdx:text-[24px] lh font-medium text-[#333333] mt-[8px] line-clamp-2">
           {subtitle}

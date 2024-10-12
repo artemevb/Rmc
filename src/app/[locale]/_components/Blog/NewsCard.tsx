@@ -25,7 +25,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           height={800}
           quality={100}
           alt={`News Image`}
-          className="w-full h-auto object-cover xl:max-w-[466px] xl:max-h-[300px]"
+          className="w-full h-auto object-cover xl:max-w-[466px] min-h-[240px] max-h-[240px] mdx:min-h-[290px] mdx:max-h-[290px] xl:min-h-[300px] lg:max-h-[300px]"
         />
 
         {/* Date and Views Overlay */}

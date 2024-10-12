@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   title: 'RMC De Luxe - Риэлторское Агентство в Ташкенте',
   description: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.',
   keywords: 'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, оценка недвижимости, RMC De Luxe',
-  // authors: [{ name: 'RMC De Luxe', url: 'https://www.yoursite.com' }],
+  authors: [{ name: 'RMC De Luxe', url: 'https://rmcestate.uz' }],
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    // url: 'https://www.yoursite.com',
+    url: 'https://rmcestate.uz',
     title: 'RMC De Luxe - Риэлторское Агентство в Ташкенте',
     description: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.',
     siteName: 'RMC De Luxe',
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     // shortcut: '/favicon-16x16.png',
     // apple: '/apple-touch-icon.png',
   },
-  // alternates: {
-  //   canonical: 'https://www.yoursite.com',
-  //   languages: {
-  //     ru: '/ru',
-  //     uz: '/uz',
-  //     en: '/en',
-  //   },
-  // },
+  alternates: {
+    canonical: 'https://rmcestate.uz',
+    languages: {
+      ru: '/ru',
+      uz: '/uz',
+      en: '/en',
+    },
+  },
 };
 
 export type Locales = 'ru' | 'uz' | 'en';
@@ -70,12 +70,11 @@ export default async function RootLayout({
   // Получаем сообщения для текущей локали
   const messages = await getMessages({ locale });
 
-  // Структурированные данные
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
-    // "url": "https://www.yoursite.com",
+    "url": "https://rmcestate.uz",
     // "logo": "https://www.yoursite.com/logo.png",
     // "image": "https://www.yoursite.com/office.jpg",
     "description": "RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.",

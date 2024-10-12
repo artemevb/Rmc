@@ -338,5 +338,10 @@
     "filter-1": "Sana bo'yicha: yangilari birinchi",
     "filter-2": "Sana bo'yicha: eskilari birinchi",
     "filter-3": "Ommaboplik bo'yicha"
+  },
+  "not-found": {
+    "text-1": "Voy... ",
+    "text-2": "Sahifa topilmadi",
+    "goHome": "Bosh sahifaga"
   }
 }
