@@ -9,20 +9,22 @@ import Counter from "./Counter";
 import Form from "./Form";
 import BlogSlider from "./Blogs";
 
-interface NewsCompProps {
-  locale: string;
+type Locale = 'uz' | 'ru' | 'en'; // Определение типа Locale
+
+interface MainProps {
+  locale: Locale; // Используем тип Locale
 }
 
-export default function Main({ locale }: NewsCompProps) {
+export default function Main({ locale }: MainProps) {
   return (
-    <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
+    <div className="bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
       <Banner />
       <AboutUs />
       <Investition locale={locale} />
       <Service />
       <Consalting />
       <WhyUs />
-      <BuildingsSlider/>
+      <BuildingsSlider />
       <Counter />
       <Form />
       <BlogSlider locale={locale} />
