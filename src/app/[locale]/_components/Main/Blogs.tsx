@@ -1,5 +1,5 @@
 "use client";
-// Import statements
+// Импорт зависимостей
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
@@ -65,19 +65,27 @@ interface NewsItem {
     head: NewsHead;
 }
 
-type Locale = 'uz' | 'ru' | 'en'; // Define Locale as a union type
-
 interface NewsCompProps {
-    locale: Locale; // Use the Locale type here
+    locale: string; // Оставляем тип как string
 }
+
+// Функция помощник для безопасного получения заголовка
+const getTitle = (titleDescription: TitleDescription, locale: string): string => {
+    const supportedLocales: Array<keyof TitleDescription> = ['uz', 'ru', 'en'];
+    if (supportedLocales.includes(locale as keyof TitleDescription)) {
+        return titleDescription[locale as keyof TitleDescription];
+    }
+    // Возврат значения по умолчанию, если locale не поддерживается
+    return titleDescription['ru'] || titleDescription['uz'] || '';
+};
 
 export default function NewsComp({ locale }: NewsCompProps) {
     const t = useTranslations('Main.Blogs');
-    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]); // Only visibleNews state
+    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Slider settings
+    // Настройки слайдера
     const settings = {
         infinite: true,
         speed: 1500,
@@ -114,26 +122,26 @@ export default function NewsComp({ locale }: NewsCompProps) {
         ],
     };
 
-    // Function to get random news without repeats
+    // Функция для получения случайных новостей без повторений
     const getRandomNews = (arr: NewsItem[], count: number): NewsItem[] => {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random()); // Shuffle array
-        return shuffled.slice(0, count); // Return first count elements
+        const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
     };
 
-    // Function to fetch news from API
+    // Функция для получения новостей из API
     const fetchNews = async () => {
         try {
             const response = await axios.get<ApiResponse>('https://rmc.mrjtrade.uz/api/blog/get-all', {
                 headers: {
-                    'Accept-Language': '-', // Use wildcard to request all languages
+                    'Accept-Language': '-', // Запрос всех языков
                 },
             });
 
             const blogs = response.data.data;
 
-            // Map API data to NewsItem[]
+            // Преобразование данных API в NewsItem[]
             const mappedNews: NewsItem[] = blogs.map(blog => {
-                // Выбираем опцию с наименьшим orderNum
+                // Выбор опции с наименьшим orderNum
                 const primaryOption = blog.options.reduce((prev, current) => {
                     return prev.orderNum < current.orderNum ? prev : current;
                 }, blog.options[0]);
@@ -141,7 +149,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
                 return {
                     slug: blog.slug,
                     head: {
-                        heading: primaryOption.title[locale] || primaryOption.title['ru'] || primaryOption.title['uz'] || '',
+                        heading: getTitle(primaryOption.title, locale),
                         date: formatDate(blog.createdDate),
                         photo: { url: primaryOption.photo.url },
                         views: blog.viewCounter.toString(),
@@ -149,7 +157,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
                 };
             });
 
-            // Устанавливаем случайные 4 новости
+            // Установка 4 случайных новостей
             setVisibleNews(getRandomNews(mappedNews, 4));
             setLoading(false);
         } catch (err) {
@@ -159,17 +167,17 @@ export default function NewsComp({ locale }: NewsCompProps) {
         }
     };
 
-    // Function to format date (from "11-10-2024" to "11.10.2024")
+    // Функция для форматирования даты (из "11-10-2024" в "11.10.2024")
     const formatDate = (dateStr: string): string => {
         const parts = dateStr.split('-');
         if (parts.length !== 3) return dateStr;
         return `${parts[0]}.${parts[1]}.${parts[2]}`;
     };
 
-    // Initial load of news items
+    // Инициализация загрузки новостей при изменении locale
     useEffect(() => {
         fetchNews();
-    }, [locale]); // Перезагружать при смене локали
+    }, [locale]);
 
     if (loading) {
         return <div className='text-center'>Загрузка...</div>;
@@ -201,7 +209,7 @@ export default function NewsComp({ locale }: NewsCompProps) {
                 </Slider>
             </div>
             {/* Резервный вариант для мобильных устройств, если нужно */}
-            {/* 
+            {/*
             <div className='w-full h-auto grid mdx:grid-cols-2 gap-[30px] mdx:gap-[16px] xl:hidden'>
                 {visibleNews.map((item, i) => (
                     <Link key={i} href={`/${locale}/blog/${item.slug}`}>
@@ -223,3 +231,4 @@ export default function NewsComp({ locale }: NewsCompProps) {
         </div>
     );
 }
+
