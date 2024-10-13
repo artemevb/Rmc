@@ -32,11 +32,12 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         return apiData.map(item => {
             // Найдём опцию, соответствующую текущему языку (locale)
             const option = item.options.find(opt => opt.title[locale as keyof typeof opt.title]) || item.options[0];
+
             return {
                 slug: item.slug,
                 head: {
                     heading: option.title[locale as keyof typeof option.title] || option.title.ru, // Предпочтение текущему языку
-                    date: new Date(item.createdDate.replace(/-/g, '/')).toISOString().split('T')[0], // Форматирование даты
+                    date: formatDate(item.createdDate), // Используем функцию для форматирования даты
                     photo: {
                         url: option.photo.url,
                     },
@@ -46,6 +47,15 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         });
     }, [locale]);
 
+    // Функция для форматирования даты в формат dd.MM.yyyy
+    const formatDate = (dateString: string): string => {
+        const date = new Date(dateString.replace(/-/g, '/')); // Замена дефисов для Safari
+        const day = String(date.getDate()).padStart(2, '0'); // Добавление нуля для однозначных дней
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Добавление нуля и +1 для корректного месяца
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    };
+
     // Загрузка данных из API с передачей языка как параметра
     useEffect(() => {
         const fetchNews = async () => {
@@ -54,11 +64,10 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
             try {
                 // Передаем язык через параметр 'lang'
                 const res = await axios.get(`https://rmc.mrjtrade.uz/api/blog/get-all`, {
-                    // Set the Accept-Language header to the language of the reviews
                     headers: {
                         'Accept-Language': '-', // Use wildcard to request all languages
                     },
-                })
+                });
                 const newsItems = mapApiDataToNewsItem(res.data.data);
                 // Сортировка по умолчанию
                 const sortedNews = sortNews(newsItems, selectedSortOption);
@@ -137,10 +146,10 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
     return (
         <div className='mx-auto w-full max-3xl:px-[10px] max-w-[1440px]'>
-            <h2 className='mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium'
-            >{t('title')}</h2>
+            <h2 className='mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium'>
+                {t('title')}
+            </h2>
             <div className="flex flex-row justify-between items-start xl:items-center space-y-4 xl:space-y-0">
-
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-[8px]">
                     {/* Добавьте необходимые фильтры */}
                 </div>
@@ -168,8 +177,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                             {sortOptions.map(option => (
                                 <li key={option.value}>
                                     <button
-                                        className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCF7F4] ${selectedSortOption === option.value ? 'bg-[#FCF7F4] text-[#E1AF93]' : ''
-                                            }`}
+                                        className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCF7F4] ${selectedSortOption === option.value ? 'bg-[#FCF7F4] text-[#E1AF93]' : ''}`}
                                         onClick={() => handleSortChange(option.value)}
                                     >
                                         {option.label}
@@ -235,4 +243,3 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 };
 
 export default NewsComp;
-
