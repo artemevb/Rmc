@@ -89,6 +89,8 @@ export default function Services() {
                                     quality={100}
                                     alt={t('card1.imageAlt')}
                                     width={350}
+                                    layout='fixed'
+                                    loading="eager"
                                     height={350}
                                     className='w-full h-full object-cover transparent'
                                 />
