@@ -1,234 +1,117 @@
-"use client";
-// Импорт зависимостей
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from 'react';
-import NewCardMain from './NewCardMain';
-import Slider from 'react-slick';
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import axios from 'axios';
+"use client"
+import axios from 'axios'
+import Image from 'next/image'
+import { useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 interface Photo {
-    id: number;
-    url: string;
+    url?: string;
 }
 
-interface TitleDescription {
-    uz: string;
-    ru: string;
-    en: string;
+interface NewsOption {
+    title?: string;
+    description?: string;
+    photo?: Photo;
 }
 
-interface Option {
-    id: number;
-    title: TitleDescription;
-    description: TitleDescription;
-    orderNum: number;
-    photo: Photo;
-}
-
-interface Type {
-    id: number;
-    name: TitleDescription;
-}
-
-interface BlogItem {
-    id: number;
-    slug: string;
-    options: Option[];
-    type: Type;
-    createdDate: string;
-    viewCounter: number;
-    active: boolean;
-    main: boolean;
-}
-
-interface ApiResponse {
-    message: string;
-    data: BlogItem[];
-}
-
-interface NewsPhoto {
-    url: string;
-}
-
-interface NewsHead {
-    heading: string;
-    date: string;
-    views: string;
-    photo: NewsPhoto;
-}
-
-interface NewsItem {
-    slug: string;
-    head: NewsHead;
+interface News {
+    createdDate?: string;
+    options?: NewsOption[];
 }
 
 interface NewsCompProps {
-    locale: string; // Оставляем тип как string
+    locale: string;
 }
 
-// Функция помощник для безопасного получения заголовка
-const getTitle = (titleDescription: TitleDescription, locale: string): string => {
-    const supportedLocales: Array<keyof TitleDescription> = ['uz', 'ru', 'en'];
-    if (supportedLocales.includes(locale as keyof TitleDescription)) {
-        return titleDescription[locale as keyof TitleDescription];
-    }
-    // Возврат значения по умолчанию, если locale не поддерживается
-    return titleDescription['ru'] || titleDescription['uz'] || '';
-};
+export default function NewsTitle({ locale }: NewsCompProps) {
 
-export default function NewsComp({ locale }: NewsCompProps) {
-    const t = useTranslations('Main.Blogs');
-    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+    const [news, setNews] = useState<News | null>(null)
+    const { slug } = useParams()
 
-    // Настройки слайдера
-    const settings = {
-        infinite: true,
-        speed: 1500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-        ],
-    };
-
-    // Функция для получения случайных новостей без повторений
-    const getRandomNews = (arr: NewsItem[], count: number): NewsItem[] => {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    };
-
-    // Функция для получения новостей из API
-    const fetchNews = async () => {
-        try {
-            const response = await axios.get<ApiResponse>('https://rmc.mrjtrade.uz/api/blog/get-all', {
-                headers: {
-                    'Accept-Language': '-', // Запрос всех языков
-                },
-            });
-
-            const blogs = response.data.data;
-
-            // Преобразование данных API в NewsItem[]
-            const mappedNews: NewsItem[] = blogs.map(blog => {
-                // Выбор опции с наименьшим orderNum
-                const primaryOption = blog.options.reduce((prev, current) => {
-                    return prev.orderNum < current.orderNum ? prev : current;
-                }, blog.options[0]);
-
-                return {
-                    slug: blog.slug,
-                    head: {
-                        heading: getTitle(primaryOption.title, locale),
-                        date: formatDate(blog.createdDate),
-                        photo: { url: primaryOption.photo.url },
-                        views: blog.viewCounter.toString(),
-                    },
-                };
-            });
-
-            // Установка 4 случайных новостей
-            setVisibleNews(getRandomNews(mappedNews, 4));
-            setLoading(false);
-        } catch (err) {
-            console.error(err);
-            setError('Ошибка при загрузке новостей');
-            setLoading(false);
-        }
-    };
-
-    // Функция для форматирования даты (из "11-10-2024" в "11.10.2024")
-    const formatDate = (dateStr: string): string => {
-        const parts = dateStr.split('-');
-        if (parts.length !== 3) return dateStr;
-        return `${parts[0]}.${parts[1]}.${parts[2]}`;
-    };
-
-    // Инициализация загрузки новостей при изменении locale
     useEffect(() => {
-        fetchNews();
-    }, [locale]);
+        const fetchNewsWithSlug = async () => {
+            try {
+                const response = await axios.get(
+                    `https://rmc.mrjtrade.uz/api/blog/get-by-slug/${slug}`,
+                    {
+                        headers: { 'Accept-Language': locale },
+                    }
+                )
+                setNews(response.data.data)
+            } catch (error: unknown) {
+                if (axios.isAxiosError(error)) {
+                    console.error('Failed to fetch news:', error.message)
+                } else {
+                    console.error('Failed to fetch news:', error)
+                }
+                setNews(null) // Reset state if fetching fails
+            }
+        }
+        fetchNewsWithSlug()
+    }, [locale, slug])
 
-    if (loading) {
-        return <div className='text-center'>Загрузка...</div>;
+    const formatTextWithNewlines = (text: string): JSX.Element[] => {
+        return text.split('\n').map((line: string, index: number) => (
+            <span key={index}>
+                {line}
+                <br />
+            </span>
+        ))
     }
 
-    if (error) {
-        return <div className='text-center text-red-500'>{error}</div>;
+    // Custom date format function: DD.MM.YYYY
+    const formatDate = (dateStr: string): string => {
+        const date = new Date(dateStr);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
     }
 
+    if (!news) return <div>Loading...</div> // Loading state or error handling
     return (
-        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
-            <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
-                {t("title")}
-            </h2>
-            <div className='w-full h-auto '>
-                <Slider {...settings} className='h-auto w-full '>
-                    {visibleNews.map((item, i) => (
-                        <div className='px-[10px] xl:h-[426px] max-h-full' key={i}>
-                            <Link href={`/${locale}/blog/${item.slug}`}>
-                                <NewCardMain
-                                    subtitle={item.head.heading}
-                                    date={item.head.date}
-                                    imageSrc={item.head.photo.url}
-                                    views={item.head.views}
+        <div className="w-full max-w-[954px] mx-auto flex gap-6 px-4">
+            {/* Main news content */}
+            <div className="w-full">
+                <div className="mt-4">
+                    {news.createdDate && (
+                        <p className="text-[#E1AF93] text-[16px] mdx:text-[18px] xl:text-[20px]">
+                            {formatDate(news.createdDate)} {/* Custom date format */}
+                        </p>
+                    )}
+                </div>
+
+                {/* Rendering options array */}
+                {news.options?.map((item: NewsOption, index: number) => (
+                    <div className="mb-[140px]" key={index}>
+                        {item.title && (
+                            <h3 className="text-[30px] mdx:text-[45px] xl:text-[55px] lh font-medium mb-[16px] text-[#252324]">
+                                {formatTextWithNewlines(item.title)}
+                            </h3>
+                        )}
+
+                        {item.photo?.url && (
+                            <div className="mt-[30px] mb-[10px] flex flex-row justify-center">
+                                <Image
+                                    src={item.photo.url}
+                                    width={1000}
+                                    height={1000}
+                                    quality={100}
+                                    alt={`News Image`}
+                                    className="w-full h-full object-cover"
                                 />
-                            </Link>
-                        </div>
-                    ))}
-                </Slider>
-            </div>
-            {/* Резервный вариант для мобильных устройств, если нужно */}
-            {/*
-            <div className='w-full h-auto grid mdx:grid-cols-2 gap-[30px] mdx:gap-[16px] xl:hidden'>
-                {visibleNews.map((item, i) => (
-                    <Link key={i} href={`/${locale}/blog/${item.slug}`}>
-                        <NewCardMain
-                            subtitle={item.head.heading}
-                            date={item.head.date}
-                            imageSrc={item.head.photo.url}
-                            views={item.head.views}
-                        />
-                    </Link>
+                            </div>
+                        )}
+                        {item.description && (
+                            <div >
+                                <p className="text-[16px] mdx:text-[20px] py-[15px]">
+                                    {formatTextWithNewlines(item.description)}
+                                </p>
+                            </div>
+                        )}
+                    </div>
                 ))}
             </div>
-            */}
-            <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
-                <Link href={`/${locale}/blog`} className='bg-[#E1AF93] hover:bg-[#EAC7B4] text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px]'>
-                    {t("button-more")}
-                </Link>
-            </div>
         </div>
-    );
+    )
 }
-
