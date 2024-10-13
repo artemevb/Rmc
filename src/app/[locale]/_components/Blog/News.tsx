@@ -36,7 +36,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                 slug: item.slug,
                 head: {
                     heading: option.title[locale as keyof typeof option.title] || option.title.ru, // Предпочтение текущему языку
-                    date: formatDate(new Date(item.createdDate).toISOString().split('T')[0]), // Форматирование даты
+                    date: new Date(item.createdDate.replace(/-/g, '/')).toISOString().split('T')[0], // Форматирование даты
                     photo: {
                         url: option.photo.url,
                     },
@@ -46,13 +46,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         });
     }, [locale]);
 
-    // Функция форматирования даты (из "2024-10-11" в "11.10.2024")
-    const formatDate = (dateStr: string): string => {
-        const parts = dateStr.split('-');
-        if (parts.length !== 3) return dateStr;
-        return `${parts[2]}.${parts[1]}.${parts[0]}`;
-    };
-
     // Загрузка данных из API с передачей языка как параметра
     useEffect(() => {
         const fetchNews = async () => {
@@ -60,11 +53,12 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
             setError(null);
             try {
                 // Передаем язык через параметр 'lang'
-                const res = await axios.get('https://rmc.mrjtrade.uz/api/blog/get-all', {
+                const res = await axios.get(`https://rmc.mrjtrade.uz/api/blog/get-all`, {
+                    // Set the Accept-Language header to the language of the reviews
                     headers: {
                         'Accept-Language': '-', // Use wildcard to request all languages
                     },
-                });
+                })
                 const newsItems = mapApiDataToNewsItem(res.data.data);
                 // Сортировка по умолчанию
                 const sortedNews = sortNews(newsItems, selectedSortOption);
@@ -143,7 +137,8 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
     return (
         <div className='mx-auto w-full max-3xl:px-[10px] max-w-[1440px]'>
-            <h2 className='mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium'>{t('title')}</h2>
+            <h2 className='mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium'
+            >{t('title')}</h2>
             <div className="flex flex-row justify-between items-start xl:items-center space-y-4 xl:space-y-0">
 
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-[8px]">
@@ -173,9 +168,8 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                             {sortOptions.map(option => (
                                 <li key={option.value}>
                                     <button
-                                        className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCF7F4] ${
-                                            selectedSortOption === option.value ? 'bg-[#FCF7F4] text-[#E1AF93]' : ''
-                                        }`}
+                                        className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCF7F4] ${selectedSortOption === option.value ? 'bg-[#FCF7F4] text-[#E1AF93]' : ''
+                                            }`}
                                         onClick={() => handleSortChange(option.value)}
                                     >
                                         {option.label}
