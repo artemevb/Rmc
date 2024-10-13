@@ -1,8 +1,8 @@
-"use client"
-import axios from 'axios'
-import Image from 'next/image'
-import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+"use client";
+import axios from 'axios';
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 interface Photo {
     url?: string;
@@ -25,8 +25,8 @@ interface NewsCompProps {
 
 export default function NewsTitle({ locale }: NewsCompProps) {
 
-    const [news, setNews] = useState<News | null>(null)
-    const { slug } = useParams()
+    const [news, setNews] = useState<News | null>(null);
+    const { slug } = useParams();
 
     useEffect(() => {
         const fetchNewsWithSlug = async () => {
@@ -36,19 +36,19 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                     {
                         headers: { 'Accept-Language': locale },
                     }
-                )
-                setNews(response.data.data)
+                );
+                setNews(response.data.data);
             } catch (error: unknown) {
                 if (axios.isAxiosError(error)) {
-                    console.error('Failed to fetch news:', error.message)
+                    console.error('Failed to fetch news:', error.message);
                 } else {
-                    console.error('Failed to fetch news:', error)
+                    console.error('Failed to fetch news:', error);
                 }
-                setNews(null) // Reset state if fetching fails
+                setNews(null); // Reset state if fetching fails
             }
-        }
-        fetchNewsWithSlug()
-    }, [locale, slug])
+        };
+        fetchNewsWithSlug();
+    }, [locale, slug]);
 
     const formatTextWithNewlines = (text: string): JSX.Element[] => {
         return text.split('\n').map((line: string, index: number) => (
@@ -56,10 +56,19 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                 {line}
                 <br />
             </span>
-        ))
-    }
+        ));
+    };
 
-    if (!news) return <div>Loading...</div> // Loading state or error handling
+    // Функция для форматирования даты в формат dd.MM.yyyy
+    const formatDate = (dateString: string): string => {
+        const date = new Date(dateString.replace(/-/g, '/')); // Замена дефисов для Safari
+        const day = String(date.getDate()).padStart(2, '0'); // Добавление нуля для однозначных дней
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Добавление нуля и +1 для корректного месяца
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    };
+
+    if (!news) return <div>Loading...</div>; // Loading state or error handling
     return (
         <div className="w-full max-w-[954px] mx-auto flex gap-6 px-4">
             {/* Main news content */}
@@ -67,11 +76,7 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                 <div className="mt-4">
                     {news.createdDate && (
                         <p className="text-[#E1AF93] text-[16px] mdx:text-[18px] xl:text-[20px]">
-                            {new Date(news.createdDate).toLocaleDateString(locale, {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric',
-                            })}
+                            {formatDate(news.createdDate)} {/* Используем форматированную дату */}
                         </p>
                     )}
                 </div>
@@ -108,5 +113,5 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                 ))}
             </div>
         </div>
-    )
+    );
 }
