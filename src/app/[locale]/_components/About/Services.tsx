@@ -99,13 +99,15 @@ export default function Services() {
                     ) : (
                         <>
                             {/* На маленьких экранах всегда показываем текст и изображение */}
-                            <div className='absolute right-[-26px] bottom-[-10px] max-w-[280px] h-auto'>
+                            <div className='absolute right-[-26px] bottom-[-10px] max-w-[280px] h-auto w-full'>
                                 <Image
                                     src={home}
                                     quality={100}
                                     alt={t('card1.imageAlt')}
                                     width={350}
                                     height={350}
+                                    layout='fixed'
+                                    loading="eager"
                                     className='w-full h-full object-cover max-w-[260px]'
                                 />
                             </div>
