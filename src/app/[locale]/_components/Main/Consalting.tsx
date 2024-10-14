@@ -38,7 +38,9 @@ export default function Banner() {
                     <div>
                         <button
                             onClick={openModal}
-                            className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
+                            className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">
+                            {t('button')}
+                        </button>
                     </div>
                 </div>
                 <div className='xl:w-1/2 xl:pl-4 grid grid-cols-2 gap-[12px] xl:hidden'>
@@ -89,7 +91,12 @@ export default function Banner() {
                 {processText(t('subtitle'))}
             </h4>
             <div className='max-xl:px-[10px]'>
-                <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">{t('button')}</button>
+                {/* Added onClick handler here */}
+                <button 
+                    onClick={openModal} 
+                    className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">
+                    {t('button')}
+                </button>
             </div>
             <Application isOpen={isModalOpen} onClose={closeModal} />
         </div>
