@@ -135,7 +135,7 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                                 height={1000}
                                 quality={100}
                                 alt='News Image'
-                                className='w-full h-full max-w-[340px] max-h-[340px] object-cover mdl:w-full mdl:max-h-[280px] mdl:max-w-[280px] mdl:mr-5 xl:mr-0 xl:min-h-[466px] xl:min-w-[500px]  xl:max-h-[466px] xl:max-w-[710px]'
+                                className='w-full h-full mt-[40px] max-w-[340px] max-h-[340px] object-cover mdl:w-full mdl:mr-5 xl:mr-0 xl:min-h-[466px] xl:min-w-[500px]  xl:max-h-[466px] xl:max-w-[710px]'
                             />
                         ) : (
                             <p>Изображение не доступно</p>
@@ -151,7 +151,7 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                         <div className='flex gap-3 pb-[40px] mdl:pb-[30px] mdl:ml-3 xl:ml-9'>
                             <button
                                 onClick={copyLinkToClipboard}
-                                className='flex items-center justify-center text-white text-[16px] xl:text-[20px] px-8 py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] mdx:min-w-[223px]'
+                                className='flex items-center justify-center text-white text-[16px] xl:text-[20px] min-w-[169px] py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] mdx:min-w-[223px]'
                             >
                                 {t('copy-link')}
                             </button>
