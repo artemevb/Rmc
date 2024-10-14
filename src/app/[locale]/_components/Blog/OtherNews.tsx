@@ -3,7 +3,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
-import NewCardMain from './NewCardMain';
+import NewCardMain from '../Main/NewCardMain';
 import Slider from 'react-slick';
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -80,7 +80,7 @@ const getTitle = (titleDescription: TitleDescription, locale: string): string =>
 };
 
 export default function NewsComp({ locale }: NewsCompProps) {
-    const t = useTranslations('Main.Blogs');
+    const t = useTranslations('Blog.Other');
     const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

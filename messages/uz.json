@@ -337,7 +337,16 @@
     "sort": "Saralash",
     "filter-1": "Sana bo'yicha: yangilari birinchi",
     "filter-2": "Sana bo'yicha: eskilari birinchi",
-    "filter-3": "Ommaboplik bo'yicha"
+    "filter-3": "Ommaboplik bo'yicha",
+    "Other": {
+      "title": "Boshqa maqolalar",
+      "button-more": "Barcha maqolalar"
+    },
+    "Share": {
+      "title": "Yangiliklarni ulashing",
+      "copy-link": "Havolani nusxalash",
+      "link_copied": "Havola nusxalandi"
+    }
   },
   "not-found": {
     "text-1": "Voy... ",

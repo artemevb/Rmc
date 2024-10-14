@@ -1,7 +1,7 @@
 
 import NewPages from "../../_components/Blog/NewsPage";
-// import Share from "../../_components/Blog/Share";
-// import OtherNews from "../../_components/NewsPages/OtherNews";
+import Share from "../../_components/Blog/Share";
+import OtherNews from "../../_components/Blog/OtherNews";
 import type { Locales } from "@/src/app/[locale]/layout";
 
 type InvestmentDubaiPageProps = {
@@ -16,10 +16,10 @@ export default function page({ params }: InvestmentDubaiPageProps) {
         : 'ru';
 
     return (
-        <div>
+        <div >
             <NewPages locale={locale}/>
-            {/* <Share /> */}
-            {/* <OtherNews /> */}
+            <Share locale={locale}/>
+            <OtherNews locale={locale}/>
         </div>
     );
 }
