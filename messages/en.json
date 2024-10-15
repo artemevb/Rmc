@@ -352,5 +352,67 @@
     "text-1": "Oops...",
     "text-2": "Page not found",
     "goHome": "Go to homepage"
+  },
+  "NewBuildings": {
+    "InTashkent": {
+      "title-1": "New Buildings",
+      "title-2": "in Tashkent",
+      "subtitle": "Find your perfect apartment in new residential complexes in Tashkent",
+      "text-1": "Modern architecture",
+      "subtitle-1": "Modern housing with up-to-date design and architecture",
+      "text-2": "Technology and materials",
+      "subtitle-2": "Modern housing with up-to-date design and architecture",
+      "text-3": "Choice of layouts",
+      "subtitle-3": "Ability to choose layouts and finishes at an early stage",
+      "text-4": "Quality assurance",
+      "subtitle-4": "Ability to choose layouts and finishes at an early stage"
+    },
+    "NewBuildingsMarket": {
+      "title": "New Buildings Market in Tashkent",
+      "text-1": "The new buildings market in Tashkent is actively developing and attracting both local and foreign investors. New residential complexes are being built in Tashkent, offering a variety of options, from small apartments to luxury penthouses. These projects often include modern amenities such as fitness centers and playgrounds.",
+      "text-2": "Prices for new buildings vary depending on the district and housing class, making the market attractive for investment. New residential complexes often include developed infrastructure, including shopping centers, schools, and medical facilities, making life in such complexes more convenient."
+    },
+    "Catalog": {
+      "title": "New Buildings Catalog",
+      "button-more": "Go to catalog",
+      "filter-1": "District",
+      "filter-2": "Price",
+      "filter-3": "Type of housing",
+      "filter-4": "Number of rooms",
+      "filter-5": "Completion date",
+      "clear": "Clear all",
+      "one": "From",
+      "two": "To"
+    }
+  },
+  "NewBuildingsMain": {
+    "title": "New Buildings",
+    "filter-1": "District",
+    "filter-2": "Price",
+    "filter-3": "Type of housing",
+    "filter-4": "Number of rooms",
+    "filter-5": "Completion date",
+    "clear": "Clear all",
+    "one": "From",
+    "two": "To",
+    "all": "All",
+    "see-pages": "Show per page",
+    "noResults": "Missing",
+    "Form": {
+      "validFullName": "Correct",
+      "enterFullName": "Enter full name",
+      "validPhoneNumber": "Correct",
+      "enterValidPhoneNumber": "Enter valid phone number",
+      "validEmail": "Correct",
+      "enterValidEmail": "Enter valid email",
+      "haveQuestions": "Rate or rent out your property with ease",
+      "contactUs": "Get a professional appraisal of your property and start earning by renting it out. Our experts will assist you every step of the way.",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "question": "Comment",
+      "pleaseFillAllFields": "Fill the field",
+      "submit": "Submit request"
+    }
   }
 }

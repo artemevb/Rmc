@@ -352,5 +352,67 @@
     "text-1": "Voy... ",
     "text-2": "Sahifa topilmadi",
     "goHome": "Bosh sahifaga"
+  },
+  "NewBuildings": {
+    "InTashkent": {
+      "title-1": "Yangi Qurilishlar",
+      "title-2": "Toshkentda",
+      "subtitle": "Toshkentdagi yangi turar-joy majmualaridan o'zingizga mos kvartirani toping",
+      "text-1": "Zamonaviy arxitektura",
+      "subtitle-1": "Zamonaviy dizayn va arxitekturaga ega uy-joy",
+      "text-2": "Texnologiyalar va materiallar",
+      "subtitle-2": "Zamonaviy dizayn va arxitekturaga ega uy-joy",
+      "text-3": "Rejalashtirishni tanlash",
+      "subtitle-3": "Boshlang'ich bosqichlarda rejalashtirish va pardozlashni tanlash imkoniyati",
+      "text-4": "Sifat kafolati",
+      "subtitle-4": "Boshlang'ich bosqichlarda rejalashtirish va pardozlashni tanlash imkoniyati"
+    },
+    "NewBuildingsMarket": {
+      "title": "Toshkentdagi Yangi Qurilish Bozori",
+      "text-1": "Toshkentda yangi qurilish bozori faol rivojlanmoqda va mahalliy hamda xorijiy investorlarni jalb qilmoqda. Toshkentda yangi turar-joy majmualari qurilmoqda, bu majmualar kichik kvartiralardan tortib to hashamatli apartamentlargacha turli xil variantlarni taklif etadi. Ushbu loyihalar ko'pincha fitnes markazlari, bolalar maydonchalari kabi zamonaviy qulayliklarni o'z ichiga oladi.",
+      "text-2": "Yangi qurilishlar narxlari tuman va uy-joy sinfiga qarab farq qiladi, bu esa bozorni investitsiyalar uchun jozibador qiladi. Yangi turar-joy majmualari ko'pincha rivojlangan infratuzilmani, jumladan, savdo markazlari, maktablar va tibbiy muassasalarni o'z ichiga oladi, bu esa bunday majmualarda yashashni qulayroq qiladi."
+    },
+    "Catalog": {
+      "title": "Yangi Qurilish Katalogi",
+      "button-more": "Katalogga o'ting",
+      "filter-1": "Tuman",
+      "filter-2": "Narx",
+      "filter-3": "Uy-joy turi",
+      "filter-4": "Xonalar soni",
+      "filter-5": "Topsherish muddati",
+      "clear": "Hammasini tozalash",
+      "one": "Dan",
+      "two": "Gacha"
+    }
+  },
+  "NewBuildingsMain": {
+    "title": "Yangi Qurilishlar",
+    "filter-1": "Tuman",
+    "filter-2": "Narx",
+    "filter-3": "Uy-joy turi",
+    "filter-4": "Xonalar soni",
+    "filter-5": "Topsherish muddati",
+    "clear": "Hammasini tozalash",
+    "one": "Dan",
+    "two": "Gacha",
+    "all": "Hammasi",
+    "see-pages": "Sahifada ko'rsatish",
+    "noResults": "Yo'qolgan",
+    "Form": {
+      "validFullName": "To'g'ri",
+      "enterFullName": "To'liq ismingizni kiriting",
+      "validPhoneNumber": "To'g'ri",
+      "enterValidPhoneNumber": "To'g'ri telefon raqamini kiriting",
+      "validEmail": "To'g'ri",
+      "enterValidEmail": "To'g'ri email kiriting",
+      "haveQuestions": "Mulkni baholang yoki uni ijaraga berishni boshlang",
+      "contactUs": "Mulkni baholatish bo'yicha professional yordam oling va uni ijaraga berib daromad olishni boshlang. Mutaxassislarimiz sizga har bir bosqichda yordam beradi.",
+      "fullName": "To'liq ismi",
+      "phoneNumber": "Telefon raqami",
+      "email": "E-mail",
+      "question": "Izoh",
+      "pleaseFillAllFields": "Maydonni to'ldiring",
+      "submit": "So'rov yuborish"
+    }
   }
 }

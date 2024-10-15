@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from 'react'; // Добавлен useRef
+import { useState, useEffect, useRef, useMemo } from 'react'; // Добавлен useRef
 import Image from 'next/image';
 import build1 from "@/public/images/new_buildings/Building1.png";
 import build2 from "@/public/images/new_buildings/Building2.png";
@@ -12,11 +12,10 @@ import rightArrow from "@/public/svg/arrowrightbanners.svg";
 import leftArrow from "@/public/svg/arrowleftbanners.svg";
 
 import { useTranslations } from 'next-intl';
-import Link from "next/link";
 
-interface NewsCompProps {
-    locale: string;
-}
+// interface NewsCompProps {
+//     locale: string;
+// }
 
 interface ImageItem {
     src: string;
@@ -31,7 +30,8 @@ interface ImageItem {
 
 }
 
-export default function Main({ locale }: NewsCompProps) {
+// export default function Main({ locale }: NewsCompProps) {
+export default function Main() {
     const t = useTranslations('NewBuildingsMain');
 
     // Определение доступных вариантов фильтров
@@ -68,7 +68,7 @@ export default function Main({ locale }: NewsCompProps) {
     ];
 
     // Определение изображений с дополнительными свойствами
-    const images: ImageItem[] = [
+    const images: ImageItem[] = useMemo(() => [
         {
             src: build1.src,
             alt: "Жилые комплексы",
@@ -135,7 +135,7 @@ export default function Main({ locale }: NewsCompProps) {
             rooms: 'Студия',
             completionTime: 'IV квартал 2024'
         },
-    ];
+    ], []);
 
     // Определение минимальной и максимальной цены
     const prices = images.map(image => image.priceValue);
@@ -291,7 +291,7 @@ export default function Main({ locale }: NewsCompProps) {
     }, []);
 
     return (
-        <div className='w-full h-auto flex flex-col mx-auto max-xl:px-[10px] max-w-[1440px]'>
+        <div className='w-full h-auto flex flex-col mx-auto max-xl:px-[10px] max-w-[1440px] mt-[40px] mdx:mt-[60px] xl:mt-[50px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]'>
             <h3 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-w-[710px]'>
                 {t('title')}
             </h3>
@@ -575,14 +575,14 @@ export default function Main({ locale }: NewsCompProps) {
                     </p>
                 )}
             </div>
-            <div className='flex justify-between items-center mt-[20px]'>
+            <div className='flex flex-row-reverse justify-center mdx:justify-between items-center mt-[50px] mdx:mt-[70px]'>
                 {/* Pagination */}
                 <div>
                     <ul className="flex space-x-2">
                         {/* Кнопка "Назад" */}
                         <li>
                             <button
-                                className={`px-4 py-2 rounded ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                                className={`px-2 py-2 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
                                 onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
                                 disabled={currentPage === 1}
                             >
@@ -596,10 +596,11 @@ export default function Main({ locale }: NewsCompProps) {
                         </li>
 
                         {/* Номера страниц */}
-                        {pages.map(page => (
+                        {pages.map((page) => (
                             <li key={page}>
                                 <button
-                                    className={`px-4 py-2 border rounded ${page === currentPage ? 'bg-[#ffff]' : 'hover:bg-[#E1AF93]'}`}
+                                    className={`px-4 py-2 border ${page === currentPage ? 'bg-[#E1AF93] text-white' : 'hover:bg-[#E1AF93]'
+                                        }`}
                                     onClick={() => handlePageChange(page)}
                                 >
                                     {page}
@@ -610,7 +611,7 @@ export default function Main({ locale }: NewsCompProps) {
                         {/* Кнопка "Вперёд" */}
                         <li>
                             <button
-                                className={`px-4 py-2 rounded ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                                className={`px-2 py-2 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
                                 onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
                                 disabled={currentPage === totalPages}
                             >
@@ -626,13 +627,13 @@ export default function Main({ locale }: NewsCompProps) {
                 </div>
 
                 {/* Items per page */}
-                <div>
-                    <label htmlFor="itemsPerPage" className="mr-2">Показывать на странице:</label>
+                <div className='hidden mdx:block'>
+                    <label htmlFor="itemsPerPage" className="mr-2 text-[#858585] text-[18px]">{t('see-pages')}</label>
                     <select
                         id="itemsPerPage"
                         value={itemsPerPage}
                         onChange={handleItemsPerPageChange}
-                        className="py-2 px-4 border"
+                        className="py-2 px-2 border "
                     >
                         <option value={5}>5</option>
                         <option value={10}>10</option>
@@ -641,13 +642,6 @@ export default function Main({ locale }: NewsCompProps) {
 
                     </select>
                 </div>
-            </div>
-            <div className='max-xl:px-[10px] flex justify-center w-full'>
-                <Link href={`/${locale}/catalog`}>
-                    <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
-                        {t('button-more')}
-                    </button>
-                </Link>
             </div>
         </div>
     )
