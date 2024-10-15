@@ -113,8 +113,10 @@ export default function Banner() {
                                 src={photo1}
                                 quality={100}
                                 alt="Building"
-                                layout="responsive"
-                                className="w-full h-full object-cover min-h-[220px]"
+                                width={2600} // задайте нужную ширину
+                                height={1900} // задайте нужную высоту
+                                objectFit="contain"
+                                className="w-full h-auto min-h-[200px]"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -122,8 +124,10 @@ export default function Banner() {
                                 src={photo2}
                                 quality={100}
                                 alt="Building"
-                                layout="responsive"
-                                className="w-full h-full object-cover min-h-[220px]"
+                                width={2600} // задайте нужную ширину
+                                height={1900} // задайте нужную высоту
+                                objectFit="contain"
+                                className="w-full h-auto min-h-[200px]"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
@@ -131,8 +135,10 @@ export default function Banner() {
                                 src={photo3}
                                 quality={100}
                                 alt="Building"
-                                layout="responsive"
-                                className="w-full h-full object-cover min-h-[220px]"
+                                width={2600} // задайте нужную ширину
+                                height={1900} // задайте нужную высоту
+                                objectFit="contain"
+                                className="w-full h-auto min-h-[200px]"
                             />
                         </SwiperSlide>
                     </Swiper>

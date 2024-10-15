@@ -3,6 +3,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import eyes from "../../../../../public/svg/eyes-gray.svg";
 
 interface Photo {
     url?: string;
@@ -16,6 +17,7 @@ interface NewsOption {
 
 interface News {
     createdDate?: string;
+    viewCounter?: number;
     options?: NewsOption[];
 }
 
@@ -69,15 +71,32 @@ export default function NewsTitle({ locale }: NewsCompProps) {
     };
 
     if (!news) return <div>Loading...</div>; // Loading state or error handling
+
     return (
         <div className="w-full max-w-[954px] mx-auto flex gap-6 px-4">
             {/* Main news content */}
             <div className="w-full">
                 <div className="mt-4">
                     {news.createdDate && (
-                        <p className="text-[#E1AF93] text-[16px] mdx:text-[18px] xl:text-[20px]">
-                            {formatDate(news.createdDate)} {/* Используем форматированную дату */}
-                        </p>
+                        <div className="flex items-center gap-[12px] mdx:gap-[20px] w-full h-[23px]">
+                            <p className="text-[#E1AF93] text-[16px] mdx:text-[18px] xl:text-[20px]">
+                                {formatDate(news.createdDate)}
+                            </p>
+                            <hr className="w-[1px] h-full bg-[#B3B3B3] mx-2" />
+                            {news.viewCounter !== undefined && (
+                                <p className="text-[#B3B3B3] text-[16px] mdx:text-[18px] xl:text-[20px] flex items-center gap-[7px]">
+                                    <Image
+                                        src={eyes}
+                                        width={24}
+                                        height={24}
+                                        quality={100}
+                                        alt={`eyes Image`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    {news.viewCounter}
+                                </p>
+                            )}
+                        </div>
                     )}
                 </div>
 
@@ -103,7 +122,7 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                             </div>
                         )}
                         {item.description && (
-                            <div >
+                            <div>
                                 <p className="text-[16px] mdx:text-[20px] py-[15px]">
                                     {formatTextWithNewlines(item.description)}
                                 </p>

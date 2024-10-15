@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useTranslations } from 'next-intl';
+import { useMediaQuery } from 'react-responsive';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
@@ -10,18 +11,22 @@ import Image from 'next/image';
 
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
-import photo1 from "@/public/images/main/Full-photo.png";
+
 import photo2 from "@/public/images/main/Full-photo-2.png";
 import photo3 from "@/public/images/main/Full-photo-3.png";
 import photo4 from "@/public/images/main/Full-photo-4.png";
 import photo5 from "@/public/images/main/Full-photo-5.png";
+
+import photo2mob from "@/public/images/main/Slide1Mobile.png";
+import photo3mob from "@/public/images/main/Slide2Mobile.png";
+import photo4mob from "@/public/images/main/Slide3Mobile.png";
+import photo5mob from "@/public/images/main/Slide4Mobile.png";
 
 export default function Banner() {
   const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
 
-  // Явное определение типа состояния navigation
   const [navigation, setNavigation] = useState<{
     prevEl: HTMLDivElement | null;
     nextEl: HTMLDivElement | null;
@@ -30,7 +35,9 @@ export default function Banner() {
     nextEl: null,
   });
 
-  // Установка навигационных элементов после монтирования компонента
+  // Media query to detect if the screen is below the 'mdx' breakpoint
+  const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+
   useEffect(() => {
     setNavigation({
       prevEl: prevRef.current,
@@ -38,12 +45,30 @@ export default function Banner() {
     });
   }, []);
 
-  const slides = [
+  const mobileSlides = [
     {
-      imageSrc: photo1,
-      title: t('slides.slide1.title'),
-      description: t('slides.slide1.description'),
+      imageSrc: photo2mob,
+      title: t('slides.slide2.title'),
+      description: t('slides.slide2.description'),
     },
+    {
+      imageSrc: photo3mob,
+      title: t('slides.slide3.title'),
+      description: t('slides.slide3.description'),
+    },
+    {
+      imageSrc: photo4mob,
+      title: t('slides.slide4.title'),
+      description: t('slides.slide4.description'),
+    },
+    {
+      imageSrc: photo5mob,
+      title: t('slides.slide5.title'),
+      description: t('slides.slide5.description'),
+    },
+  ];
+
+  const desktopSlides = [
     {
       imageSrc: photo2,
       title: t('slides.slide2.title'),
@@ -65,6 +90,9 @@ export default function Banner() {
       description: t('slides.slide5.description'),
     },
   ];
+
+  // Choose the correct slides based on the screen size
+  const slides = isMobile ? mobileSlides : desktopSlides;
 
   return (
     <div className="w-full h-auto flex flex-col mx-auto">
@@ -101,12 +129,6 @@ export default function Banner() {
                 <p className="text-[16px] mdx:text-[20px] mt-[8px] mdx:mt-[12px] xl:mt-[20px]">
                   {slide.description}
                 </p>
-
-                <div>
-                  {/* <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px]">
-                    {t('button-more')}
-                  </button> */}
-                </div>
               </div>
             </SwiperSlide>
           ))}

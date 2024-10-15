@@ -1,6 +1,6 @@
 'use client';
 
-import facebook from '@/public/svg/footer/facebook.svg';
+// import facebook from '@/public/svg/footer/facebook.svg';
 import instagr from '@/public/svg/footer/instagram.svg';
 import telegram from '@/public/svg/footer/telegram.svg';
 import axios from 'axios';
@@ -94,14 +94,14 @@ export default function NewsTitle({ locale }: NewsCompProps) {
         {
             src: instagr,
             alt: 'Instagram Icon',
-            link: '#',
+            link: 'https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx',
         },
-        { src: telegram, alt: 'Telegram Icon', link: '#' },
-        {
-            src: facebook,
-            alt: 'Facebook Icon',
-            link: '#',
-        },
+        { src: telegram, alt: 'Telegram Icon', link: 'https://t.me/rmcdeluxegroup' },
+        // {
+        //     src: facebook,
+        //     alt: 'Facebook Icon',
+        //     link: '#',
+        // },
     ];
 
     const copyLinkToClipboard = () => {

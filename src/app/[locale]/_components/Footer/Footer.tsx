@@ -1,8 +1,8 @@
 import logoBig from "@/public/images/rmc-logo.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
-import facebook from "@/public/svg/footer/facebook.svg";
+// import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
-import youtube from "@/public/svg/footer/whatsapp.svg";
+// import youtube from "@/public/svg/footer/whatsapp.svg";
 import resultLogo from "@/public/svg/footer/result-logo.png";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
@@ -41,7 +41,7 @@ export default function Footer({ locale }: LocaleProps) {
               </Link>
             </div>
             <div className="flex gap-3 mdx:gap-[20px]">
-              <a href="https://t.me/intermedtrade" target="_blank">
+              <a href="https://t.me/rmcdeluxegroup" target="_blank">
                 <Image
                   src={telegram}
                   width={100}
@@ -51,7 +51,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a>
-              <a href="https://www.facebook.com/intermed.mindray" target="_blank">
+              {/* <a href="https://www.facebook.com/intermed.mindray" target="_blank">
                 <Image
                   src={facebook}
                   width={100}
@@ -60,8 +60,8 @@ export default function Footer({ locale }: LocaleProps) {
                   alt="Facebook"
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
-              </a>
-              <a href="https://www.instagram.com/intermed.mindray/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank">
+              </a> */}
+              <a href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx" target="_blank">
                 <Image
                   src={instagram}
                   width={100}
@@ -71,7 +71,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a>
-              <a href="https://www.youtube.com/@intermedinnovation9644" target="_blank">
+              {/* <a href="https://www.youtube.com/@intermedinnovation9644" target="_blank">
                 <Image
                   src={youtube}
                   width={100}
@@ -80,7 +80,7 @@ export default function Footer({ locale }: LocaleProps) {
                   alt="YouTube"
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="mdx:flex flex-row xl:gap-[138px]">
@@ -99,7 +99,7 @@ export default function Footer({ locale }: LocaleProps) {
                   {t('real_estate')}
                 </h2>
                 <Link href={`/${locale}/about`}>{t('apartments')}</Link>
-                <Link href={`/${locale}/partners`}>{t('new_buildings')}</Link>
+                <Link href={`/${locale}/new-buildings`}>{t('new_buildings')}</Link>
                 <Link href={`/${locale}/contacts`}>{t('houses_and_land')}</Link>
                 <Link href={`/${locale}/news`}>{t('commercial')}</Link>
               </div>
