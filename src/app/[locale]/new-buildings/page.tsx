@@ -16,7 +16,7 @@ export default function InvestmentDubaiPage() {
     return (
         <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
             <Main />
-            {/* <Form /> */}
+            <Form />
         </div>
     );
 }
