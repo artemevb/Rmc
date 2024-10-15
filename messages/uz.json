@@ -367,10 +367,28 @@
       "text-4": "Sifat kafolati",
       "subtitle-4": "Boshlang'ich bosqichlarda rejalashtirish va pardozlashni tanlash imkoniyati"
     },
+    "InDubai": {
+      "title-1": "Yangi binolar",
+      "title-2": "Dubayda",
+      "subtitle": "Dubayning yangi turar-joy majmualarida o'zingiz uchun mukammal kvartirani toping",
+      "text-1": "Zamonaviy arxitektura",
+      "subtitle-1": "Zamonaviy dizayn va arxitekturaga ega uy-joy",
+      "text-2": "Texnologiyalar va materiallar",
+      "subtitle-2": "Zamonaviy dizayn va arxitekturaga ega uy-joy",
+      "text-3": "Rejalashtirishni tanlash",
+      "subtitle-3": "Dastlabki bosqichlarda rejalashtirish va pardozlashni tanlash imkoniyati",
+      "text-4": "Sifat kafolati",
+      "subtitle-4": "Dastlabki bosqichlarda rejalashtirish va pardozlashni tanlash imkoniyati"
+    },
     "NewBuildingsMarket": {
       "title": "Toshkentdagi Yangi Qurilish Bozori",
       "text-1": "Toshkentda yangi qurilish bozori faol rivojlanmoqda va mahalliy hamda xorijiy investorlarni jalb qilmoqda. Toshkentda yangi turar-joy majmualari qurilmoqda, bu majmualar kichik kvartiralardan tortib to hashamatli apartamentlargacha turli xil variantlarni taklif etadi. Ushbu loyihalar ko'pincha fitnes markazlari, bolalar maydonchalari kabi zamonaviy qulayliklarni o'z ichiga oladi.",
       "text-2": "Yangi qurilishlar narxlari tuman va uy-joy sinfiga qarab farq qiladi, bu esa bozorni investitsiyalar uchun jozibador qiladi. Yangi turar-joy majmualari ko'pincha rivojlangan infratuzilmani, jumladan, savdo markazlari, maktablar va tibbiy muassasalarni o'z ichiga oladi, bu esa bunday majmualarda yashashni qulayroq qiladi."
+    },
+    "NewBuildingsMarketDubai": {
+      "title": "Dubayda yangi binolar bozori",
+      "text-1": "Dubayda yangi binolar bozori jadal rivojlanmoqda va xaridorlarga zamonaviy ko‘chmas mulkning keng tanlovini taklif etadi. Bu yerda shahar va Fors ko‘rfaziga ajoyib manzaralar bilan hashamatli kvartiralar, shuningdek, osoyishta turar joy tumanlarida oilaviy rezidensiyalarni topish mumkin.",
+      "text-2": "Dubaydagi yangi binolar innovatsion texnologiyalar, hashamatli arxitektura va rivojlangan infratuzilma bilan ajralib turadi. Hukumat ko‘magining mavjudligi va to‘lov shartlarining moslashuvchanligi sababli, Dubayda ko‘chmas mulk sotib olish investorlar uchun eng jozibador variantga aylandi."
     },
     "Catalog": {
       "title": "Yangi Qurilish Katalogi",

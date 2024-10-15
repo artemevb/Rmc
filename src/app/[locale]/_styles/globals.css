@@ -34,3 +34,9 @@
     -ms-overflow-style: none;
     /* IE и Edge */
 }
+
+.new-card-main img {
+    height: 100%; /* or set a specific height, e.g., 600px */
+    object-fit: cover; /* This will ensure the image scales properly without stretching */
+  }
+  

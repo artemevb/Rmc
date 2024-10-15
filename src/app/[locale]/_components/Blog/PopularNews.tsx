@@ -3,16 +3,14 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
-import blog1 from "@/public/images/main/blogs/slide-1.png";
-import blog2 from "@/public/images/main/blogs/slide-2.png";
-import blog3 from "@/public/images/main/blogs/slide-3.png";
 import NewCardMain from './PopularCardMain';
-import { StaticImageData } from 'next/image';
+import NewCardMainSmallCard from './PopularCardMainSmall2';
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import axios from 'axios';
 
 interface NewsPhoto {
-    url: StaticImageData;
+    url: string;
 }
 
 interface NewsHead {
@@ -31,49 +29,72 @@ interface NewsCompProps {
     locale: string;
 }
 
+interface BlogItem {
+    viewCounter: number;
+    slug: string;
+    options: Array<{
+        title: string | { [key: string]: string };
+        photo: { url: string };
+    }>;
+    createdDate: string;
+}
+
 export default function NewsComp({ locale }: NewsCompProps) {
     const t = useTranslations('Blog');
-    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]); // Only visibleNews state
+    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
 
-    // Temporary data
-    const temporaryNews: NewsItem[] = [
-        {
-            slug: 'news-1',
-            head: {
-                heading: 'Тенденции и прогнозы рынка недвижимости на 2024 год',
-                date: '31.07.2024',
-                photo: { url: blog2 },
-                views: '102',
-            },
-        },
-        {
-            slug: 'news-2',
-            head: {
-                heading: 'Лучшие районы для инвестиций в недвижимость',
-                date: '31.07.2024',
-                photo: { url: blog3 },
-                views: '102',
-            },
-        },
-        {
-            slug: 'news-3',
-            head: {
-                heading: 'Топ-10 новых жилых комплексов',
-                date: '31.07.2024',
-                photo: { url: blog1 },
-                views: '112',
-            },
-        },
-    ];
-
-    const getRandomNews = (arr: NewsItem[], count: number): NewsItem[] => {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
+    const formatDate = (dateString: string): string => {
+        // Assuming dateString is in "DD-MM-YYYY"
+        const [day, month, year] = dateString.split('-');
+        return `${day}.${month}.${year}`;
     };
 
-    useEffect(() => {
-        setVisibleNews(getRandomNews(temporaryNews, 3));
-    }, []);
+   useEffect(() => {
+    axios.get('https://rmc.mrjtrade.uz/api/blog/get-all', {
+        headers: {
+            'Accept-Language': locale,
+        },
+    })
+    .then(response => {
+        const data: BlogItem[] = response.data.data;
+
+        // Sort the data by viewCounter in descending order
+        const sortedData = data.sort((a: BlogItem, b: BlogItem) => b.viewCounter - a.viewCounter);
+
+        // Take the first 3 items
+        const topThree = sortedData.slice(0, 3);
+
+        // Map to NewsItem format
+        const newsItems = topThree.map((item: BlogItem) => {
+            const option = item.options[0]; // Take the first option
+
+            let title = '';
+            if (typeof option.title === 'string') {
+                title = option.title;
+            } else if (typeof option.title === 'object') {
+                title = option.title[locale] || option.title['en'] || '';
+            }
+
+            return {
+                slug: item.slug,
+                head: {
+                    heading: title,
+                    date: formatDate(item.createdDate),
+                    views: item.viewCounter.toString(),
+                    photo: {
+                        url: option.photo.url,
+                    },
+                },
+            };
+        });
+
+        // Set the state
+        setVisibleNews(newsItems);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+}, [locale]);
 
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
@@ -81,10 +102,10 @@ export default function NewsComp({ locale }: NewsCompProps) {
                 {t("title-popular")}
             </h2>
             {/* Grid Layout */}
-            <div className='w-full h-auto grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px]'>
-                {/* Первый блок */}
+            <div className='w-full h-full grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px] max-h-[600px]'>
+                {/* First Block */}
                 {visibleNews[0] && (
-                    <div className="h-full mdx:col-span-2 2xl:col-span-8 2xl:max-w-[956px] 2xl:max-h-[600px] ">
+                    <div className="h-full mdx:col-span-2 2xl:col-span-8 2xl:max-w-[953px] 2xl:max-h-[600px] ">
                         <Link href={`/${locale}/blog/${visibleNews[0].slug}`}>
                             <NewCardMain
                                 subtitle={visibleNews[0].head.heading}
@@ -95,11 +116,11 @@ export default function NewsComp({ locale }: NewsCompProps) {
                         </Link>
                     </div>
                 )}
-                {/* Остальные блоки */}
+                {/* Remaining Blocks */}
                 <div className="mdx:col-span-2 2xl:col-span-4 grid grid-cols-1 gap-[12px] mdx:grid-cols-2 2xl:grid-cols-1 ">
                     {visibleNews.slice(1).map((item, i) => (
                         <Link key={i} href={`/${locale}/blog/${item.slug}`}>
-                            <NewCardMain
+                            <NewCardMainSmallCard
                                 subtitle={item.head.heading}
                                 date={item.head.date}
                                 imageSrc={item.head.photo?.url}
@@ -109,8 +130,6 @@ export default function NewsComp({ locale }: NewsCompProps) {
                     ))}
                 </div>
             </div>
-
-
         </div>
     );
 }

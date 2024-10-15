@@ -27,7 +27,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
                     height={1500}
                     quality={100}
                     alt={`News Image`}
-                    className="w-full h-auto object-cover max-h-[600px]"
+                    className="w-full h-auto object-cover xl:max-h-[290px]"
                 />
                 <div className="absolute inset-0  opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 xl:p-5">
 

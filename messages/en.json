@@ -367,10 +367,28 @@
       "text-4": "Quality assurance",
       "subtitle-4": "Ability to choose layouts and finishes at an early stage"
     },
+    "InDubai": {
+      "title-1": "New Buildings",
+      "title-2": "in Dubai",
+      "subtitle": "Find your perfect apartment in new residential complexes in Dubai",
+      "text-1": "Modern architecture",
+      "subtitle-1": "Modern housing with up-to-date design and architecture",
+      "text-2": "Technologies and materials",
+      "subtitle-2": "Modern housing with up-to-date design and architecture",
+      "text-3": "Choice of layouts",
+      "subtitle-3": "The ability to choose the layout and finishing at the early stages",
+      "text-4": "Quality assurance",
+      "subtitle-4": "The ability to choose the layout and finishing at the early stages"
+    },
     "NewBuildingsMarket": {
       "title": "New Buildings Market in Tashkent",
       "text-1": "The new buildings market in Tashkent is actively developing and attracting both local and foreign investors. New residential complexes are being built in Tashkent, offering a variety of options, from small apartments to luxury penthouses. These projects often include modern amenities such as fitness centers and playgrounds.",
       "text-2": "Prices for new buildings vary depending on the district and housing class, making the market attractive for investment. New residential complexes often include developed infrastructure, including shopping centers, schools, and medical facilities, making life in such complexes more convenient."
+    },
+    "NewBuildingsMarketDubai": {
+      "title": "New Buildings Market in Dubai",
+      "text-1": "The new buildings market in Dubai is rapidly developing and offers buyers a wide range of modern real estate. You can find both luxury apartments with stunning views of the city and the Persian Gulf, as well as cozy family residences in peaceful residential areas.",
+      "text-2": "New buildings in Dubai are distinguished by innovative technologies, luxurious architecture, and developed infrastructure. Thanks to government support and flexible payment conditions, purchasing real estate in Dubai has become the most attractive option for investors."
     },
     "Catalog": {
       "title": "New Buildings Catalog",

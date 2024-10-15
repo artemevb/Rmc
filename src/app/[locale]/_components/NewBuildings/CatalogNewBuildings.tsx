@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from 'react'; // Добавлен useRef
+import { useState, useEffect, useRef, useMemo } from 'react'; // Добавлен useRef
 import Image from 'next/image';
 import build1 from "@/public/images/new_buildings/Building1.png";
 import build2 from "@/public/images/new_buildings/Building2.png";
@@ -64,7 +64,7 @@ export default function Invest({ locale }: NewsCompProps) {
     ];
 
     // Определение изображений с дополнительными свойствами
-    const images: ImageItem[] = [
+    const images: ImageItem[] = useMemo(() => [
         {
             src: build1.src,
             alt: "Жилые комплексы",
@@ -131,7 +131,7 @@ export default function Invest({ locale }: NewsCompProps) {
             rooms: 'Студия',
             completionTime: 'IV квартал 2024'
         },
-    ];
+    ], []);
 
     // Определение минимальной и максимальной цены
     const prices = images.map(image => image.priceValue);
