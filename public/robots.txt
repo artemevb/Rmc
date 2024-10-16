@@ -1,11 +1,10 @@
-# Разрешить доступ всем роботам ко всему сайту
+# *
 User-agent: *
-Disallow:
+Allow: /
 
-# Запретить доступ к определённой директории
-# User-agent: *
-# Disallow: /private/
+# Host
+Host: http://localhost:3000
 
-# Запретить доступ к определённым файлам
-# User-agent: *
-# Disallow: /secret.html
+# Sitemaps
+Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: http://localhost:3000/sitemap-0.xml
