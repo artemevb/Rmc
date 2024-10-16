@@ -89,10 +89,10 @@ export default function Footer({ locale }: LocaleProps) {
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('services')}
                 </h2>
-                <Link href={`/${locale}/buy`}>{t('buy')}</Link>
-                <Link href={`/${locale}/rent`}>{t('rent')}</Link>
-                <Link href={`/${locale}/sell`}>{t('sell')}</Link>
-                <Link href={`/${locale}/evaluation`}>{t('evaluate')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('rent')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('sell')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link>
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
@@ -118,8 +118,8 @@ export default function Footer({ locale }: LocaleProps) {
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('other')}
                 </h2>
-                <Link href={`/${locale}/about`}>{t('mortgage_calculator')}</Link>
-                <Link href={`/${locale}/about`}>{t('dubai_investments')}</Link>
+                <Link href={`/${locale}/converter`}>{t('mortgage_calculator')}</Link>
+                <Link href={`/${locale}/investmentDubai`}>{t('dubai_investments')}</Link>
               </div>
             </div>
           </div>

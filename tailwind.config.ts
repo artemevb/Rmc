@@ -47,6 +47,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backdropBlur: {
+        '7.5': '7.5px',
+      },
     },
   },
   plugins: [
