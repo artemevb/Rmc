@@ -22,14 +22,15 @@ interface ImageItem {
     src: string;
     alt: string;
     subtitle: string;
-    price: string; // Отображаемая цена, например, 'от $150 000'
-    priceValue: number; // Числовое значение цены для фильтрации
-    district: string; // Район
-    type: string; // Тип жилья
-    rooms: string; // Количество комнат
-    completionTime: string; // Срок сдачи
-
+    price: string; // Displayed price, e.g., 'from $150,000'
+    priceValue: number; // Numeric value of the price for filtering
+    district: string; // District
+    type: string; // Housing type
+    rooms: string; // Number of rooms
+    completionTime: string; // Completion time
+    slug: string; // Added slug property
 }
+
 
 export default function Main({ locale }: NewsCompProps) {
     const t = useTranslations('NewBuildingsMain');
@@ -78,7 +79,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Чиланзар',
             type: 'Квартиры',
             rooms: '2',
-            completionTime: 'III квартал 2024'
+            completionTime: 'III квартал 2024',
+            slug: 'assalom-sohil'
         },
         {
             src: build2.src,
@@ -89,7 +91,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Marina',
             type: 'Пентхаусы',
             rooms: '3',
-            completionTime: 'IV квартал 2024'
+            completionTime: 'IV квартал 2024',
+            slug: 'marina-towers'
         },
         {
             src: build3.src,
@@ -100,7 +103,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Чиланзар',
             type: 'Таунхаусы',
             rooms: '4+',
-            completionTime: 'I квартал 2025'
+            completionTime: 'I квартал 2025',
+            slug: 'marina-towers'
         },
         {
             src: build4.src,
@@ -111,7 +115,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Business Bay',
             type: 'Квартиры',
             rooms: '1',
-            completionTime: 'II квартал 2025'
+            completionTime: 'II квартал 2025',
+            slug: 'marina-towers'
         },
         {
             src: build5.src,
@@ -122,7 +127,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Palm Jumeirah',
             type: 'Пентхаусы',
             rooms: '4+',
-            completionTime: 'III квартал 2024'
+            completionTime: 'III квартал 2024',
+            slug: 'marina-towers'
         },
         {
             src: build6.src,
@@ -133,7 +139,8 @@ export default function Main({ locale }: NewsCompProps) {
             district: 'Чиланзар',
             type: 'Таунхаусы',
             rooms: 'Студия',
-            completionTime: 'IV квартал 2024'
+            completionTime: 'IV квартал 2024',
+            slug: 'marina-towers'
         },
     ], []);
 
