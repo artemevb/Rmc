@@ -9,6 +9,7 @@ import GallerySlider from '@/src/app/[locale]/_components/Builing_page_main/Gall
 
 import Conditions from '@/src/app/[locale]/_components/Builing_page_main/Conditions'
 import Infrastructure from '@/src/app/[locale]/_components/Builing_page_main/Infrastructure'
+import ReviewsSlider from "../../_components/Builing_page_main/ReviewsSlider";
 // import type { Locales } from "@/src/app/[locale]/layout";
 
 // type InvestmentDubaiPageProps = {
@@ -22,13 +23,14 @@ export default function page() {
     //     : params?.locale === 'en' ? 'en'
     //         : 'ru';
     return (
-        <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
+        <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]">
             <Banner />
             <StickyMenu />
             <SliderInfo />
             <GallerySlider />
             <Conditions />
             <Infrastructure />
+            <ReviewsSlider />
             <Counter />
             <Schema />
             <Form />
