@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Market from "@/public/images/main_buildings/Pc.png";
 import Marketmob from "@/public/images/main_buildings/Table.png";
 
-import School from "@/public/images/main_buildings/School_Pc.png";
+import School from "@/public/images/main_buildings/School_pc.png";
 import Schoolmob from "@/public/images/main_buildings/School_table.png";
 
 import Machine from "@/public/images/main_buildings/Machine_pc.png";
