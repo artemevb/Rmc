@@ -7,7 +7,7 @@ import Menu from "../Menu";
 import searchIcon from "@/public/svg/tools/search-icon.svg";
 import Image from "next/image";
 import burgerMenu from "@/public/svg/tools/burger-menu.svg";
-import Link from "next/link";
+// import Link from "next/link";
 import heartIcon from "@/public/svg/tools/heart-icon.svg";
 import { NavItem } from "./NavItem"; // Adjust the path as needed
 
@@ -57,7 +57,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
-        <Link href={'/favorites'}>
+        {/* <Link href={'/favorites'}> */}
           <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
             <Image
               src={heartIcon}
@@ -67,7 +67,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
               className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
             />
           </button>
-        </Link>
+        {/* </Link> */}
         <a href="tel:+998785558787" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
           <Image
             src={phoneIcon}

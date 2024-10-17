@@ -10,12 +10,13 @@ import build6 from "@/public/images/new_buildings/Building6.png";
 import arrow from "@/public/svg/arrow-bottom-black.svg";
 import rightArrow from "@/public/svg/arrowrightbanners.svg";
 import leftArrow from "@/public/svg/arrowleftbanners.svg";
+import Link from 'next/link';
 
 import { useTranslations } from 'next-intl';
 
-// interface NewsCompProps {
-//     locale: string;
-// }
+interface NewsCompProps {
+    locale: string;
+}
 
 interface ImageItem {
     src: string;
@@ -30,8 +31,7 @@ interface ImageItem {
 
 }
 
-// export default function Main({ locale }: NewsCompProps) {
-export default function Main() {
+export default function Main({ locale }: NewsCompProps) {
     const t = useTranslations('NewBuildingsMain');
 
     // Определение доступных вариантов фильтров
@@ -550,24 +550,26 @@ export default function Main() {
             {/* Отображение отфильтрованных изображений */}
             <div className='mt-[25px] grid gap-[12px] xl:gap-[20px] mdx:grid-cols-2 xl:grid-cols-3'>
                 {filteredImages.map((image, index) => (
-                    <div key={index} className='relative'>
-                        <Image
-                            src={image.src}
-                            alt={image.alt}
-                            width={1000}
-                            height={1000}
-                            quality={100}
-                            layout="responsive"
-                            objectFit="cover"
-                            className='w-full h-full min-h-[400px]'
-                        />
-                        <h3 className='text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2'>
-                            {image.subtitle}
-                        </h3>
-                        <h5 className='text-[16px] mdx:text-[20px] absolute bottom-2 left-2 text-white p-2'>
-                            {image.price}
-                        </h5>
-                    </div>
+                    <Link key={index} href={`/${locale}/new-buildings/${image.slug}`}>
+                        <div key={index} className='relative'>
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={1000}
+                                height={1000}
+                                quality={100}
+                                layout="responsive"
+                                objectFit="cover"
+                                className='w-full h-full min-h-[400px]'
+                            />
+                            <h3 className='text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2'>
+                                {image.subtitle}
+                            </h3>
+                            <h5 className='text-[16px] mdx:text-[20px] absolute bottom-2 left-2 text-white p-2'>
+                                {image.price}
+                            </h5>
+                        </div>
+                    </Link>
                 ))}
                 {filteredImages.length === 0 && (
                     <p className='col-span-full text-center text-gray-500 '>

@@ -78,7 +78,7 @@ export default function MortgageCalculator() {
     };
 
     return (
-        <div className="px-[15px] max-w-[1440px] w-full mx-auto flex flex-col">
+        <div className="max-2xl:px-[15px] max-w-[1440px] w-full mx-auto flex flex-col">
             <h2 className="font-medium text-[30px] md:text-[45px] mdx:text-[55px] mb-4">
                 {t("title")}
             </h2>

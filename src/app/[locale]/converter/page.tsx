@@ -5,7 +5,10 @@ import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
 import arrow from "@/public/svg/arrow-right-white.svg";
 import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
-import TakeOff from "@/src/app/[locale]/_components/Converter/TakeOff";
+import TakeOff from "@/src/app/[locale]/_components/Converter/TakeOffForm";
+import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
+import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
+import RateForm from "@/src/app/[locale]/_components/Converter/RateForm";
 
 // Определяем типы ключей для кнопок
 type ButtonLabels = 'Купить' | 'Снять' | 'Продать' | 'Сдать' | 'Оценить';
@@ -17,9 +20,9 @@ export default function Banner() {
     const components: Record<ButtonLabels, JSX.Element> = {
         Купить: <BuyForm />,
         Снять: <TakeOff />,
-        Продать: <div>Продать форма</div>,
-        Сдать: <div>Сдать форма</div>,
-        Оценить: <div>Оценить форма</div>,
+        Продать: <Sell />,
+        Сдать: <ToRentOut />,
+        Оценить: <RateForm />,
     };
 
     // Список меток кнопок

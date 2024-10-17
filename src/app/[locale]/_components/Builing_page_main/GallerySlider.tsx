@@ -5,13 +5,12 @@ import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import build1 from "@/public/images/main/whyus/slide1.png";
-import build2 from "@/public/images/main/whyus/slide2.png";
-import build3 from "@/public/images/main/whyus/slide3.png";
-import build4 from "@/public/images/main/whyus/slide4.png";
+import build1 from "@/public/images/main_buildings/gallerySlider1.png";
+import build2 from "@/public/images/main_buildings/gallerySlider2.png";
+
 
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
@@ -26,9 +25,9 @@ interface CustomArrowProps {
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-interface local {
-    locale: string;
-}
+// interface local {
+//     locale: string;
+// }
 
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
@@ -60,11 +59,7 @@ const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
 
 // Определение интерфейса для элементов недвижимости
 interface EquipmentItem {
-    title: string;
-    description: string;
     image: StaticImageData;
-    price: string;
-    slug: string;
 }
 
 // Определение интерфейса для настроек слайдера
@@ -86,60 +81,31 @@ interface SliderSettings {
         };
     }[];
 }
-export default function Banner({ locale }: local) {
-    const t = useTranslations('Main.Buildings');
+// export default function Banner({ locale }: local) {
+export default function Gallery() {
+    const t = useTranslations('Building_page_main.Gallery');
 
     const equipmentData: EquipmentItem[] = [
         {
-            title: "Safa One",
-            description: "Luxury Apartment",
-            image: build1,
-            price: "от $1,900,000",
-            slug: "1-safa-one",
+            image: build1
         },
         {
-            title: "Safa Two",
-            description: "Modern Apartment",
-            image: build2,
-            price: "от $399,000",
-            slug: "2-safa-two",
-        },
-        {
-            title: "Peninsula Two",
-            description: "Urban Living",
-            image: build3,
-            price: "от $245,000",
-            slug: "3-peninsula-two",
-        },
-        {
-            title: "Marina Vista",
-            description: "Seaside Apartment",
-            image: build4,
-            price: "от $612,000",
-            slug: "4-marina-vista",
-        },
+            image: build2
+        }
     ];
 
     const settings: SliderSettings = {
         arrows: true,
         dots: false,
         infinite: true,
-        speed: 500,
-        slidesToShow: 3, // По умолчанию показывать 3 слайда
+        speed: 1500,
+        slidesToShow: 2, // По умолчанию показывать 3 слайда
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
             {
-                breakpoint: 1000, // Для экранов шириной до 1000px
-                settings: {
-                    slidesToShow: 2, // Показывать 2 слайда
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 468, // Для экранов шириной до 468px
+                breakpoint: 968, // Для экранов шириной до 468px
                 settings: {
                     slidesToShow: 1, // Показывать 1 слайд
                     slidesToScroll: 1,
@@ -150,37 +116,34 @@ export default function Banner({ locale }: local) {
     };
 
     return (
-        <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            <div className="relative mx-2.5">
-                <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10">
+        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px]">
+            <div className="relative max-2xl:mx-2.5">
+                <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10 leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-mdx:max-w-[324px]">
                     {t('title')}
                 </h2>
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (
-                        <div key={index} className="px-2.5 mdx:px-1.5">
-                            <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
+                        <div key={index} className=" mdx:px-1.5 w-full h-full ">
+                            <div className="w-full h-full max-h-[650px] overflow-hidden">
                                 <Image
                                     src={item.image}
-                                    alt={item.title}
-                                    className="object-cover w-full h-full"
+                                    alt={'Buildings'}
+                                    quality={100}
+                                    className="object-cover w-full h-full xl:min-h-[450px]"
                                     layout="responsive"
-                                    priority={index < 2} // Оптимизация загрузки первых изображений
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
-                                    <h3 className="text-xl mdx:text-2xl text-3xl font-medium text-white">{item.title}</h3>
-                                    <p className="text-base mdx:text-lg text-white">{item.price}</p>
-                                </div>
+
                             </div>
                         </div>
                     ))}
                 </Slider>
-                <div className="flex w-full justify-center mt-10">
-                    <Link href={`/${locale}/new-buildings`}>
+                {/* <div className="flex w-full justify-center mt-10">
+                    <Link href={`/${locale}/new-buildings-tashkent`}>
                         <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
                             {t('button-more')}
                         </button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );

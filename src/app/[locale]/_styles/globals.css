@@ -36,7 +36,18 @@
 }
 
 .new-card-main img {
-    height: 100%; /* or set a specific height, e.g., 600px */
-    object-fit: cover; /* This will ensure the image scales properly without stretching */
-  }
-  
+    height: 100%;
+    /* or set a specific height, e.g., 600px */
+    object-fit: cover;
+    /* This will ensure the image scales properly without stretching */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
