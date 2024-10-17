@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { StaticImageData } from 'next/image';
 
 import Market from "@/public/images/main_buildings/Pc.png";
 import Marketmob from "@/public/images/main_buildings/Table.png";
@@ -12,12 +13,12 @@ import Schoolmob from "@/public/images/main_buildings/School_table.png";
 import Machine from "@/public/images/main_buildings/Machine_pc.png";
 import Machinemob from "@/public/images/main_buildings/Machine_table.png";
 
-// Define the structure of the data
 interface CategoryData {
     description: string;
     items: { name: string; time: string }[];
-    images: { desktop: any; mobile: any };
+    images: { desktop: StaticImageData; mobile: StaticImageData };
 }
+
 
 
 interface ApiData {
