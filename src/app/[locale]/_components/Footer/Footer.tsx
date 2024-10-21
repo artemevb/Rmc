@@ -1,3 +1,4 @@
+"use client"
 import logoBig from "@/public/images/rmc-logo.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
@@ -7,10 +8,42 @@ import resultLogo from "@/public/svg/footer/result-logo.png";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
+import axios from 'axios';
+
 
 interface LocaleProps {
   locale: string;
 }
+
+const handlePhoneClickTelegram = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+  event.preventDefault(); // Prevent default behavior temporarily
+
+  try {
+    // Send the API request using axios
+    await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=TELEGRAM_FOOTER');
+
+    // After successful API call, redirect to the phone number
+    window.location.href = 'tel:+998785558787';
+  } catch (error) {
+    console.error('API call failed:', error);
+    // You can add error handling logic here if needed
+  }
+};
+
+const handlePhoneClickInstargam = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+  event.preventDefault(); // Prevent default behavior temporarily
+
+  try {
+    // Send the API request using axios
+    await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=INSTAGRAM_FOOTER');
+
+    // After successful API call, redirect to the phone number
+    window.location.href = 'tel:+998785558787';
+  } catch (error) {
+    console.error('API call failed:', error);
+    // You can add error handling logic here if needed
+  }
+};
 
 export default function Footer({ locale }: LocaleProps) {
   const t = useTranslations('Main.Footer');
@@ -41,7 +74,7 @@ export default function Footer({ locale }: LocaleProps) {
               </Link>
             </div>
             <div className="flex gap-3 mdx:gap-[20px]">
-              <a href="https://t.me/rmcdeluxegroup" target="_blank">
+              <a href="https://t.me/rmcdeluxegroup" target="_blank" onClick={handlePhoneClickTelegram}>
                 <Image
                   src={telegram}
                   width={100}
@@ -61,7 +94,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a> */}
-              <a href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx" target="_blank">
+              <a href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx" target="_blank" onClick={handlePhoneClickInstargam}>
                 <Image
                   src={instagram}
                   width={100}
@@ -130,7 +163,7 @@ export default function Footer({ locale }: LocaleProps) {
             <p className="w-full max-mdx:max-w-[150px] text-[#B3B3B3] text-[14px] xl:text-[16px]">
               {t('info')}
             </p>
-            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank">
+            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank" >
               <Image
                 src={resultLogo}
                 width={800}

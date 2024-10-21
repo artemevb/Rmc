@@ -12,37 +12,37 @@ export default function Conditions() {
                 <p className='text-[16px] mdx:text-[20px] text-[#858585] pb-[40px] xl:max-w-[710px]'>{t('description')}</p>
             </div>
             <div className='xl:flex flex-col'>
-                <div className='border-b py-[24px] xl:flex xl:justify-between'>
+                <div className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
                     <h4 className='text-[20px] mdx:text-[25px] font-medium'>{t('text-1')}</h4>
-                    <div className='mt-[15px] mdx:mt-[20px] xl:w-full xl:max-w-[588px]'>
+                    <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                         <p className='text-[16px] mdx:text-[20px]'>{t('text-1-subtitle')}</p>
                         <p className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px]'>{t('text-1-5-subtitle')}</p>
                     </div>
                 </div>
-                <div className='border-b py-[24px] xl:flex xl:justify-between'>
+                <div className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
                     <h4 className='text-[20px] mdx:text-[25px] font-medium'>{t('text-2')}</h4>
-                    <div className='mt-[15px] mdx:mt-[20px] xl:w-full xl:max-w-[588px]'>
+                    <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                         <p className='text-[16px] mdx:text-[20px]'>{t('text-2-subtitle')}</p>
                         <p className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px]'>{t('text-2-5-subtitle')}</p>
                     </div>
                 </div>
-                <div className='border-b py-[24px] xl:flex xl:justify-between'>
+                <div className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
                     <h4 className='text-[20px] mdx:text-[25px] font-medium'>{t('text-3')}</h4>
-                    <div className='mt-[15px] mdx:mt-[20px] xl:w-full xl:max-w-[588px]'>
+                    <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                         <p className='text-[16px] mdx:text-[20px]'>{t('text-3-subtitle')}</p>
                         <p className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px]'>{t('text-3-5-subtitle')}</p>
                     </div>
                 </div>
-                <div className='border-b py-[24px] xl:flex xl:justify-between'>
+                <div className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
                     <h4 className='text-[20px] mdx:text-[25px] font-medium'>{t('text-4')}</h4>
-                    <div className='mt-[15px] mdx:mt-[20px] xl:w-full xl:max-w-[588px]'>
+                    <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                         <p className='text-[16px] mdx:text-[20px]'>{t('text-4-subtitle')}</p>
                         <p className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px]'>{t('text-4-5-subtitle')}</p>
                     </div>
                 </div>
-                <div className='border-b py-[24px] xl:flex xl:justify-between'>
+                <div className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
                     <h4 className='text-[20px] mdx:text-[25px] font-medium'>{t('text-5')}</h4>
-                    <div className='mt-[15px] mdx:mt-[20px] xl:w-full xl:max-w-[588px]'>
+                    <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                         <p className='text-[16px] mdx:text-[20px]'>{t('text-5-subtitle')}</p>
                         <p className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px]'>{t('text-5-5-subtitle')}</p>
                     </div>

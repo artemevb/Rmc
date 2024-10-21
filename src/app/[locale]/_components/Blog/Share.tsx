@@ -130,7 +130,7 @@ export default function NewsTitle({ locale }: NewsCompProps) {
                     <div className='mdl:items-center mdl:flex flex justify-start content-left xl:mt-[13%]'>
                         {news?.options && news.options.length > 0 ? (
                             <Image
-                                src={news.options[0].photo.url}
+                                src={news.options[1].photo.url}
                                 width={1000}
                                 height={1000}
                                 quality={100}

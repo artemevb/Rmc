@@ -10,6 +10,7 @@ import burgerMenu from "@/public/svg/tools/burger-menu.svg";
 // import Link from "next/link";
 import heartIcon from "@/public/svg/tools/heart-icon.svg";
 import { NavItem } from "./NavItem"; // Adjust the path as needed
+import axios from 'axios';
 
 interface NavigationProps {
   navOptions: NavItem[];
@@ -26,6 +27,22 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const handleOpenMenu = () => {
     setMenu(true);
   };
+
+  const handlePhoneClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault(); // Prevent default behavior temporarily
+
+    try {
+      // Send the API request using axios
+      await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=CALL');
+
+      // After successful API call, redirect to the phone number
+      window.location.href = 'tel:+998785558787';
+    } catch (error) {
+      console.error('API call failed:', error);
+      // You can add error handling logic here if needed
+    }
+  };
+
 
   const handleCloseMenu = () => {
     setMenu(false);
@@ -58,17 +75,21 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
           />
         </button>
         {/* <Link href={'/favorites'}> */}
-          <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
-            <Image
-              src={heartIcon}
-              height={100}
-              width={100}
-              alt={`Tools Item HeartIcon : Favorites`}
-              className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
-            />
-          </button>
+        <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
+          <Image
+            src={heartIcon}
+            height={100}
+            width={100}
+            alt={`Tools Item HeartIcon : Favorites`}
+            className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
+          />
+        </button>
         {/* </Link> */}
-        <a href="tel:+998785558787" className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block">
+        <a
+          href="tel:+998785558787"
+          onClick={handlePhoneClick} // Add onClick handler here
+          className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
+        >
           <Image
             src={phoneIcon}
             height={100}
@@ -114,7 +135,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
 
         {/* Render Menu Component */}
         {menu && (
-          <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} locale={locale}/>
+          <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} locale={locale} />
         )}
       </div>
     </div>

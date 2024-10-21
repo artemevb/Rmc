@@ -9,6 +9,7 @@ import arrow_black from "@/public/svg/arrow-down-black.svg";
 import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
 import { NavItem } from "./Header/NavItem";
 import { useTranslations } from 'next-intl';
+import axios from 'axios';
 
 interface MenuProps {
   menu: boolean;
@@ -58,6 +59,22 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
 
   const toggleServicesMenu = () => {
     setServicesMenuOpen(!servicesMenuOpen);
+  };
+
+  const handlePhoneClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault(); // Prevent default behavior temporarily
+
+    try {
+      // Send the API request using axios
+      await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=CALL');
+
+      // After successful API call, redirect to the phone number
+      window.location.href = 'tel:+998785558787';
+      console.log('Запрос успешно отправлен.');
+    } catch (error) {
+      console.error('API call failed:', error);
+      // You can add error handling logic here if needed
+    }
   };
 
   return (
@@ -193,11 +210,14 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
 
       {/* Footer Button */}
       <div className="absolute bottom-0 left-0 right-0 p-[20px]">
-        <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
-          {t('menu.askQuestion')}
-        </button>
+        <a href="tel:+998785558787"
+          onClick={handlePhoneClick}>
+          <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
+            {t('menu.askQuestion')}
+          </button>
+        </a>
       </div>
-    </div>
+    </div >
   );
 };
 

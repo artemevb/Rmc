@@ -4,9 +4,9 @@ import build1 from "@/public/images/main/Form1.png";
 import build2 from "@/public/images/main/Form2.png";
 import Image from 'next/image';
 import { useTranslations } from "next-intl";
-import axios, { AxiosError } from 'axios'; // Импортируем Axios и тип AxiosError
+import axios, { AxiosError } from 'axios';
 
-// Определяем форму значений
+// Define form values interface
 interface FormValues {
     fullName: string;
     phoneNumber: string;
@@ -14,12 +14,12 @@ interface FormValues {
     question: string;
 }
 
-// Интерфейс для ответа об ошибке от API
+// Interface for API error response
 interface ErrorResponse {
     message: string;
 }
 
-// Результат валидации
+// Validation result interface
 interface ValidationResult {
     isValid: boolean;
     message: string;
@@ -36,9 +36,8 @@ export default function ContAddress() {
     });
 
     const [focusedInput, setFocusedInput] = useState<keyof FormValues | null>(null);
-    const [loading, setLoading] = useState<boolean>(false); // Состояние загрузки
-    const [error, setError] = useState<string | null>(null); // Состояние ошибки
-
+    const [loading, setLoading] = useState<boolean>(false); // Loading state
+    const [error, setError] = useState<string | null>(null); // Error state
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
@@ -72,8 +71,7 @@ export default function ContAddress() {
         e.preventDefault();
         setError(null);
 
-
-        // Проверка всех полей перед отправкой
+        // Validate all fields before submission
         let isFormValid = true;
         let firstInvalidField: keyof FormValues | null = null;
         let validationMessage = "";
@@ -88,7 +86,7 @@ export default function ContAddress() {
             }
         }
 
-        // Дополнительная проверка для незаполненных полей (например, вопрос)
+        // Additional check for empty fields
         for (const field of ["fullName", "phoneNumber", "email"] as Array<keyof FormValues>) {
             if (!values[field].trim()) {
                 isFormValid = false;
@@ -108,49 +106,59 @@ export default function ContAddress() {
 
         setLoading(true);
 
-        // Подготовка данных для API
+        // Prepare data for API
         const payload = {
             fullName: values.fullName,
-            phoneNum: values.phoneNumber, // Преобразуем имя поля
+            phoneNum: values.phoneNumber, // Rename field
             email: values.email,
             question: values.question,
         };
 
         try {
+            // Submit the form data
             const response = await axios.post('https://rmc.mrjtrade.uz/api/application/create', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
 
-            // Предполагаем, что API возвращает успешный статус
+            // Assume API returns a successful status
             if (response.status === 200 || response.status === 201) {
-
+                // Reset form fields
                 setValues({
                     fullName: "",
                     phoneNumber: "",
                     email: "",
                     question: "",
                 });
+
+                // Send the SEND_APPLICATION counter request
+                try {
+                    await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=SEND_APPLICATION');
+                } catch (counterError) {
+                    console.error('Counter API call failed:', counterError);
+                    // Optionally set a non-blocking error message
+                    // setError(t('counterApiFailed'));
+                }
             } else {
                 setError(t('unexpectedResponse'));
             }
         } catch (err: unknown) {
-            // Обработка ошибок с использованием AxiosError
+            // Handle errors using AxiosError
             if (axios.isAxiosError(err)) {
                 const axiosError = err as AxiosError<ErrorResponse>;
                 if (axiosError.response) {
-                    // Сервер ответил с ошибкой
+                    // Server responded with an error
                     setError(axiosError.response.data.message || t('submissionFailed'));
                 } else if (axiosError.request) {
-                    // Запрос был сделан, но ответа не было
+                    // Request was made but no response received
                     setError(t('noResponseFromServer'));
                 } else {
-                    // Произошла другая ошибка
+                    // Other errors
                     setError(t('errorOccurred'));
                 }
             } else {
-                // Неизвестная ошибка
+                // Unknown error
                 setError(t('errorOccurred'));
             }
         } finally {
@@ -173,25 +181,24 @@ export default function ContAddress() {
                         <div className="relative" key={field}>
                             <input
                                 type={field === "email" ? "email" : "text"}
-                                name={field === "phoneNumber" ? "phoneNumber" : field} // Убедитесь, что имена полей совпадают
+                                name={field === "phoneNumber" ? "phoneNumber" : field}
                                 value={values[field]}
                                 onChange={handleInputChange}
                                 onFocus={() => setFocusedInput(field)}
                                 onBlur={() => setFocusedInput(null)}
-                                className={`block w-full px-4 py-3 bg-transparent text-gray-800 placeholder-transparent focus:outline-none border-b-2 ${
-                                    focusedInput === field
+                                className={`block w-full px-4 py-3 bg-transparent text-gray-800 placeholder-transparent focus:outline-none border-b-2 ${focusedInput === field
                                         ? validateInput(field, values[field]).isValid
                                             ? "border-gray-300"
                                             : "border-red-500"
                                         : "border-gray-300"
-                                }`}
+                                    }`}
                                 placeholder={t(field)}
                             />
                             <label
                                 htmlFor={field}
                                 className={`absolute transition-all ${focusedInput === field || values[field]
-                                        ? "-top-4 text-xs text-gray-600"
-                                        : "top-3 text-[16px] mdx:text-[18px] text-gray-800"
+                                    ? "-top-4 text-xs text-gray-600"
+                                    : "top-3 text-[16px] mdx:text-[18px] text-gray-800"
                                     } cursor-text`}
                                 onClick={() => {
                                     const element = document.getElementsByName(field)[0];
@@ -227,17 +234,15 @@ export default function ContAddress() {
                             </label>
                         </div>
                     ))}
-                    {/* Отображение сообщений об ошибках или успехе */}
+                    {/* Display error messages */}
                     {error && <p className="text-red-500">{error}</p>}
-                    {/* Отключено отображение сообщения об успехе */}
-                    {/* {success && <p className="text-green-500">{success}</p>} */}
+                    {/* Success message can be added here if needed */}
                     <div>
                         <button
                             type="submit"
-                            disabled={loading} // Отключить кнопку при загрузке
-                            className={`py-3 w-full max-w-[228px] px-8 text-white bg-[#E1AF93] font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] 2xl:mt-[34px] 3xl:mt-[34px] ${
-                                loading ? "opacity-50 cursor-not-allowed" : ""
-                            }`}
+                            disabled={loading} // Disable button when loading
+                            className={`py-3 w-full max-w-[228px] px-8 text-white bg-[#E1AF93] font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] 2xl:mt-[34px] 3xl:mt-[34px] ${loading ? "opacity-50 cursor-not-allowed" : ""
+                                }`}
                         >
                             {loading ? t('submitting') : t('submit')}
                         </button>

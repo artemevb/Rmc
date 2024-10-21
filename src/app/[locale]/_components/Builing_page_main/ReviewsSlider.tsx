@@ -19,7 +19,7 @@ interface Review {
 
 export default function ReviewsSlider() {
     const t = useTranslations('Building_page_main.Reviews');
-    
+
     // Initialize reviews with the defined type
     const [reviews] = useState<Review[]>([
         {
@@ -32,7 +32,7 @@ export default function ReviewsSlider() {
             id: 2,
             clientName: 'Jane Smith',
             createdDate: '2024-05-10T09:21:45Z',
-            comment: 'Exceptional experience from start to finish. The team was professional and attentive to our needs.',
+            comment: 'Exceptional experience from start to finish. The team was professional and attentive to our needs. Exceptional experience from start to finish. The team was professional and attentive to our needs. Exceptional experience from start to finish. The team was professional and attentive to our needs. Exceptional experience from start to finish. The team was professional and attentive to our needs.',
         },
         {
             id: 3,
@@ -42,13 +42,13 @@ export default function ReviewsSlider() {
         },
         // Add more fake reviews as needed
     ])
-    
+
     // Define the type for the selected review (can be null)
     const [selectedReview, setSelectedReview] = useState<Review | null>(null)
 
     // Function to truncate the description
     const truncateDescription = (description: string): string => {
-        return description.length > 327 ? `${description.substring(0, 327)}...` : description
+        return description.length > 327 ? `${description.substring(0, 337)}...` : description
     }
 
     // Function to open the modal with the selected review
@@ -74,21 +74,15 @@ export default function ReviewsSlider() {
         arrows: false,
         infinite: true,
         speed: 1500,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 3500,
         responsive: [
             {
                 breakpoint: 1200,
                 settings: {
                     slidesToShow: 2,
-                },
-            },
-            {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 1,
                 },
             },
             {
@@ -109,9 +103,9 @@ export default function ReviewsSlider() {
                 {reviews.length > 1 ? (
                     <Slider {...settings}>
                         {reviews.map((card) => (
-                            <div key={card.id} className='px-3'>
-                                <div className='max-h-[480px]'>
-                                    <div className='bg-white p-4 mdx:p-[22px] py-[15px] xl:py-[25px] border border-gray-200 xl:p-5 h-full xl:h-[340px] flex flex-col justify-between'>
+                            <div key={card.id} className='px-[8px] xl:px-[10px]'>
+                                <div className='max-h-[465px] mdx:max-h-[487px] xl:max-h-[515px]'>
+                                    <div className='bg-white p-4 mdx:p-[22px] py-[15px] xl:py-[25px] border border-gray-200 xl:p-5 h-full xl:h-[360px] flex flex-col justify-between'>
                                         <div>
                                             <div className='flex justify-start items-center gap-3 xl:items-start mb-4'>
                                                 <div>
