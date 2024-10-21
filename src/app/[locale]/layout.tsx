@@ -7,7 +7,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Head from 'next/head';
-
+import Script from 'next/script';
 
 const jost = Jost({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
@@ -24,25 +24,14 @@ export const metadata: Metadata = {
     title: 'RMC De Luxe - Риэлторское Агентство в Ташкенте',
     description: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.',
     siteName: 'RMC De Luxe',
-    // images: [
-    //   {
-    //     url: 'https://www.yoursite.com/og-image.jpg',
-    //     width: 800,
-    //     height: 600,
-    //     alt: 'RMC De Luxe - Недвижимость в Ташкенте',
-    //   },
-    // ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RMC De Luxe - Риэлторское Агентство в Ташкенте',
     description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в Ташкенте.',
-    // images: ['https://www.yoursite.com/twitter-image.jpg'],
   },
   icons: {
-    icon: '/favicon.ico'
-    // shortcut: '/favicon-16x16.png',
-    // apple: '/apple-touch-icon.png',
+    icon: '/favicon.ico',
   },
   alternates: {
     canonical: 'https://rmcestate.uz',
@@ -75,8 +64,6 @@ export default async function RootLayout({
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
     "url": "https://rmcestate.uz",
-    // "logo": "https://www.yoursite.com/logo.png",
-    // "image": "https://www.yoursite.com/office.jpg",
     "description": "RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.",
     "address": {
       "@type": "PostalAddress",
@@ -102,6 +89,33 @@ export default async function RootLayout({
               dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
           </Head>
+          <Script
+            id="yandex-metrika"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                  if (document.scripts[j].src === r) { return; }
+                }
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+                ym(98684651, "init", {
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+                });
+              `,
+            }}
+          />
+          <noscript>
+            <div>
+              <img src="https://mc.yandex.ru/watch/98684651" style={{ position: 'absolute', left: '-9999px' }} alt="" />
+            </div>
+          </noscript>
         </NextIntlClientProvider>
       </body>
     </html>
