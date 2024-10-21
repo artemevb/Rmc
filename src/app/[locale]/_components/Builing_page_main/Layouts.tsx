@@ -123,7 +123,7 @@ export default function Layout() {
                     {/* Фильтр по этажам */}
                     <div className="relative w-full max-w-[133px]">
                         <button
-                            className={`w-full flex items-center justify-between h-[43px] mdx:h-[53px] px-4 ${isFloorDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isFloorDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
                             onClick={() => {
                                 setIsFloorDropdownOpen(!isFloorDropdownOpen);
                                 setIsRoomsDropdownOpen(false);
@@ -132,7 +132,14 @@ export default function Layout() {
                             Этаж
                             <Image quality={100} src={isFloorDropdownOpen ? arrow_top : arrow} alt="arrow" width={20} height={20} />
                             {selectedFloor && (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 10 10"
+                                    fill="none"
+                                    className="absolute right-2 top-2" // Позиционирование шара
+                                >
                                     <circle cx="5" cy="5" r="5" fill="#E1AF93" />
                                 </svg>
                             )}
@@ -167,7 +174,7 @@ export default function Layout() {
                     {/* Фильтр по цене */}
                     <div className="relative w-full max-w-[137px]">
                         <button
-                            className={`w-full flex items-center justify-between h-[43px] mdx:h-[53px] px-4 ${isPriceDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isPriceDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
                             onClick={() => {
                                 setIsPriceDropdownOpen(!isPriceDropdownOpen);
                                 setIsFloorDropdownOpen(false);
@@ -176,6 +183,18 @@ export default function Layout() {
                         >
                             Цена
                             <Image quality={100} src={isPriceDropdownOpen ? arrow_top : arrow} alt="arrow" width={20} height={20} />
+                            {priceRange[0] !== MIN_PRICE || priceRange[1] !== MAX_PRICE ? (
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 10 10"
+                                    fill="none"
+                                    className="absolute right-2 top-2" // Позиционирование шара
+                                >
+                                    <circle cx="5" cy="5" r="5" fill="#E1AF93" />
+                                </svg>
+                            ) : null}
                         </button>
                         {isPriceDropdownOpen && (
                             <div className="absolute z-10 bg-white border mt-1 p-4 w-[260px] right-[0] mdx:right-auto mdx:w-[300px] slg:w-[395px]">
@@ -214,15 +233,12 @@ export default function Layout() {
                                         setInputMax(values[1]);
                                     }}
                                     renderTrack={({ props, children }) => (
-                                        <div
-                                            {...props}
-                                            className="relative w-full h-[5px] bg-gray-200 rounded-full mt-[25px]"
-                                        >
+                                        <div {...props} className="relative w-full h-[5px] bg-gray-200 rounded-full mt-[25px]">
                                             <div
                                                 style={{
                                                     position: 'absolute',
                                                     height: '100%',
-                                                    backgroundColor: '#E1AF93', // Цвет выделения диапазона
+                                                    backgroundColor: '#E1AF93',
                                                     borderRadius: '9999px',
                                                     left: `${(priceRange[0] - MIN_PRICE) / (MAX_PRICE - MIN_PRICE) * 100}%`,
                                                     right: `${100 - (priceRange[1] - MIN_PRICE) / (MAX_PRICE - MIN_PRICE) * 100}%`,
@@ -232,10 +248,7 @@ export default function Layout() {
                                         </div>
                                     )}
                                     renderThumb={({ props }) => (
-                                        <div
-                                            {...props}
-                                            className="w-[20px] h-[20px] bg-[#E1AF93] rounded-full"
-                                        />
+                                        <div {...props} className="w-[20px] h-[20px] bg-[#E1AF93] rounded-full" />
                                     )}
                                 />
                                 {/* Добавление минимальной и максимальной цены под ползунком */}
@@ -246,12 +259,13 @@ export default function Layout() {
                             </div>
                         )}
                     </div>
+
                 </div>
 
                 {/* Фильтр по количеству комнат */}
-                <div className="relative w-full max-w-[189px] mdx:max-w-[254px]">
+                <div className="relative w-full max-w-[195px] mdx:max-w-[254px]">
                     <button
-                        className={`w-full flex items-center justify-between h-[43px] mdx:h-[53px] px-4 ${isRoomsDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
+                        className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isRoomsDropdownOpen ? "bg-[#E1AF93] text-white" : "bg-[#EDF3F5]"}`}
                         onClick={() => {
                             setIsRoomsDropdownOpen(!isRoomsDropdownOpen);
                             setIsFloorDropdownOpen(false);
@@ -260,7 +274,14 @@ export default function Layout() {
                         Количество комнат
                         <Image quality={100} src={isRoomsDropdownOpen ? arrow_top : arrow} alt="arrow" width={20} height={20} />
                         {selectedRooms && (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="10"
+                                viewBox="0 0 10 10"
+                                fill="none"
+                                className="absolute right-2 top-2" // Позиционирование шара
+                            >
                                 <circle cx="5" cy="5" r="5" fill="#E1AF93" />
                             </svg>
                         )}
@@ -292,9 +313,10 @@ export default function Layout() {
                     )}
                 </div>
 
+
                 {/* Кнопка "Сбросить всё", показывается если что-то выбрано */}
                 {isFilterActive && (
-                    <div className="mt-4 flex justify-end">
+                    <div className="slg:ml-[10px] flex justify-end">
                         <button onClick={resetFilters} className="text-[#E1AF93] underline">
                             Сбросить всё
                         </button>

@@ -4,36 +4,38 @@ import React, { useEffect, useState } from 'react';
 const StickyMenu = () => {
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
-    useEffect(() => {
-        const sections = document.querySelectorAll('section'); // Находим все секции с id
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.5 } // Срабатывает при 50% видимости секции
-        );
+    const handleScroll = () => {
+        const sections = document.querySelectorAll('section');
+        let currentSection = activeSection;
 
         sections.forEach((section) => {
-            observer.observe(section);
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop <= window.innerHeight / 2) {
+                currentSection = section.id;
+            }
         });
 
+        if (currentSection !== activeSection) {
+            setActiveSection(currentSection);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Инициализация текущей секции
+        handleScroll();
+
         return () => {
-            sections.forEach((section) => {
-                observer.unobserve(section);
-            });
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [activeSection]);
 
     const handleScrollToSection = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, sectionId: string) => {
         event.preventDefault();
         const section = document.getElementById(sectionId);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' }); // Плавный переход
+            section.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -43,9 +45,9 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section1"
-                        className={`w-full ${activeSection === "section1" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]"  : "text-gray-700"
+                        className={`w-full ${activeSection === "section1" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section1')}
+                        onClick={(e) => handleScrollToSection(e, 'section1')}
                     >
                         О комплексе
                     </a>
@@ -53,9 +55,9 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section2"
-                        className={`w-full ${activeSection === "section2" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93] "  : "text-gray-700"
+                        className={`w-full ${activeSection === "section2" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93] " : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section2')}
+                        onClick={(e) => handleScrollToSection(e, 'section2')}
                     >
                         Галерея
                     </a>
@@ -63,9 +65,8 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section3"
-                        className={`w-full ${activeSection === "section3" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section3')}
+                        className={`w-full ${activeSection === "section3" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"} hover:text-[#E1AF93]`}
+                        onClick={(e) => handleScrollToSection(e, 'section3')}
                     >
                         Планировки
                     </a>
@@ -75,7 +76,7 @@ const StickyMenu = () => {
                         href="#section4"
                         className={`w-full ${activeSection === "section4" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section4')}
+                        onClick={(e) => handleScrollToSection(e, 'section4')}
                     >
                         Условия покупки
                     </a>
@@ -85,7 +86,7 @@ const StickyMenu = () => {
                         href="#section5"
                         className={`w-full ${activeSection === "section5" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section5')}
+                        onClick={(e) => handleScrollToSection(e, 'section5')}
                     >
                         Инфраструктура
                     </a>
@@ -95,7 +96,7 @@ const StickyMenu = () => {
                         href="#section6"
                         className={`w-full ${activeSection === "section6" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                            onClick={(e) => handleScrollToSection(e, 'section6')}
+                        onClick={(e) => handleScrollToSection(e, 'section6')}
                     >
                         Отзывы
                     </a>

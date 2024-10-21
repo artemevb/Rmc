@@ -21,35 +21,35 @@ import Layouts from "../../_components/Builing_page_main/Layouts";
 // };
 // export default function page({ params }: InvestmentDubaiPageProps) {
 export default function page() {
-    // const locale: Locales = params?.locale === 'uz' ? 'uz'
-    //     : params?.locale === 'en' ? 'en'
-    //         : 'ru';
-    return (
-        <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]">
-          <Banner />
-          <StickyMenu />
-          <section id="section1">
-            <SliderInfo />
-          </section>
-          <section id="section2">
-            <GallerySlider />
-          </section>
-          <section id="section3">
-            <Layouts />
-          </section>
-          <section id="section4">
-            <Conditions />
-          </section>
-          <section id="section5">
-            <Infrastructure />
-          </section>
-          <section id="section6">
-            <ReviewsSlider />
-          </section>
-          <Counter />
-          <Schema />
-          <Form />
-          <OtherBuildingsSlider />
-        </div>
-      );
+  // const locale: Locales = params?.locale === 'uz' ? 'uz'
+  //     : params?.locale === 'en' ? 'en'
+  //         : 'ru';
+  return (
+    <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]">
+      <Banner />
+      <StickyMenu />
+      <section id="section1">
+        <SliderInfo />
+      </section>
+      <section id="section2">
+        <GallerySlider />
+      </section>
+      <section id="section3">
+        <Layouts />
+      </section>
+      <section id="section4">
+        <Conditions />
+      </section>
+      <section id="section5">
+        <Infrastructure />
+      </section>
+      <section id="section6">
+        <ReviewsSlider />
+      </section>
+      <Counter />
+      <Schema />
+      <Form />
+      <OtherBuildingsSlider />
+    </div>
+  );
 }

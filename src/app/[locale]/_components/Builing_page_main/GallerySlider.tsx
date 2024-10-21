@@ -123,7 +123,7 @@ export default function Gallery() {
                 </h2>
                 <Slider {...settings}>
                     {equipmentData.map((item, index) => (
-                        <div key={index} className=" mdx:px-1.5 w-full h-full ">
+                        <div key={index} className="px-[4px] mdx:px-[10px] w-full h-full ">
                             <div className="w-full h-full max-h-[650px] overflow-hidden">
                                 <Image
                                     src={item.image}
