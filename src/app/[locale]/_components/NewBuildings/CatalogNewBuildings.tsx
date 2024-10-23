@@ -1,157 +1,132 @@
-"use client";
-import { useState, useEffect, useRef, useMemo } from 'react'; // Добавлен useRef
+"use client"
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import build1 from "@/public/images/new_buildings/Building1.png";
-import build2 from "@/public/images/new_buildings/Building2.png";
-import build3 from "@/public/images/new_buildings/Building3.png";
-import build4 from "@/public/images/new_buildings/Building4.png";
-import build5 from "@/public/images/new_buildings/Building5.png";
-import build6 from "@/public/images/new_buildings/Building6.png";
 import arrow from "@/public/svg/arrow-bottom-black.svg";
 import { useTranslations } from 'next-intl';
-import Link from "next/link";
+// import Link from "next/link";
+import {
+    GET_RESIDENTIAL_COMPLEXES,
+    GET_DISTRICTS,
+    GET_HOUSING_TYPES,
+    GET_ROOMS,
+    GET_COMPLETION_TIMES,
+} from './queries';
+import { ResidentialComplex, District, HousingType, Room, CompletionTime } from './types';
+import { client } from '../../../../sanity/lib/client';
 
-interface NewsCompProps {
+interface InvestProps {
     locale: string;
 }
 
 interface ImageItem {
-    src: string;
-    alt: string;
+    _id: string;
+    mainImageUrl: string;
+    mainImageAlt: string;
     subtitle: string;
-    price: string; // Отображаемая цена, например, 'от $150 000'
-    priceValue: number; // Числовое значение цены для фильтрации
-    district: string; // Район
-    type: string; // Тип жилья
-    rooms: string; // Количество комнат
-    completionTime: string; // Срок сдачи
+    price: string;
+    priceValue: number;
+    district: string;
+    type: string;
+    rooms: string;
+    completionTime: string;
 }
 
-export default function Invest({ locale }: NewsCompProps) {
+export default function Invest({ locale }: InvestProps) {
     const t = useTranslations('NewBuildings.Catalog');
+    const [images, setImages] = useState<ImageItem[]>([]);
+    const [filteredImages, setFilteredImages] = useState<ImageItem[]>([]);
+    const [districts, setDistricts] = useState<District[]>([]);
+    const [housingTypes, setHousingTypes] = useState<HousingType[]>([]);
+    const [rooms, setRooms] = useState<Room[]>([]);
+    const [completionTimes, setCompletionTimes] = useState<CompletionTime[]>([]);
+    const [minPrice, setMinPrice] = useState<number>(0);
+    const [maxPrice, setMaxPrice] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-    // Определение доступных вариантов фильтров
-    const districts = [
-        'Чиланзар',
-        'Marina',
-        'Jumeirah',
-        'Business Bay',
-        'Palm Jumeirah',
-    ];
+    // Initialize priceRange as state after data is fetched
+    const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 0 });
+    // Максимальное количество отображаемых зданий
+    const [visibleCount, setVisibleCount] = useState<number>(6);
 
-    const housingTypes = [
-        'Квартиры',
-        'Пентхаусы',
-        'Таунхаусы',
-    ];
+    // Функция для загрузки еще 6 зданий
+    const loadMore = () => {
+        setVisibleCount((prev) => prev + 6);
+    };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                setError(null);
 
-    const roomOptions = [
-        'Не важно',
-        'Студия',
-        '1',
-        '2',
-        '3',
-        '4+',
-    ];
+                // Fetch complexes
+                const complexes: ResidentialComplex[] = await client.fetch(GET_RESIDENTIAL_COMPLEXES);
 
-    const completionTimes = [
-        'Любой',
-        'III квартал 2024',
-        'IV квартал 2024',
-        'I квартал 2025',
-        'II квартал 2025',
-        // Добавьте больше по необходимости
-    ];
+                // Fetch filter options
+                const fetchedDistricts: District[] = await client.fetch(GET_DISTRICTS);
+                const fetchedHousingTypes: HousingType[] = await client.fetch(GET_HOUSING_TYPES);
+                const fetchedRooms: Room[] = await client.fetch(GET_ROOMS);
+                const fetchedCompletionTimes: CompletionTime[] = await client.fetch(GET_COMPLETION_TIMES);
 
-    // Определение изображений с дополнительными свойствами
-    const images: ImageItem[] = useMemo(() => [
-        {
-            src: build1.src,
-            alt: "Жилые комплексы",
-            subtitle: "Assalom Sohil",
-            price: 'от $150 000',
-            priceValue: 150000,
-            district: 'Чиланзар',
-            type: 'Квартиры',
-            rooms: '2',
-            completionTime: 'III квартал 2024'
-        },
-        {
-            src: build2.src,
-            alt: "Коммерческая недвижимость",
-            subtitle: "Assalom Sohil",
-            price: 'от $250 000',
-            priceValue: 250000,
-            district: 'Marina',
-            type: 'Пентхаусы',
-            rooms: '3',
-            completionTime: 'IV квартал 2024'
-        },
-        {
-            src: build3.src,
-            alt: "Офисы и коворкинги",
-            subtitle: "Assalom Sohil",
-            price: 'от $350 000',
-            priceValue: 350000,
-            district: 'Чиланзар',
-            type: 'Таунхаусы',
-            rooms: '4+',
-            completionTime: 'I квартал 2025'
-        },
-        {
-            src: build4.src,
-            alt: "Отели и гостиничные апартаменты",
-            subtitle: "Assalom Sohil",
-            price: 'от $450 000',
-            priceValue: 450000,
-            district: 'Business Bay',
-            type: 'Квартиры',
-            rooms: '1',
-            completionTime: 'II квартал 2025'
-        },
-        {
-            src: build5.src,
-            alt: "Виллы и таунхаусы",
-            subtitle: "Assalom Sohil",
-            price: 'от $550 000',
-            priceValue: 550000,
-            district: 'Palm Jumeirah',
-            type: 'Пентхаусы',
-            rooms: '4+',
-            completionTime: 'III квартал 2024'
-        },
-        {
-            src: build6.src,
-            alt: "Виллы и таунхаусы",
-            subtitle: "Assalom Sohil",
-            price: 'от $650 000',
-            priceValue: 650000,
-            district: 'Чиланзар',
-            type: 'Таунхаусы',
-            rooms: 'Студия',
-            completionTime: 'IV квартал 2024'
-        },
-    ], []);
+                // Transform complexes
+                const transformedData: ImageItem[] = complexes.map(item => ({
+                    _id: item._id,
+                    mainImageUrl: item.mainImage.asset.url,
+                    mainImageAlt: item.alt[locale as keyof typeof item.alt] || item.alt['ru'],
+                    subtitle: item.subtitle[locale as keyof typeof item.subtitle] || item.subtitle['ru'],
+                    price: item.price,
+                    priceValue: item.priceValue,
+                    district: item.district
+                        ? item.district[`name_${locale}` as keyof District] || item.district.name_ru
+                        : '',
+                    type: item.type
+                        ? item.type[`name_${locale}` as keyof HousingType] || item.type.name_ru
+                        : '',
+                    rooms: item.rooms
+                        ? item.rooms[`number_${locale}` as keyof Room] || item.rooms.number_ru
+                        : '',
+                    completionTime: item.completionTime
+                        ? item.completionTime[`term_${locale}` as keyof CompletionTime] || item.completionTime.term_ru
+                        : '',
+                }));
 
-    // Определение минимальной и максимальной цены
-    const prices = images.map(image => image.priceValue);
-    const minPrice = Math.min(...prices);
-    const maxPrice = Math.max(...prices);
+                setImages(transformedData);
+                setFilteredImages(transformedData);
+
+                setDistricts(fetchedDistricts);
+                setHousingTypes(fetchedHousingTypes);
+                setRooms(fetchedRooms);
+                setCompletionTimes(fetchedCompletionTimes);
+
+                // Determine min and max prices
+                const prices = transformedData.map(image => image.priceValue);
+                const min = Math.min(...prices);
+                const max = Math.max(...prices);
+                setMinPrice(min);
+                setMaxPrice(max);
+                setPriceRange({ min, max });
+
+                setIsLoading(false);
+            } catch (err) {
+                console.error('Ошибка при получении данных из Sanity:', err);
+                setError('Не удалось загрузить данные.');
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [locale]);
 
     // Инициализация состояний фильтров
     const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
     const [selectedType, setSelectedType] = useState<string | null>(null);
     const [selectedRooms, setSelectedRooms] = useState<string>('Не важно');
     const [selectedCompletionTime, setSelectedCompletionTime] = useState<string>('Любой');
-    const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: minPrice, max: maxPrice });
 
     // Состояние для отслеживания открытого выпадающего списка
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-    // Реф для контейнера фильтров (добавлено)
     const filtersRef = useRef<HTMLDivElement>(null);
-
-    const [filteredImages, setFilteredImages] = useState<ImageItem[]>([]);
 
     // Обновление отфильтрованных изображений на основе выбранных фильтров
     useEffect(() => {
@@ -167,7 +142,6 @@ export default function Invest({ locale }: NewsCompProps) {
 
         if (selectedRooms && selectedRooms !== 'Не важно') {
             if (selectedRooms === '4+') {
-                // Предполагается, что '4+' включает объекты с 4+ комнатами
                 filtered = filtered.filter(image => image.rooms === '4+' || (parseInt(image.rooms) >= 4 && !isNaN(parseInt(image.rooms))));
             } else {
                 filtered = filtered.filter(image => image.rooms === selectedRooms);
@@ -178,23 +152,22 @@ export default function Invest({ locale }: NewsCompProps) {
             filtered = filtered.filter(image => image.completionTime === selectedCompletionTime);
         }
 
-        // Фильтрация по ценовому диапазону
         filtered = filtered.filter(image => image.priceValue >= priceRange.min && image.priceValue <= priceRange.max);
 
         setFilteredImages(filtered);
     }, [selectedDistrict, selectedType, selectedRooms, selectedCompletionTime, priceRange, images]);
 
-    // Функция для закрытия всех выпадающих списков
+    // Закрытие всех выпадающих списков
     const closeAllDropdowns = () => {
         setOpenDropdown(null);
     };
 
-    // Функция для переключения выпадающего списка
+    // Переключение состояния выпадающего списка
     const handleDropdownToggle = (dropdown: string) => {
         setOpenDropdown(prev => (prev === dropdown ? null : dropdown));
     };
 
-    // Функция для обработки выбора фильтра
+    // Обработка выбора фильтра
     const handleSelection = (filterType: string, value: string | null) => {
         switch (filterType) {
             case 'district':
@@ -215,7 +188,7 @@ export default function Invest({ locale }: NewsCompProps) {
         closeAllDropdowns();
     };
 
-    // Обработка изменений в полях цены
+    // Обработка изменения цены
     const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'min' | 'max') => {
         const value = Number(e.target.value);
         if (type === 'min') {
@@ -225,12 +198,10 @@ export default function Invest({ locale }: NewsCompProps) {
         }
     };
 
-    // Применение фильтрации по цене
     const applyPriceFilter = () => {
         closeAllDropdowns();
     };
 
-    // Проверка, активен ли какой-либо фильтр
     const isAnyFilterActive = () => {
         return (
             selectedDistrict ||
@@ -242,7 +213,6 @@ export default function Invest({ locale }: NewsCompProps) {
         );
     };
 
-    // Сброс всех фильтров
     const resetAllFilters = () => {
         setSelectedDistrict(null);
         setSelectedType(null);
@@ -251,7 +221,7 @@ export default function Invest({ locale }: NewsCompProps) {
         setPriceRange({ min: minPrice, max: maxPrice });
     };
 
-    // Добавление обработчика кликов вне области фильтров (добавлено)
+    // Закрытие выпадающих списков при клике вне компонента
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (filtersRef.current && !filtersRef.current.contains(event.target as Node)) {
@@ -259,14 +229,21 @@ export default function Invest({ locale }: NewsCompProps) {
             }
         };
 
-        // Добавляем обработчик события при монтировании компонента
         document.addEventListener('mousedown', handleClickOutside);
 
-        // Удаляем обработчик события при размонтировании компонента
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    // Отображение загрузки или ошибки
+    if (isLoading) {
+        return <p>Загрузка...</p>;
+    }
+
+    if (error) {
+        return <p className='text-red-500'>{error}</p>;
+    }
 
     return (
         <div className='w-full h-auto flex flex-col mx-auto max-xl:px-[10px] max-w-[1440px]'>
@@ -274,9 +251,9 @@ export default function Invest({ locale }: NewsCompProps) {
                 {t('title')}
             </h3>
 
-            {/* Контейнер фильтров с привязкой рефа */}
+            {/* Filters container with ref */}
             <div ref={filtersRef} className='flex flex-wrap gap-[8px] mdx:gap-[12px] mt-[20px] mdx:mt-[40px] xl:mt-[50px] relative'>
-                {/* Район Filter */}
+                {/* District Filter */}
                 <div className='relative'>
                     <button
                         className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
@@ -300,15 +277,18 @@ export default function Invest({ locale }: NewsCompProps) {
                     {openDropdown === 'district' && (
                         <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[207px] mdx:w-[344px] h-auto max-h-[215px] overflow-y-auto scrollbar-hide'>
                             <ul>
-                                {districts.map((district, idx) => (
-                                    <li
-                                        key={idx}
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
-                                        onClick={() => handleSelection('district', district)}
-                                    >
-                                        {district}
-                                    </li>
-                                ))}
+                                {districts.map((district) => {
+                                    const districtName = district[`name_${locale}` as keyof District] || district.name_ru;
+                                    return (
+                                        <li
+                                            key={district._id}
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            onClick={() => handleSelection('district', districtName)}
+                                        >
+                                            {districtName}
+                                        </li>
+                                    );
+                                })}
                                 {selectedDistrict && (
                                     <li
                                         className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
@@ -322,7 +302,7 @@ export default function Invest({ locale }: NewsCompProps) {
                     )}
                 </div>
 
-                {/* Тип жилья Filter */}
+                {/* Housing Type Filter */}
                 <div className='relative'>
                     <button
                         className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
@@ -346,15 +326,18 @@ export default function Invest({ locale }: NewsCompProps) {
                     {openDropdown === 'type' && (
                         <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[207px] mdx:w-[344px] h-auto max-h-[215px] overflow-y-auto scrollbar-hide'>
                             <ul>
-                                {housingTypes.map((type, idx) => (
-                                    <li
-                                        key={idx}
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
-                                        onClick={() => handleSelection('type', type)}
-                                    >
-                                        {type}
-                                    </li>
-                                ))}
+                                {housingTypes.map((type) => {
+                                    const typeName = type[`name_${locale}` as keyof HousingType] || type.name_ru;
+                                    return (
+                                        <li
+                                            key={type._id}
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            onClick={() => handleSelection('type', typeName)}
+                                        >
+                                            {typeName}
+                                        </li>
+                                    );
+                                })}
                                 {selectedType && (
                                     <li
                                         className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
@@ -368,7 +351,7 @@ export default function Invest({ locale }: NewsCompProps) {
                     )}
                 </div>
 
-                {/* Количество комнат Filter */}
+                {/* Rooms Filter */}
                 <div className='relative'>
                     <button
                         className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
@@ -392,15 +375,18 @@ export default function Invest({ locale }: NewsCompProps) {
                     {openDropdown === 'rooms' && (
                         <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] h-auto max-h-[215px] overflow-y-auto scrollbar-hide'>
                             <ul>
-                                {roomOptions.map((room, idx) => (
-                                    <li
-                                        key={idx}
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
-                                        onClick={() => handleSelection('rooms', room)}
-                                    >
-                                        {room}
-                                    </li>
-                                ))}
+                                {rooms.map((room) => {
+                                    const roomNumber = room[`number_${locale}` as keyof Room] || room.number_ru;
+                                    return (
+                                        <li
+                                            key={room._id}
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            onClick={() => handleSelection('rooms', roomNumber)}
+                                        >
+                                            {roomNumber}
+                                        </li>
+                                    );
+                                })}
                                 {selectedRooms !== 'Не важно' && (
                                     <li
                                         className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
@@ -414,7 +400,7 @@ export default function Invest({ locale }: NewsCompProps) {
                     )}
                 </div>
 
-                {/* Срок сдачи Filter */}
+                {/* Completion Time Filter */}
                 <div className='relative'>
                     <button
                         className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
@@ -438,19 +424,22 @@ export default function Invest({ locale }: NewsCompProps) {
                     {openDropdown === 'completionTime' && (
                         <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] h-auto max-h-[215px] overflow-y-auto scrollbar-hide'>
                             <ul>
-                                {completionTimes.map((time, idx) => (
-                                    <li
-                                        key={idx}
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[14px] mdx:text-[16px]'
-                                        onClick={() => handleSelection('completionTime', time)}
-                                    >
-                                        {time}
-                                    </li>
-                                ))}
+                                {completionTimes.map((time) => {
+                                    const term = time[`term_${locale}` as keyof CompletionTime] || time.term_ru;
+                                    return (
+                                        <li
+                                            key={time._id}
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[14px] mdx:text-[16px]'
+                                            onClick={() => handleSelection('completionTime', term)}
+                                        >
+                                            {term}
+                                        </li>
+                                    );
+                                })}
                                 {selectedCompletionTime !== 'Любой' && (
                                     <li
                                         className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
-                                        onClick={() => handleSelection('completionTime', null)}
+                                        onClick={() => handleSelection('completionTime', 'Любой')}
                                     >
                                         {t('all') || 'Очистить фильтр'}
                                     </li>
@@ -460,7 +449,7 @@ export default function Invest({ locale }: NewsCompProps) {
                     )}
                 </div>
 
-                {/* Цена Filter */}
+                {/* Price Filter */}
                 <div className='relative'>
                     <button
                         className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
@@ -511,7 +500,6 @@ export default function Invest({ locale }: NewsCompProps) {
                             </div>
                         </div>
                     )}
-
                 </div>
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
@@ -525,41 +513,42 @@ export default function Invest({ locale }: NewsCompProps) {
                 )}
             </div>
 
-            {/* Отображение отфильтрованных изображений */}
+            {/* Display filtered images */}
             <div className='mt-[25px] grid gap-[12px] xl:gap-[20px] mdx:grid-cols-2 xl:grid-cols-3'>
-                {filteredImages.map((image, index) => (
-                    <div key={index} className='relative'>
+                {filteredImages.slice(0, visibleCount).map((image) => (
+                    <div key={image._id} className="relative">
                         <Image
-                            src={image.src}
-                            alt={image.alt}
+                            src={image.mainImageUrl}
+                            alt={image.mainImageAlt}
                             width={1000}
                             height={1000}
                             quality={100}
                             layout="responsive"
                             objectFit="cover"
-                            className='w-full h-full min-h-[400px]'
+                            className="w-full h-full min-h-[400px]"
                         />
-                        <h3 className='text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2'>
+                        <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2">
                             {image.subtitle}
                         </h3>
-                        <h5 className='text-[16px] mdx:text-[20px] absolute bottom-2 left-2 text-white p-2'>
+                        <h5 className="text-[16px] mdx:text-[20px] absolute bottom-2 left-2 text-white p-2">
                             {image.price}
                         </h5>
                     </div>
                 ))}
+
                 {filteredImages.length === 0 && (
-                    <p className='col-span-full text-center text-gray-500 '>
-                        {t('noResults') || 'Нет доступных объектов.'}
-                    </p>
+                    <p className="col-span-full text-center text-gray-500 ">{t("noResults") || "Нет доступных объектов."}</p>
                 )}
             </div>
-            <div className='max-xl:px-[10px] flex justify-center w-full'>
-                <Link href={`/${locale}/catalog`}>
-                    <button className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
+            {filteredImages.length > visibleCount && (
+                <div className='max-xl:px-[10px] flex justify-center w-full'>
+                    {/* <Link href={`/${locale}/catalog`}> */}
+                    <button onClick={loadMore} className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
                         {t('button-more')}
                     </button>
-                </Link>
-            </div>
+                    {/* </Link> */}
+                </div>
+            )}
         </div>
-    )
+    );
 }

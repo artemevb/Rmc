@@ -1,0 +1,31 @@
+// schemas/district.ts
+
+import { defineType, defineField } from 'sanity';
+
+export const district = defineType({
+  name: 'district',
+  title: 'Район',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Название',
+      type: 'string',
+    }),
+    defineField({
+      name: 'name_ru',
+      title: 'Название (Русский)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'name_uz',
+      title: 'Название (Узбекский)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'name_en',
+      title: 'Название (Английский)',
+      type: 'string',
+    }),
+  ],
+});

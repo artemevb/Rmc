@@ -392,7 +392,7 @@
     },
     "Catalog": {
       "title": "Yangi Qurilish Katalogi",
-      "button-more": "Katalogga o'ting",
+      "button-more": "Ko'proq yuklash",
       "filter-1": "Tuman",
       "filter-2": "Narx",
       "filter-3": "Uy-joy turi",
@@ -400,7 +400,8 @@
       "filter-5": "Topsherish muddati",
       "clear": "Hammasini tozalash",
       "one": "Dan",
-      "two": "Gacha"
+      "two": "Gacha",
+      "all": "Hammasi"
     }
   },
   "NewBuildingsMain": {
@@ -431,6 +432,49 @@
       "question": "Izoh",
       "pleaseFillAllFields": "Maydonni to'ldiring",
       "submit": "So'rov yuborish"
+    }
+  },
+  "Building_page_main": {
+    "from": "дан",
+    "button-more": "Ariza yuborish",
+    "button-call": "Qo'ng'iroq qilish",
+    "Gallery": {
+      "title": "Fotogalereya va video turlar"
+    },
+    "Conditions": {
+      "title": "Sotib olish shartlari",
+      "description": "Bizning agentligimizda ko'chmas mulk sotib olish jarayoni mijozlarimiz uchun maksimal qulaylik va shaffoflikni ta'minlash uchun ishlab chiqilgan",
+      "text-1": "Kerakli hujjatlar",
+      "text-1-subtitle": "Jismoniy shaxslarga: pasport, STIR",
+      "text-1-5-subtitle": "Yuridik shaxslarga: ta'sis hujjatlari, ishonchnoma",
+      "text-2": "Moliyaviy shartlar",
+      "text-2-subtitle": "To'lov usullari: naqd pul, bank o'tkazmasi, ipoteka",
+      "text-2-5-subtitle": "Qo'shimcha xarajatlar: soliqlar, agentlik komissiyasi, notarial xizmatlar",
+      "text-3": "Ipoteka va kreditlash",
+      "text-3-subtitle": "Ipoteka variantlari",
+      "text-3-5-subtitle": "Hamkor banklar",
+      "text-4": "Kafolatlar va majburiyatlar",
+      "text-4-subtitle": "Agentlikning majburiyatlari: hujjatlarni tekshirish, bitimni qo'llab-quvvatlash",
+      "text-4-5-subtitle": "Xaridor uchun kafolatlar: huquqiy tozalik, mulkni ro'yxatdan o'tkazishgacha qo'llab-quvvatlash",
+      "text-5": "Pulni qaytarish va shartnomani bekor qilish shartlari",
+      "text-5-subtitle": "Shartnomani bekor qilish tartibi",
+      "text-5-5-subtitle": "Pulni qaytarish shartlari (agar qo'llanilsa)"
+    },
+    "Infrastructure": {
+      "title": "Hudud infratuzilmasi",
+      "Markets": "Do'konlar",
+      "Machine": "Transport",
+      "Schools": "Maktablar"
+    },
+    "Reviews": {
+      "title": "Xaridorlarning sharhlari",
+      "read-more": "Batafsil o'qish"
+    },
+    "Other": {
+      "title": "Boshqa turar-joy majmualari"
+    },
+    "Layout": {
+      "title": "Rejalar va mavjud kvartiralar"
     }
   }
 }

@@ -52,9 +52,9 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
   const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
   const sortOptions = [
-    { value: 'byDateNewest', label: t('sortOptions.byDateNewest') },
-    { value: 'byDateOldest', label: t('sortOptions.byDateOldest') },
-    { value: 'byMostPopular', label: t('sortOptions.byMostPopular') },
+    { value: 'byDateNewest', label: t('filter-1') },
+    { value: 'byDateOldest', label: t('filter-2') },
+    { value: 'byMostPopular', label: t('filter-3') },
   ];
 
   // Fetch news data from Sanity
@@ -154,7 +154,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
           {/* Sort Dropdown */}
           {isSortOpen && (
-            <ul className="absolute right-0 mt-[150px] w-[223px] bg-white shadow-lg z-10">
+            <ul className="absolute right-0 w-[223px] bg-white shadow-lg z-10">
               {sortOptions.map((option) => (
                 <li key={option.value}>
                   <button

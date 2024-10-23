@@ -392,7 +392,7 @@
     },
     "Catalog": {
       "title": "New Buildings Catalog",
-      "button-more": "Go to catalog",
+      "button-more": "Load more",
       "filter-1": "District",
       "filter-2": "Price",
       "filter-3": "Type of housing",
@@ -400,7 +400,8 @@
       "filter-5": "Completion date",
       "clear": "Clear all",
       "one": "From",
-      "two": "To"
+      "two": "To",
+      "all": "All"
     }
   },
   "NewBuildingsMain": {
@@ -431,6 +432,49 @@
       "question": "Comment",
       "pleaseFillAllFields": "Fill the field",
       "submit": "Submit request"
+    }
+  },
+  "Building_page_main": {
+    "from": "from",
+    "button-more": "Submit an application",
+    "button-call": "Call",
+    "Gallery": {
+      "title": "Photo gallery and video tours"
+    },
+    "Conditions": {
+      "title": "Purchase conditions",
+      "description": "The process of purchasing real estate at our agency is designed to provide maximum convenience and transparency for our clients",
+      "text-1": "Required documents",
+      "text-1-subtitle": "For individuals: passport, taxpayer ID",
+      "text-1-5-subtitle": "For legal entities: founding documents, power of attorney",
+      "text-2": "Financial conditions",
+      "text-2-subtitle": "Payment methods: cash, bank transfer, mortgage",
+      "text-2-5-subtitle": "Additional costs: taxes, agency commission, notary services",
+      "text-3": "Mortgage and lending",
+      "text-3-subtitle": "Mortgage options",
+      "text-3-5-subtitle": "Partnering banks",
+      "text-4": "Guarantees and obligations",
+      "text-4-subtitle": "Agency obligations: document verification, transaction support",
+      "text-4-5-subtitle": "Guarantees for the buyer: legal purity of the transaction, support until property registration",
+      "text-5": "Return and termination conditions",
+      "text-5-subtitle": "Procedure for contract termination",
+      "text-5-5-subtitle": "Refund conditions (if applicable)"
+    },
+    "Infrastructure": {
+      "title": "District infrastructure",
+      "Markets": "Shops",
+      "Machine": "Transport",
+      "Schools": "Schools"
+    },
+    "Reviews": {
+      "title": "Customer reviews",
+      "read-more": "Read more"
+    },
+    "Other": {
+      "title": "Other residential complexes"
+    },
+    "Layout": {
+      "title": "Layouts and available apartments"
     }
   }
 }
