@@ -13,7 +13,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".", 
-    "target": "es2015",
+    "target": "ES2017",
     "downlevelIteration": true,
     "plugins": [
       {

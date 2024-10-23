@@ -7,7 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['rmc.mrjtrade.uz'], // Добавьте домен, откуда будут загружаться изображения
+    domains: ['rmc.mrjtrade.uz', 'cdn.sanity.io'], // Добавьте домен, откуда будут загружаться изображения
   },
 };
 

@@ -19,7 +19,7 @@ export default function Scheme() {
                         <hr className='w-full' />
                         <div className='pt-[20px]'>
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>E-mail</p>
-                            <a href="mailto:name@domain.uz" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>name@domain.uz</a>
+                            <a href="mailto:rmcrmc603@gmail.com" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>rmcrmc603@gmail.com</a>
                         </div>
 
                     </div>

@@ -64,7 +64,7 @@ export interface NewsHead {
 }
 
 export interface NewsItem {
-    slug: string;
+
     head: NewsHead;
 }
 
@@ -80,4 +80,7 @@ export interface BlogData {
     viewCounter: number;
     active: boolean;
     main: boolean;
-  }
+}
+
+// interfaces.ts
+

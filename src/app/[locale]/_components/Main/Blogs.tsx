@@ -1,5 +1,4 @@
 "use client";
-// Импорт зависимостей
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
@@ -7,83 +6,35 @@ import NewCardMain from './NewCardMain';
 import Slider from 'react-slick';
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import axios from 'axios';
+import { client } from '@/src/sanity/lib/client';
 
-interface Photo {
-    id: number;
-    url: string;
+// Интерфейс для пропсов компонента
+interface LocaleProps {
+    locale: string;
 }
 
-interface TitleDescription {
-    uz: string;
-    ru: string;
-    en: string;
-}
-
-interface Option {
-    id: number;
-    title: TitleDescription;
-    description: TitleDescription;
-    orderNum: number;
-    photo: Photo;
-}
-
-interface Type {
-    id: number;
-    name: TitleDescription;
-}
-
-interface BlogItem {
-    id: number;
-    slug: string;
-    options: Option[];
-    type: Type;
-    createdDate: string;
-    viewCounter: number;
-    active: boolean;
-    main: boolean;
-}
-
-interface ApiResponse {
-    message: string;
-    data: BlogItem[];
-}
-
-interface NewsPhoto {
-    url: string;
-}
-
-interface NewsHead {
-    heading: string;
-    date: string;
-    views: string;
-    photo: NewsPhoto;
-}
-
+// Интерфейс для исходных данных новостей
 interface NewsItem {
+    slug: { current: string };
+    title: { [key: string]: string };
+    date: string;
+    viewCounter?: number;
+    mainImage?: { asset?: { url?: string } };
+}
+
+// Интерфейс для отображаемых данных новостей
+interface MappedNewsItem {
     slug: string;
-    head: NewsHead;
+    title: string;
+    date: string;
+    viewCounter: number;
+    mainImageUrl: string;
 }
 
-interface NewsCompProps {
-    locale: string; // Оставляем тип как string
-}
-
-// Функция помощник для безопасного получения заголовка
-const getTitle = (titleDescription: TitleDescription, locale: string): string => {
-    const supportedLocales: Array<keyof TitleDescription> = ['uz', 'ru', 'en'];
-    if (supportedLocales.includes(locale as keyof TitleDescription)) {
-        return titleDescription[locale as keyof TitleDescription];
-    }
-    // Возврат значения по умолчанию, если locale не поддерживается
-    return titleDescription['ru'] || titleDescription['uz'] || '';
-};
-
-export default function NewsComp({ locale }: NewsCompProps) {
+export default function NewsComp({ locale }: LocaleProps) {
     const t = useTranslations('Main.Blogs');
-    const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+    const [visibleNews, setVisibleNews] = useState<MappedNewsItem[]>([]);
+    const [loading, setLoading] = useState(true);
 
     // Настройки слайдера
     const settings = {
@@ -122,53 +73,51 @@ export default function NewsComp({ locale }: NewsCompProps) {
         ],
     };
 
-    // Функция для получения новостей из API
+    // Функция для форматирования даты
+    const formatDate = (dateString: string): string => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с нуля
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    };
+
+    // Функция для получения новостей из Sanity
     const fetchNews = async () => {
         try {
-            const response = await axios.get<ApiResponse>('https://rmc.mrjtrade.uz/api/blog/get-all', {
-                headers: {
-                    'Accept-Language': '-', // Запрос всех языков
-                },
-            });
+            const query = `*[_type == "news"] | order(date desc) {
+                slug,
+                title,
+                date,
+                viewCounter,
+                mainImage{
+                  asset->{
+                    _id,
+                    url
+                  }
+                }
+              }[0...10]`;
 
-            const blogs = response.data.data;
+            const newsItems: NewsItem[] = await client.fetch<NewsItem[]>(query);
 
-            // Преобразование данных API в NewsItem[]
-            const mappedNews: NewsItem[] = blogs.map(blog => {
-                // Выбор опции с наименьшим orderNum
-                const primaryOption = blog.options.reduce((prev, current) => {
-                    return prev.orderNum < current.orderNum ? prev : current;
-                }, blog.options[0]);
+            // Преобразование данных новостей в нужный формат
+            const mappedNews: MappedNewsItem[] = newsItems.map((item: NewsItem) => ({
+                slug: item.slug.current,
+                title: item.title[locale] || item.title['ru'] || '',
+                date: formatDate(item.date),
+                viewCounter: item.viewCounter || 0,
+                mainImageUrl: item.mainImage?.asset?.url || '',
+            }));
 
-                return {
-                    slug: blog.slug,
-                    head: {
-                        heading: getTitle(primaryOption.title, locale),
-                        date: formatDate(blog.createdDate),
-                        photo: { url: primaryOption.photo.url },
-                        views: blog.viewCounter.toString(),
-                    },
-                };
-            });
-
-            // Установка всех новостей
             setVisibleNews(mappedNews);
             setLoading(false);
         } catch (err) {
             console.error(err);
-            setError('Ошибка при загрузке новостей');
             setLoading(false);
         }
     };
 
-    // Функция для форматирования даты (из "11-10-2024" в "11.10.2024")
-    const formatDate = (dateStr: string): string => {
-        const parts = dateStr.split('-');
-        if (parts.length !== 3) return dateStr;
-        return `${parts[0]}.${parts[1]}.${parts[2]}`;
-    };
-
-    // Инициализация загрузки новостей при изменении locale
+    // Получение новостей при изменении локали
     useEffect(() => {
         fetchNews();
     }, [locale]);
@@ -177,32 +126,28 @@ export default function NewsComp({ locale }: NewsCompProps) {
         return <div className='text-center'>Загрузка...</div>;
     }
 
-    if (error) {
-        return <div className='text-center text-red-500'>{error}</div>;
-    }
-
     return (
-        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
+        <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px]'>
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
                 {t("title")}
             </h2>
-            <div className='w-full h-auto '>
-                <Slider {...settings} className='h-auto w-full '>
-                    {visibleNews.map((item, i) => (
-                        <div className='px-[10px] xl:h-[426px] max-h-full' key={i}>
+            <div className='w-full h-auto'>
+                <Slider {...settings} className='h-auto w-full'>
+                    {visibleNews.map((item) => (
+                        <div className='px-[10px] xl:h-[426px] max-h-full' key={item.slug}>
                             <Link href={`/${locale}/blog/${item.slug}`}>
                                 <NewCardMain
-                                    subtitle={item.head.heading}
-                                    date={item.head.date}
-                                    imageSrc={item.head.photo.url}
-                                    views={item.head.views}
+                                    subtitle={item.title}
+                                    date={item.date}
+                                    imageSrc={item.mainImageUrl}
+                                    views={item.viewCounter}
                                 />
                             </Link>
                         </div>
                     ))}
                 </Slider>
             </div>
-            <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
+            <div className="flex items-center justify-center xl:mt-[35px] mdx:mt-[20px] mt-[10px]">
                 <Link href={`/${locale}/blog`} className='bg-[#E1AF93] hover:bg-[#EAC7B4] text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px]'>
                     {t("button-more")}
                 </Link>
