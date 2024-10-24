@@ -32,12 +32,18 @@ export const GET_RESIDENTIAL_COMPLEXES = `
       number_uz,
       number_en
     },
-    completionTime->{
+      completionTime->{
       _id,
       term_ru,
       term_uz,
       term_en
-    }
+    },
+    slug,
+    gallery,
+    subtitle_main,
+    gallery_2,
+    desc_main,
+    gallery_3
   }
 `;
 

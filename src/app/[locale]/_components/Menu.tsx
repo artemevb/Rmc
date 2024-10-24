@@ -1,12 +1,13 @@
 'use client';
-import { useState, useEffect, useRef, ChangeEvent, useTransition } from "react";
+import { useEffect, useRef, ChangeEvent, useTransition } from "react";
+// import { useState} from "react";
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import close from "@/public/svg/close-white.svg";
-import arrow_black from "@/public/svg/arrow-down-black.svg";
-import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
+// import arrow_black from "@/public/svg/arrow-down-black.svg";
+// import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
 import { NavItem } from "./Header/NavItem";
 import { useTranslations } from 'next-intl';
 import axios from 'axios';
@@ -22,7 +23,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
   const t = useTranslations('Header');
   // Removed setLanguageMenu as it was not used
   const [isPending, startTransition] = useTransition();
-  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  // const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
@@ -57,9 +58,9 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
     };
   }, [menuRef]);
 
-  const toggleServicesMenu = () => {
-    setServicesMenuOpen(!servicesMenuOpen);
-  };
+  // const toggleServicesMenu = () => {
+  //   setServicesMenuOpen(!servicesMenuOpen);
+  // };
 
   const handlePhoneClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault(); // Prevent default behavior temporarily
@@ -125,7 +126,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
         </div>
       </div>
       <nav className="flex flex-col font-semibold mt-2">
-        <div className="pt-4" onClick={toggleServicesMenu}>
+        {/* <div className="pt-4" onClick={toggleServicesMenu}>
           <div className="flex justify-start mx-4 items-center cursor-pointer">
             <p
               className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-[#E1AF93]' : ''
@@ -143,9 +144,9 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
               />
             </span>
           </div>
-        </div>
+        </div> */}
 
-        {servicesMenuOpen && (
+        {/* {servicesMenuOpen && (
           <div className="pl-[34px] font-normal ">
             <div
               onClick={closeMenu}
@@ -159,14 +160,14 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Other Navigation Items */}
         {navOptions.slice(4).map((item, index) => (
           <Link
             onClick={() => {
-              closeMenu(); // Закрытие модального окна
-              router.push(`/${locale}/${item.slug}`); // Перенаправление по URL
+              closeMenu(); 
+              router.push(`/${locale}/${item.slug}`);
             }}
             href={`/${locale}/${item.slug}`}
             key={index}

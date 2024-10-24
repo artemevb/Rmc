@@ -4,14 +4,31 @@ import React from "react";
 import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image, { StaticImageData } from 'next/image';
-// import Link from 'next/link';
+import Image from 'next/image';
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '@/src/sanity/lib/client';
 import { useTranslations } from 'next-intl';
+import ReactPlayer from 'react-player';
 
-import build1 from "@/public/images/main_buildings/gallerySlider1.png";
-import build2 from "@/public/images/main_buildings/gallerySlider2.png";
+// Константы проекта Sanity
+const PROJECT_ID = 'cog5nktd'; // Замените на ваш projectId
+const DATASET = 'production'; // Замените на ваш dataset
 
+// Инициализация imageUrlBuilder для изображений
+const builder = imageUrlBuilder(client);
+const urlFor = (source) => builder.image(source);
 
+// Функция для построения URL файлов
+const getFileUrl = (asset) => {
+    if (!asset || !asset._ref) return null;
+    const refParts = asset._ref.split('-');
+    if (refParts.length < 3) return null;
+    const extension = refParts.pop();
+    const assetId = refParts.slice(1).join('-');
+    return `https://cdn.sanity.io/files/${PROJECT_ID}/${DATASET}/${assetId}.${extension}`;
+};
+
+// Импорт стрелок для слайдера
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
 
@@ -25,41 +42,28 @@ interface CustomArrowProps {
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-// interface local {
-//     locale: string;
-// }
-
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
-    <div
-        className="absolute top-[-100px] right-2 z-10 cursor-pointer "
-        onClick={onClick}
-    >
-        <Image
-            src={arrowright}
-            alt="Следующий"
-            width={70}
-            height={70}
-        />
+    <div className="absolute top-[-100px] right-2 z-10 cursor-pointer" onClick={onClick}>
+        <Image src={arrowright} alt="Следующий" width={70} height={70} />
     </div>
 );
 
 const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
-    <div
-        className="absolute top-[-100px] right-[85px] z-10 cursor-pointer"
-        onClick={onClick}
-    >
-        <Image
-            src={arrowleft}
-            alt="Предыдущий"
-            width={70}
-            height={70}
-        />
+    <div className="absolute top-[-100px] right-[85px] z-10 cursor-pointer" onClick={onClick}>
+        <Image src={arrowleft} alt="Предыдущий" width={70} height={70} />
     </div>
 );
 
-// Определение интерфейса для элементов недвижимости
-interface EquipmentItem {
-    image: StaticImageData;
+// Определение интерфейса для элементов галереи
+interface GalleryItem {
+    _type: string;  // Может быть "image" или "file"
+    asset: {
+        _key: string;
+        _type: string;  // Тип ресурса (например, "image" или "file")
+        url?: string;    // URL изображения или видео (для изображений)
+        _ref?: string;   // Ссылка на файл (для файлов)
+        mimeType?: string; // Дополнительно, если доступно
+    };
 }
 
 // Определение интерфейса для настроек слайдера
@@ -81,33 +85,24 @@ interface SliderSettings {
         };
     }[];
 }
-// export default function Banner({ locale }: local) {
-export default function Gallery() {
-    const t = useTranslations('Building_page_main.Gallery');
 
-    const equipmentData: EquipmentItem[] = [
-        {
-            image: build1
-        },
-        {
-            image: build2
-        }
-    ];
+export default function Gallery({ locale, data }: { locale: string; data: { gallery_3: GalleryItem[] } }) {
+    const t = useTranslations('Building_page_main.Gallery');
 
     const settings: SliderSettings = {
         arrows: true,
         dots: false,
         infinite: true,
         speed: 1500,
-        slidesToShow: 2, // По умолчанию показывать 3 слайда
+        slidesToShow: 2,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
             {
-                breakpoint: 968, // Для экранов шириной до 468px
+                breakpoint: 968,
                 settings: {
-                    slidesToShow: 1, // Показывать 1 слайд
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     arrows: false,
                 },
@@ -122,28 +117,42 @@ export default function Gallery() {
                     {t('title')}
                 </h2>
                 <Slider {...settings}>
-                    {equipmentData.map((item, index) => (
-                        <div key={index} className="px-[4px] mdx:px-[10px] w-full h-full ">
-                            <div className="w-full h-full max-h-[650px] overflow-hidden">
-                                <Image
-                                    src={item.image}
-                                    alt={'Buildings'}
-                                    quality={100}
-                                    className="object-cover w-full h-full xl:min-h-[450px]"
-                                    layout="responsive"
-                                />
-
+                    {data.gallery_3.map((item, index) => {
+                        return (
+                            <div key={index} className="px-[4px] mdx:px-[10px] w-full h-full ">
+                                <div className="w-full h-full max-h-[650px] overflow-hidden">
+                                    {item._type === "image" && (
+                                        <Image
+                                            src={urlFor(item.asset).url()}
+                                            alt={`Gallery item ${index + 1}`}
+                                            width={3000}
+                                            height={650}
+                                            quality={100}
+                                            className="object-cover w-full h-full"
+                                            layout="responsive"
+                                        />
+                                    )}
+                                    {item._type === "file" && (
+                                        <div className="h-full xl:max-h-[380px]">
+                                            {getFileUrl(item.asset) ? (
+                                                <ReactPlayer
+                                                    url={getFileUrl(item.asset)}
+                                                    controls
+                                                    width="100%"
+                                                    height="100%"
+                                                />
+                                            ) : (
+                                                <div className="text-red-500">
+                                                    Не удалось загрузить видео для элемента {index + 1}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </Slider>
-                {/* <div className="flex w-full justify-center mt-10">
-                    <Link href={`/${locale}/new-buildings-tashkent`}>
-                        <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
-                            {t('button-more')}
-                        </button>
-                    </Link>
-                </div> */}
             </div>
         </div>
     );

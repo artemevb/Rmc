@@ -19,10 +19,10 @@ const Header = ({ locale }: LocaleProps) => {
 
   // Define navigation items with translated titles
   const data: NavItem[] = [
-    {
-      title: t('nav.services'),
-      slug: 'services',
-    },
+    // {
+    //   title: t('nav.services'),
+    //   slug: 'services',
+    // },
     {
       title: t('nav.about'),
       slug: 'about',
