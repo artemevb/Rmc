@@ -1,9 +1,9 @@
 
 import { useTranslations } from 'next-intl';
-import { client } from '@/src/sanity/lib/client';
-import groq from 'groq';
+// import { client } from '@/src/sanity/lib/client';
+// import groq from 'groq';
 
-export default function Conditions({locale, slug}) {
+export default function Conditions() {
     const t = useTranslations('Building_page_main.Conditions');
 
 
