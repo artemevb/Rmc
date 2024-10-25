@@ -132,17 +132,15 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
   };
 
   return (
-    <div className="mx-auto w-full max-3xl:px-[10px] max-w-[1440px]">
+    <div className="mx-auto w-full max-3xl:px-[10px] max-w-[1440px] mt-[20px]">
       <h2 className="mb-[20px] mdx:mb-[30px] text-[30px] mdx:text-[45px] xl:text-[55px] font-medium">
         {t('title')}
       </h2>
-
       {/* Sort Section */}
       <div className="flex justify-between items-start xl:items-center space-y-4 xl:space-y-0">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-[8px]">
           {/* Filters can be added here */}
         </div>
-
         <div className="relative h-[23px]" ref={sortRef}>
           <button
             className="flex items-center space-x-2 text-sm focus:outline-none"

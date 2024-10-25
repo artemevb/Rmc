@@ -21,8 +21,8 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
       <div className="relative">
         <Image
           src={imageSrc}
-          width={800}
-          height={800}
+          width={1000}
+          height={1000}
           quality={100}
           alt={`News Image`}
           className="w-full h-auto object-cover xl:max-w-[466px] min-h-[240px] max-h-[240px] mdx:min-h-[290px] mdx:max-h-[290px] xl:min-h-[300px] lg:max-h-[300px]"

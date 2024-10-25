@@ -76,7 +76,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                 {t("title-popular")}
             </h2>
             {/* Grid Layout */}
-            <div className='w-full h-full grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px] max-h-[600px]'>
+            <div className='w-full h-full grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px] xl:max-h-[600px]'>
                 {/* Первый блок (популярная новость) */}
                 {visibleNews[0] && (
                     <div className="h-full mdx:col-span-2 2xl:col-span-8 2xl:max-w-[953px] 2xl:max-h-[600px] ">

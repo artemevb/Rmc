@@ -14,7 +14,7 @@ export default function Blog({ params }: InvestmentDubaiPageProps) {
             : 'ru';
 
     return (
-        <div className=" bg-white flex flex-col gap-[120px] mdx:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] mt-[30px] mdx:mt-[40px]">
+        <div className=" bg-white flex flex-col mb-[120px] mdx:mb-[150px] xl:mb-[200px] mt-[30px] mdx:mt-[40px]">
             <PopularNews locale={locale} />
             <News locale={locale} />
         </div>
