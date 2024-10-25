@@ -59,6 +59,9 @@ export interface ResidentialComplex {
     term_uz: string;
     term_en: string;
   };
+  slug: {
+    current: string;
+  };
 }
 
 export interface District {
