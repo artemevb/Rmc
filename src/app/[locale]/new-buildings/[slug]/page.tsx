@@ -86,7 +86,7 @@ completionTime->{
         <SliderInfo locale={locale} data={data} />
       </section>
       <section id="section2">
-        <GallerySlider locale={locale} data={data}/>
+        <GallerySlider data={data}/>
       </section>
       <section id="section3">
         <Layouts />

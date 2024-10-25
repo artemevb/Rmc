@@ -2,11 +2,11 @@
 
 import React from "react";
 import dynamic from 'next/dynamic';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import imageUrlBuilder from '@sanity/image-url';
 import { client } from '@/src/sanity/lib/client';
+import { SanityImageAssetDocument, SanityFileAssetDocument } from '@/src/sanity/types'; // Импорт типов
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { useTranslations } from 'next-intl';
 import ReactPlayer from 'react-player';
 
@@ -16,13 +16,13 @@ const DATASET = 'production'; // Замените на ваш dataset
 
 // Инициализация imageUrlBuilder для изображений
 const builder = imageUrlBuilder(client);
-const urlFor = (source) => builder.image(source);
+const urlFor = (source: SanityImageSource) => builder.image(source);
 
 // Функция для построения URL файлов
-const getFileUrl = (asset) => {
-    if (!asset || !asset._ref) return null;
+const getFileUrl = (asset: SanityFileAssetDocument): string | undefined => {
+    if (!asset || !asset._ref) return undefined;
     const refParts = asset._ref.split('-');
-    if (refParts.length < 3) return null;
+    if (refParts.length < 3) return undefined;
     const extension = refParts.pop();
     const assetId = refParts.slice(1).join('-');
     return `https://cdn.sanity.io/files/${PROJECT_ID}/${DATASET}/${assetId}.${extension}`;
@@ -56,14 +56,8 @@ const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
 
 // Определение интерфейса для элементов галереи
 interface GalleryItem {
-    _type: string;  // Может быть "image" или "file"
-    asset: {
-        _key: string;
-        _type: string;  // Тип ресурса (например, "image" или "file")
-        url?: string;    // URL изображения или видео (для изображений)
-        _ref?: string;   // Ссылка на файл (для файлов)
-        mimeType?: string; // Дополнительно, если доступно
-    };
+    _type: 'image' | 'file';
+    asset: SanityImageAssetDocument | SanityFileAssetDocument;
 }
 
 // Определение интерфейса для настроек слайдера
@@ -86,7 +80,11 @@ interface SliderSettings {
     }[];
 }
 
-export default function Gallery({ locale, data }: { locale: string; data: { gallery_3: GalleryItem[] } }) {
+interface GalleryProps {
+    data: { gallery_3: GalleryItem[] };
+}
+
+export default function Gallery({  data }: GalleryProps) {
     const t = useTranslations('Building_page_main.Gallery');
 
     const settings: SliderSettings = {
@@ -117,41 +115,39 @@ export default function Gallery({ locale, data }: { locale: string; data: { gall
                     {t('title')}
                 </h2>
                 <Slider {...settings}>
-                    {data.gallery_3.map((item, index) => {
-                        return (
-                            <div key={index} className="px-[4px] mdx:px-[10px] w-full h-full ">
-                                <div className="w-full h-full max-h-[650px] overflow-hidden">
-                                    {item._type === "image" && (
-                                        <Image
-                                            src={urlFor(item.asset).url()}
-                                            alt={`Gallery item ${index + 1}`}
-                                            width={3000}
-                                            height={650}
-                                            quality={100}
-                                            className="object-cover w-full h-full"
-                                            layout="responsive"
-                                        />
-                                    )}
-                                    {item._type === "file" && (
-                                        <div className="h-full xl:max-h-[380px]">
-                                            {getFileUrl(item.asset) ? (
-                                                <ReactPlayer
-                                                    url={getFileUrl(item.asset)}
-                                                    controls
-                                                    width="100%"
-                                                    height="100%"
-                                                />
-                                            ) : (
-                                                <div className="text-red-500">
-                                                    Не удалось загрузить видео для элемента {index + 1}
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
+                    {data.gallery_3.map((item, index) => (
+                        <div key={item.asset._id || index} className="px-[4px] mdx:px-[10px] w-full h-full ">
+                            <div className="w-full h-full max-h-[650px] overflow-hidden">
+                                {item._type === "image" && (
+                                    <Image
+                                        src={urlFor(item.asset).url()}
+                                        alt={`Gallery item ${index + 1}`}
+                                        width={3000}
+                                        height={650}
+                                        quality={100}
+                                        className="object-cover w-full h-full"
+                                        layout="responsive"
+                                    />
+                                )}
+                                {item._type === "file" && (
+                                    <div className="h-full xl:max-h-[380px]">
+                                        {getFileUrl(item.asset as SanityFileAssetDocument) ? (
+                                            <ReactPlayer
+                                                url={getFileUrl(item.asset as SanityFileAssetDocument)!} // Утверждаем, что не null
+                                                controls
+                                                width="100%"
+                                                height="100%"
+                                            />
+                                        ) : (
+                                            <div className="text-red-500">
+                                                Не удалось загрузить видео для элемента {index + 1}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </Slider>
             </div>
         </div>
