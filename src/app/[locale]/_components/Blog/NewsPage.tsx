@@ -84,7 +84,7 @@ const NewPage: FC<NewPageProps> = ({ news, locale }) => {
           )}
 
           {news.title && news.title[locale] && (
-            <h1 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium mb-[16px] text-[#252324]">
+            <h1 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium mb-[16px] text-[#252324] leading-[38px] mdx:leading-[45px] xl:leading-[70px]">
               {formatTextWithNewlines(news.title[locale])}
             </h1>
           )}

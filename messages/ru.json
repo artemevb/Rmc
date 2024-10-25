@@ -486,7 +486,14 @@
       "price": "Цена",
       "from": "От",
       "to": "До",
-      "all_floor":"Все этажи"
+      "all_floor": "Все этажи"
+    },
+    "StickyMenu": {
+      "aboutComplex": "О комплексе",
+      "gallery": "Галерея",
+      "layouts": "Планировки",
+      "purchaseTerms": "Условия покупки",
+      "infrastructure": "Инфраструктура"
     }
   }
 }

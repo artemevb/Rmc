@@ -486,7 +486,14 @@
       "price": "Narx",
       "from": "Dan",
       "to": "Gacha",
-      "all_floor":"Barcha qavatlar"
+      "all_floor": "Barcha qavatlar"
+    },
+    "StickyMenu": {
+      "aboutComplex": "Majmua haqida",
+      "gallery": "Galereya",
+      "layouts": "Rejalar",
+      "purchaseTerms": "Sotib olish shartlari",
+      "infrastructure": "Infratuzilma"
     }
   }
 }

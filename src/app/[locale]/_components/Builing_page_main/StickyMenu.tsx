@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const StickyMenu = () => {
+    const t = useTranslations('Building_page_main.StickyMenu');
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
     const handleScroll = () => {
@@ -22,8 +24,6 @@ const StickyMenu = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
-
-        // Инициализация текущей секции
         handleScroll();
 
         return () => {
@@ -49,7 +49,7 @@ const StickyMenu = () => {
                             } hover:text-[#E1AF93]`}
                         onClick={(e) => handleScrollToSection(e, 'section1')}
                     >
-                        О комплексе
+                        {t('aboutComplex')}
                     </a>
                 </li>
                 <li className="flex-shrink-0">
@@ -57,18 +57,18 @@ const StickyMenu = () => {
                         href="#section2"
                         className={`w-full ${activeSection === "section2" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93] " : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'section2')}
+                        onClick={(e) => handleScrollToSection(e, 'gallery')}
                     >
-                        Галерея
+                        {t('gallery')}
                     </a>
                 </li>
                 <li className="flex-shrink-0">
                     <a
                         href="#section3"
                         className={`w-full ${activeSection === "section3" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"} hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'section3')}
+                        onClick={(e) => handleScrollToSection(e, 'layouts')}
                     >
-                        Планировки
+                        {t('layouts')}
                     </a>
                 </li>
                 <li className="flex-shrink-0">
@@ -76,9 +76,9 @@ const StickyMenu = () => {
                         href="#section4"
                         className={`w-full ${activeSection === "section4" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'section4')}
+                        onClick={(e) => handleScrollToSection(e, 'purchaseTerms')}
                     >
-                        Условия покупки
+                        {t('purchaseTerms')}
                     </a>
                 </li>
                 <li className="flex-shrink-0">
@@ -86,19 +86,9 @@ const StickyMenu = () => {
                         href="#section5"
                         className={`w-full ${activeSection === "section5" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'section5')}
+                        onClick={(e) => handleScrollToSection(e, 'infrastructure')}
                     >
-                        Инфраструктура
-                    </a>
-                </li>
-                <li className="flex-shrink-0">
-                    <a
-                        href="#section6"
-                        className={`w-full ${activeSection === "section6" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'section6')}
-                    >
-                        Отзывы
+                        {t('infrastructure')}
                     </a>
                 </li>
             </ul>

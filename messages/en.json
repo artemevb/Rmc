@@ -486,7 +486,14 @@
       "price": "Price",
       "from": "From",
       "to": "To",
-      "all_floor":"All floors"
+      "all_floor": "All floors"
+    },
+    "StickyMenu": {
+      "aboutComplex": "About Complex",
+      "gallery": "Gallery",
+      "layouts": "Layouts",
+      "purchaseTerms": "Purchase Terms",
+      "infrastructure": "Infrastructure"
     }
   }
 }

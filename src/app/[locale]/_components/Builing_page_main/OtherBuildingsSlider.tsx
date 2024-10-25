@@ -7,6 +7,15 @@ import BuildingsCard from '../Builing_page_main/BuildingsCard';
 import Slider from 'react-slick';
 import { useTranslations } from "next-intl";
 // import Link from "next/link";
+// import {
+//     GET_RESIDENTIAL_COMPLEXES,
+//     GET_DISTRICTS,
+//     GET_HOUSING_TYPES,
+//     GET_ROOMS,
+//     GET_COMPLETION_TIMES,
+// } from '../NewBuildings/queries';
+// import { ResidentialComplex, District, HousingType, Room, CompletionTime } from '../NewBuildings/types';
+// import { client } from '@/src/sanity/lib/client';
 
 const fakeNews = [
     {
@@ -76,47 +85,6 @@ export default function NewsComp() {
             },
         ],
     };
-
-    // Закомментирован вызов API
-    // const fetchNews = async () => {
-    //     try {
-    //         const response = await axios.get<ApiResponse>('https://rmc.mrjtrade.uz/api/blog/get-all', {
-    //             headers: {
-    //                 'Accept-Language': '-', // Запрос всех языков
-    //             },
-    //         });
-
-    //         const blogs = response.data.data;
-
-    //         // Преобразование данных API в NewsItem[]
-    //         const mappedNews: NewsItem[] = blogs.map(blog => {
-    //             const primaryOption = blog.options.reduce((prev, current) => {
-    //                 return prev.orderNum < current.orderNum ? prev : current;
-    //             }, blog.options[0]);
-
-    //             return {
-    //                 slug: blog.slug,
-    //                 head: {
-    //                     heading: getTitle(primaryOption.title, locale),
-    //                     date: formatDate(blog.createdDate),
-    //                     photo: { url: primaryOption.photo.url },
-    //                     views: blog.viewCounter.toString(),
-    //                 },
-    //             };
-    //         });
-
-    //         setVisibleNews(mappedNews);
-    //         setLoading(false);
-    //     } catch (err) {
-    //         console.error(err);
-    //         setError('Ошибка при загрузке новостей');
-    //         setLoading(false);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     fetchNews();
-    // }, [locale]);
 
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>

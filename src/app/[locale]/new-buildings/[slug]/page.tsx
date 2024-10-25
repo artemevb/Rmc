@@ -13,8 +13,8 @@ import GallerySlider from '@/src/app/[locale]/_components/Builing_page_main/Gall
 
 import Conditions from '@/src/app/[locale]/_components/Builing_page_main/Conditions'
 import Infrastructure from '@/src/app/[locale]/_components/Builing_page_main/Infrastructure'
-import ReviewsSlider from "../../_components/Builing_page_main/ReviewsSlider";
-import OtherBuildingsSlider from "../../_components/Builing_page_main/OtherBuildingsSlider";
+// import ReviewsSlider from "../../_components/Builing_page_main/ReviewsSlider";
+// import OtherBuildingsSlider from "../../_components/Builing_page_main/OtherBuildingsSlider";
 import Layouts from "../../_components/Builing_page_main/Layouts";
 import type { Locales } from "@/src/app/[locale]/layout";
 
@@ -92,18 +92,18 @@ completionTime->{
         <Layouts locale={locale} complexSlug={slug} />
       </section>
       <section id="section4">
-        <Conditions  data={data}/>
+        <Conditions locale={locale} slug={slug} />
       </section>
       <section id="section5">
         <Infrastructure />
       </section>
-      <section id="section6">
+      {/* <section id="section6">
         <ReviewsSlider />
-      </section>
+      </section> */}
       <Counter />
       <Schema />
       <Form />
-      <OtherBuildingsSlider />
+      {/* <OtherBuildingsSlider locale={locale}/> */}
     </div>
   );
 }
