@@ -474,7 +474,19 @@
       "title": "Other residential complexes"
     },
     "Layout": {
-      "title": "Layouts and available apartments"
+      "title": "Layouts and available apartments",
+      "book": "Book",
+      "floor": "Floor",
+      "house": "House",
+      "entrance": "Entrance",
+      "rooms": "Rooms",
+      "clear": "Reset everything",
+      "AllRooms": "All rooms",
+      "NumberOfRooms": "Number of rooms",
+      "price": "Price",
+      "from": "From",
+      "to": "To",
+      "all_floor":"All floors"
     }
   }
 }

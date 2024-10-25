@@ -89,7 +89,7 @@ completionTime->{
         <GallerySlider data={data}/>
       </section>
       <section id="section3">
-        <Layouts />
+        <Layouts locale={locale} complexSlug={slug} />
       </section>
       <section id="section4">
         <Conditions />

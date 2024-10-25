@@ -84,13 +84,13 @@ export const residentialComplex = defineType({
     }),
     defineField({
       name: 'slug',
-      title: 'Сулугуни',
+      title: 'url ссылка для страницы',
       type: 'slug',
       options: {
         source: 'subtitle',
         maxLength: 96,
       },
-      description: 'Уникальный идентификатор страницы комплекса',
+      description: 'Уникальный url идентификатор страницы комплекса',
     }),
     defineField({
       name: 'gallery',

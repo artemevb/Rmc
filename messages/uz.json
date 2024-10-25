@@ -474,7 +474,19 @@
       "title": "Boshqa turar-joy majmualari"
     },
     "Layout": {
-      "title": "Rejalar va mavjud kvartiralar"
+      "title": "Rejalar va mavjud kvartiralar",
+      "book": "Kitob",
+      "floor": "Qavat",
+      "house": "Uy",
+      "entrance": "Kirish",
+      "rooms": "Xonalar",
+      "clear": "Hammasini qayta o'rnating",
+      "AllRooms": "Barcha xonalar",
+      "NumberOfRooms": "Xonalar soni",
+      "price": "Narx",
+      "from": "Dan",
+      "to": "Gacha",
+      "all_floor":"Barcha qavatlar"
     }
   }
 }
