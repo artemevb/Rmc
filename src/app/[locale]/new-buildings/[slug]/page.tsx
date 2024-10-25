@@ -92,7 +92,7 @@ completionTime->{
         <Layouts locale={locale} complexSlug={slug} />
       </section>
       <section id="section4">
-        <Conditions />
+        <Conditions locale={locale} data={data} slug={slug}/>
       </section>
       <section id="section5">
         <Infrastructure />

@@ -15,7 +15,9 @@ import { floorFilter } from './floorFilter';
 import { roomsFilterLayouts } from './roomsFilterLayouts';
 import { layouts } from './Layouts';
 
+import { conditions } from './conditions';
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [district, housingType, rooms, newsType, residentialComplex, completionTime,
-    floorFilter, roomsFilterLayouts, layouts],
+    floorFilter, roomsFilterLayouts, layouts, conditions],
 }

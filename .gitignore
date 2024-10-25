@@ -26,8 +26,6 @@ yarn-debug.log*
 yarn-error.log*
 
 
-# .env*.local
-
 # vercel
 .vercel
 
@@ -35,13 +33,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# sitemap*.xml
 
-# .env
-# .env.local
-# .env.*.local
-# .env.production
-
-
-
-# src/sanity/
