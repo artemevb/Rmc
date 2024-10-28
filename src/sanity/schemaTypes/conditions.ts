@@ -3,7 +3,7 @@ import { defineType, defineField } from 'sanity';
 
 export const conditions = defineType({
     name: 'conditions',
-    title: 'Условия покупки',
+    title: 'Условия покупки(внутренняя страница новостройки)',
     type: 'document',
     fields: [
 

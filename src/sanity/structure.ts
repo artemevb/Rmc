@@ -16,10 +16,12 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('district').title('Район'),
               S.documentTypeListItem('completionTime').title('Срок Завершения'),
               S.documentTypeListItem('housingType').title('Тип Жилья'),
+              S.documentTypeListItem('conditions').title('Условия покупки(внутренняя страница новостройки)'),
               S.documentTypeListItem('residentialComplex').title('Жилой Комплекс'),
             ])
         ),
       S.divider(),
+
       // Главный раздел "Планировки" с вложенными пунктами
       S.listItem()
         .title('Планировки для новостроек')
@@ -33,10 +35,18 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
       S.divider(),
-      // Остальные элементы, исключая уже добавленные
+
+      // Раздел "Главная страница" с Singleton-документом для слайдера
+      S.listItem()
+        .title('Главная страница(Слайдер 1)')
+        .child(
+          S.document()
+            .schemaType('slider')
+        ),
+      S.divider(),
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !['rooms', 'district', 'completionTime', 'housingType', 'residentialComplex', 'floorFilter', 'roomsFilter', 'layouts'].includes(item.getId()!),
+          !['rooms', 'district', 'completionTime', 'housingType', 'residentialComplex', 'floorFilter', 'roomsFilter', 'layouts', 'slider', 'conditions'].includes(item.getId()!),
       ),
-    ])
+    ]);

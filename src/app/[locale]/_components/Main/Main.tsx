@@ -18,7 +18,7 @@ interface NewsCompProps {
 export default function Main({ locale }: NewsCompProps) {
   return (
     <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
-      <Banner />
+      <Banner locale={locale}/>
       <AboutUs />
       <Investition locale={locale} />
       <Service />
