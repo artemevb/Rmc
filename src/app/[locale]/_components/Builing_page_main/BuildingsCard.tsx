@@ -7,7 +7,7 @@ interface NewCardProps {
     coast: string;
 }
 
-const NewCard: React.FC<NewCardProps> = ({ coast, subtitle, imageSrc }) => {
+const NewCard: React.FC<NewCardProps> = ({ coast, subtitle, imageSrc}) => {
     return (
         <div className="w-full bg-white h-full flex flex-col justify-between relative">
             <div className="relative">

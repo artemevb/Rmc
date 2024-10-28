@@ -111,7 +111,7 @@ export default function Banner({ locale, data }: BannerProps) {
                   {getLocalizedField(data.subtitle) || t('default-subtitle')}
                 </h2>
                 <p className="text-[16px] mdx:text-[20px] mb-[25px] mdx:mb-[35px] mt-[10px]">
-                  {data?.price ? `$${data.price.toLocaleString()}` : t('default-price')}
+                  {data?.price ? `${data.price.toLocaleString()}` : t('default-price')}
                 </p>
                 <div className="w-full gap-[12px] mdx:gap-[20px] flex font-semibold text-[17px] pr-[16px]">
                   <button className="min-w-[158px] w-full bg-[#E1AF93] hover:bg-[#EAC7B4] h-[49px] mdx:w-[223px]">
