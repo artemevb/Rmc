@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { client } from "@/src/sanity/lib/client";
 
 interface LayoutProps {
-    locale: 'ru' | 'uz' | 'en'
+    locale: 'ru' | 'uz' | 'en';
     complexSlug: string;
 }
 
@@ -70,9 +70,11 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
 
     // Получение данных из Sanity при монтировании компонента или изменении complexSlug
     useEffect(() => {
-        if (!complexSlug) return; // Ждем, пока slug будет доступен
+        if (!complexSlug) return; // Ждём, пока slug будет доступен
 
         const fetchData = async () => {
+            setLoading(true);
+            setError(null);
             try {
                 const query = `
                     *[_type == "layouts" && residentialComplex->slug.current == $slug]{
@@ -145,11 +147,11 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
     // Получение уникальных значений этажей и количества комнат для фильтров
     const floors = [
         ...new Set(layouts.map((item) => item.floor?.floor).filter((floor): floor is number => floor !== undefined))
-    ].sort((a, b) => (a !== undefined && b !== undefined ? a - b : 0));
+    ].sort((a, b) => a - b);
     
     const rooms = [
         ...new Set(layouts.map((item) => item.rooms?.rooms).filter((rooms): rooms is number => rooms !== undefined))
-    ].sort((a, b) => (a !== undefined && b !== undefined ? a - b : 0));
+    ].sort((a, b) => a - b);
 
     // Фильтрация данных на основе выбранных фильтров
     const filteredLayouts = layouts.filter((item) => {
@@ -216,22 +218,9 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         return <div>Загрузка...</div>;
     }
 
-    if (error) {
-        return <div>Произошла ошибка при загрузке данных.</div>;
-    }
-
-    // Проверка на наличие данных
-    if (layouts.length === 0) {
-        return (
-            <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-3xl:px-[16px]">
-                <h3 className="text-[30px] font-medium mdx:text-[45px] xl:text-[55px] leading-[38px] w-full max-w-[328px] mdx:max-w-[542px] xl:max-w-[100%]">
-                    {t("title")}
-                </h3>
-                <div className="mt-10 text-center text-[#858585]">
-                    {t("noData")} {/* Убедитесь, что добавили соответствующий ключ в файл перевода */}
-                </div>
-            </div>
-        );
+    // Если произошла ошибка или нет данных, не отображаем компонент
+    if (error || layouts.length === 0) {
+        return null;
     }
 
     return (
@@ -584,11 +573,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         </div>
                     ))}
                 </div>
-            ) : (
-                <div className="mt-10 text-center text-[#858585]">
-                    {t("noFilteredData")} {/* Убедитесь, что добавили соответствующий ключ в файл перевода */}
-                </div>
-            )}
+            ) : null /* Удаляем отображение сообщения при отсутствии отфильтрованных данных */}
         </div>
     );
 }

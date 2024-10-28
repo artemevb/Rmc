@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import dynamic from 'next/dynamic';
@@ -84,8 +84,15 @@ interface GalleryProps {
     data: { gallery_3: GalleryItem[] };
 }
 
-export default function Gallery({  data }: GalleryProps) {
+const Gallery: React.FC<GalleryProps> = ({ data }) => {
     const t = useTranslations('Building_page_main.Gallery');
+
+    // Проверка на наличие данных
+    if (!data || !data.gallery_3 || data.gallery_3.length === 0) {
+        return null; // Компонент не будет отображаться, если данных нет
+        // Альтернативно, можно отобразить сообщение:
+        // return <div className="text-center text-gray-500">{t("noGalleryData")}</div>;
+    }
 
     const settings: SliderSettings = {
         arrows: true,
@@ -120,13 +127,16 @@ export default function Gallery({  data }: GalleryProps) {
                             <div className="w-full h-full max-h-[650px] overflow-hidden">
                                 {item._type === "image" && (
                                     <Image
-                                        src={urlFor(item.asset).url()}
+                                        src={urlFor(item.asset).url() || "/images/default-image.png"}
                                         alt={`Gallery item ${index + 1}`}
                                         width={3000}
                                         height={650}
                                         quality={100}
                                         className="object-cover w-full h-full"
-                                        layout="responsive"
+                                        // Обратите внимание, что свойство `layout` устарело в последних версиях Next.js
+                                        // Используйте `fill` или другие подходящие свойства вместо `layout="responsive"`
+                                        // Если вы используете более новую версию, замените `layout` на `fill`:
+                                        // fill
                                     />
                                 )}
                                 {item._type === "file" && (
@@ -140,7 +150,7 @@ export default function Gallery({  data }: GalleryProps) {
                                             />
                                         ) : (
                                             <div className="text-red-500">
-                                                Не удалось загрузить видео для элемента {index + 1}
+                                                {t("videoLoadError", { index: index + 1 })} {/* Убедитесь, что добавили соответствующий ключ в файл перевода */}
                                             </div>
                                         )}
                                     </div>
@@ -152,4 +162,7 @@ export default function Gallery({  data }: GalleryProps) {
             </div>
         </div>
     );
-}
+};
+
+export default Gallery;
+

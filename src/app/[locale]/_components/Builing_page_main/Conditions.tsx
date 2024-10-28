@@ -71,12 +71,9 @@ const Conditions: React.FC<ConditionsProps> = ({ locale, complexSlug }) => {
         return <div>Загрузка...</div>;
     }
 
-    if (error) {
-        return <div>{error}</div>;
-    }
-
-    if (!data.sections.length) {
-        return <div>Данные не найдены.</div>;
+    // Если произошла ошибка или нет данных, не отображаем компонент
+    if (error || !data.sections.length) {
+        return null;
     }
 
     return (
@@ -92,7 +89,9 @@ const Conditions: React.FC<ConditionsProps> = ({ locale, complexSlug }) => {
             <div className='xl:flex flex-col'>
                 {data.sections.map((section) => (
                     <div key={section._key} className='border-b py-[24px] xl:py-[40px] xl:flex xl:justify-between'>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium'>{section[`heading_${locale}`]}</h4>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium'>
+                            {section[`heading_${locale}`]}
+                        </h4>
                         <div className='mt-[15px] mdx:mt-[20px] xl:mt-0 xl:w-full xl:max-w-[588px]'>
                             {section[`paragraphs_${locale}`].map((paragraph, pIndex) => (
                                 <p key={pIndex} className='text-[16px] mdx:text-[20px] pt-[4px] mdx:pt-[12px] text-[#333]'>
@@ -111,6 +110,5 @@ Conditions.propTypes = {
     locale: PropTypes.oneOf(['ru', 'en', 'uz'] as const).isRequired,
     complexSlug: PropTypes.string.isRequired,
 };
-
 
 export default Conditions;

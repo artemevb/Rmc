@@ -57,7 +57,7 @@ const StickyMenu = () => {
                         href="#section2"
                         className={`w-full ${activeSection === "section2" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93] " : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'gallery')}
+                        onClick={(e) => handleScrollToSection(e, 'section2')}
                     >
                         {t('gallery')}
                     </a>
@@ -66,7 +66,7 @@ const StickyMenu = () => {
                     <a
                         href="#section3"
                         className={`w-full ${activeSection === "section3" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"} hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'layouts')}
+                        onClick={(e) => handleScrollToSection(e, 'section3')}
                     >
                         {t('layouts')}
                     </a>
@@ -76,7 +76,7 @@ const StickyMenu = () => {
                         href="#section4"
                         className={`w-full ${activeSection === "section4" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'purchaseTerms')}
+                        onClick={(e) => handleScrollToSection(e, 'section4')}
                     >
                         {t('purchaseTerms')}
                     </a>
@@ -86,7 +86,7 @@ const StickyMenu = () => {
                         href="#section5"
                         className={`w-full ${activeSection === "section5" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
                             } hover:text-[#E1AF93]`}
-                        onClick={(e) => handleScrollToSection(e, 'infrastructure')}
+                        onClick={(e) => handleScrollToSection(e, 'section5')}
                     >
                         {t('infrastructure')}
                     </a>
