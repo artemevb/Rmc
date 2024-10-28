@@ -1,107 +1,164 @@
+// schemas/infrastructure.js
+
 import { defineType, defineField } from 'sanity';
 
-// Main schema for categories (stores, transport, schools)
-export const categorySchema = defineType({
-  name: 'category',
-  title: 'Category',
+export const infrastructure = defineType({
+  name: 'infrastructure',
+  title: 'Инфраструктура района(внутрення страница новостройки)',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: 'markets',
+      title: 'Магазины',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'description',
+          title: 'Описание (для )',
+          type: 'localeString',
+        }),
+        defineField({
+          name: 'items',
+          title: 'Items',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              name: 'Подпункты для маркета ',
+              title: 'Market Item',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Название',
+                  type: 'localeString',
+                }),
+                defineField({
+                  name: 'time',
+                  title: 'время',
+                  type: 'localeString',
+                }),
+              ],
+            },
+          ],
+        }),
+        defineField({
+          name: 'images',
+          title: 'Images',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'desktop',
+              title: 'Image',
+              type: 'image',
+            }),
+            // Удаляем поле для мобильного изображения
+          ],
+        }),
+      ],
+    }),
+    // Повторяем аналогичные изменения для Machine и schools
+    defineField({
+      name: 'Machine',
+      title: 'Трансопрт',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'description',
+          title: 'Описание поля "Транспорт"',
+          type: 'localeString',
+        }),
+        defineField({
+          name: 'items',
+          title: 'Название и время',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              name: 'machineItem',
+              title: 'Transport Item',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Название подпункта',
+                  type: 'localeString',
+                }),
+                defineField({
+                  name: 'time',
+                  title: 'Время до подпункта',
+                  type: 'localeString',
+                }),
+              ],
+            },
+          ],
+        }),
+        defineField({
+          name: 'images',
+          title: 'Images',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'desktop',
+              title: 'Image',
+              type: 'image',
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'schools',
+      title: 'Школы',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'description',
+          title: 'Описание поля "Школы"',
+          type: 'localeString',
+        }),
+        defineField({
+          name: 'items',
+          title: 'Подпункты',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              name: 'schoolItem',
+              title: 'School Item',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Название подпункта',
+                  type: 'localeString',
+                }),
+                defineField({
+                  name: 'time',
+                  title: 'Время до подпункта',
+                  type: 'localeString',
+                }),
+              ],
+            },
+          ],
+        }),
+        defineField({
+          name: 'images',
+          title: 'Images',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'desktop',
+              title: 'Image',
+              type: 'image',
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
-      name: 'items',
-      title: 'Items',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'store' }, { type: 'school' }, { type: 'transport' }] }],
-    }),
-  ],
-});
-
-// Schema for Stores
-export const storeSchema = defineType({
-  name: 'store',
-  title: 'Store',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'name',
-      title: 'Store Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'distance',
-      title: 'Distance (in minutes)',
-      type: 'number',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-  ],
-});
-
-// Schema for Schools
-export const schoolSchema = defineType({
-  name: 'school',
-  title: 'School',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'name',
-      title: 'School Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'distance',
-      title: 'Distance (in minutes)',
-      type: 'number',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-  ],
-});
-
-// Schema for Transport
-export const transportSchema = defineType({
-  name: 'transport',
-  title: 'Transport',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'station',
-      title: 'Station Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'distance',
-      title: 'Distance (in minutes)',
-      type: 'number',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      name: 'residentialComplex',
+      title: 'Для какого комплекса (обязательно)',
+      type: 'reference',
+      to: [{ type: 'residentialComplex' }],
+      validation: (Rule) => Rule.required().error('Это поле обязательно для заполнения'),
     }),
   ],
 });

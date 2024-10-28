@@ -13,8 +13,10 @@ import { layouts } from './Layouts';
 import { conditions } from './conditions';
 import { bannerMain } from './bannerMain';
 
-// import { infrastructure } from './infrastructure';
+import { infrastructure } from './infrastructure';
+import localeString  from './localeString';
+// import { images } from './imagesInfr';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [district, housingType, rooms, newsType, residentialComplex, completionTime,
-    floorFilter, roomsFilterLayouts, layouts, conditions, bannerMain],
+    floorFilter, roomsFilterLayouts, layouts, conditions, bannerMain, infrastructure, localeString],
 }

@@ -110,7 +110,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
         <Conditions locale={locale} complexSlug={slug}/>
       </section>
       <section id="section5">
-        <Infrastructure />
+        <Infrastructure locale={locale} complexSlug={slug}/>
       </section>
       {/* <section id="section6">
         <ReviewsSlider />
