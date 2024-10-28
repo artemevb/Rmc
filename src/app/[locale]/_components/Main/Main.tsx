@@ -9,6 +9,8 @@ import Counter from "./Counter";
 import Form from "./Form";
 import BlogSlider from "./Blogs";
 
+type Locale = 'ru' | 'uz' | 'en';
+
 interface NewsCompProps {
   locale: string;
 }
@@ -22,7 +24,7 @@ export default function Main({ locale }: NewsCompProps) {
       <Service />
       <Consalting />
       <WhyUs />
-      <BuildingsSlider locale={locale}/>
+      <BuildingsSlider locale={locale as Locale}/>
       <Counter />
       <Form />
       <BlogSlider locale={locale} />

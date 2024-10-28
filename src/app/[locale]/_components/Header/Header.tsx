@@ -28,6 +28,10 @@ const Header = ({ locale }: LocaleProps) => {
       slug: 'about',
     },
     {
+      title: t('nav.buildings'),
+      slug: 'new-buildings',
+    },
+    {
       title: t('nav.blog'),
       slug: 'blog',
     },

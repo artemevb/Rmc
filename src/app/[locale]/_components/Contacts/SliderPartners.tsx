@@ -5,9 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
-import p1 from "@/public/images/partners/partner-1.png";
-import p2 from "@/public/images/partners/partner-2.png";
-import p3 from "@/public/images/partners/partner-3.png";
+import azizi from "@/public/images/partners/azizi.jpg";
+import sobha from "@/public/images/partners/sobha_realty.jpg";
 import p4 from "@/public/images/partners/partner-4.png";
 import p5 from "@/public/images/partners/partner-5.png";
 import p6 from "@/public/images/partners/partner-6.png";
@@ -28,9 +27,8 @@ const PartnersComp: React.FC = () => {
 
     // Массив с изображениями партнеров
     const partners: Partner[] = [
-        { id: 1, image: p1, url: 'https://gh.uz/' },
-        { id: 2, image: p2, url: 'https://www.u-nrg.uz/' },
-        { id: 3, image: p3, url: 'https://mbc.uz/' },
+        { id: 1, image: azizi, url: 'https://home.azizidevelopments.com/' },
+        { id: 2, image: sobha, url: 'https://www.sobharealty.com/' },
         { id: 4, image: p4, url: 'https://www.emaar.com/' },
         { id: 5, image: p5, url: 'https://www.damacproperties.com/' },
         { id: 6, image: p6, url: 'https://www.danubehome.com/ae/en' },

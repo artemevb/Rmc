@@ -166,7 +166,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
         {navOptions.slice(4).map((item, index) => (
           <Link
             onClick={() => {
-              closeMenu(); 
+              closeMenu();
               router.push(`/${locale}/${item.slug}`);
             }}
             href={`/${locale}/${item.slug}`}
@@ -187,6 +187,15 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
             href={`/${locale}/about`}
           >
             {t('nav.about')}
+          </Link>
+          <Link
+            onClick={() => {
+              closeMenu(); // Закрытие модального окна
+              router.push(`/${locale}/new-buildings`); // Перенаправление по URL
+            }}
+            href={`/${locale}/new-buildings`}
+          >
+            {t('nav.buildings')}
           </Link>
           <Link
             onClick={() => {

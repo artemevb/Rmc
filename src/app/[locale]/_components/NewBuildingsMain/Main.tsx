@@ -15,6 +15,7 @@ import {
 } from '../NewBuildings/queries';
 import { ResidentialComplex, District, HousingType, Room, CompletionTime } from '../NewBuildings/types';
 import { client } from '../../../../sanity/lib/client';
+import { ClimbingBoxLoader } from 'react-spinners'; // Импорт ClimbingBoxLoader
 
 interface InvestProps {
     locale: string;
@@ -262,9 +263,27 @@ export default function Invest({ locale }: InvestProps) {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredImages.slice(indexOfFirstItem, indexOfLastItem);
 
+    // Стиль для центрирования загрузчика
+    const loaderStyle: React.CSSProperties = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '80vh',
+    };
+
     // Отображение загрузки или ошибки
     if (isLoading) {
-        return <p>Загрузка...</p>;
+        return (
+            <div style={loaderStyle}>
+                <ClimbingBoxLoader
+                    size={15}
+                    color="#E1AF93"
+                    loading={isLoading}
+                    cssOverride={{}}
+                    speedMultiplier={1}
+                />
+            </div>
+        );
     }
 
     if (error) {

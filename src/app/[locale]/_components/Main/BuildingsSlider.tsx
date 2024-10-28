@@ -1,33 +1,32 @@
+// Banner.tsx
 "use client"
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-
-import build1 from "@/public/images/main/whyus/slide1.png";
-import build2 from "@/public/images/main/whyus/slide2.png";
-import build3 from "@/public/images/main/whyus/slide3.png";
-import build4 from "@/public/images/main/whyus/slide4.png";
+import { GET_RESIDENTIAL_COMPLEXES } from '../NewBuildings/queries';
+import { ResidentialComplex } from '../NewBuildings/types';
+import { client } from '@/src/sanity/lib/client';
 
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
 
-// Динамический импорт Slider с отключенным SSR
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-// Определение интерфейса для стрелок
+type Locale = 'ru' | 'uz' | 'en';
+
 interface CustomArrowProps {
     className?: string;
     style?: React.CSSProperties;
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-interface local {
-    locale: string;
+interface LocalProps {
+    locale: Locale;
 }
 
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
@@ -58,16 +57,6 @@ const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     </div>
 );
 
-// Определение интерфейса для элементов недвижимости
-interface EquipmentItem {
-    title: string;
-    description: string;
-    image: StaticImageData;
-    price: string;
-    slug: string;
-}
-
-// Определение интерфейса для настроек слайдера
 interface SliderSettings {
     arrows: boolean;
     dots: boolean;
@@ -86,62 +75,51 @@ interface SliderSettings {
         };
     }[];
 }
-export default function Banner({ locale }: local) {
-    const t = useTranslations('Main.Buildings');
 
-    const equipmentData: EquipmentItem[] = [
-        {
-            title: "Safa One",
-            description: "Luxury Apartment",
-            image: build1,
-            price: "от $1,900,000",
-            slug: "1-safa-one",
-        },
-        {
-            title: "Safa Two",
-            description: "Modern Apartment",
-            image: build2,
-            price: "от $399,000",
-            slug: "2-safa-two",
-        },
-        {
-            title: "Peninsula Two",
-            description: "Urban Living",
-            image: build3,
-            price: "от $245,000",
-            slug: "3-peninsula-two",
-        },
-        {
-            title: "Marina Vista",
-            description: "Seaside Apartment",
-            image: build4,
-            price: "от $612,000",
-            slug: "4-marina-vista",
-        },
-    ];
+const Banner: React.FC<LocalProps> = ({ locale }) => {
+    const t = useTranslations('Main.Buildings');
+    const [complexes, setComplexes] = useState<ResidentialComplex[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data: ResidentialComplex[] = await client.fetch(GET_RESIDENTIAL_COMPLEXES);
+                setComplexes(data);
+            } catch (err) {
+                console.error("Ошибка при получении данных:", err); // Логирование err для отладки
+                setError("Не удалось загрузить данные.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const settings: SliderSettings = {
         arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3, // По умолчанию показывать 3 слайда
+        slidesToShow: 3,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
             {
-                breakpoint: 1000, // Для экранов шириной до 1000px
+                breakpoint: 1000,
                 settings: {
-                    slidesToShow: 2, // Показывать 2 слайда
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     arrows: false,
                 },
             },
             {
-                breakpoint: 468, // Для экранов шириной до 468px
+                breakpoint: 468,
                 settings: {
-                    slidesToShow: 1, // Показывать 1 слайд
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     arrows: false,
                 },
@@ -149,31 +127,54 @@ export default function Banner({ locale }: local) {
         ],
     };
 
+    if (loading) {
+        return <div className="text-center py-20">{t('loading')}</div>;
+    }
+
+    if (error) {
+        return <div className="text-center py-20 text-red-500">{error}</div>;
+    }
+
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
             <div className="relative mx-2.5">
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10">
                     {t('title')}
                 </h2>
-                <Slider {...settings}>
-                    {equipmentData.map((item, index) => (
-                        <div key={index} className="px-2.5 mdx:px-1.5">
-                            <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="object-cover w-full h-full"
-                                    layout="responsive"
-                                    priority={index < 2} // Оптимизация загрузки первых изображений
-                                />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
-                                    <h3 className="text-xl mdx:text-2xl text-3xl font-medium text-white">{item.title}</h3>
-                                    <p className="text-base mdx:text-lg text-white">{item.price}</p>
+                {complexes.length > 0 ? (
+                    <Slider {...settings}>
+                        {complexes.map((complex) => (
+                            <div key={complex._id} className="px-2.5 mdx:px-1.5">
+                                <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
+                                    {complex.mainImage?.asset?.url ? (
+                                        <Image
+                                            src={complex.mainImage.asset.url}
+                                            alt={complex.mainImage.alt?.[locale as keyof typeof complex.mainImage.alt] || complex.subtitle?.[locale as keyof typeof complex.subtitle] || "Изображение отсутствует"}
+                                            className="object-cover w-full h-full"
+                                            width={467}
+                                            height={600}
+                                            priority={false}
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                                            {t('noImage')}
+                                        </div>
+                                    )}
+                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
+                                        <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-white">
+                                            {complex.subtitle?.[locale as keyof typeof complex.subtitle] || ""}
+                                        </h3>
+                                        <p className="text-base mdx:text-lg text-white">
+                                            {complex.price}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </Slider>
+                        ))}
+                    </Slider>
+                ) : (
+                    <div className="text-center py-20">{t('noData')}</div>
+                )}
                 <div className="flex w-full justify-center mt-10">
                     <Link href={`/${locale}/new-buildings`}>
                         <button className="border flex items-center justify-center py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
@@ -184,4 +185,6 @@ export default function Banner({ locale }: local) {
             </div>
         </div>
     );
-}
+};
+
+export default Banner;

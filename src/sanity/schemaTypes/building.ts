@@ -42,13 +42,13 @@ export const residentialComplex = defineType({
       name: 'price',
       title: 'Цена',
       type: 'string',
-      description: 'Строка с ценой для отображения',
+      description: 'Строка с ценой для отображения (валюта пишется здесь($ или сум и др.), в поле снизу только числовое значение)',
     }),
     defineField({
       name: 'priceValue',
       title: 'Значение Цены',
       type: 'number',
-      description: 'Числовое значение цены',
+      description: 'Здесь пишется только числовое значение цены',
     }),
     // Ссылка на район
     defineField({
