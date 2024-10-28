@@ -64,7 +64,7 @@ export default async function RootLayout({
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
     "url": "https://rmcestate.uz",
-    "description": "RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в Ташкенте. Профессиональный подход для физических и корпоративных клиентов.",
+    "description": "RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Узбекистан, г. Ташкент, ул.Чинабад 2",
