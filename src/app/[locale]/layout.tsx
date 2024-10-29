@@ -24,20 +24,20 @@ export const metadata: Metadata = {
     title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
     description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
     siteName: 'RMC De Luxe',
-    // images: [
-    //   {
-    //     url: 'https://rmcestate.uz/og-image.jpg',
-    //     width: 1200,
-    //     height: 630,
-    //     alt: 'RMC De Luxe - Недвижимость в ОАЭ',
-    //   },
-    // ],
+    images: [
+      {
+        url: 'https://rmcestate.uz/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'RMC De Luxe - Недвижимость в ОАЭ',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RMC De Luxe - Риэлторское Агентство в ОАЭ',
     description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ.',
-    // images: 'https://rmcestate.uz/twitter-image.jpg',
+    images: 'https://rmcestate.uz/og-image.jpg',
   },
   icons: {
     icon: '/favicon.ico',
@@ -83,7 +83,7 @@ export default async function RootLayout({
     },
     "telephone": "+9989785558787",
     "openingHours": "Mo-Fr 09:00-18:00",
-    // "image": "https://rmcestate.uz/logo.png",
+    "image": "https://rmcestate.uz/og-image.jpg",
     "priceRange": "$$$"
   };
 
@@ -100,7 +100,7 @@ export default async function RootLayout({
         <link rel="canonical" href={`https://rmcestate.uz/${locale}`} />
         {/* Добавление изображений для Open Graph и Twitter */}
         <meta property="og:image" content="https://rmcestate.uz/og-image.jpg" />
-        <meta name="twitter:image" content="https://rmcestate.uz/twitter-image.jpg" />
+        <meta name="twitter:image" content="https://rmcestate.uz/og-image.jpg" />
       </Head>
 
       <body className={jost.className}>
