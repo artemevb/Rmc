@@ -12,8 +12,8 @@ import Script from 'next/script';
 const jost = Jost({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.',
-  description: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.',
+  title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
+  description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
   keywords: 'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, оценка недвижимости, RMC De Luxe, ОАЭ, недвижимость ОАЭ, элитная недвижимость',
   authors: [{ name: 'RMC De Luxe', url: 'https://rmcestate.uz' }],
   viewport: 'width=device-width, initial-scale=1',
@@ -21,14 +21,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ru_RU',
     url: 'https://rmcestate.uz',
-    title: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.',
-    description: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.',
+    title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
+    description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
     siteName: 'RMC De Luxe',
+    // images: [
+    //   {
+    //     url: 'https://rmcestate.uz/og-image.jpg',
+    //     width: 1200,
+    //     height: 630,
+    //     alt: 'RMC De Luxe - Недвижимость в ОАЭ',
+    //   },
+    // ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RMC De Luxe - Риэлторское Агентство в ОАЭ',
     description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ.',
+    // images: 'https://rmcestate.uz/twitter-image.jpg',
   },
   icons: {
     icon: '/favicon.ico',
@@ -73,24 +82,25 @@ export default async function RootLayout({
       "addressCountry": "UZ"
     },
     "telephone": "+9989785558787",
-    "openingHours": "Mo-Fr 09:00-18:00"
+    "openingHours": "Mo-Fr 09:00-18:00",
+    // "image": "https://rmcestate.uz/logo.png",
+    "priceRange": "$$$"
   };
 
   return (
     <html lang={locale}>
       <Head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+        {/* Добавление Hreflang */}
+        <link rel="alternate" hrefLang="ru" href="https://rmcestate.uz/ru" />
+        <link rel="alternate" hrefLang="uz" href="https://rmcestate.uz/uz" />
+        <link rel="alternate" hrefLang="en" href="https://rmcestate.uz/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://rmcestate.uz" />
+        {/* Каноническая ссылка */}
+        <link rel="canonical" href={`https://rmcestate.uz/${locale}`} />
+        {/* Добавление изображений для Open Graph и Twitter */}
+        <meta property="og:image" content="https://rmcestate.uz/og-image.jpg" />
+        <meta name="twitter:image" content="https://rmcestate.uz/twitter-image.jpg" />
       </Head>
 
       <body className={jost.className}>
@@ -136,3 +146,4 @@ export default async function RootLayout({
     </html>
   );
 }
+
