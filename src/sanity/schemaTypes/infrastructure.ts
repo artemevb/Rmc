@@ -9,32 +9,32 @@ export const infrastructure = defineType({
   fields: [
     defineField({
       name: 'markets',
-      title: 'Магазины',
+      title: 'Магазины ',
       type: 'object',
       fields: [
         defineField({
           name: 'description',
-          title: 'Описание (для )',
+          title: 'Описание (для поля "Магазины")',
           type: 'localeString',
         }),
         defineField({
           name: 'items',
-          title: 'Items',
+          title: 'Название и время ',
           type: 'array',
           of: [
             {
               type: 'object',
-              name: 'Подпункты для маркета ',
+              name: 'Подпункты для поля "Магазины" ',
               title: 'Market Item',
               fields: [
                 defineField({
                   name: 'name',
-                  title: 'Название',
+                  title: 'Название (Пример: Havas)',
                   type: 'localeString',
                 }),
                 defineField({
                   name: 'time',
-                  title: 'время',
+                  title: 'время (Время до магазина)',
                   type: 'localeString',
                 }),
               ],
@@ -79,12 +79,12 @@ export const infrastructure = defineType({
               fields: [
                 defineField({
                   name: 'name',
-                  title: 'Название подпункта',
+                  title: 'Название подпункта (Пример: Шахристан)',
                   type: 'localeString',
                 }),
                 defineField({
                   name: 'time',
-                  title: 'Время до подпункта',
+                  title: 'Время до подпункта (Пример: 15минут)',
                   type: 'localeString',
                 }),
               ],
@@ -127,12 +127,12 @@ export const infrastructure = defineType({
               fields: [
                 defineField({
                   name: 'name',
-                  title: 'Название подпункта',
+                  title: 'Название подпункта (Пример: 187)',
                   type: 'localeString',
                 }),
                 defineField({
                   name: 'time',
-                  title: 'Время до подпункта',
+                  title: 'Время до подпункта (Пример: 5минут)',
                   type: 'localeString',
                 }),
               ],

@@ -41,7 +41,7 @@ export default function Banner({ locale }: { locale: string }) {
   // Получаем слайды из Sanity
   useEffect(() => {
     const fetchSlides = async () => {
-      const query = `*[_type == "slider"][0]{
+      const query = `*[_type == "slider"][1]{
         slides[] {
           image {
             asset-> {

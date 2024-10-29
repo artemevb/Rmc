@@ -12,11 +12,12 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title('Новостройки')
             .items([
-              S.documentTypeListItem('rooms').title('Количество Комнат'),
-              S.documentTypeListItem('district').title('Район'),
-              S.documentTypeListItem('completionTime').title('Срок Завершения'),
-              S.documentTypeListItem('housingType').title('Тип Жилья'),
+              S.documentTypeListItem('rooms').title('Количество Комнат(создать перед "Жилой комплекс")'),
+              S.documentTypeListItem('district').title('Район (создать перед "Жилой комплекс")'),
+              S.documentTypeListItem('completionTime').title('Срок Завершения (создать перед "Жилой комплекс")'),
+              S.documentTypeListItem('housingType').title('Тип Жилья (создать перед "Жилой комплекс")'),
               S.documentTypeListItem('conditions').title('Условия покупки(внутренняя страница новостройки)'),
+              S.documentTypeListItem('infrastructure').title('Инфраструктура района(внутрення страница новостройки)'),
               S.documentTypeListItem('residentialComplex').title('Жилой Комплекс'),
             ])
         ),
@@ -36,7 +37,6 @@ export const structure: StructureResolver = (S) =>
         ),
       S.divider(),
 
-      // Раздел "Главная страница" с Singleton-документом для слайдера
       S.listItem()
         .title('Главная страница(Слайдер 1)')
         .child(
@@ -47,6 +47,6 @@ export const structure: StructureResolver = (S) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !['rooms', 'district', 'completionTime', 'housingType', 'residentialComplex', 'floorFilter', 'roomsFilter', 'layouts', 'slider', 'conditions'].includes(item.getId()!),
+          !['rooms', 'district', 'completionTime', 'housingType', 'residentialComplex', 'floorFilter', 'roomsFilter', 'layouts', 'slider', 'conditions', 'infrastructure'].includes(item.getId()!),
       ),
     ]);
