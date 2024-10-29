@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from 'react';
-import { Swiper as SwiperClass, NavigationOptions } from 'swiper/types'; // Импортируем необходимые типы
+import { Swiper as SwiperClass, NavigationOptions } from 'swiper/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -18,6 +18,13 @@ interface Slide {
   image: {
     asset: {
       url: string;
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
+        lqip?: string; // Добавлено для использования в placeholder
+      };
     };
   };
   title: {
@@ -38,7 +45,6 @@ export default function Banner({ locale }: { locale: string }) {
 
   const [slides, setSlides] = useState<Slide[]>([]);
 
-  // Получаем слайды из Sanity
   useEffect(() => {
     const fetchSlides = async () => {
       const query = `*[_type == "slider"][1]{
@@ -48,7 +54,8 @@ export default function Banner({ locale }: { locale: string }) {
               _id,
               url,
               metadata {
-                dimensions
+                dimensions,
+                lqip // Предполагается, что lqip доступен
               }
             }
           },
@@ -77,7 +84,6 @@ export default function Banner({ locale }: { locale: string }) {
               nextEl: nextRef.current,
             }}
             onSwiper={(swiper: SwiperClass) => {
-              // Проверяем, что swiper.params.navigation определено и является объектом
               if (
                 prevRef.current &&
                 nextRef.current &&
@@ -88,7 +94,6 @@ export default function Banner({ locale }: { locale: string }) {
                 navigationParams.prevEl = prevRef.current;
                 navigationParams.nextEl = nextRef.current;
 
-                // Аналогично проверяем, что swiper.navigation существует
                 if (swiper.navigation) {
                   swiper.navigation.destroy();
                   swiper.navigation.init();
@@ -107,7 +112,11 @@ export default function Banner({ locale }: { locale: string }) {
             speed={1500}
           >
             {slides.map((slide, index) => {
-              const imageSrc = urlFor(slide.image).width(1920).height(800).url();
+              const imageSrc = urlFor(slide.image)
+                .width(1920)
+                .height(800)
+                .format('webp') // Используем формат WebP
+                .url();
               const titleText = slide.title[locale as keyof typeof slide.title] || slide.title.en;
               const descriptionText = slide.description[locale as keyof typeof slide.description] || slide.description.en;
 
@@ -116,10 +125,16 @@ export default function Banner({ locale }: { locale: string }) {
                   <div className="relative w-full h-auto min-h-[700px] xl:min-h-[800px]">
                     <Image
                       src={imageSrc}
-                      quality={100}
+                      quality={100} // Сниженное качество
                       alt={`Slide ${index + 1}`}
                       fill
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 2000px) 100vw,
+                             (max-width: 1500px) 50vw,
+                             33vw" // Адаптивные размеры
+                      loading="lazy" // Ленивая загрузка
+                      placeholder="blur"
+                      blurDataURL={slide.image.asset.metadata.lqip || undefined} // Используем lqip если доступно
                     />
                     <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white">
                       {titleText && (
@@ -149,7 +164,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowLeft}
-              quality={100}
+              quality={80} // Сниженное качество для стрелок
               alt="Previous"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -160,7 +175,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowRight}
-              quality={100}
+              quality={80} // Сниженное качество для стрелок
               alt="Next"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -170,4 +185,3 @@ export default function Banner({ locale }: { locale: string }) {
     </div>
   );
 }
-
