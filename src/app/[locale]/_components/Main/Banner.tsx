@@ -164,7 +164,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowLeft}
-              quality={80} // Сниженное качество для стрелок
+              quality={100} // Сниженное качество для стрелок
               alt="Previous"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -175,7 +175,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowRight}
-              quality={80} // Сниженное качество для стрелок
+              quality={100} // Сниженное качество для стрелок
               alt="Next"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
