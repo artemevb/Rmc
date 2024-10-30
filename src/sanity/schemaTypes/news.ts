@@ -8,7 +8,7 @@ export const newsType = defineType({
     // Поле для слага
     defineField({
       name: 'slug',
-      title: 'Слаг',
+      title: 'Ссылка на страницу (url адрес страницы)',
       type: 'slug',
       options: {
         source: 'title.ru', // Используем русскую версию заголовка для генерации слага
@@ -66,7 +66,7 @@ export const newsType = defineType({
     // Поле для контента на внутренней странице
     defineField({
       name: 'content',
-      title: 'Контент',
+      title: 'Контент (Все что здесь, будет отображаться внутри страницы)',
       type: 'array',
       of: [
         // Текстовый блок с поддержкой трех языков

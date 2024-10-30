@@ -496,5 +496,10 @@
       "purchaseTerms": "Purchase Terms",
       "infrastructure": "Infrastructure"
     }
+  },
+  "NotFound": {
+    "title": "Oops...",
+    "description": "Page not found",
+    "backHome": "Back to home"
   }
 }

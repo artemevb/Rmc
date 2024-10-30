@@ -496,5 +496,10 @@
       "purchaseTerms": "Условия покупки",
       "infrastructure": "Инфраструктура"
     }
+  },
+  "NotFound": {
+    "title": "Упс...",
+    "description": "Страница не найдена",
+    "backHome": "На главную"
   }
 }

@@ -496,5 +496,10 @@
       "purchaseTerms": "Sotib olish shartlari",
       "infrastructure": "Infratuzilma"
     }
+  },
+  "NotFound": {
+    "title": "Voy...",
+    "description": "Sahifa topilmadi",
+    "backHome": "Bosh sahifaga qaytish"
   }
 }

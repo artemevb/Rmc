@@ -3,6 +3,7 @@ import logoBig from "@/public/images/rmc-logo.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
+// import youtube from "@/public/svg/footer/youtube.svg";
 // import youtube from "@/public/svg/footer/whatsapp.svg";
 import resultLogo from "@/public/svg/footer/result-logo.png";
 import Link from "next/link";
@@ -104,7 +105,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a>
-              {/* <a href="https://www.youtube.com/@intermedinnovation9644" target="_blank">
+              {/* <a href="https://www.youtube.com/@RMC_DE_LUXE" target="_blank">
                 <Image
                   src={youtube}
                   width={100}

@@ -12,6 +12,7 @@ import sanityClient from '@sanity/client';
 import defaultImage from "@/public/images/main/Full-photo-3.png";
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
+import ApplicationNewBuildings from '../Modal/ApplicationNewBuildings';
 
 // Define the types for your props
 interface BannerProps {
@@ -46,6 +47,16 @@ function urlFor(source: string) {
 
 export default function Banner({ locale, data }: BannerProps) {
   const t = useTranslations('Building_page_main');
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to open the modal
+  const openModal = () => setIsModalOpen(true);
+
+  // Function to close the modal
+  const closeModal = () => setIsModalOpen(false);
+
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
 
@@ -114,7 +125,9 @@ export default function Banner({ locale, data }: BannerProps) {
                   {data?.price ? `${data.price.toLocaleString()}` : t('default-price')}
                 </p>
                 <div className="w-full gap-[12px] mdx:gap-[20px] flex font-semibold text-[17px] pr-[16px]">
-                  <button className="min-w-[158px] w-full bg-[#E1AF93] hover:bg-[#EAC7B4] h-[49px] mdx:w-[223px]">
+                  <button
+                  onClick={openModal} 
+                   className="min-w-[158px] w-full bg-[#E1AF93] hover:bg-[#EAC7B4] h-[49px] mdx:w-[223px]">
                     {t('button-more')}
                   </button>
                   <a href="tel:+998785558787">
@@ -152,6 +165,7 @@ export default function Banner({ locale, data }: BannerProps) {
           </div>
         </div>
       </div>
+      <ApplicationNewBuildings isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }

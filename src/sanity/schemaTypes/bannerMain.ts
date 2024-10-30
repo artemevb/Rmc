@@ -17,14 +17,14 @@ export const bannerMain = defineType({
                     fields: [
                         defineField({
                             name: 'image',
-                            title: 'Image',
+                            title: 'Фото слайда',
                             type: 'image',
                             options: { hotspot: true },
                             validation: (Rule) => Rule.required(),
                         }),
                         defineField({
                             name: 'title',
-                            title: 'Title',
+                            title: 'Заголовок',
                             type: 'object',
                             fields: [
                                 defineField({
@@ -49,7 +49,7 @@ export const bannerMain = defineType({
                         }),
                         defineField({
                             name: 'description',
-                            title: 'Description',
+                            title: 'Подзаголовок',
                             type: 'object',
                             fields: [
                                 defineField({
