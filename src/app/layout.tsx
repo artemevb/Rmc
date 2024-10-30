@@ -3,13 +3,14 @@
 import '@/src/app/[locale]/_styles/globals.css';
 
 export const metadata = {
-    title: 'RMC Admin Dashboard',
-    description: 'RMC Admin Dashboard',
+    title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
+    description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
 };
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
 }
+export const dynamic = 'force-dynamic';
 
 export default function LocaleLayout({ children }: LocaleLayoutProps) {
   return (
