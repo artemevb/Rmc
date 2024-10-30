@@ -331,6 +331,23 @@
     "your_message_has_been_sent": "Bizning menejerlarimiz yaqin vaqt ichida siz bilan bog'lanadi",
     "close": "OK"
   },
+  "ModalNewBuildings": {
+    "full-name": "Ism",
+    "company-name": "Kompaniya Nomi",
+    "telephone-number": "Telefon Raqami",
+    "text-3": "Xizmatni Tanlang",
+    "message": "Xabar",
+    "send": "Yuborish",
+    "enter_full_name": "To'liq ismingizni kiriting",
+    "type-of-service": "Taklif",
+    "enter_valid_phone_number": "Telefon raqamingizni kiriting",
+    "services-1": "Kompaniya Ro'yxatdan O'tkazish",
+    "services-2": "Konsalting",
+    "services-3": "Litsenziyalash",
+    "your_message_sent": "Savolingiz yuborildi!",
+    "your_message_has_been_sent": "Bizning menejerlarimiz yaqin vaqt ichida siz bilan bog'lanadi",
+    "close": "OK"
+  },
   "Blog": {
     "title": "Maqolalar",
     "title-popular": "Mashhur maqolalar",

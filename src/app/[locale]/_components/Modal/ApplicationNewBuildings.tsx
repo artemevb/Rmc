@@ -17,7 +17,6 @@ interface QuestionSentProps {
 // Define the shape of the form values
 interface FormValues {
     name: string;
-    companyName: string;
     phone: string;
     message: string;
 }
@@ -29,14 +28,12 @@ interface ValidationResult {
 }
 
 const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
-    const t = useTranslations("Modal");
+    const t = useTranslations("ModalNewBuildings");
 
     // Handler to close the modal
     const handleClose = () => {
         onClose();
     };
-    
-
 
     // Function to handle newline characters \n in text
     const formatText = (text: string): JSX.Element[] => {
@@ -58,7 +55,6 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
     // State to manage form values
     const [values, setValues] = useState<FormValues>({
         name: "",
-        companyName: "",
         phone: "",
         message: "",
     });
@@ -95,7 +91,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
 
     // Function to validate input fields
     const validateInput = (name: keyof FormValues, value: string): ValidationResult => {
-        if (name === "name" || name === "companyName") {
+        if (name === "name") {
             return value.trim().length >= 3
                 ? { isValid: true, message: t("correct") }
                 : { isValid: false, message: t("enter_full_name") };
@@ -113,22 +109,20 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const { name, companyName, phone } = values;
+        const { name, phone } = values;
 
         // Validate all fields before submission
         const nameValidation = validateInput("name", name);
-        const companyValidation = validateInput("companyName", companyName);
         const phoneValidation = validateInput("phone", phone);
 
         // Mark all fields as touched
         setTouched({
             name: true,
-            companyName: true,
             phone: true,
             message: true,
         });
 
-        if (!nameValidation.isValid || !companyValidation.isValid || !phoneValidation.isValid) {
+        if (!nameValidation.isValid || !phoneValidation.isValid) {
             // Optionally, set validation errors or provide feedback to the user
             return;
         }
@@ -139,7 +133,6 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                 "https://rmc.mrjtrade.uz/api/application/investment/create",
                 {
                     fullName: values.name, // Mapped 'name' to 'fullName'
-                    companyName: values.companyName,
                     phoneNum: values.phone, // Mapped 'phone' to 'phoneNum'
                     service: selectedService, // Included selected service from dropdown
                     message: values.message,
@@ -159,7 +152,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
     
     useEffect(() => {
         if (!isOpen) {
-            setValues({ name: "", companyName: "", phone: "", message: "" });
+            setValues({ name: "", phone: "", message: "" });
             setSelectedService(t("text-3"));
             setTouched({});
         }
@@ -200,7 +193,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                         className="flex flex-col gap-[20px] w-full xl:gap-[30px] mt-[30px] mdx:mt-[50px]"
                         onSubmit={handleSubmit}
                     >
-                        {(["name", "companyName", "phone"] as Array<keyof FormValues>).map((field) => {
+                        {(["name", "phone"] as Array<keyof FormValues>).map((field) => {
                             const validation = validateInput(field, values[field]);
                             return (
                                 <div className="relative" key={field}>
@@ -212,35 +205,37 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                         onChange={handleInputChange}
                                         onFocus={() => setFocusedInput(field)}
                                         onBlur={() => handleInputBlur(field)}
-                                        className={`block w-full px-3 py-2  placeholder-transparent focus:outline-none border-b-2 transition-colors ${focusedInput === field
-                                            ? validation.isValid
-                                                ? "border-[#E1AF93]" // Green border on focus and valid input
-                                                : "border-[#FF0000]" // Red border on focus and invalid input
-                                            : touched[field]
+                                        className={`block w-full px-3 py-2  placeholder-transparent focus:outline-none border-b-2 transition-colors ${
+                                            focusedInput === field
                                                 ? validation.isValid
-                                                    ? "border-[#EEEEEE]" // Neutral border if field is touched and valid
-                                                    : "border-[#FF0000]" // Red border if field is touched and invalid
-                                                : "border-[#EEEEEE]" // Neutral border if field is untouched
-                                            }`}
+                                                    ? "border-[#E1AF93]" // Green border on focus and valid input
+                                                    : "border-[#FF0000]" // Red border on focus and invalid input
+                                                : touched[field]
+                                                    ? validation.isValid
+                                                        ? "border-[#EEEEEE]" // Neutral border if field is touched and valid
+                                                        : "border-[#FF0000]" // Red border if field is touched and invalid
+                                                    : "border-[#EEEEEE]" // Neutral border if field is untouched
+                                        }`}
 
                                         placeholder={
-                                            field === "name" ? t("full-name") : field === "companyName" ? t("company-name") : t("telephone-number")
+                                            field === "name" ? t("full-name") : t("telephone-number")
                                         }
                                         aria-invalid={!validation.isValid}
                                         aria-describedby={`${field}-error`}
                                     />
                                     <label
                                         htmlFor={field}
-                                        className={`absolute transition-all text-[16px] mdx:text-[18px] ${focusedInput === field || values[field].length > 0
-                                            ? "-top-4 text-xs"
-                                            : "top-1 text-[16px] mdx:text-[18px]"
-                                            }  cursor-text`}
+                                        className={`absolute transition-all text-[16px] mdx:text-[18px] ${
+                                            focusedInput === field || values[field].length > 0
+                                                ? "-top-4 text-xs"
+                                                : "top-1 text-[16px] mdx:text-[18px]"
+                                        }  cursor-text`}
                                         onClick={() => {
                                             const input = document.getElementById(field) as HTMLInputElement;
                                             input.focus();
                                         }}
                                     >
-                                        {field === "name" ? t("full-name") : field === "companyName" ? t("company-name") : t("telephone-number")}
+                                        {field === "name" ? t("full-name") : t("telephone-number")}
                                     </label>
                                     {!validation.isValid && touched[field] && (
                                         <span
@@ -270,10 +265,11 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                             />
                             <label
                                 htmlFor="message"
-                                className={`absolute transition-all text-[18px] mdx:text-[18px] ${focusedInput === "message" || values.message.length > 0
-                                    ? "-top-4 text-xs"
-                                    : "top-1 text-[16px] mdx:text-[18px]"
-                                    }  cursor-text`}
+                                className={`absolute transition-all text-[18px] mdx:text-[18px] ${
+                                    focusedInput === "message" || values.message.length > 0
+                                        ? "-top-4 text-xs"
+                                        : "top-1 text-[16px] mdx:text-[18px]"
+                                }  cursor-text`}
                                 onClick={() => {
                                     const textarea = document.getElementById("message") as HTMLTextAreaElement;
                                     textarea.focus();

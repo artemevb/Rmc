@@ -331,6 +331,23 @@
     "your_message_has_been_sent": "Our managers will contact you shortly",
     "close": "OK"
   },
+  "ModalNewBuildings": {
+    "full-name": "Full Name",
+    "company-name": "Company Name",
+    "telephone-number": "Phone Number",
+    "text-3": "Choose a Service",
+    "message": "Message",
+    "send": "Send",
+    "enter_full_name": "Enter your full name",
+    "type-of-service": "Application",
+    "enter_valid_phone_number": "Enter your phone number",
+    "services-1": "Company Registration",
+    "services-2": "Consulting",
+    "services-3": "Licensing",
+    "your_message_sent": "Question sent!",
+    "your_message_has_been_sent": "Our managers will contact you shortly",
+    "close": "OK"
+  },
   "Blog": {
     "title": "Articles",
     "title-popular": "Popular articles",
