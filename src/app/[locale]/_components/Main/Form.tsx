@@ -5,6 +5,7 @@ import build2 from "@/public/images/main/Form2.png";
 import Image from 'next/image';
 import { useTranslations } from "next-intl";
 import axios, { AxiosError } from 'axios';
+import SuccessModal from "@/src/app/[locale]/_components/Modal/SuccessModal"; // Adjust the path as necessary
 
 // Define form values interface
 interface FormValues {
@@ -38,6 +39,7 @@ export default function ContAddress() {
     const [focusedInput, setFocusedInput] = useState<keyof FormValues | null>(null);
     const [loading, setLoading] = useState<boolean>(false); // Loading state
     const [error, setError] = useState<string | null>(null); // Error state
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
@@ -131,6 +133,9 @@ export default function ContAddress() {
                     email: "",
                     question: "",
                 });
+
+                // Open the success modal
+                setIsModalOpen(true);
 
                 // Send the SEND_APPLICATION counter request
                 try {
@@ -252,6 +257,12 @@ export default function ContAddress() {
             <div className="xl:w-[40%] hidden xl:block ">
                 <Image src={build2} quality={100} alt="Building" className="object-cover h-full" />
             </div>
+
+            {/* Success Modal */}
+            <SuccessModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </div>
     );
 }

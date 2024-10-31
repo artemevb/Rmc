@@ -26,6 +26,7 @@ export default function Share({ news }: ShareProps) {
             link: 'https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx',
         },
         { src: '/svg/footer/telegram.svg', alt: 'Telegram Icon', link: 'https://t.me/rmcdeluxegroup' },
+        { src: '/svg/footer/youtube.svg', alt: 'Youtube Icon', link: 'https://www.youtube.com/@RMC_DE_LUXE' },
     ];
 
     const copyLinkToClipboard = () => {

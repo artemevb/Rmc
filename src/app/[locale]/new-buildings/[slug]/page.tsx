@@ -112,7 +112,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
       </section>
       <section id="section3">
         <Layouts locale={locale} complexSlug={slug} />
-      </section>
+      </section>я
       <section id="section4">
         <Conditions locale={locale} complexSlug={slug}/>
       </section>

@@ -10,40 +10,27 @@ import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import axios from 'axios';
 
-
 interface LocaleProps {
   locale: string;
 }
 
-const handlePhoneClickTelegram = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-  event.preventDefault(); // Prevent default behavior temporarily
+const handleSocialClick = async (event: React.MouseEvent<HTMLAnchorElement>, url: string, button: string) => {
+  event.preventDefault(); // Prevent default behavior
 
   try {
     // Send the API request using axios
-    await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=TELEGRAM_FOOTER');
+    await axios.post(`https://rmc.mrjtrade.uz/api/counter/add?button=${button}`);
+    console.log(`Successfully sent API request for ${button}`); // Логирование успешного запроса
 
-    // After successful API call, redirect to the phone number
-    window.location.href = 'tel:+998785558787';
+    // After successful API call, redirect to the target URL
+    window.open(url, '_blank');
   } catch (error) {
     console.error('API call failed:', error);
-    // You can add error handling logic here if needed
+    // Optionally, still redirect even if the API call fails
+    window.open(url, '_blank');
   }
 };
 
-const handlePhoneClickInstargam = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-  event.preventDefault(); // Prevent default behavior temporarily
-
-  try {
-    // Send the API request using axios
-    await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=INSTAGRAM_FOOTER');
-
-    // After successful API call, redirect to the phone number
-    window.location.href = 'tel:+998785558787';
-  } catch (error) {
-    console.error('API call failed:', error);
-    // You can add error handling logic here if needed
-  }
-};
 
 export default function Footer({ locale }: LocaleProps) {
   const t = useTranslations('Main.Footer');
@@ -52,7 +39,7 @@ export default function Footer({ locale }: LocaleProps) {
     <div className="bg-[#F7F7F7] w-full px-2 pt-12">
       <div className="w-full max-w-[1440px] flex flex-col gap-12 mx-auto">
         <div className="w-full flex justify-between flex-col gap-12">
-          <div className="flex  justify-between flex-row gap-5 border-b pb-[25px] xl:pb-[50px] items-center">
+          <div className="flex justify-between flex-row gap-5 border-b pb-[25px] xl:pb-[50px] items-center">
             <div className="flex flex-col gap-5 ">
               <Link href="/" className="h-auto w-auto items-center flex">
                 <div className="flex flex-row gap-[8px] items-center">
@@ -74,7 +61,12 @@ export default function Footer({ locale }: LocaleProps) {
               </Link>
             </div>
             <div className="flex gap-3 mdx:gap-[20px]">
-              <a href="https://t.me/rmcdeluxegroup" target="_blank" onClick={handlePhoneClickTelegram}>
+              <a
+                href="https://t.me/rmcdeluxegroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => handleSocialClick(e, "https://t.me/rmcdeluxegroup", "TELEGRAM_FOOTER")}
+              >
                 <Image
                   src={telegram}
                   width={100}
@@ -84,7 +76,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a>
-              {/* <a href="https://www.facebook.com/intermed.mindray" target="_blank">
+              {/* <a href="https://www.facebook.com/intermed.mindray" target="_blank" rel="noopener noreferrer">
                 <Image
                   src={facebook}
                   width={100}
@@ -94,7 +86,12 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a> */}
-              <a href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx" target="_blank" onClick={handlePhoneClickInstargam}>
+              <a
+                href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => handleSocialClick(e, "https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx", "INSTAGRAM_FOOTER")}
+              >
                 <Image
                   src={instagram}
                   width={100}
@@ -104,7 +101,7 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a>
-              <a href="https://www.youtube.com/@RMC_DE_LUXE" target="_blank">
+              <a href="https://www.youtube.com/@RMC_DE_LUXE" target="_blank" rel="noopener noreferrer" onClick={(e) => handleSocialClick(e, "https://www.youtube.com/@RMC_DE_LUXE", "YOUTUBE")}>
                 <Image
                   src={youtube}
                   width={100}
@@ -117,24 +114,29 @@ export default function Footer({ locale }: LocaleProps) {
             </div>
           </div>
           <div className="mdx:flex flex-row xl:gap-[138px]">
-            <div className="lg:w-1/2 xl:max-w-[406px] w-full flex max-mdx:gap-5  xl:gap-[138px]">
+            <div className="lg:w-1/2 xl:max-w-[406px] w-full flex max-mdx:gap-5 xl:gap-[138px]">
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[110px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('services')}
                 </h2>
-                <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
+                {/* <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
                 <Link href={`/${locale}/calculator`}>{t('rent')}</Link>
                 <Link href={`/${locale}/calculator`}>{t('sell')}</Link>
-                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link> */}
+                <div className="cursor-pointer">{t('buy')}</div>
+                <div className="cursor-pointer">{t('rent')}</div>
+                <div className="cursor-pointer">{t('sell')}</div>
+                <div className="cursor-pointer">{t('evaluate')}</div>
+
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('real_estate')}
                 </h2>
-                <Link href={`/${locale}/about`}>{t('apartments')}</Link>
+                <Link href={`/${locale}/new-buildings`}>{t('apartments')}</Link>
                 <Link href={`/${locale}/new-buildings`}>{t('new_buildings')}</Link>
-                <Link href={`/${locale}/contacts`}>{t('houses_and_land')}</Link>
-                <Link href={`/${locale}/news`}>{t('commercial')}</Link>
+                <Link href={`/${locale}/new-buildings`}>{t('houses_and_land')}</Link>
+                <Link href={`/${locale}/new-buildings`}>{t('commercial')}</Link>
               </div>
             </div>
             <div className="lg:w-1/2 w-full flex flex-row max-mdx:mt-[35px] max-mdx:gap-5 xl:gap-[138px]">
@@ -145,13 +147,14 @@ export default function Footer({ locale }: LocaleProps) {
                 <Link href={`/${locale}/about`}>{t('about_us')}</Link>
                 <Link href={`/${locale}/blog`}>{t('blog')}</Link>
                 <Link href={`/${locale}/contacts`}>{t('contacts')}</Link>
-                <Link href={`/${locale}/phone`}>{t('contact_us')}</Link>
+                <Link href="tel:+998785558787">{t('contact_us')}</Link>
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[253px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('other')}
                 </h2>
-                <Link href={`/${locale}/converter`}>{t('mortgage_calculator')}</Link>
+                {/* <Link href={`/${locale}/converter`}>{t('mortgage_calculator')}</Link> */}
+                <div className="cursor-pointer">{t('mortgage_calculator')}</div>
                 <Link href={`/${locale}/investmentDubai`}>{t('dubai_investments')}</Link>
               </div>
             </div>
@@ -163,7 +166,7 @@ export default function Footer({ locale }: LocaleProps) {
             <p className="w-full max-mdx:max-w-[150px] text-[#B3B3B3] text-[14px] xl:text-[16px]">
               {t('info')}
             </p>
-            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank" >
+            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank" rel="noopener noreferrer">
               <Image
                 src={resultLogo}
                 width={800}

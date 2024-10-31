@@ -145,30 +145,32 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                     <Slider {...settings}>
                         {complexes.map((complex) => (
                             <div key={complex._id} className="px-2.5 mdx:px-1.5">
-                                <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
-                                    {complex.mainImage?.asset?.url ? (
-                                        <Image
-                                            src={complex.mainImage.asset.url}
-                                            alt={complex.mainImage.alt?.[locale as keyof typeof complex.mainImage.alt] || complex.subtitle?.[locale as keyof typeof complex.subtitle] || "Изображение отсутствует"}
-                                            className="object-cover w-full h-full"
-                                            width={467}
-                                            height={600}
-                                            priority={false}
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                                            {t('noImage')}
+                                <Link href={`/${locale}/new-buildings/${complex.slug?.current || '#'}`} passHref>
+                                    <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
+                                        {complex.mainImage?.asset?.url ? (
+                                            <Image
+                                                src={complex.mainImage.asset.url}
+                                                alt={complex.mainImage.alt?.[locale as keyof typeof complex.mainImage.alt] || complex.subtitle?.[locale as keyof typeof complex.subtitle] || "Изображение отсутствует"}
+                                                className="object-cover w-full h-full"
+                                                width={467}
+                                                height={600}
+                                                priority={false}
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                                                {t('noImage')}
+                                            </div>
+                                        )}
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
+                                            <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-white">
+                                                {complex.subtitle?.[locale as keyof typeof complex.subtitle] || ""}
+                                            </h3>
+                                            <p className="text-base mdx:text-lg text-white">
+                                                {complex.price}
+                                            </p>
                                         </div>
-                                    )}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
-                                        <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-white">
-                                            {complex.subtitle?.[locale as keyof typeof complex.subtitle] || ""}
-                                        </h3>
-                                        <p className="text-base mdx:text-lg text-white">
-                                            {complex.price}
-                                        </p>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </Slider>

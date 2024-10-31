@@ -39,8 +39,13 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
             {pages.map(page => (
                 <li key={page}>
                     <button
-                        className={`px-4 py-2 border rounded ${page === currentPage ? 'bg-[#ffff]' : 'hover:bg-[#E1AF93]'}`}
+                        className={`px-4 py-2 border rounded ${
+                            page === currentPage
+                                ? 'bg-[#E1AF93] text-[#ffffff] cursor-default'
+                                : 'text-black hover:bg-[#E1AF93]'
+                        }`}
                         onClick={() => onPageChange(page)}
+                        disabled={page === currentPage}
                     >
                         {page}
                     </button>
