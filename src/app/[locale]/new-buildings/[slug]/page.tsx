@@ -73,8 +73,15 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
     subtitle_main,
     gallery_2,
     desc_main,
-    gallery_3
-  }`;
+    gallery_3[]{
+          _type,
+          ...,
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`;
   const data = await client.fetch(query, { slug });
 
   // Дополнительный запрос для других жилых комплексов(слайдер)

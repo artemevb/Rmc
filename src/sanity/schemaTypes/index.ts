@@ -15,8 +15,8 @@ import { bannerMain } from './bannerMain';
 
 import { infrastructure } from './infrastructure';
 import localeString  from './localeString';
-// import { images } from './imagesInfr';
+import { youtubeVideo } from './youtubeVideo';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [district, housingType, rooms, newsType, residentialComplex, completionTime,
-    floorFilter, roomsFilterLayouts, layouts, conditions, bannerMain, infrastructure, localeString],
+    floorFilter, roomsFilterLayouts, layouts, conditions, bannerMain, infrastructure, localeString, youtubeVideo],
 }

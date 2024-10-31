@@ -1,41 +1,26 @@
+// components/Gallery.tsx
 "use client";
 
 import React from "react";
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import imageUrlBuilder from '@sanity/image-url';
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from '@/src/sanity/lib/client';
-import { SanityImageAssetDocument, SanityFileAssetDocument } from '@/src/sanity/types'; // Импорт типов
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { useTranslations } from 'next-intl';
 import ReactPlayer from 'react-player';
-
-// Константы проекта Sanity
-const PROJECT_ID = 'cog5nktd'; // Замените на ваш projectId
-const DATASET = 'production'; // Замените на ваш dataset
+import arrowleft from "@/public/svg/ArrowLeftSlider.png";
+import arrowright from "@/public/svg/ArrowRightSlider.png";
+import { GalleryData, GalleryItem } from '@/src/sanity/typesGallery';
 
 // Инициализация imageUrlBuilder для изображений
 const builder = imageUrlBuilder(client);
 const urlFor = (source: SanityImageSource) => builder.image(source);
 
-// Функция для построения URL файлов
-const getFileUrl = (asset: SanityFileAssetDocument): string | undefined => {
-    if (!asset || !asset._ref) return undefined;
-    const refParts = asset._ref.split('-');
-    if (refParts.length < 3) return undefined;
-    const extension = refParts.pop();
-    const assetId = refParts.slice(1).join('-');
-    return `https://cdn.sanity.io/files/${PROJECT_ID}/${DATASET}/${assetId}.${extension}`;
-};
-
-// Импорт стрелок для слайдера
-import arrowleft from "@/public/svg/ArrowLeftSlider.png";
-import arrowright from "@/public/svg/ArrowRightSlider.png";
-
 // Динамический импорт Slider с отключенным SSR
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-// Определение интерфейса для стрелок
+// Интерфейсы для стрелок
 interface CustomArrowProps {
     className?: string;
     style?: React.CSSProperties;
@@ -54,13 +39,7 @@ const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     </div>
 );
 
-// Определение интерфейса для элементов галереи
-interface GalleryItem {
-    _type: 'image' | 'file';
-    asset: SanityImageAssetDocument | SanityFileAssetDocument;
-}
-
-// Определение интерфейса для настроек слайдера
+// Интерфейс для настроек слайдера
 interface SliderSettings {
     arrows: boolean;
     dots: boolean;
@@ -81,7 +60,7 @@ interface SliderSettings {
 }
 
 interface GalleryProps {
-    data: { gallery_3: GalleryItem[] };
+    data: GalleryData;
 }
 
 const Gallery: React.FC<GalleryProps> = ({ data }) => {
@@ -122,42 +101,50 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                     {t('title')}
                 </h2>
                 <Slider {...settings}>
-                    {data.gallery_3.map((item, index) => (
-                        <div key={item.asset._id || index} className="px-[4px] mdx:px-[10px] w-full h-full ">
-                            <div className="w-full h-full max-h-[650px] overflow-hidden">
-                                {item._type === "image" && (
-                                    <Image
-                                        src={urlFor(item.asset).url() || "/images/default-image.png"}
-                                        alt={`Gallery item ${index + 1}`}
-                                        width={3000}
-                                        height={650}
-                                        quality={100}
-                                        className="object-cover w-full h-full"
-                                        // Обратите внимание, что свойство `layout` устарело в последних версиях Next.js
-                                        // Используйте `fill` или другие подходящие свойства вместо `layout="responsive"`
-                                        // Если вы используете более новую версию, замените `layout` на `fill`:
-                                        // fill
-                                    />
-                                )}
-                                {item._type === "file" && (
-                                    <div className="h-full xl:max-h-[380px]">
-                                        {getFileUrl(item.asset as SanityFileAssetDocument) ? (
+                    {data.gallery_3.map((item: GalleryItem, index: number) => {
+                        // Уникальный ключ для элемента
+                        const key = item._type === 'image' ? item.asset?._id || index : item.url || index;
+
+                        return (
+                            <div key={key} className="px-[4px] mdx:px-[10px] w-full h-full">
+                                {/* Родительский контейнер для изображения или видео с фиксированным соотношением сторон */}
+                                <div className="w-full aspect-video overflow-hidden relative">
+                                    {item._type === "image" && item.asset ? (
+                                        <Image
+                                            src={urlFor(item.asset).url() || "/images/default-image.png"}
+                                            alt={`Gallery item ${index + 1}`}
+                                            layout="fill"
+                                            objectFit="cover"
+                                            quality={100}
+                                        />
+                                    ) : item._type === "image" && !item.asset ? (
+                                        <div className="text-red-500">
+                                            {t("imageLoadError", { index: index + 1 })} {/* Добавьте соответствующий ключ в файл перевода */}
+                                        </div>
+                                    ) : item._type === "youtubeVideo" && item.url ? (
+                                        <div className="absolute inset-0">
                                             <ReactPlayer
-                                                url={getFileUrl(item.asset as SanityFileAssetDocument)!} // Утверждаем, что не null
+                                                url={item.url}
                                                 controls
                                                 width="100%"
                                                 height="100%"
+                                                className="react-player"
+                                                config={{
+                                                    youtube: {
+                                                        playerVars: { modestbranding: 1 },
+                                                    },
+                                                }}
                                             />
-                                        ) : (
-                                            <div className="text-red-500">
-                                                {t("videoLoadError", { index: index + 1 })} {/* Убедитесь, что добавили соответствующий ключ в файл перевода */}
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
+                                        </div>
+                                    ) : item._type === "youtubeVideo" && !item.url ? (
+                                        <div className="text-red-500">
+                                            {t("videoLoadError", { index: index + 1 })}
+                                        </div>
+                                    ) : null}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </Slider>
             </div>
         </div>

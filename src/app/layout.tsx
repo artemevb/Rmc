@@ -1,4 +1,4 @@
-// src/app/[locale]/_layout.tsx
+// src/app//_layout.tsx
 // import type { Metadata } from 'next';
 import '@/src/app/[locale]/_styles/globals.css';
 import Head from 'next/head';

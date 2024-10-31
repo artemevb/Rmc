@@ -2,6 +2,8 @@
 
 import { defineType, defineField } from 'sanity';
 
+
+
 export const residentialComplex = defineType({
   name: 'residentialComplex',
   title: 'Жилой Комплекс',
@@ -142,7 +144,7 @@ export const residentialComplex = defineType({
     }),
     defineField({
       name: 'gallery_3',
-      title: "Фотогалерея и видеотуры (mp4)",
+      title: "Фотогалерея и видеотуры (ссылка с ютуба)",
       type: 'array',
       of: [
         {
@@ -152,11 +154,8 @@ export const residentialComplex = defineType({
           }
         },
         {
-          type: 'file',
-          options: {
-            accept: 'video/*',
-          }
-        }
+          type: 'youtubeVideo',
+        },
       ]
     }),
   ],
