@@ -96,7 +96,7 @@ const NewPage: FC<NewPageProps> = ({ news, locale }) => {
             {item._type === 'textBlock' && (
               <>
                 {item.subtitle && item.subtitle[locale] && (
-                  <h3 className="text-[30px] mdx:text-[45px] xl:text-[55px] lh font-medium text-[#252324]">
+                  <h3 className="text-[20px] mdx:text-[22px] xl:text-[24px] lh font-medium text-[#252324]">
                     {formatTextWithNewlines(item.subtitle[locale])}
                   </h3>
                 )}

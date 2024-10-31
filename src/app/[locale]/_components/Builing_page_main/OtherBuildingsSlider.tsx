@@ -57,7 +57,7 @@ const NewsComp: FC<NewsCompProps> = ({ locale, data }) => {
   };
 
   return (
-    <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px]'>
+    <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 '>
       <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
         {t("title")}
       </h2>
