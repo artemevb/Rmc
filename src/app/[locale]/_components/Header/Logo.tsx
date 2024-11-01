@@ -6,7 +6,7 @@ import logo from "@/public/images/imed-f.svg";
 
 function Logo() {
   return (
-    <Link href="/" className="h-auto w-auto items-center flex">
+    <Link href="/" className="h-auto w-auto items-center flex max-w-[127px] mdx:max-w-max">
       <div className="flex flex-row gap-[8px] items-center">
         <Image
           src={logo}
