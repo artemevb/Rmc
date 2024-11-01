@@ -6,14 +6,14 @@ import logo from "@/public/images/imed-f.svg";
 
 function Logo() {
   return (
-    <Link href="/" className="h-auto w-auto items-center flex max-w-[127px] mdx:max-w-max">
-      <div className="flex flex-row gap-[8px] items-center">
+    <Link href="/" className="h-auto w-auto items-center flex max-w-[137px] mdx:max-w-max">
+      <div className="flex flex-row gap-[8px] items-center justify-between">
         <Image
           src={logo}
           width={300}
           height={300}
           alt="Rmc Logo"
-          className="h-full w-[12%] mdx:h-[60px] mdx:w-auto"
+          className="h-full w-[23%] mdx:h-[60px] mdx:w-auto"
         />
         <div className="flex flex-col">
           <div className="text-[15px] mdx:text-[22px] uppercase font-bold">Rmc De Luxe</div>
