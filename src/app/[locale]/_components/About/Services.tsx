@@ -55,27 +55,27 @@ export default function Services() {
                     {isAbove460px ? (
                         activeCard === 1 ? (
                             <div className='max-w-[223px] mdx:max-w-[327px] mt-[20px] '>
-                                <div className='flex gap-[8px] items-start'>
+                                <div className='flex gap-[8px]'>
                                     <Image
                                         src={check}
                                         quality={100}
                                         alt={t('card1.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] flex gap-[8px]'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card1.items.0.text')}
                                     </p>
                                 </div>
-                                <div className='flex gap-[8px] mt-[10px]'>
+                                <div className='flex gap-[8px] mt-[10px] '>
                                     <Image
                                         src={check}
                                         quality={100}
                                         alt={t('card1.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card1.items.1.text')}
@@ -119,7 +119,7 @@ export default function Services() {
                                         alt={t('card1.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card1.items.0.text')}
@@ -132,7 +132,7 @@ export default function Services() {
                                         alt={t('card1.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card1.items.1.text')}
@@ -162,7 +162,7 @@ export default function Services() {
                                         alt={t('card2.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card2.items.0.text')}
@@ -175,7 +175,7 @@ export default function Services() {
                                         alt={t('card2.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card2.items.1.text')}
@@ -215,7 +215,7 @@ export default function Services() {
                                         alt={t('card2.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card2.items.0.text')}
@@ -228,7 +228,7 @@ export default function Services() {
                                         alt={t('card2.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card2.items.1.text')}
@@ -241,7 +241,7 @@ export default function Services() {
                                         alt={t('card2.items.2.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card2.items.2.text')}
@@ -271,7 +271,7 @@ export default function Services() {
                                         alt={t('card3.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.0.text')}
@@ -284,7 +284,7 @@ export default function Services() {
                                         alt={t('card3.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.1.text')}
@@ -297,7 +297,7 @@ export default function Services() {
                                         alt={t('card3.items.2.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.2.text')}
@@ -337,7 +337,7 @@ export default function Services() {
                                         alt={t('card3.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.0.text')}
@@ -350,7 +350,7 @@ export default function Services() {
                                         alt={t('card3.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.1.text')}
@@ -363,7 +363,7 @@ export default function Services() {
                                         alt={t('card3.items.2.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card3.items.2.text')}
@@ -393,7 +393,7 @@ export default function Services() {
                                         alt={t('card4.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.0.text')}
@@ -406,7 +406,7 @@ export default function Services() {
                                         alt={t('card4.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.1.text')}
@@ -419,7 +419,7 @@ export default function Services() {
                                         alt={t('card4.items.2.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.2.text')}
@@ -432,7 +432,7 @@ export default function Services() {
                                         alt={t('card4.items.3.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.3.text')}
@@ -445,7 +445,7 @@ export default function Services() {
                                         alt={t('card4.items.4.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.4.text')}
@@ -485,7 +485,7 @@ export default function Services() {
                                         alt={t('card4.items.0.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.0.text')}
@@ -498,7 +498,7 @@ export default function Services() {
                                         alt={t('card4.items.1.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.1.text')}
@@ -511,7 +511,7 @@ export default function Services() {
                                         alt={t('card4.items.2.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.2.text')}
@@ -524,7 +524,7 @@ export default function Services() {
                                         alt={t('card4.items.3.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.3.text')}
@@ -537,7 +537,7 @@ export default function Services() {
                                         alt={t('card4.items.4.alt')}
                                         width={50}
                                         height={50}
-                                        className='w-full h-full object-cover max-w-[19px]'
+                                        className='w-full h-full object-cover max-w-[19px] pt-2'
                                     />
                                     <p className='text-[16px] mdx:text-[18px] xl:text-[20px]'>
                                         {t('card4.items.4.text')}
