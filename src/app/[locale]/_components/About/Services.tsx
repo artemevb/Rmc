@@ -55,7 +55,7 @@ export default function Services() {
                     {isAbove460px ? (
                         activeCard === 1 ? (
                             <div className='max-w-[223px] mdx:max-w-[327px] mt-[20px] '>
-                                <div className='flex gap-[8px]'>
+                                <div className='flex gap-[8px] items-start'>
                                     <Image
                                         src={check}
                                         quality={100}

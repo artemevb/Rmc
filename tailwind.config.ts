@@ -41,7 +41,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        'jost': ['Jost', 'sans-serif'],
+        'lato': ['Lato', 'sans-serif'],
       },
       colors: {
         corporate: "#E94B50",
