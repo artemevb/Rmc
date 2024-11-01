@@ -28,7 +28,7 @@ export default function Banner() {
     };
 
     return (
-        <div className='w-full h-auto flex flex-col mx-auto bg-[#FCF7F4] py-[30px] mdx:py-[40px] xl:py-[80px]'>
+        <div className='w-full h-auto flex flex-col mx-auto bg-[#FCE8E9] py-[30px] mdx:py-[40px] xl:py-[80px]'>
             <div className='mx-2 xl:flex xl:items-center xl:justify-between xl:flex-row max-w-[1440px] xl:mx-auto'>
                 <div className="xl:w-full xl:max-w-[800px] xl:pr-4">
                     <h2 className='text-[29px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium mb-[12px] leading-[35px] xl:leading-[70px]'>{t('title')}</h2>
@@ -38,7 +38,7 @@ export default function Banner() {
                     <div>
                         <button
                             onClick={openModal}
-                            className="bg-corporate hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">
+                            className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">
                             {t('button')}
                         </button>
                     </div>
@@ -94,7 +94,7 @@ export default function Banner() {
                 {/* Added onClick handler here */}
                 <button 
                     onClick={openModal} 
-                    className="bg-corporate hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">
+                    className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">
                     {t('button')}
                 </button>
             </div>

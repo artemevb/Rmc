@@ -32,7 +32,7 @@ export default function Banner({ locale }: local) {
                     </h4>
                     <div>
                         <Link href={`/${locale}/investmentDubai`}>
-                            <button className="bg-corporate hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
+                            <button className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
                         </Link>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ export default function Banner({ locale }: local) {
             </h4>
             <div className='max-xl:px-[10px]'>
                 <Link href={`/${locale}/investmentDubai`}>
-                    <button className="bg-corporate hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">{t('button')}</button>
+                    <button className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">{t('button')}</button>
                 </Link>
             </div>
         </div>

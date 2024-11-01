@@ -139,7 +139,7 @@ export default function BuyForm() {
                             height={24}
                         />
                     </button>
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-[#EAC7B4]">
+                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate">
                         Показать {results} результата
                     </button>
                 </div>

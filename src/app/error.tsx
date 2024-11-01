@@ -46,7 +46,7 @@ export default function GlobalError({
           </div>
           <button
             onClick={() => reset()}
-            className="mt-4 px-4 py-2 bg-corporate text-white hover:bg-[#EAC7B4] transition w-[223px] h-[49px] font-semibold"
+            className="mt-4 px-4 py-2 bg-corporate text-white hover:bg-hover_corporate transition w-[223px] h-[49px] font-semibold"
           >
             На главную
           </button>

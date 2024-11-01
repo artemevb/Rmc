@@ -99,7 +99,7 @@ export default function BuyForm() {
                     </div>
                 </div>
                 <div className="mt-4 flex gap-[16px] items-center justify-end ">
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-[#EAC7B4] max-w-[223px] xl:max-w-[255px] w-full">
+                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate max-w-[223px] xl:max-w-[255px] w-full">
                         Отправить заявку
                     </button>
                 </div>

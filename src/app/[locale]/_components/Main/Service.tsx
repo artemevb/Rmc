@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import check from "@/public/svg/check.svg";
+import check from "@/public/svg/check.png";
 import { useTranslations } from 'next-intl';
 
 export default function Banner() {

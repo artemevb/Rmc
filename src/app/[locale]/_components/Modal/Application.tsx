@@ -300,7 +300,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                     {services.map((service, index) => (
                                         <li
                                             key={index}
-                                            className="p-3 border-b cursor-pointer hover:bg-[#FCF7F4] hover:text-corporate"
+                                            className="p-3 border-b cursor-pointer hover:bg-[#FCE8E9] hover:text-corporate"
                                             onClick={() => handleSelectService(service)}
                                             role="option"
                                             aria-selected={selectedService === service}
@@ -345,7 +345,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                         <div>
                             <button
                                 type="submit"
-                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-CORPORATE hover:bg-[#EAC7B4] transition-colors mdx:max-w-[223px]"
+                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-corporate hover:bg-hover_corporate transition-colors mdx:max-w-[223px]"
                             >
                                 {t("send")}
                             </button>

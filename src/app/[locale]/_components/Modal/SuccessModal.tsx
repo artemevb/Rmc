@@ -41,7 +41,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
                 <p className="text-center text-[#858585] w-full mb-6 max-w-[204px] mdx:max-w-[234px] xl:text-[18px]">{t("your_message_has_been_sent")}</p>
                 <button
                     onClick={onClose}
-                    className="w-[192px] h-[49px] mdx:w-[223px] py-2 px-4 bg-corporate text-white hover:bg-[#EAC7B4] transition-colors"
+                    className="w-[192px] h-[49px] mdx:w-[223px] py-2 px-4 bg-corporate text-white hover:bg-hover_corporate transition-colors"
                 >
                     {t("close")}
                 </button>

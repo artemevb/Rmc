@@ -1,5 +1,5 @@
 "use client"
-import logoBig from "@/public/images/rmc-logo.svg";
+import logoBig from "@/public/images/imed-f.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
@@ -52,8 +52,8 @@ export default function Footer({ locale }: LocaleProps) {
                     className="h-full w-[12%] mdx:h-[60px] mdx:w-auto"
                   />
                   <div className="flex flex-col">
-                    <div className="text-[15px] mdx:text-[22px] uppercase">Rmc De Luxe</div>
-                    <div className="text-[11.5px] mdx:text-[15px] text-[#A6A6A6] ls">
+                    <div className="text-[15px] mdx:text-[22px] uppercase font-bold">Rmc De Luxe</div>
+                    <div className="text-[11.5px] mdx:text-[15px] text-[#E94B50] ls">
                       real estate
                     </div>
                   </div>

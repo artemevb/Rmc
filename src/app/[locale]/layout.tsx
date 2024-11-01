@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Jost } from 'next/font/google';
+import { Lato } from 'next/font/google';
 import './_styles/globals.css';
 import Header from '@/src/app/[locale]/_components/Header/Header';
 import Footer from '@/src/app/[locale]/_components/Footer/Footer';
@@ -9,7 +9,7 @@ import { getMessages } from 'next-intl/server';
 import Head from 'next/head';
 import Script from 'next/script';
 
-const jost = Jost({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
+const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
 export const metadata: Metadata = {
   title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
@@ -103,7 +103,7 @@ export default async function RootLayout({
         <meta name="twitter:image" content="https://rmcestate.uz/og-image.jpg" />
       </Head>
 
-      <body className={jost.className}>
+      <body className={lato.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           {children}

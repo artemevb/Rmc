@@ -179,7 +179,7 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                 )}
                 <div className="flex w-full justify-center mt-10">
                     <Link href={`/${locale}/new-buildings`}>
-                        <button className="border flex items-center justify-center py-3 bg-corporate hover:bg-[#EAC7B4] text-white font-semibold text-lg w-[223px]">
+                        <button className="border flex items-center justify-center py-3 bg-corporate hover:bg-hover_corporate text-white font-semibold text-lg w-[223px]">
                             {t('button-more')}
                         </button>
                     </Link>

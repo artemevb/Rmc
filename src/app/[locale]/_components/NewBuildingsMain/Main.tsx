@@ -277,7 +277,7 @@ export default function Invest({ locale }: InvestProps) {
             <div style={loaderStyle}>
                 <ClimbingBoxLoader
                     size={15}
-                    color="#E1AF93"
+                    color="#E94B50"
                     loading={isLoading}
                     cssOverride={{}}
                     speedMultiplier={1}
@@ -327,7 +327,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={district._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-corporate text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('district', districtName)}
                                         >
@@ -337,7 +337,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedDistrict && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('district', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -377,7 +377,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={type._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-corporate text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('type', typeName)}
                                         >
@@ -387,7 +387,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedType && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('type', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -427,7 +427,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={room._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-corporate text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('rooms', roomNumber)}
                                         >
@@ -437,7 +437,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedRooms !== 'Не важно' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('rooms', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -477,7 +477,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={time._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-corporate text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('completionTime', term)}
                                         >
@@ -487,7 +487,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedCompletionTime !== 'Любой' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('completionTime', 'Любой')}
                                     >
                                         {t('all') || 'Очистить фильтр'}

@@ -154,7 +154,7 @@ export default function MortgageCalculator() {
                         {/* Кнопка расчета */}
                         <button
                             onClick={calculateMortgage}
-                            className="bg-corporate hover:bg-[#EAC7B4] text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold"
+                            className="bg-corporate hover:bg-hover_corporate text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold"
                             type="button"
                             disabled={isButtonDisabled} // Устанавливаем атрибут disabled
                         >

@@ -65,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
                 <div className="absolute top-full mt-2 bg-white shadow-lg rounded-md z-50 w-[340px]">
                   {servicesOptions.map((service, index) => (
                     <Link href={`/${locale}/${service.slug}`} key={index}>
-                      <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b last:border-none">
+                      <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b last:border-none">
                         {service.title}
                       </div>
                     </Link>

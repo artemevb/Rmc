@@ -38,7 +38,7 @@ export default function NotFound() {
           {t('description')}
         </p>
         <Link href="/">
-          <div className=" bg-corporate text-white font-semibold text-[17px] hover:bg-[#EAC7B4] transition w-[180px] mdx:w-[223px] flex justify-center items-center h-[49px]">
+          <div className=" bg-corporate text-white font-semibold text-[17px] hover:bg-hover_corporate transition w-[180px] mdx:w-[223px] flex justify-center items-center h-[49px]">
             {t('backHome')}
           </div>
         </Link>

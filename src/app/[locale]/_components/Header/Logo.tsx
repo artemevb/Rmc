@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/images/rmc-logo.svg";
+import logo from "@/public/images/imed-f.svg";
 
 function Logo() {
   return (
@@ -16,8 +16,8 @@ function Logo() {
           className="h-full w-[12%] mdx:h-[60px] mdx:w-auto"
         />
         <div className="flex flex-col">
-          <div className="text-[15px] mdx:text-[22px] uppercase font-normal">Rmc De Luxe</div>
-          <div className="text-[11.5px] mdx:text-[15px] text-[#A6A6A6] ls">real estate</div>
+          <div className="text-[15px] mdx:text-[22px] uppercase font-bold">Rmc De Luxe</div>
+          <div className="text-[11.5px] mdx:text-[15px] text-[#E94B50] ls">real estate</div>
         </div>
       </div>
     </Link>
