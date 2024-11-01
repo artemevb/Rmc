@@ -227,7 +227,7 @@ export default function ContAddress() {
                         <button
                             type="submit"
                             disabled={loading} // Отключить кнопку при загрузке
-                            className={`py-3 w-full max-w-[228px] px-8 text-white bg-[#E1AF93] font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] xl:mb-0 2xl:mt-[34px] 3xl:mt-[34px] ${loading ? "opacity-50 cursor-not-allowed" : ""
+                            className={`py-3 w-full max-w-[228px] px-8 text-white bg-corporate font-semibold hover:bg-[#EAC7B4] mb-[24px] mdx:mb-[30px] xl:mb-0 2xl:mt-[34px] 3xl:mt-[34px] ${loading ? "opacity-50 cursor-not-allowed" : ""
                                 }`}
                         >
                             {loading ? t('submitting') : t('submit')}

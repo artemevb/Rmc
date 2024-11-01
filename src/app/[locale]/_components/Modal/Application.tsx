@@ -231,7 +231,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                         onBlur={() => handleInputBlur(field)}
                                         className={`block w-full px-3 py-2  placeholder-transparent focus:outline-none border-b-2 transition-colors ${focusedInput === field
                                             ? validation.isValid
-                                                ? "border-[#E1AF93]" // Green border on focus and valid input
+                                                ? "border-corporate" // Green border on focus and valid input
                                                 : "border-[#FF0000]" // Red border on focus and invalid input
                                             : touched[field]
                                                 ? validation.isValid
@@ -300,7 +300,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                     {services.map((service, index) => (
                                         <li
                                             key={index}
-                                            className="p-3 border-b cursor-pointer hover:bg-[#FCF7F4] hover:text-[#E1AF93]"
+                                            className="p-3 border-b cursor-pointer hover:bg-[#FCF7F4] hover:text-corporate"
                                             onClick={() => handleSelectService(service)}
                                             role="option"
                                             aria-selected={selectedService === service}
@@ -345,7 +345,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                         <div>
                             <button
                                 type="submit"
-                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-[#E1AF93] hover:bg-[#EAC7B4] transition-colors mdx:max-w-[223px]"
+                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-CORPORATE hover:bg-[#EAC7B4] transition-colors mdx:max-w-[223px]"
                             >
                                 {t("send")}
                             </button>

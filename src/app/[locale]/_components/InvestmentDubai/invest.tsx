@@ -27,22 +27,22 @@ export default function Invest() {
 
                         <div className='xl:grid grid-cols-2 gap-y-[45px] gap-x-[12px] w-full mt-[70px] auto-rows-fr text-[20px] hidden'>
                             <div className='flex'>
-                                <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
+                                <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
                                     {formatText(t('text-1'))}
                                 </div>
                             </div>
                             <div className='flex'>
-                                <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
+                                <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
                                     {formatText(t('text-2'))}
                                 </div>
                             </div>
                             <div className='flex'>
-                                <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
+                                <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
                                     {formatText(t('text-3'))}
                                 </div>
                             </div>
                             <div className='flex'>
-                                <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
+                                <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow max-w-[289px]'>
                                     {formatText(t('text-4'))}
                                 </div>
                             </div>
@@ -67,22 +67,22 @@ export default function Invest() {
                 </div>
                 <div className='grid grid-cols-2 gap-y-[25px] mdx:gap-y-[45px] gap-x-[12px] w-full mt-[40px] mdx:mt-[50px] xl:mt-[70px] auto-rows-fr text-[16px] mdx:text-[20px] xl:hidden'>
                     <div className='flex'>
-                        <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow'>
+                        <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow'>
                             {formatText(t('text-1'))}
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow'>
+                        <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow'>
                             {formatText(t('text-2'))}
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow'>
+                        <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow'>
                             {formatText(t('text-3'))}
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className='flex items-center border-l-2 border-[#E1AF93] pt-[4px] pb-[4px] pl-[10px] flex-grow'>
+                        <div className='flex items-center border-l-2 border-corporate pt-[4px] pb-[4px] pl-[10px] flex-grow'>
                             {formatText(t('text-4'))}
                         </div>
                     </div>

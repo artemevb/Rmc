@@ -157,7 +157,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                 <li key={option.value}>
                   <button
                     className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCF7F4] ${
-                      selectedSortOption === option.value ? 'bg-[#FCF7F4] text-[#E1AF93]' : ''
+                      selectedSortOption === option.value ? 'bg-[#FCF7F4] text-corporate' : ''
                     }`}
                     onClick={() => handleSortChange(option.value)}
                   >

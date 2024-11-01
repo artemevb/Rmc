@@ -261,7 +261,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-1')}</p>
                         {selectedDistrict && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -282,7 +282,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={district._id}
-                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px]'
                                             onClick={() => handleSelection('district', districtName)}
                                         >
                                             {districtName}
@@ -291,7 +291,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedDistrict && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('district', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -310,7 +310,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-3')}</p>
                         {selectedType && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -331,7 +331,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={type._id}
-                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px]'
                                             onClick={() => handleSelection('type', typeName)}
                                         >
                                             {typeName}
@@ -340,7 +340,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedType && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('type', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -359,7 +359,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-4')}</p>
                         {selectedRooms !== 'Не важно' && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -380,7 +380,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={room._id}
-                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px]'
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px]'
                                             onClick={() => handleSelection('rooms', roomNumber)}
                                         >
                                             {roomNumber}
@@ -389,7 +389,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedRooms !== 'Не важно' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('rooms', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -408,7 +408,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-5')}</p>
                         {selectedCompletionTime !== 'Любой' && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -429,7 +429,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={time._id}
-                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[14px] mdx:text-[16px]'
+                                            className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[14px] mdx:text-[16px]'
                                             onClick={() => handleSelection('completionTime', term)}
                                         >
                                             {term}
@@ -438,7 +438,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedCompletionTime !== 'Любой' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('completionTime', 'Любой')}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -457,7 +457,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
                         {(priceRange.min !== minPrice || priceRange.max !== maxPrice) && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -492,7 +492,7 @@ export default function Invest({ locale }: InvestProps) {
                                     className='border border-gray-300 p-2'
                                 />
                                 <button
-                                    className='mt-2 bg-[#E1AF93] text-white py-1 px-2 rounded'
+                                    className='mt-2 bg-corporate text-white py-1 px-2 rounded'
                                     onClick={applyPriceFilter}
                                 >
                                     Применить
@@ -504,7 +504,7 @@ export default function Invest({ locale }: InvestProps) {
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
                         <button
-                            className=' text-[#E1AF93] py-2 px-4 underline font-medium text-[14px] mdx:text-[18px]'
+                            className=' text-corporate py-2 px-4 underline font-medium text-[14px] mdx:text-[18px]'
                             onClick={resetAllFilters}
                         >
                             {t('clear')}
@@ -543,7 +543,7 @@ export default function Invest({ locale }: InvestProps) {
             {filteredImages.length > visibleCount && (
                 <div className='max-xl:px-[10px] flex justify-center w-full'>
                     {/* <Link href={`/${locale}/catalog`}> */}
-                    <button onClick={loadMore} className="bg-[#E1AF93] hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
+                    <button onClick={loadMore} className="bg-corporate hover:bg-[#EAC7B4] text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
                         {t('button-more')}
                     </button>
                     {/* </Link> */}

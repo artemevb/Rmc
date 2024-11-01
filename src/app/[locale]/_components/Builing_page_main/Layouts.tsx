@@ -238,7 +238,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         <button
                             className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
                                 isFloorDropdownOpen
-                                    ? "bg-[#E1AF93] text-white"
+                                    ? "bg-corporate text-white"
                                     : "bg-[#EDF3F5]"
                             }`}
                             onClick={() => {
@@ -273,7 +273,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                 <li
                                     className={`px-4 py-2 cursor-pointer hover:bg-[#FCF7F4] ${
                                         !selectedFloor
-                                            ? "bg-[#FCF7F4] text-[#E1AF93]"
+                                            ? "bg-[#FCF7F4] text-corporate"
                                             : ""
                                     }`}
                                     onClick={() => {
@@ -288,7 +288,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                         key={index}
                                         className={`px-4 py-2 cursor-pointer hover:bg-[#FCF7F4] ${
                                             selectedFloor === floor
-                                                ? "bg-[#FCF7F4] text-[#E1AF93] "
+                                                ? "bg-[#FCF7F4] text-corporate "
                                                 : ""
                                         }`}
                                         onClick={() => {
@@ -308,7 +308,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         <button
                             className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
                                 isPriceDropdownOpen
-                                    ? "bg-[#E1AF93] text-white"
+                                    ? "bg-corporate text-white"
                                     : "bg-[#EDF3F5]"
                             }`}
                             onClick={() => {
@@ -410,7 +410,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                             renderThumb={({ props }) => (
                                                 <div
                                                     {...props}
-                                                    className="w-[20px] h-[20px] bg-[#E1AF93] rounded-full"
+                                                    className="w-[20px] h-[20px] bg-corporate rounded-full"
                                                 />
                                             )}
                                         />
@@ -436,9 +436,9 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                 {/* Фильтр по количеству комнат */}
                 <div className="relative w-full max-w-[195px] mdx:max-w-[254px]">
                     <button
-                        className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
+                        className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
                             isRoomsDropdownOpen
-                                ? "bg-[#E1AF93] text-white"
+                                ? "bg-corporate text-white"
                                 : "bg-[#EDF3F5]"
                         }`}
                         onClick={() => {
@@ -473,7 +473,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <li
                                 className={`px-4 py-2 cursor-pointer hover:bg-[#FCF7F4] ${
                                     !selectedRooms
-                                        ? "bg-[#FCF7F4] text-[#E1AF93]"
+                                        ? "bg-[#FCF7F4] text-corporate"
                                         : ""
                                 }`}
                                 onClick={() => {
@@ -488,7 +488,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                     key={index}
                                     className={`px-4 py-2 cursor-pointer hover:bg-[#FCF7F4] ${
                                         selectedRooms === room
-                                            ? "bg-[#FCF7F4] text-[#E1AF93]"
+                                            ? "bg-[#FCF7F4] text-corporate"
                                             : ""
                                     }`}
                                     onClick={() => {
@@ -508,7 +508,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     <div className="slg:ml-[10px] flex justify-end">
                         <button
                             onClick={resetFilters}
-                            className="text-[#E1AF93] underline"
+                            className="text-corporate underline"
                         >
                             {t("clear")}
                         </button>
@@ -556,13 +556,13 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                         <p>{item.rooms?.rooms}</p>
                                     </div>
                                 </div>
-                                <div className="py-[16px] xl:py-[20px] font-medium text-[20px] mdx:text-[25px] text-[#E1AF93]">
+                                <div className="py-[16px] xl:py-[20px] font-medium text-[20px] mdx:text-[25px] text-corporate">
                                     <h3>${Number(item.price).toLocaleString()}</h3>
                                 </div>
                             </div>
                             <div className="group-hover:px-[12px] xl:group-hover:px-[16px] group-hover:mb-[15px] xl:group-hover:mb-[25px] absolute bottom-0 w-full left-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[0ms] group-hover:duration-[300ms] ease-in-out">
                                 <button
-                                    className="w-full h-12 transition-transform duration-300 ease-in-out bg-[#E1AF93] text-white hover:bg-[#EAC7B4] font-semibold"
+                                    className="w-full h-12 transition-transform duration-300 ease-in-out bg-corporate text-white hover:bg-[#EAC7B4] font-semibold"
                                     onClick={() =>
                                         (window.location.href = "tel:+998785558787")
                                     }

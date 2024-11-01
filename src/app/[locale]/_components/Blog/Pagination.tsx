@@ -22,7 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
             {/* Кнопка "Назад" */}
             <li>
                 <button
-                    className={`px-4 py-2 rounded ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                    className={`px-4 py-2 rounded ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                     onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
@@ -41,8 +41,8 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
                     <button
                         className={`px-4 py-2 border rounded ${
                             page === currentPage
-                                ? 'bg-[#E1AF93] text-[#ffffff] cursor-default'
-                                : 'text-black hover:bg-[#E1AF93]'
+                                ? 'bg-corporate text-[#ffffff] cursor-default'
+                                : 'text-black hover:bg-corporate'
                         }`}
                         onClick={() => onPageChange(page)}
                         disabled={page === currentPage}
@@ -55,7 +55,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
             {/* Кнопка "Вперёд" */}
             <li>
                 <button
-                    className={`px-4 py-2 rounded ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                    className={`px-4 py-2 rounded ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                     onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >

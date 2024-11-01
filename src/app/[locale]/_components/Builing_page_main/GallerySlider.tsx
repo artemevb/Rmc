@@ -1,7 +1,7 @@
 // components/Gallery.tsx
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import imageUrlBuilder from '@sanity/image-url';
@@ -11,35 +11,40 @@ import { useTranslations } from 'next-intl';
 import ReactPlayer from 'react-player';
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
-import { GalleryData, GalleryItem } from '@/src/sanity/typesGallery';
+import { GalleryData, GalleryItem, GalleryImage} from '@/src/sanity/typesGallery';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-// Инициализация imageUrlBuilder для изображений
+// Инициализация imageUrlBuilder для URL изображений
 const builder = imageUrlBuilder(client);
 const urlFor = (source: SanityImageSource) => builder.image(source);
 
-// Динамический импорт Slider с отключенным SSR
+// Динамический импорт Slider с отключённым SSR
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-// Интерфейсы для стрелок
+// Интерфейсы для кастомных стрелок
 interface CustomArrowProps {
     className?: string;
     style?: React.CSSProperties;
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+// Компонент кастомной следующей стрелки
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div className="absolute top-[-100px] right-2 z-10 cursor-pointer" onClick={onClick}>
-        <Image src={arrowright} alt="Следующий" width={70} height={70} />
+        <Image src={arrowright} alt="Next" width={70} height={70} />
     </div>
 );
 
+// Компонент кастомной предыдущей стрелки
 const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div className="absolute top-[-100px] right-[85px] z-10 cursor-pointer" onClick={onClick}>
-        <Image src={arrowleft} alt="Предыдущий" width={70} height={70} />
+        <Image src={arrowleft} alt="Previous" width={70} height={70} />
     </div>
 );
 
-// Интерфейс для настроек слайдера
+// Интерфейс для настроек Slider
 interface SliderSettings {
     arrows: boolean;
     dots: boolean;
@@ -59,20 +64,36 @@ interface SliderSettings {
     }[];
 }
 
+// Интерфейс пропсов для компонента Gallery
 interface GalleryProps {
-    data: GalleryData;
+    data?: GalleryData; // Сделано опциональным, чтобы компонент не рендерился без данных
 }
+
+// **Функция Type Predicate**
+// Эта функция проверяет, является ли GalleryItem типом GalleryImage с непустым asset.
+const isGalleryImageWithAsset = (item: GalleryItem): item is GalleryImage & { asset: NonNullable<GalleryImage['asset']> } =>
+    item._type === 'image' && item.asset !== null;
 
 const Gallery: React.FC<GalleryProps> = ({ data }) => {
     const t = useTranslations('Building_page_main.Gallery');
 
-    // Проверка на наличие данных
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Ранний возврат, если данных нет
     if (!data || !data.gallery_3 || data.gallery_3.length === 0) {
-        return null; // Компонент не будет отображаться, если данных нет
-        // Альтернативно, можно отобразить сообщение:
-        // return <div className="text-center text-gray-500">{t("noGalleryData")}</div>;
+        return null;
     }
 
+    // **Подготовка изображений для Lightbox с использованием функции-предиката**
+    const images = data.gallery_3
+        .filter(isGalleryImageWithAsset) // Используем функцию-предикат для фильтрации изображений с валидным asset
+        .map((item, index) => ({
+            src: urlFor(item.asset).url() || "/public/images/new-buildings/Building4.png",
+            alt: `Gallery item ${index + 1}`,
+        }));
+
+    // Настройки для Slider
     const settings: SliderSettings = {
         arrows: true,
         dots: false,
@@ -94,6 +115,12 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
         ],
     };
 
+    // Функция для открытия Lightbox на определённом индексе
+    const openLightbox = (index: number) => {
+        setCurrentIndex(index);
+        setLightboxOpen(true);
+    };
+
     return (
         <div className="w-full h-full flex flex-col mx-auto max-w-[1440px]">
             <div className="relative max-2xl:mx-2.5">
@@ -102,26 +129,32 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                 </h2>
                 <Slider {...settings}>
                     {data.gallery_3.map((item: GalleryItem, index: number) => {
-                        // Уникальный ключ для элемента
+                        // **Генерация уникального ключа для каждого элемента**
+                        // Предпочтительно использовать уникальный идентификатор; при отсутствии использовать индекс
                         const key = item._type === 'image' ? item.asset?._id || index : item.url || index;
 
                         return (
                             <div key={key} className="px-[4px] mdx:px-[10px] w-full h-full">
-                                {/* Родительский контейнер для изображения или видео с фиксированным соотношением сторон */}
+                                {/* Контейнер с фиксированным соотношением сторон для изображения или видео */}
                                 <div className="w-full aspect-video overflow-hidden relative">
                                     {item._type === "image" && item.asset ? (
+                                        // **Отображение изображения**
                                         <Image
                                             src={urlFor(item.asset).url() || "/images/default-image.png"}
                                             alt={`Gallery item ${index + 1}`}
                                             layout="fill"
                                             objectFit="cover"
                                             quality={100}
+                                            className="cursor-pointer"
+                                            onClick={() => openLightbox(index)}
                                         />
                                     ) : item._type === "image" && !item.asset ? (
+                                        // **Обработка отсутствующего asset для изображения**
                                         <div className="text-red-500">
-                                            {t("imageLoadError", { index: index + 1 })} {/* Добавьте соответствующий ключ в файл перевода */}
+                                            {t("imageLoadError", { index: index + 1 })}
                                         </div>
                                     ) : item._type === "youtubeVideo" && item.url ? (
+                                        // **Отображение YouTube видео**
                                         <div className="absolute inset-0">
                                             <ReactPlayer
                                                 url={item.url}
@@ -137,6 +170,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                                             />
                                         </div>
                                     ) : item._type === "youtubeVideo" && !item.url ? (
+                                        // **Обработка отсутствующего URL для видео**
                                         <div className="text-red-500">
                                             {t("videoLoadError", { index: index + 1 })}
                                         </div>
@@ -146,10 +180,18 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                         );
                     })}
                 </Slider>
+
+                {/* Компонент Lightbox для изображений */}
+                <Lightbox
+                    open={lightboxOpen}
+                    close={() => setLightboxOpen(false)}
+                    slides={images}
+                    index={currentIndex}
+                    plugins={[Zoom]}
+                />
             </div>
         </div>
     );
 };
 
 export default Gallery;
-

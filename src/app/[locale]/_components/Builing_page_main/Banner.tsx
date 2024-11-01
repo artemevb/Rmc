@@ -127,7 +127,7 @@ export default function Banner({ locale, data }: BannerProps) {
                 <div className="w-full gap-[12px] mdx:gap-[20px] flex font-semibold text-[17px] pr-[16px]">
                   <button
                   onClick={openModal} 
-                   className="min-w-[158px] w-full bg-[#E1AF93] hover:bg-[#EAC7B4] h-[49px] mdx:w-[223px]">
+                   className="min-w-[158px] w-full bg-corporate hover:bg-[#EAC7B4] h-[49px] mdx:w-[223px]">
                     {t('button-more')}
                   </button>
                   <a href="tel:+998785558787">

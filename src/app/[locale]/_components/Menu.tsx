@@ -129,7 +129,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
         {/* <div className="pt-4" onClick={toggleServicesMenu}>
           <div className="flex justify-start mx-4 items-center cursor-pointer">
             <p
-              className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-[#E1AF93]' : ''
+              className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-corporate' : ''
                 }`}
             >
               {t('nav.services')}
@@ -222,7 +222,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
       <div className="absolute bottom-0 left-0 right-0 p-[20px]">
         <a href="tel:+998785558787"
           onClick={handlePhoneClick}>
-          <button className="bg-[#E1AF93] text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
+          <button className="bg-corporate text-[17px] font-semibold text-white py-2 px-4 w-full max-w-[175px] mdx:max-w-[223px]">
             {t('menu.askQuestion')}
           </button>
         </a>

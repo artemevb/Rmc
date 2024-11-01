@@ -44,6 +44,7 @@ const config: Config = {
         'jost': ['Jost', 'sans-serif'],
       },
       colors: {
+        corporate: "#E1AF93",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

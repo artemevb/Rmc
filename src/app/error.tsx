@@ -40,13 +40,13 @@ export default function GlobalError({
               />
             </div>
             <div className='w-full flex flex-col items-center justify-center'>
-              <h1 className='text-[30px] mdx:text-[45px] xl:text-[55px] font-medium text-[#E1AF93]'>Ошибка сервера</h1>
+              <h1 className='text-[30px] mdx:text-[45px] xl:text-[55px] font-medium text-corporate'>Ошибка сервера</h1>
               <h4 className='w-full xl:max-w-[398px] text-[16px] mdx:text-[20px] xl:text-[20px] text-center mt-[8px]'>Что-то пошло не так. Но мы уже занимаемся решением этой проблемы</h4>
             </div>
           </div>
           <button
             onClick={() => reset()}
-            className="mt-4 px-4 py-2 bg-[#E1AF93] text-white hover:bg-[#EAC7B4] transition w-[223px] h-[49px] font-semibold"
+            className="mt-4 px-4 py-2 bg-corporate text-white hover:bg-[#EAC7B4] transition w-[223px] h-[49px] font-semibold"
           >
             На главную
           </button>

@@ -306,7 +306,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-1')}</p>
                         {selectedDistrict && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -327,7 +327,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={district._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-[#E1AF93] text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('district', districtName)}
                                         >
@@ -337,7 +337,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedDistrict && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('district', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -356,7 +356,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-3')}</p>
                         {selectedType && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -377,7 +377,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={type._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-[#E1AF93] text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('type', typeName)}
                                         >
@@ -387,7 +387,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedType && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('type', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -406,7 +406,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-4')}</p>
                         {selectedRooms !== 'Не важно' && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -427,7 +427,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={room._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-[#E1AF93] text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('rooms', roomNumber)}
                                         >
@@ -437,7 +437,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedRooms !== 'Не важно' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('rooms', null)}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -456,7 +456,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-5')}</p>
                         {selectedCompletionTime !== 'Любой' && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -477,7 +477,7 @@ export default function Invest({ locale }: InvestProps) {
                                     return (
                                         <li
                                             key={time._id}
-                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-[#E1AF93] text-white' : ''
+                                            className={`px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-corporate text-white' : ''
                                                 }`}
                                             onClick={() => handleSelection('completionTime', term)}
                                         >
@@ -487,7 +487,7 @@ export default function Invest({ locale }: InvestProps) {
                                 })}
                                 {selectedCompletionTime !== 'Любой' && (
                                     <li
-                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer'
+                                        className='px-4 py-2 hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer'
                                         onClick={() => handleSelection('completionTime', 'Любой')}
                                     >
                                         {t('all') || 'Очистить фильтр'}
@@ -506,7 +506,7 @@ export default function Invest({ locale }: InvestProps) {
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
                         {(priceRange.min !== minPrice || priceRange.max !== maxPrice) && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-[#E1AF93] rounded-full'></span>
+                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                         )}
                         <Image
                             src={arrow.src}
@@ -541,7 +541,7 @@ export default function Invest({ locale }: InvestProps) {
                                     className='border border-gray-300 p-2'
                                 />
                                 <button
-                                    className='mt-2 bg-[#E1AF93] text-white py-1 px-2'
+                                    className='mt-2 bg-corporate text-white py-1 px-2'
                                     onClick={applyPriceFilter}
                                 >
                                     Применить
@@ -553,7 +553,7 @@ export default function Invest({ locale }: InvestProps) {
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
                         <button
-                            className=' text-[#E1AF93] py-2 px-4 underline font-medium text-[14px] mdx:text-[18px]'
+                            className=' text-corporate py-2 px-4 underline font-medium text-[14px] mdx:text-[18px]'
                             onClick={resetAllFilters}
                         >
                             {t('clear')}
@@ -594,7 +594,7 @@ export default function Invest({ locale }: InvestProps) {
                         {/* Кнопка "Назад" */}
                         <li>
                             <button
-                                className={`px-2 py-2 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                                className={`px-2 py-2 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                                 onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
                                 disabled={currentPage === 1}
                             >
@@ -611,7 +611,7 @@ export default function Invest({ locale }: InvestProps) {
                         {pages.map((page) => (
                             <li key={page}>
                                 <button
-                                    className={`px-4 py-2 border ${page === currentPage ? 'bg-[#E1AF93] text-white' : 'hover:bg-[#E1AF93]'
+                                    className={`px-4 py-2 border ${page === currentPage ? 'bg-corporate text-white' : 'hover:bg-corporate'
                                         }`}
                                     onClick={() => handlePageChange(page)}
                                 >
@@ -623,7 +623,7 @@ export default function Invest({ locale }: InvestProps) {
                         {/* Кнопка "Вперёд" */}
                         <li>
                             <button
-                                className={`px-2 py-2 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-[#E1AF93]'}`}
+                                className={`px-2 py-2 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                                 onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
                                 disabled={currentPage === totalPages}
                             >

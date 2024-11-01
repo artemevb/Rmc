@@ -28,7 +28,7 @@ export default function Scheme() {
                             />
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
-                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-[#E1AF93] flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
+                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
                                 01
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
@@ -54,7 +54,7 @@ export default function Scheme() {
                             />
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start  max-xl:pl-8 xl:mt-[40px]'>
-                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-[#E1AF93] flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
+                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
                                 02
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
@@ -80,7 +80,7 @@ export default function Scheme() {
                             />
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
-                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-[#E1AF93] flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
+                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
                                 03
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
@@ -106,7 +106,7 @@ export default function Scheme() {
                             />
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
-                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-[#E1AF93] flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
+                            <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
                                 04
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">

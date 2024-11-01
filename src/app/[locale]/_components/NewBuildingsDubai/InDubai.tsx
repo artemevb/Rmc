@@ -32,7 +32,7 @@ export default function Invest() {
                         <div className='font-medium text-[35px] mdx:text-[60px] xl:text-[80px] leading-[43px] mdx:leading-[55px] xl:leading-[80px] max-w-[446px] mb-[20px] block max-xl:mt-[25px] 4xl:mt-[30px]'>
                             <p className='inline'>{t('title-1')}</p>
                             <br />
-                            <p className='inline text-[#E1AF93]'>{t('title-2')}</p>
+                            <p className='inline text-corporate'>{t('title-2')}</p>
                         </div>
                         <div className='text-[16px] font-normal mdx:text-[20px] text-[#858585] mt-[25px] mdx:mt-[30px] xl:mt-[25px]'>
                             {formatText(t('subtitle'))}

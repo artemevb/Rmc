@@ -63,7 +63,7 @@ const NewPage: FC<NewPageProps> = ({ news, locale }) => {
         <div className="mt-4">
           {news.date && (
             <div className="flex items-center gap-[12px] mdx:gap-[20px] w-full h-[23px]">
-              <p className="text-[#E1AF93] text-[16px] mdx:text-[18px] xl:text-[20px]">
+              <p className="text-corporate text-[16px] mdx:text-[18px] xl:text-[20px]">
                 {formatDate(news.date)}
               </p>
               <hr className="w-[1px] h-full bg-[#B3B3B3] mx-2" />

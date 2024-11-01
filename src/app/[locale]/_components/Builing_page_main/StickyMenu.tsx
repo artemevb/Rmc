@@ -45,8 +45,8 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section1"
-                        className={`w-full ${activeSection === "section1" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
+                        className={`w-full ${activeSection === "section1" ? "text-corporate pb-[25px] mdx:pb-[30px] border-b-2 border-corporate" : "text-gray-700"
+                            } hover:text-corporate`}
                         onClick={(e) => handleScrollToSection(e, 'section1')}
                     >
                         {t('aboutComplex')}
@@ -55,8 +55,8 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section2"
-                        className={`w-full ${activeSection === "section2" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93] " : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
+                        className={`w-full ${activeSection === "section2" ? "text-corporate pb-[25px] mdx:pb-[30px] border-b-2 border-corporate " : "text-gray-700"
+                            } hover:text-corporate`}
                         onClick={(e) => handleScrollToSection(e, 'section2')}
                     >
                         {t('gallery')}
@@ -65,7 +65,7 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section3"
-                        className={`w-full ${activeSection === "section3" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"} hover:text-[#E1AF93]`}
+                        className={`w-full ${activeSection === "section3" ? "text-corporate pb-[25px] mdx:pb-[30px] border-b-2 border-corporate" : "text-gray-700"} hover:text-corporate`}
                         onClick={(e) => handleScrollToSection(e, 'section3')}
                     >
                         {t('layouts')}
@@ -74,8 +74,8 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section4"
-                        className={`w-full ${activeSection === "section4" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
+                        className={`w-full ${activeSection === "section4" ? "text-corporate pb-[25px] mdx:pb-[30px] border-b-2 border-corporate" : "text-gray-700"
+                            } hover:text-corporate`}
                         onClick={(e) => handleScrollToSection(e, 'section4')}
                     >
                         {t('purchaseTerms')}
@@ -84,8 +84,8 @@ const StickyMenu = () => {
                 <li className="flex-shrink-0">
                     <a
                         href="#section5"
-                        className={`w-full ${activeSection === "section5" ? "text-[#E1AF93] pb-[25px] mdx:pb-[30px] border-b-2 border-[#E1AF93]" : "text-gray-700"
-                            } hover:text-[#E1AF93]`}
+                        className={`w-full ${activeSection === "section5" ? "text-corporate pb-[25px] mdx:pb-[30px] border-b-2 border-corporate" : "text-gray-700"
+                            } hover:text-corporate`}
                         onClick={(e) => handleScrollToSection(e, 'section5')}
                     >
                         {t('infrastructure')}

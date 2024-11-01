@@ -47,7 +47,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             <div key={i} className="relative">
               <div onClick={handleServicesClick} className="cursor-pointer flex items-center">
                 <span
-                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap font-normal ${isServicesOpen ? 'text-[#E1AF93]' : 'text-[#252324] hover:text-[#E1AF93]'}`}
+                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap font-normal ${isServicesOpen ? 'text-corporate' : 'text-[#252324] hover:text-corporate'}`}
                 >
                   {item.title}
                 </span>
@@ -65,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
                 <div className="absolute top-full mt-2 bg-white shadow-lg rounded-md z-50 w-[340px]">
                   {servicesOptions.map((service, index) => (
                     <Link href={`/${locale}/${service.slug}`} key={index}>
-                      <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCF7F4] hover:text-[#E1AF93] cursor-pointer border-b last:border-none">
+                      <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCF7F4] hover:text-corporate cursor-pointer border-b last:border-none">
                         {service.title}
                       </div>
                     </Link>
@@ -77,7 +77,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
         } else {
           return (
             <Link href={`/${locale}/${item.slug}`} key={i}>
-              <div className="text-[#252324] font-normal text-[18px] hover:text-[#E1AF93] transition-all duration-300 whitespace-nowrap">
+              <div className="text-[#252324] font-normal text-[18px] hover:text-corporate transition-all duration-300 whitespace-nowrap">
                 {item.title}
               </div>
             </Link>

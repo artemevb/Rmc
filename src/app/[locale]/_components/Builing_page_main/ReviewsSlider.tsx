@@ -120,7 +120,7 @@ export default function ReviewsSlider() {
                                             </p>
                                         </div>
                                         <button onClick={() => openModal(card)}>
-                                            <span className='text-[#E1AF93] font-semibold hover:underline mdx:text-[18px] flex mdx:justify-start items-center gap-[3px]'>
+                                            <span className='text-corporate font-semibold hover:underline mdx:text-[18px] flex mdx:justify-start items-center gap-[3px]'>
                                                 {t('read-more')}
                                                 <Image
                                                     src={arrow}
@@ -153,7 +153,7 @@ export default function ReviewsSlider() {
                                     </p>
                                 </div>
                                 <button onClick={() => openModal(reviews[0])}>
-                                    <span className='text-[#E1AF93] w-full font-semibold hover:underline mdx:text-[18px] flex mdx:justify-start '>
+                                    <span className='text-corporate w-full font-semibold hover:underline mdx:text-[18px] flex mdx:justify-start '>
                                         {t('read-more')}
                                         <Image
                                             src={arrow}
@@ -173,7 +173,7 @@ export default function ReviewsSlider() {
             {/* <div className='mt-[60px] flex items-center justify-center'>
                 <Link
                     href={/${lng}/reviews}
-                    className='px-12 py-3 transition-all text-[#fff] duration-200 bg-[#E1AF93] hover:bg-[#EE787C] hover:text-[#ffffff]'
+                    className='px-12 py-3 transition-all text-[#fff] duration-200 bg-corporate hover:bg-[#EE787C] hover:text-[#ffffff]'
                 >
                     {t('see-more')}
                 </Link>

@@ -6,7 +6,7 @@ export default function Scheme() {
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto px-2 flex flex-col gap-10">
             <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium hr max-w-[612px] leading-[38px] mdx:leading-[50px] xl:leading-[70px]">
-                <p className='text-[#E1AF93]'>{t('title-1')}</p>{t('title-2')}
+                <p className='text-corporate'>{t('title-1')}</p>{t('title-2')}
             </h2>
             <div className='w-full flex flex-col 2xl:flex-row gap-[16px]'>
 

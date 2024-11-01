@@ -75,7 +75,7 @@ export default function Share({ news }: ShareProps) {
                         <div className='flex gap-3 pb-[40px] mdl:pb-[30px] mdl:ml-3 xl:ml-9'>
                             <button
                                 onClick={copyLinkToClipboard}
-                                className='flex items-center justify-center text-white text-[16px] xl:text-[20px] min-w-[169px] py-3 bg-[#E1AF93] hover:bg-[#EAC7B4] mdx:min-w-[223px]'
+                                className='flex items-center justify-center text-white text-[16px] xl:text-[20px] min-w-[169px] py-3 bg-corporate hover:bg-[#EAC7B4] mdx:min-w-[223px]'
                             >
                                 {t('copy-link')}
                             </button>

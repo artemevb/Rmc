@@ -62,7 +62,7 @@ export default function Banner() {
                 <div className="flex flex-col xl:flex-row xl:justify-between gap-[35px]">
                     <div className='lh'>
                         <h2 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-gray-800">{t('title')}</h2>
-                        <h3 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-[#E1AF93]">RMC DE LUXE</h3>
+                        <h3 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-corporate">RMC DE LUXE</h3>
                     </div>
 
                     <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
@@ -71,7 +71,7 @@ export default function Banner() {
                                 <div
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`${activeTab === tab.id ? 'text-[#E1AF93] border-b border-[#E1AF93]' : 'text-gray-400'
+                                    className={`${activeTab === tab.id ? 'text-corporate border-b border-corporate' : 'text-gray-400'
                                         }   cursor-pointer pb-[25px]`}
                                 >
                                     {tab.label}

@@ -132,7 +132,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
               <button
                 onClick={() => handleCategoryClick('markets')}
                 className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
-                  category === 'markets' ? 'text-[#E1AF93] border-[#E1AF93]' : 'border-transparent'
+                  category === 'markets' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >
                 {t('Markets')}
@@ -142,7 +142,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
               <button
                 onClick={() => handleCategoryClick('Machine')}
                 className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
-                  category === 'Machine' ? 'text-[#E1AF93] border-[#E1AF93]' : 'border-transparent'
+                  category === 'Machine' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >
                 {t('Machine')}
@@ -152,7 +152,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
               <button
                 onClick={() => handleCategoryClick('schools')}
                 className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
-                  category === 'schools' ? 'text-[#E1AF93] border-[#E1AF93]' : 'border-transparent'
+                  category === 'schools' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >
                 {t('Schools')}
