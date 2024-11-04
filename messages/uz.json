@@ -117,7 +117,6 @@
       "buy": "Sotib olish",
       "rent": "Ijaraga olish",
       "sell": "Sotish",
-      "evaluate": "Baholash",
       "real_estate": "Ko'chmas mulk",
       "apartments": "Kvartiralar",
       "new_buildings": "Yangi binolar",
@@ -228,9 +227,9 @@
   },
   "About": {
     "title": "RMC DE LUXE",
-    "subtitle": "Realtorlik agentligi Toshkentda",
+    "subtitle": "Rieltorlik agentligi",
     "title-about": "Kompaniya Haqida",
-    "text-about-1": "PRMC De Luxe Toshkentda joylashgan, mulk baholash, ijaraga berish va sotish bo'yicha ixtisoslashgan ko'chmas mulk agentligi. Kompaniya jismoniy shaxslar va korporativ mijozlar uchun yuqori sifatli va kompleks ko'chmas mulk xizmatlarini taqdim etishga yo'naltirilgan.",
+    "text-about-1": "RMC De Luxe — bu jismoniy shaxslar va korporativ mijozlar uchun yuqori sifatli va kompleks ko‘chmas mulk xizmatlarini taqdim etishga yo‘naltirilgan, ko‘chmas mulkni ijaraga berish va sotishga ixtisoslashgan ko‘chmas mulk agentligi.",
     "text-about-2": "Mijozlarning ehtiyojlarini qondirish maqsadida, kompaniya professional yondashuv, shaxsiylashtirilgan xizmat va innovatsion yechimlarni ta'minlaydi.",
     "Service": {
       "title": "Xizmatlar",

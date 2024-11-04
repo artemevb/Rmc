@@ -126,7 +126,6 @@ export default function Footer({ locale }: LocaleProps) {
                 <div className="cursor-pointer">{t('buy')}</div>
                 <div className="cursor-pointer">{t('rent')}</div>
                 <div className="cursor-pointer">{t('sell')}</div>
-                <div className="cursor-pointer">{t('evaluate')}</div>
 
               </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">

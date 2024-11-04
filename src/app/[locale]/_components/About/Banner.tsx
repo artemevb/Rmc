@@ -25,9 +25,9 @@ export default function Banner() {
                     >
                         {t('title')}
                     </h2>
-                    <p className="text-[16px] mdx:text-[20px] mt-[8px] mdx:mt-[12px] xl:mt-[20px]">
+                    {/* <p className="text-[16px] mdx:text-[20px] mt-[8px] mdx:mt-[12px] xl:mt-[20px]">
                         {t('subtitle')}
-                    </p>
+                    </p> */}
 
                     <div>
                     </div>

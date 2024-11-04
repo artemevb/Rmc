@@ -6,7 +6,7 @@ import Image from 'next/image';
 import scoop from "@/public/images/about/scoop.png";
 import key from "@/public/images/about/key.png";
 import nedvijimost from "@/public/images/about/nedvijimost.png";
-import home from "@/public/images/about/home.png";
+// import home from "@/public/images/about/home.png";
 import check from "@/public/images/about/Check.png";
 
 export default function Services() {
@@ -45,7 +45,7 @@ export default function Services() {
             <p className='text-[16px] mdx:text-[20px] text-[#858585] mb-[30px] mdx:mb-[40px] mdx:hidden'>{t('subtitle')}</p>
 
             {/* Карточка 1 */}
-            <div className='flex-col w-full mt-[20px]'>
+            {/* <div className='flex-col w-full mt-[20px]'>
                 <div
                     className='w-full h-[390px] mdx:h-[360px] mdx:w-[387px] xl:w-[588px] bg-[#EDF3F5] p-[22px] relative overflow-hidden cursor-pointer'
                     onClick={() => handleClick(1)}
@@ -98,7 +98,7 @@ export default function Services() {
                         )
                     ) : (
                         <>
-                            {/* На маленьких экранах всегда показываем текст и изображение */}
+
                             <div className='absolute right-[-26px] bottom-[-10px] max-w-[280px] h-auto w-full'>
                                 <Image
                                     src={home}
@@ -142,12 +142,16 @@ export default function Services() {
                         </>
                     )}
                 </div>
-            </div>
+            </div> */}
 
-            {/* Карточка 2 */}
+            {/* Карточка 2 когда нужна будет 1 карточка, расскоментировать*/}
             <div className='flex-col w-full mt-[20px]'>
-                <div
+                {/* <div
                     className='w-full h-[390px] mdx:h-[360px] mdx:w-[266px] bg-[#EDF3F5] p-[22px] relative overflow-hidden cursor-pointer'
+                    onClick={() => handleClick(2)}
+                > */}
+                <div
+                    className='w-full h-[390px] mdx:h-[360px] bg-[#EDF3F5] p-[22px] relative overflow-hidden cursor-pointer'
                     onClick={() => handleClick(2)}
                 >
                     <h4 className='text-[22px] mdx:text-[22px] xl:text-[24px] font-medium'>{t('card2.title')}</h4>
@@ -253,10 +257,14 @@ export default function Services() {
                 </div>
             </div>
 
-            {/* Карточка 3 */}
+            {/* Карточка 3 когда нужна будет 1 карточка, расскоментировать*/}
             <div className='flex-col w-full mt-[20px]'>
-                <div
+                {/* <div
                     className='w-full h-[390px] mdx:h-[360px] mdx:w-[266px] bg-[#EDF3F5] p-[22px] relative overflow-hidden cursor-pointer'
+                    onClick={() => handleClick(3)}
+                > */}
+                <div
+                    className='w-full h-[390px] mdx:h-[360px] bg-[#EDF3F5] p-[22px] relative overflow-hidden cursor-pointer'
                     onClick={() => handleClick(3)}
                 >
                     <h4 className='text-[22px] mdx:text-[22px] xl:text-[24px] font-medium'>{t('card3.title')}</h4>
@@ -375,12 +383,17 @@ export default function Services() {
                 </div>
             </div>
 
-            {/* Карточка 4 */}
+            {/* Карточка 4 когда нужна будет 1 карточка, расскоментировать*/}
             <div className='flex-col w-full mt-[20px]'>
-                <div
+                {/* <div
                     className='w-full h-[390px] mdx:h-[360px] mdx:w-[266px] bg-[#EDF3F5] p-[22px] relative overflow-hidden mdx:overflow-y-auto hide-scrollbar cursor-pointer'
                     onClick={() => handleClick(4)}
+                > */}
+                <div
+                    className='w-full h-[390px] mdx:h-[360px]  bg-[#EDF3F5] p-[22px] relative overflow-hidden mdx:overflow-y-auto hide-scrollbar cursor-pointer'
+                    onClick={() => handleClick(4)}
                 >
+                    
                     <h4 className='text-[22px] mdx:text-[22px] xl:text-[24px] font-medium'>{t('card4.title')}</h4>
 
                     {isAbove460px ? (

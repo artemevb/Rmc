@@ -117,7 +117,6 @@
       "buy": "Buy",
       "rent": "Rent",
       "sell": "Sell",
-      "evaluate": "Evaluate",
       "real_estate": "Real Estate",
       "apartments": "Apartments",
       "new_buildings": "New Buildings",
@@ -228,9 +227,9 @@
   },
   "About": {
     "title": "RMC DE LUXE",
-    "subtitle": "Real estate agency in Tashkent",
+    "subtitle": "Real estate agency",
     "title-about": "About the Company",
-    "text-about-1": "PRMC De Luxe is a real estate agency in Tashkent, specializing in appraisal, rental, and sale of real estate. The company aims to provide high-quality and comprehensive real estate services for individuals and corporate clients.",
+    "text-about-1": "RMC De Luxe is a real estate agency specializing in the rental and sale of properties. The company is focused on providing high-quality and comprehensive real estate services for individuals and corporate clients.",
     "text-about-2": "To meet the needs of clients, the company ensures a professional approach, personalized service, and innovative solutions.",
     "Service": {
       "title": "Services",

@@ -7,38 +7,41 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-import photo1 from "@/public/images/main/photo.png";
-import photo2 from "@/public/images/main/photo2_new.png";
-import photo3 from "@/public/images/main/photo3_new.png";
+// import photo1 from "@/public/images/main/photo.png";
+// import photo2 from "@/public/images/main/photo2_new.png";
+// import photo3 from "@/public/images/main/photo3_new.png";
+import photo5 from "@/public/images/main/main_small_slider.jpg";
+import photo6 from "@/public/images/main/main_small_slider-2.jpg";
+import photo7 from "@/public/images/main/main_small_slider-3.jpg";
 
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 
 export default function Banner() {
     const t = useTranslations('Main.AboutUs');
-    // const [activeTab, setActiveTab] = useState('rent');
+    const [activeTab, setActiveTab] = useState('rent');
 
-    // const tabs = [
-    //     {
-    //         id: 'rent',
-    //         label: t('tabs.rent.label'),
-    //         content: t('tabs.rent.content')
-    //     },
-    //     {
-    //         id: 'buy',
-    //         label: t('tabs.buy.label'),
-    //         content: t('tabs.buy.content')
-    //     },
-    //     {
-    //         id: 'manage',
-    //         label: t('tabs.manage.label'),
-    //         content: t('tabs.manage.content')
-    //     },
-    // ];
-    const buyTab = {
-        label: t('tabs.buy.label'),
-        content: t('tabs.buy.content')
-    };
+    const tabs = [
+        {
+            id: 'buy',
+            label: t('tabs.buy.label'),
+            content: t('tabs.buy.content')
+        },
+        {
+            id: 'rent',
+            label: t('tabs.rent.label'),
+            content: t('tabs.rent.content')
+        },
+        {
+            id: 'manage',
+            label: t('tabs.manage.label'),
+            content: t('tabs.manage.content')
+        },
+    ];
+    // const buyTab = {
+    //     label: t('tabs.buy.label'),
+    //     content: t('tabs.buy.content')
+    // };
 
     const prevRef = useRef<HTMLDivElement | null>(null);
     const nextRef = useRef<HTMLDivElement | null>(null);
@@ -69,7 +72,7 @@ export default function Banner() {
                         <h3 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-corporate">RMC DE LUXE</h3>
                     </div>
 
-                    {/* <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
+                    <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
                         <div className="flex justify-between items-center border-b text-[16px] mdx:text-[20px] border-gray-300 ">
                             {tabs.map((tab) => (
                                 <div
@@ -87,8 +90,8 @@ export default function Banner() {
                                 <p key={index}>{line}</p>
                             ))}
                         </div>
-                    </div> */}
-                    <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
+                    </div>
+                    {/* <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
                         <div className="inline-block text-[16px] mdx:text-[20px] text-corporate border-b border-corporate pb-[25px]">
                             {buyTab.label}
                         </div>
@@ -97,7 +100,7 @@ export default function Banner() {
                                 <p key={index}>{line}</p>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="relative mySwiper mt-8 ">
                     <Swiper
@@ -121,13 +124,13 @@ export default function Banner() {
                             }
                         }}
                     >
-                        <SwiperSlide >
+                        {/* <SwiperSlide >
                             <Image
                                 src={photo1}
                                 quality={100}
                                 alt="Building"
-                                width={2600} // задайте нужную ширину
-                                height={1900} // задайте нужную высоту
+                                width={2600}
+                                height={1900}
                                 objectFit="contain"
                                 className="w-full h-auto min-h-[200px]"
                             />
@@ -137,8 +140,8 @@ export default function Banner() {
                                 src={photo2}
                                 quality={100}
                                 alt="Building"
-                                width={2600} // задайте нужную ширину
-                                height={1900} // задайте нужную высоту
+                                width={2600}
+                                height={1900}
                                 objectFit="contain"
                                 className="w-full h-auto min-h-[200px]"
                             />
@@ -148,10 +151,43 @@ export default function Banner() {
                                 src={photo3}
                                 quality={100}
                                 alt="Building"
-                                width={2600} // задайте нужную ширину
-                                height={1900} // задайте нужную высоту
+                                width={2600}
+                                height={1900}
                                 objectFit="contain"
                                 className="w-full h-auto min-h-[200px]"
+                            />
+                        </SwiperSlide> */}
+                        <SwiperSlide>
+                            <Image
+                                src={photo5}
+                                quality={100}
+                                alt="Building"
+                                width={2600}
+                                height={1900}
+                                objectFit="cover"
+                                className="w-full h-auto min-h-[200px] max-h-[579px]"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Image
+                                src={photo6}
+                                quality={100}
+                                alt="Building"
+                                width={2600}
+                                height={1900}
+                                objectFit="cover"
+                                className="w-full h-auto min-h-[200px] max-h-[579px]"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Image
+                                src={photo7}
+                                quality={100}
+                                alt="Building"
+                                width={2600}
+                                height={1900}
+                                objectFit="cover"
+                                className="w-full h-auto min-h-[200px] max-h-[579px]"
                             />
                         </SwiperSlide>
                     </Swiper>

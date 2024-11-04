@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import './_styles/globals.css';
@@ -6,15 +7,16 @@ import Footer from '@/src/app/[locale]/_components/Footer/Footer';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import Head from 'next/head';
 import Script from 'next/script';
 
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
 export const metadata: Metadata = {
   title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
-  description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
-  keywords: 'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, оценка недвижимости, RMC De Luxe, ОАЭ, недвижимость ОАЭ, элитная недвижимость',
+  description:
+    'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
+  keywords:
+    'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, оценка недвижимости, RMC De Luxe, ОАЭ, недвижимость ОАЭ, элитная недвижимость',
   authors: [{ name: 'RMC De Luxe', url: 'https://rmcestate.uz' }],
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
@@ -22,7 +24,8 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     url: 'https://rmcestate.uz',
     title: 'RMC De Luxe – Оценка, аренда и продажа недвижимости в ОАЭ',
-    description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
+    description:
+      'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
     siteName: 'RMC De Luxe',
     images: [
       {
@@ -61,13 +64,15 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale?: string };
 }>) {
-  const locale: Locales = params?.locale === 'uz' ? 'uz' : params?.locale === 'en' ? 'en' : 'ru';
+  const locale: Locales =
+    params?.locale === 'uz' ? 'uz' : params?.locale === 'en' ? 'en' : 'ru';
 
   unstable_setRequestLocale(locale);
 
   // Получаем сообщения для текущей локали
   const messages = await getMessages({ locale });
 
+  // Структурированные данные в формате JSON-LD
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -89,31 +94,19 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        {/* Добавление Hreflang */}
-        <link rel="alternate" hrefLang="ru" href="https://rmcestate.uz/ru" />
-        <link rel="alternate" hrefLang="uz" href="https://rmcestate.uz/uz" />
-        <link rel="alternate" hrefLang="en" href="https://rmcestate.uz/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://rmcestate.uz" />
-        {/* Каноническая ссылка */}
-        <link rel="canonical" href={`https://rmcestate.uz/${locale}`} />
-        {/* Добавление изображений для Open Graph и Twitter */}
-        <meta property="og:image" content="https://rmcestate.uz/og-image.jpg" />
-        <meta name="twitter:image" content="https://rmcestate.uz/og-image.jpg" />
-      </Head>
-
       <body className={lato.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           {children}
           <Footer locale={locale} />
-          <Head>
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
-          </Head>
+
+          {/* Внедрение структурированных данных */}
+          <Script
+            id="structured-data"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          />
+
           {/* Динамическая загрузка Yandex Metrica после полной загрузки страницы */}
           <Script
             id="yandex-metrika"
@@ -137,11 +130,17 @@ export default async function RootLayout({
               `,
             }}
           />
-          <noscript>
-            <div>
-              <img src="https://mc.yandex.ru/watch/98684651" style={{ position: 'absolute', left: '-9999px' }} alt="" />
-            </div>
-          </noscript>
+
+          {/* Внедрение <noscript> для Yandex Metrica */}
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `
+                <div>
+                  <img src="https://mc.yandex.ru/watch/98684651" style="position: absolute; left: -9999px;" alt="" />
+                </div>
+              `,
+            }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>
