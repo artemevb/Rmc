@@ -16,25 +16,29 @@ import arrowRight from "@/public/svg/arrowRightWhite.svg";
 
 export default function Banner() {
     const t = useTranslations('Main.AboutUs');
-    const [activeTab, setActiveTab] = useState('rent');
+    // const [activeTab, setActiveTab] = useState('rent');
 
-    const tabs = [
-        {
-            id: 'rent',
-            label: t('tabs.rent.label'),
-            content: t('tabs.rent.content')
-        },
-        {
-            id: 'buy',
-            label: t('tabs.buy.label'),
-            content: t('tabs.buy.content')
-        },
-        {
-            id: 'manage',
-            label: t('tabs.manage.label'),
-            content: t('tabs.manage.content')
-        },
-    ];
+    // const tabs = [
+    //     {
+    //         id: 'rent',
+    //         label: t('tabs.rent.label'),
+    //         content: t('tabs.rent.content')
+    //     },
+    //     {
+    //         id: 'buy',
+    //         label: t('tabs.buy.label'),
+    //         content: t('tabs.buy.content')
+    //     },
+    //     {
+    //         id: 'manage',
+    //         label: t('tabs.manage.label'),
+    //         content: t('tabs.manage.content')
+    //     },
+    // ];
+    const buyTab = {
+        label: t('tabs.buy.label'),
+        content: t('tabs.buy.content')
+    };
 
     const prevRef = useRef<HTMLDivElement | null>(null);
     const nextRef = useRef<HTMLDivElement | null>(null);
@@ -65,7 +69,7 @@ export default function Banner() {
                         <h3 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-corporate">RMC DE LUXE</h3>
                     </div>
 
-                    <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
+                    {/* <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
                         <div className="flex justify-between items-center border-b text-[16px] mdx:text-[20px] border-gray-300 ">
                             {tabs.map((tab) => (
                                 <div
@@ -83,9 +87,18 @@ export default function Banner() {
                                 <p key={index}>{line}</p>
                             ))}
                         </div>
+                    </div> */}
+                    <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
+                        <div className="inline-block text-[16px] mdx:text-[20px] text-corporate border-b border-corporate pb-[25px]">
+                            {buyTab.label}
+                        </div>
+                        <div className="py-4 text-gray-600 text-[16px] mdx:text-[20px]">
+                            {buyTab.content.split('\n').map((line, index) => (
+                                <p key={index}>{line}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
-
                 <div className="relative mySwiper mt-8 ">
                     <Swiper
                         modules={[Navigation, Autoplay]}

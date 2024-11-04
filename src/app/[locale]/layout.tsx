@@ -114,9 +114,10 @@ export default async function RootLayout({
               dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
           </Head>
+          {/* Динамическая загрузка Yandex Metrica после полной загрузки страницы */}
           <Script
             id="yandex-metrika"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -128,10 +129,10 @@ export default async function RootLayout({
                 (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
                 ym(98684651, "init", {
-                  clickmap:true,
-                  trackLinks:true,
-                  accurateTrackBounce:true,
-                  webvisor:true
+                  clickmap: true,
+                  trackLinks: true,
+                  accurateTrackBounce: true,
+                  webvisor: true
                 });
               `,
             }}
@@ -146,4 +147,3 @@ export default async function RootLayout({
     </html>
   );
 }
-

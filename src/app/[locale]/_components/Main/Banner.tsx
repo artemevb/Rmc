@@ -23,7 +23,7 @@ interface Slide {
           width: number;
           height: number;
         };
-        lqip?: string; // Добавлено для использования в placeholder
+        lqip?: string;
       };
     };
   };
@@ -115,7 +115,7 @@ export default function Banner({ locale }: { locale: string }) {
               const imageSrc = urlFor(slide.image)
                 .width(1920)
                 .height(800)
-                .format('webp') // Используем формат WebP
+                .format('webp')
                 .url();
               const titleText = slide.title[locale as keyof typeof slide.title] || slide.title.en;
               const descriptionText = slide.description[locale as keyof typeof slide.description] || slide.description.en;
@@ -148,8 +148,6 @@ export default function Banner({ locale }: { locale: string }) {
                     </div>
                   </div>
                 </SwiperSlide>
-
-
               );
             })}
           </Swiper>

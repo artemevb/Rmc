@@ -26,6 +26,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           alt={`News Image`}
           className="w-full h-full object-cover min-h-[240px] max-h-[240px] mdx:min-h-[290px] mdx:max-h-[290px] xl:min-h-[300px] lg:max-h-[300px]"
         />
+        <div className="absolute inset-0 bg-black/20 to-transparent"></div>
         <div className="absolute top-0 left-0 w-full h-full flex items-end p-4">
           <div className="flex justify-between items-center w-full">
             <p className=" bg-opacity-70  px-2 py-1 text-[16px] xl:text-[20px] text-[#fff]">
