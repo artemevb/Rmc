@@ -14,12 +14,14 @@ export default function Scheme() {
                     <div className='border p-[24px] flex flex-col items-start justify-between w-full max-slg:mb-[16px]'>
                         <div className='pb-[20px]'>
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'> {t('telephone')}</p>
-                            <a href="tel:+998785558787" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>+998 (78) 555 87 87</a>
+                            <a href="tel:+998785558787" className='whitespace-nowrap text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>+998 (78) 555 87 87</a>
+                            <br />
+                            <a href="tel:971543980707" className=' text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>+971 54 398 0707</a>
                         </div>
                         <hr className='w-full' />
                         <div className='pt-[20px]'>
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>E-mail</p>
-                            <a href="mailto:rmcrmc603@gmail.com" className='text-[22px] mdx:text-[28px] xl:text-[30px]'>rmcrmc603@gmail.com</a>
+                            <a href="mailto:rmcrmc603@gmail.com" className='text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>rmcrmc603@gmail.com</a>
                         </div>
 
                     </div>
@@ -37,7 +39,7 @@ export default function Scheme() {
                     <div >
                         <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'>{t('addres')}</p>
                         <a
-                            href="https://www.google.com/maps/search/?api=1&query=41.3513907,69.2888885"
+                            href="https://maps.app.goo.gl/xM3Qos8HBt3dS32A8"
                             target="_blank"
                             rel="noopener noreferrer"
                             className='text-[22px] mdx:text-[28px] xl:text-[30px] lh mt-[4px] 2xl:leading-[36px]  hover:text-[#868585]'>
@@ -55,8 +57,7 @@ export default function Scheme() {
 
             </div>
             <div className="h-[300px] mdx:h-[350px] xl:h-[550px] w-full ">
-
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2995.0443057814678!2d69.2888885!3d41.351390699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDIxJzA1LjAiTiA2OcKwMTcnMjAuMCJF!5e0!3m2!1sru!2s!4v1728543183772!5m2!1sru!2s" width="100%"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.138010676033!2d55.30632747605594!3d25.2659424289116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f433661ee2cfb%3A0x41cafba46e7b8d75!2sDeira%20Twin%20Towers!5e0!3m2!1sru!2s!4v1730711236842!5m2!1sru!2s" width="100%"
                     height="400"
                     allowFullScreen
                     loading="lazy"

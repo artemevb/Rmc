@@ -7,19 +7,19 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-// import photo1 from "@/public/images/main/photo.png";
-// import photo2 from "@/public/images/main/photo2_new.png";
-// import photo3 from "@/public/images/main/photo3_new.png";
+// Импортируйте только необходимые изображения
 import photo5 from "@/public/images/main/main_small_slider.jpg";
 import photo6 from "@/public/images/main/main_small_slider-2.jpg";
 import photo7 from "@/public/images/main/main_small_slider-3.jpg";
+import photo8 from "@/public/images/main/main_small_slider-4.jpg";
+import photo9 from "@/public/images/main/main_small_slider-5.jpg";
 
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 
 export default function Banner() {
     const t = useTranslations('Main.AboutUs');
-    const [activeTab, setActiveTab] = useState('rent');
+    const [activeTab, setActiveTab] = useState('buy');
 
     const tabs = [
         {
@@ -38,10 +38,6 @@ export default function Banner() {
             content: t('tabs.manage.content')
         },
     ];
-    // const buyTab = {
-    //     label: t('tabs.buy.label'),
-    //     content: t('tabs.buy.content')
-    // };
 
     const prevRef = useRef<HTMLDivElement | null>(null);
     const nextRef = useRef<HTMLDivElement | null>(null);
@@ -79,7 +75,7 @@ export default function Banner() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`${activeTab === tab.id ? 'text-corporate border-b border-corporate' : 'text-gray-400'
-                                        }   cursor-pointer pb-[25px]`}
+                                        } cursor-pointer pb-[25px]`}
                                 >
                                     {tab.label}
                                 </div>
@@ -91,30 +87,20 @@ export default function Banner() {
                             ))}
                         </div>
                     </div>
-                    {/* <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
-                        <div className="inline-block text-[16px] mdx:text-[20px] text-corporate border-b border-corporate pb-[25px]">
-                            {buyTab.label}
-                        </div>
-                        <div className="py-4 text-gray-600 text-[16px] mdx:text-[20px]">
-                            {buyTab.content.split('\n').map((line, index) => (
-                                <p key={index}>{line}</p>
-                            ))}
-                        </div>
-                    </div> */}
                 </div>
-                <div className="relative mySwiper mt-8 ">
+                <div className="relative mySwiper mt-8">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         navigation={navigation}
                         autoplay={{
-                            delay: 5500, // 4.5 seconds
+                            delay: 5500, // 5.5 секунд
                             disableOnInteraction: false,
                         }}
                         loop={true}
                         className="relative"
                         spaceBetween={30}
                         slidesPerView={1}
-                        speed={1200}
+                        speed={1500}
                         onSwiper={(swiper) => {
                             if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
                                 swiper.params.navigation.prevEl = prevRef.current;
@@ -123,73 +109,37 @@ export default function Banner() {
                                 swiper.navigation.update();
                             }
                         }}
+                        breakpoints={{
+                            // Настройки для мобильных устройств
+                            0: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            // Настройки для планшетов
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            // Настройки для десктопов
+                            1024: {
+                                slidesPerView: 1,
+                                spaceBetween: 30,
+                            },
+                        }}
                     >
-                        {/* <SwiperSlide >
-                            <Image
-                                src={photo1}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="contain"
-                                className="w-full h-auto min-h-[200px]"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image
-                                src={photo2}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="contain"
-                                className="w-full h-auto min-h-[200px]"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image
-                                src={photo3}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="contain"
-                                className="w-full h-auto min-h-[200px]"
-                            />
-                        </SwiperSlide> */}
-                        <SwiperSlide>
-                            <Image
-                                src={photo5}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="cover"
-                                className="w-full h-auto min-h-[200px] max-h-[579px]"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image
-                                src={photo6}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="cover"
-                                className="w-full h-auto min-h-[200px] max-h-[579px]"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image
-                                src={photo7}
-                                quality={100}
-                                alt="Building"
-                                width={2600}
-                                height={1900}
-                                objectFit="cover"
-                                className="w-full h-auto min-h-[200px] max-h-[579px]"
-                            />
-                        </SwiperSlide>
+                        {[photo5, photo6, photo7, photo8, photo9].map((photo, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="relative w-full min-h-[200px] md:h-[250px] mdx:min-h-[350px] lg:h-[400px] xl:h-[590px] overflow-hidden">
+                                    <Image
+                                        src={photo}
+                                        alt={`Building ${index + 1}`}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        quality={100}
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                     <div ref={prevRef} className="absolute xl:left-5 left-3 top-2 mdx:left-3 mdx:top-4 xl:top-7 z-10 cursor-pointer hidden xl:block">
                         <Image src={arrowLeft} quality={100} className='w-[50px] h-[50px] mdx:w-[60px] mdx:h-[60px] xl:w-[70px] xl:h-[70px]' alt="Previous" />

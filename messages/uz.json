@@ -219,7 +219,7 @@
     "time-work": "Ish vaqti",
     "work-day": "du-juma",
     "addres": "Manzil",
-    "addres-2": "O‘zbekiston, Toshkent shahri, Chinobod ko‘chasi 2",
+    "addres-2": "Deira, Baniyas yo'li, Twin Towers, 20-qavat, 10-ofis",
     "email": "Elektron pochta"
   },
   "Partners": {
@@ -441,8 +441,8 @@
       "enterValidPhoneNumber": "To'g'ri telefon raqamini kiriting",
       "validEmail": "To'g'ri",
       "enterValidEmail": "To'g'ri email kiriting",
-      "haveQuestions": "Mulkni baholang yoki uni ijaraga berishni boshlang",
-      "contactUs": "Mulkni baholatish bo'yicha professional yordam oling va uni ijaraga berib daromad olishni boshlang. Mutaxassislarimiz sizga har bir bosqichda yordam beradi.",
+      "haveQuestions": "Ko‘chmas mulkingizni osonlik bilan ijaraga bering",
+      "contactUs": "Ko‘chmas mulkingizni ijaraga berib daromad olishni boshlang. Mutaxassislarimiz har bir bosqichda sizga yordam beradi.",
       "fullName": "To'liq ismi",
       "phoneNumber": "Telefon raqami",
       "email": "E-mail",

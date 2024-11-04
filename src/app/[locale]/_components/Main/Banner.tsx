@@ -123,7 +123,7 @@ export default function Banner({ locale }: { locale: string }) {
               return (
                 <SwiperSlide key={index}>
                   <div
-                    className="relative w-full h-auto min-h-[700px] xl:min-h-[800px] bg-center bg-cover"
+                    className="relative w-full h-auto min-h-[700px] xl:min-h-[630px] xl:max-h-[630px]  4xl:min-h-[850px] bg-center bg-cover"
                     style={{
                       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(${imageSrc}) lightgray 50% / cover no-repeat`,
                     }}
