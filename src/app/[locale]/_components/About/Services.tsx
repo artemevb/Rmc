@@ -398,7 +398,7 @@ export default function Services() {
 
                     {isAbove460px ? (
                         activeCard === 4 ? (
-                            <div className='max-w-[223px] mt-[20px]'>
+                            <div className='max-w-[253px] mt-[20px]'>
                                 <div className='flex gap-[8px]'>
                                     <Image
                                         src={check}

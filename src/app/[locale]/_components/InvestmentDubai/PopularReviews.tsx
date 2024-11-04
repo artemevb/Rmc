@@ -21,11 +21,11 @@ const faqData: FaqItem[] = [
   {
     question: "faq_question_3",
     answer: "faq_answer_3"
-  },
-  {
-    question: "faq_question_4",
-    answer: "faq_answer_4"
   }
+  // {
+  //   question: "faq_question_4",
+  //   answer: "faq_answer_4"
+  // }
 ];
 
 interface ArrowProps {
