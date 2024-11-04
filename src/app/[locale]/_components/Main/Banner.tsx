@@ -55,7 +55,7 @@ export default function Banner({ locale }: { locale: string }) {
               url,
               metadata {
                 dimensions,
-                lqip // Предполагается, что lqip доступен
+                lqip
               }
             }
           },
@@ -122,21 +122,16 @@ export default function Banner({ locale }: { locale: string }) {
 
               return (
                 <SwiperSlide key={index}>
-                  <div className="relative w-full h-auto min-h-[700px] xl:min-h-[800px]">
-                    <Image
-                      src={imageSrc}
-                      quality={100} // Сниженное качество
-                      alt={`Slide ${index + 1}`}
-                      fill
-                      className="w-full h-full object-cover"
-                      sizes="(max-width: 2000px) 100vw,
-                             (max-width: 1500px) 50vw,
-                             33vw" // Адаптивные размеры
-                      loading="lazy" // Ленивая загрузка
-                      placeholder="blur"
-                      blurDataURL={slide.image.asset.metadata.lqip || undefined} // Используем lqip если доступно
-                    />
-                    <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white">
+                  <div
+                    className="relative w-full h-auto min-h-[700px] xl:min-h-[800px] bg-center bg-cover"
+                    style={{
+                      background: `linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(${imageSrc}) lightgray 50% / cover no-repeat`,
+                    }}
+                  >
+                    <div className="absolute inset-0"></div>
+
+                    {/* Контейнер для текста */}
+                    <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white z-10">
                       {titleText && (
                         <h2
                           className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px] 3xl:text-[80px] font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
@@ -153,6 +148,8 @@ export default function Banner({ locale }: { locale: string }) {
                     </div>
                   </div>
                 </SwiperSlide>
+
+
               );
             })}
           </Swiper>
@@ -164,7 +161,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowLeft}
-              quality={100} // Сниженное качество для стрелок
+              quality={100}
               alt="Previous"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -175,7 +172,7 @@ export default function Banner({ locale }: { locale: string }) {
           >
             <Image
               src={arrowRight}
-              quality={100} // Сниженное качество для стрелок
+              quality={100}
               alt="Next"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
