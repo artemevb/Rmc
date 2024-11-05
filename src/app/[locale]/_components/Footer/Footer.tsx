@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import logoBig from "@/public/images/imed-f.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
 import youtube from "@/public/svg/footer/youtube.svg";
-import resultLogo from "@/public/svg/footer/result-logo.png";
+// import resultLogo from "@/public/svg/footer/result-logo.png";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
@@ -31,6 +31,10 @@ const handleSocialClick = async (event: React.MouseEvent<HTMLAnchorElement>, url
   }
 };
 
+// Функция для перехода на страницу Main с якорем #counter
+const scrollToCounter = (locale: string) => {
+  window.location.href = `/${locale}#counter`; // Переход на страницу с якорем #counter
+};
 
 export default function Footer({ locale }: LocaleProps) {
   const t = useTranslations('Main.Footer');
@@ -114,20 +118,16 @@ export default function Footer({ locale }: LocaleProps) {
             </div>
           </div>
           <div className="mdx:flex flex-row xl:gap-[138px]">
-            <div className="lg:w-1/2 xl:max-w-[406px] w-full flex max-mdx:gap-5 xl:gap-[138px]">
-              <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[110px]">
+            <div className="lg:w-1/2 xl:max-w-[200px] w-full flex max-mdx:gap-5 xl:gap-[138px]">{/*было xl:max-w-[406px]*/}
+              {/* <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[110px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('services')}
                 </h2>
-                {/* <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
+                <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
                 <Link href={`/${locale}/calculator`}>{t('rent')}</Link>
                 <Link href={`/${locale}/calculator`}>{t('sell')}</Link>
-                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link> */}
-                <div className="cursor-pointer">{t('buy')}</div>
-                <div className="cursor-pointer">{t('rent')}</div>
-                <div className="cursor-pointer">{t('sell')}</div>
-
-              </div>
+                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link>
+              </div> */}
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('real_estate')}
@@ -152,8 +152,10 @@ export default function Footer({ locale }: LocaleProps) {
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('other')}
                 </h2>
-                {/* <Link href={`/${locale}/converter`}>{t('mortgage_calculator')}</Link> */}
-                <div className="cursor-pointer">{t('mortgage_calculator')}</div>
+                {/* Элемент с прокруткой к Counter */}
+                <div className="cursor-pointer" onClick={() => scrollToCounter(locale)}>
+                  {t('mortgage_calculator')}
+                </div>
                 <Link href={`/${locale}/investmentDubai`}>{t('dubai_investments')}</Link>
               </div>
             </div>
@@ -165,7 +167,7 @@ export default function Footer({ locale }: LocaleProps) {
             <p className="w-full max-mdx:max-w-[150px] text-[#B3B3B3] text-[14px] xl:text-[16px]">
               {t('info')}
             </p>
-            <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank" rel="noopener noreferrer">
+            {/* <a href="https://result-me.uz/api/redirect?from=cm1j" target="_blank" rel="noopener noreferrer">
               <Image
                 src={resultLogo}
                 width={800}
@@ -174,7 +176,7 @@ export default function Footer({ locale }: LocaleProps) {
                 alt="Result Logo"
                 className="h-8 w-auto"
               />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

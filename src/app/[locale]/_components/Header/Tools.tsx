@@ -108,7 +108,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
           >
             <option value='en'>En</option>
             <option value='ru'>Ru</option>
-            <option value='uz'>O`z</option>
+            {/* <option value='uz'>O`z</option> */}
           </select>
           <svg
             className="w-4 h-4 "
