@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-import photo1 from "@/public/images/about/AboutCompany.png";
+import photo1 from "@/public/images/about/Sobha-Hartland.jpg";
 
 
 export default function Banner() {
@@ -25,7 +25,7 @@ export default function Banner() {
                     alt="Banner Image"
                     width={3000}
                     height={3000}
-                    className='w-full h-full object-cover min-h-[250px] mdx:min-h-[400px] xl:min-h-[500px]'
+                    className='w-full h-full object-cover min-h-[250px] mdx:min-h-[400px] xl:min-h-[500px] max-h-[500px]'
                 />
             </div>
             <div className='text-[16px] mdx:text-[20px] mdl:hidden mt-[30px]'>

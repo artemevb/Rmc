@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import build1 from "@/public/images/main/whyus/build1.png";
-import build2 from "@/public/images/main/whyus/build2.png";
-import build3 from "@/public/images/main/whyus/build3.png";
-import build4 from "@/public/images/main/whyus/build4.png";
-import build5 from "@/public/images/main/whyus/build5.png";
+import build1 from "@/public/images/main/whyus/damac_.webp";
+import build2 from "@/public/images/main/whyus/azizi_w.webp";
+import build3 from "@/public/images/main/whyus/sobha-r.webp";
+import build4 from "@/public/images/main/whyus/damac_2.webp";
+import build5 from "@/public/images/main/whyus/SOBHA-TownPark-Fountain-Plaza.webp";
 import { useTranslations } from 'next-intl';
 
 export default function Banner() {

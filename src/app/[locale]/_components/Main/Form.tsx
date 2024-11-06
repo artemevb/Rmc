@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent } from "react";
-import build1 from "@/public/images/main/Form1.png";
-import build2 from "@/public/images/main/Form2.png";
+import build1 from "@/public/images/main/form1.jpg";
+import build2 from "@/public/images/main/form2.jpg";
 import Image from 'next/image';
 import { useTranslations } from "next-intl";
 import axios, { AxiosError } from 'axios';
@@ -255,7 +255,7 @@ export default function ContAddress() {
                 </form>
             </div>
             <div className="xl:w-[40%] hidden xl:block ">
-                <Image src={build2} quality={100} alt="Building" className="object-cover h-full" />
+                <Image src={build2} quality={100} alt="Building" className="object-cover h-full max-h-[699px]" />
             </div>
 
             {/* Success Modal */}
