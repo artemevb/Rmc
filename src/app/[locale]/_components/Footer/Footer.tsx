@@ -66,10 +66,10 @@ export default function Footer({ locale }: LocaleProps) {
             </div>
             <div className="flex gap-3 mdx:gap-[20px]">
               <a
-                href="https://t.me/rmcdeluxegroup"
+                href="https://t.me/rmc_de_luxe"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => handleSocialClick(e, "https://t.me/rmcdeluxegroup", "TELEGRAM_FOOTER")}
+                onClick={(e) => handleSocialClick(e, "https://t.me/rmc_de_luxe", "TELEGRAM_FOOTER")}
               >
                 <Image
                   src={telegram}
