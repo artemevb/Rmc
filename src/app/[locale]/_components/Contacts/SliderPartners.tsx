@@ -9,7 +9,7 @@ import azizi from "@/public/images/partners/azizi.jpg";
 import sobha from "@/public/images/partners/sobha_realty.jpg";
 import p4 from "@/public/images/partners/partner-4.svg";
 import p5 from "@/public/images/partners/partner-5.png";
-import p6 from "@/public/images/partners/partner-6.svg";
+import p6 from "@/public/images/partners/partner-6.png";
 import ArrowLeft from '@/public/svg/partners/ArrowLeftSlider.png';
 import ArrowRight from '@/public/svg/partners/ArrowRightSlider.png';
 import { StaticImageData } from 'next/image';
@@ -32,7 +32,7 @@ const PartnersComp: React.FC = () => {
         { id: 2, image: sobha, url: 'https://www.sobharealty.com/' },
         { id: 4, image: p4, url: 'https://www.emaar.com/' },
         { id: 5, image: p5, url: 'https://www.damacproperties.com/' },
-        { id: 6, image: p6, url: 'https://www.danubehome.com/ae/en' },
+        { id: 6, image: p6, url: 'https://danubeproperties.com/' },
     ], []);
 
     const chunkArray = (array: Partner[], chunkSize: number): Partner[][] => {
