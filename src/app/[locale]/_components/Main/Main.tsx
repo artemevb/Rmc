@@ -18,7 +18,7 @@ interface NewsCompProps {
 
 export default function Main({ locale }: NewsCompProps) {
   return (
-    <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
+    <div className=" bg-white flex flex-col gap-[90px] mdl:gap-[130px] xl:gap-[180px]">
       <ScrollToCounter />
       <Banner locale={locale}/>
       <AboutUs />
