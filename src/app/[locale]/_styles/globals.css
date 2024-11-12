@@ -21,6 +21,20 @@
 .counter-shadow {
     box-shadow: 0px 0px 30px 0px rgba(15, 17, 18, 0.05);
 }
+/* Плавное отображение Навменю справа */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-slideInFromRight {
+    animation: slideInFromRight 0.2s ease-in-out forwards;
+}
 
 /* Скрыть полосы прокрутки для Chrome, Safari и Opera */
 .hide-scrollbar::-webkit-scrollbar {
@@ -51,12 +65,13 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
 /* globals.css */
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-  }
-  
+}

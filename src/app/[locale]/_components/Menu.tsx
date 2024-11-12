@@ -80,8 +80,8 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
 
   return (
     <div
-      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "transform translate-x-0" : "transform translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+    className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "animate-slideInFromRight" : "transform translate-x-full"} transition-transform duration-300 ease-in-out`}
+
     >
       {/* Header with Language Switcher and Close Button */}
       <div className="border-b py-4 flex">
@@ -117,6 +117,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
                   src={close}
                   height={100}
                   width={100}
+                  priority
                   alt={`Tools Item CloseIcon : Close Menu`}
                   className="w-[25px] h-[25px]"
                 />
@@ -139,6 +140,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
                 src={servicesMenuOpen ? arrow_yellow : arrow_black}
                 width={50}
                 height={50}
+                priority
                 alt="arrow"
                 className="h-full w-full mdx:h-[20px] mdx:w-auto"
               />
