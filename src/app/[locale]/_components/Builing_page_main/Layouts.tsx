@@ -248,8 +248,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     <div className="relative w-full max-w-[133px]">
                         <button
                             className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isFloorDropdownOpen
-                                    ? "bg-corporate text-white"
-                                    : "bg-[#EDF3F5]"
+                                ? "bg-corporate text-white"
+                                : "bg-[#EDF3F5]"
                                 }`}
                             onClick={() => {
                                 setIsFloorDropdownOpen(!isFloorDropdownOpen);
@@ -282,8 +282,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <ul className="absolute z-10 bg-white border w-[150px] mdx:w-[170px] mt-1 max-h-60 overflow-auto">
                                 <li
                                     className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${!selectedFloor
-                                            ? "bg-[#FCE8E9] text-corporate"
-                                            : ""
+                                        ? "bg-[#FCE8E9] text-corporate"
+                                        : ""
                                         }`}
                                     onClick={() => {
                                         setSelectedFloor(null);
@@ -296,8 +296,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                     <li
                                         key={index}
                                         className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${selectedFloor === floor
-                                                ? "bg-[#FCE8E9] text-corporate "
-                                                : ""
+                                            ? "bg-[#FCE8E9] text-corporate "
+                                            : ""
                                             }`}
                                         onClick={() => {
                                             setSelectedFloor(floor);
@@ -315,8 +315,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     <div className="relative w-full max-w-[137px]">
                         <button
                             className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isPriceDropdownOpen
-                                    ? "bg-corporate text-white"
-                                    : "bg-[#EDF3F5]"
+                                ? "bg-corporate text-white"
+                                : "bg-[#EDF3F5]"
                                 }`}
                             onClick={() => {
                                 setIsPriceDropdownOpen(!isPriceDropdownOpen);
@@ -444,8 +444,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                 <div className="relative w-full max-w-[195px] mdx:max-w-[254px]">
                     <button
                         className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isRoomsDropdownOpen
-                                ? "bg-corporate text-white"
-                                : "bg-[#EDF3F5]"
+                            ? "bg-corporate text-white"
+                            : "bg-[#EDF3F5]"
                             }`}
                         onClick={() => {
                             setIsRoomsDropdownOpen(!isRoomsDropdownOpen);
@@ -478,8 +478,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         <ul className="absolute z-10 bg-white border w-full mt-1 max-h-60 overflow-auto">
                             <li
                                 className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${!selectedRooms
-                                        ? "bg-[#FCE8E9] text-corporate"
-                                        : ""
+                                    ? "bg-[#FCE8E9] text-corporate"
+                                    : ""
                                     }`}
                                 onClick={() => {
                                     setSelectedRooms(null);
@@ -492,8 +492,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                 <li
                                     key={index}
                                     className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${selectedRooms === room
-                                            ? "bg-[#FCE8E9] text-corporate"
-                                            : ""
+                                        ? "bg-[#FCE8E9] text-corporate"
+                                        : ""
                                         }`}
                                     onClick={() => {
                                         setSelectedRooms(room);
@@ -533,7 +533,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                     src={item.image?.asset?.url || "/images/default-image.png"}
                                     alt={item.title[locale] || "Название планировки"}
                                     quality={100}
-                                    className="object-cover"
+                                    className="object-contain"
                                     fill
                                 />
                             </div>
@@ -542,27 +542,37 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                     {item.title[locale] || "Название планировки"}
                                 </h5>
                                 <div className="flex flex-col gap-[5px] border-b pb-[16px] xl:pb-[20px]">
-                                    <div className="flex justify-between">
-                                        <p>{t("floor")}</p>
-                                        <p>{item.floor?.floor}</p>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <p>{t("house")}</p>
-                                        <p>{item.home}</p>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <p>{t("entrance")}</p>
-                                        <p>{item.entrance}</p>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <p>{t("rooms")}</p>
-                                        <p>{item.rooms?.rooms}</p>
-                                    </div>
+                                    {item.floor?.floor !== undefined && (
+                                        <div className="flex justify-between">
+                                            <p>{t("floor")}</p>
+                                            <p>{item.floor.floor}</p>
+                                        </div>
+                                    )}
+                                    {item.home && (
+                                        <div className="flex justify-between">
+                                            <p>{t("house")}</p>
+                                            <p>{item.home}</p>
+                                        </div>
+                                    )}
+                                    {item.entrance && (
+                                        <div className="flex justify-between">
+                                            <p>{t("entrance")}</p>
+                                            <p>{item.entrance}</p>
+                                        </div>
+                                    )}
+                                    {item.rooms?.rooms !== undefined && (
+                                        <div className="flex justify-between">
+                                            <p>{t("rooms")}</p>
+                                            <p>{item.rooms.rooms}</p>
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="py-[16px] xl:py-[20px] font-medium text-[20px] mdx:text-[25px] text-corporate">
-                                    {/* Display price without dollar sign */}
-                                    <h3>{item.price}</h3>
-                                </div>
+                                {item.price && (
+                                    <div className="py-[16px] xl:py-[20px] font-medium text-[20px] mdx:text-[25px] text-corporate">
+                                        {/* Display price without dollar sign */}
+                                        <h3>{item.price}</h3>
+                                    </div>
+                                )}
                             </div>
                             <div className="group-hover:px-[12px] xl:group-hover:px-[16px] group-hover:mb-[15px] xl:group-hover:mb-[25px] absolute bottom-0 w-full left-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[0ms] group-hover:duration-[300ms] ease-in-out">
                                 <button
