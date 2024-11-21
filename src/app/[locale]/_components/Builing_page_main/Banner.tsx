@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
-import Image from 'next/image';
 import imageUrlBuilder from '@sanity/image-url';
 import sanityClient from '@sanity/client';
 import defaultImage from "@/public/images/main/Full-photo-3.png";
@@ -104,16 +103,15 @@ export default function Banner({ locale, data }: BannerProps) {
           speed={1500}
         >
           {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <Image
+            <SwiperSlide key={index} className="relative">
+              <img
                 src={slide.imageSrc || defaultImage.src}
-                quality={100}
                 alt={`Slide ${index + 1}`}
-                layout="responsive"
-                width={3000}
-                height={800}
                 className="w-full h-auto min-h-[728px] max-mdx:max-h-[728px] object-cover"
+                style={{ width: '100%', height: 'auto' }}
               />
+              {/* Градиентный затемнитель */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent opacity-50"></div>
               <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white">
                 <h2
                   className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px] 3xl:text-[80px] font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
@@ -126,8 +124,9 @@ export default function Banner({ locale, data }: BannerProps) {
                 </p>
                 <div className="w-full gap-[12px] mdx:gap-[20px] flex font-semibold text-[17px] pr-[16px]">
                   <button
-                  onClick={openModal} 
-                   className="min-w-[158px] w-full bg-corporate hover:bg-hover_corporate h-[49px] mdx:w-[223px]">
+                    onClick={openModal}
+                    className="min-w-[158px] w-full bg-corporate hover:bg-hover_corporate h-[49px] mdx:w-[223px]"
+                  >
                     {t('button-more')}
                   </button>
                   <a href="tel:+998785558787">
@@ -145,9 +144,8 @@ export default function Banner({ locale, data }: BannerProps) {
             ref={prevRef}
             className="absolute mdx:right-[100px] 3xl:right-[15.5%] 4xl:right-[14.4%]  max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
-            <Image
-              src={arrowLeft}
-              quality={100}
+            <img
+              src={arrowLeft.src}
               alt="Previous"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -156,9 +154,8 @@ export default function Banner({ locale, data }: BannerProps) {
             ref={nextRef}
             className="absolute mdx:right-5 3xl:right-[10.4%] mdx:bottom-2 max-mdx:top-[45%] max-mdx:left-[70px] transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
-            <Image
-              src={arrowRight}
-              quality={100}
+            <img
+              src={arrowRight.src}
               alt="Next"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />

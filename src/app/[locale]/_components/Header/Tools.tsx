@@ -19,7 +19,9 @@ interface NavigationProps {
 
 const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const [menu, setMenu] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
+
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
