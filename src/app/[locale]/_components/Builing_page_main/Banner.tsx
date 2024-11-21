@@ -12,7 +12,7 @@ import defaultImage from "@/public/images/main/Full-photo-3.png";
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 import ApplicationNewBuildings from '../Modal/ApplicationNewBuildings';
-
+import Image from "next/image";
 // Define the types for your props
 interface BannerProps {
   locale: string;
@@ -107,7 +107,7 @@ export default function Banner({ locale, data }: BannerProps) {
               <img
                 src={slide.imageSrc || defaultImage.src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-auto min-h-[728px] max-mdx:h-[500px] object-cover"
+                className="w-full h-auto min-h-[550px] xl:min-h-[728px] max-mdx:max-h-[700px] object-cover"
                 style={{ width: '100%', height: 'auto' }}
               />
               {/* Градиентный затемнитель */}
@@ -144,8 +144,11 @@ export default function Banner({ locale, data }: BannerProps) {
             ref={prevRef}
             className="absolute mdx:right-[100px] 3xl:right-[15.5%] 4xl:right-[14.4%]  max-mdx:top-[45%] mdx:bottom-2 transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
-            <img
+            <Image
+              quality={100}
               src={arrowLeft.src}
+              width={70}
+              height={70}
               alt="Previous"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
@@ -154,7 +157,10 @@ export default function Banner({ locale, data }: BannerProps) {
             ref={nextRef}
             className="absolute mdx:right-5 3xl:right-[10.4%] mdx:bottom-2 max-mdx:top-[45%] max-mdx:left-[70px] transform z-10 mdx:mb-6 2xl:mb-14 cursor-pointer hidden xl:block"
           >
-            <img
+            <Image
+              quality={100}
+              width={70}
+              height={70}
               src={arrowRight.src}
               alt="Next"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
