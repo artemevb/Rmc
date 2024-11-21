@@ -13,20 +13,20 @@ import arrowRight from "@/public/svg/ArrowRightSlider.png";
 
 import defaultImage from "@/public/images/main_buildings/Slide-1-full.png";
 
-// Импортируем необходимые модули для построения URL изображений
+// Import necessary modules for image URLs
 import createImageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import { dataset, projectId } from '@/src/sanity/env'; // Убедитесь, что пути корректны
+import { dataset, projectId } from '@/src/sanity/env'; // Ensure paths are correct
 
-// https://www.sanity.io/docs/image-url
+// Initialize the image URL builder
 const builder = createImageUrlBuilder({ projectId, dataset });
 
 export const urlFor = (source: SanityImageSource): string => {
     return builder.image(source).width(1920).height(800).url() || defaultImage.src;
 };
 
-// Определение интерфейсов
+// Define interfaces
 interface LocalizedField {
     uz?: string;
     en?: string;
@@ -42,7 +42,7 @@ interface GalleryImage {
 interface BannerData {
     subtitle_main?: LocalizedField;
     desc_main?: LocalizedField;
-    gallery?: GalleryImage[];
+    gallery_2?: GalleryImage[]; // Updated to use gallery_2
 }
 
 interface BannerProps {
@@ -57,8 +57,9 @@ export default function Banner({ locale, data }: BannerProps) {
     const [slides, setSlides] = useState<{ imageSrc: string; title: string }[]>([]);
 
     useEffect(() => {
-        if (data?.gallery && Array.isArray(data.gallery)) {
-            const mappedSlides = data.gallery.map((image, index) => ({
+        // Updated to use data.gallery_2
+        if (data?.gallery_2 && Array.isArray(data.gallery_2)) {
+            const mappedSlides = data.gallery_2.map((image, index) => ({
                 imageSrc: urlFor(image.asset._ref),
                 title: `Slide ${index + 1}`
             }));
@@ -82,21 +83,21 @@ export default function Banner({ locale, data }: BannerProps) {
         }
     };
 
-    // Определение наличия текста
+    // Determine if text exists
     const subtitle = getLocalizedField(data?.subtitle_main);
     const description = getLocalizedField(data?.desc_main);
     const hasSubtitle = subtitle.trim().length > 0;
     const hasDescription = description.trim().length > 0;
     const hasText = hasSubtitle || hasDescription;
 
-    // Если нет данных или нет слайдов и текста, ничего не рендерим
+    // If no data or no slides and no text, render nothing
     if (!data || (slides.length === 0 && !hasText)) {
         return null;
     }
 
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            {/* Условное отображение текстового блока */}
+            {/* Conditionally render text block */}
             {hasText && (
                 <div className='xl:flex xl:justify-between xl:items-center'>
                     {hasSubtitle && (
@@ -121,7 +122,7 @@ export default function Banner({ locale, data }: BannerProps) {
                 </div>
             )}
 
-            {/* Условное отображение Swiper только если есть слайды */}
+            {/* Conditionally render Swiper only if slides exist */}
             {slides.length > 0 && (
                 <div className="relative mySwiper max-2xl:mx-[16px] mt-[40px] xl:mt-[60px]">
                     <Swiper
@@ -140,7 +141,7 @@ export default function Banner({ locale, data }: BannerProps) {
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
                                 <Image
-                                    src={slide.imageSrc || defaultImage.src} // Используем defaultImage, если imageSrc недоступен
+                                    src={slide.imageSrc || defaultImage.src} // Use defaultImage if imageSrc is unavailable
                                     quality={100}
                                     alt={`New buildings photo ${index + 1}`}
                                     layout="responsive"
@@ -152,7 +153,7 @@ export default function Banner({ locale, data }: BannerProps) {
                         ))}
                     </Swiper>
                     <div>
-                        {/* Отображение описания для мобильных устройств, если отсутствует подзаголовок */}
+                        {/* Description for mobile devices if subtitle is missing */}
                         {hasDescription && (
                             <div className='mt-[20px] text-[16px] mdx:text-[20px] max-w-[588px] xl:hidden'>
                                 {description.length > 310
@@ -161,7 +162,7 @@ export default function Banner({ locale, data }: BannerProps) {
                             </div>
                         )}
                         <div className="flex gap-[8px] mt-[30px] mdx:mt-[40px] xl:absolute xl:top-[-150px] xl:right-[33.5%]">
-                            {/* Убедимся, что элементы навигации существуют перед их отображением */}
+                            {/* Ensure navigation elements exist before rendering */}
                             {arrowLeft && (
                                 <div
                                     ref={setPrevEl}
@@ -195,3 +196,4 @@ export default function Banner({ locale, data }: BannerProps) {
         </div>
     );
 }
+

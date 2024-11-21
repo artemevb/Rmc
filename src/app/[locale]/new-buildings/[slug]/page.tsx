@@ -108,16 +108,16 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
         <SliderInfo locale={locale} data={data} />
       </section>
       <section id="section2">
-        <GallerySlider data={data}/>
+        <GallerySlider data={data} />
       </section>
       <section id="section3">
         <Layouts locale={locale} complexSlug={slug} />
       </section>
       <section id="section4">
-        <Conditions locale={locale} complexSlug={slug}/>
+        <Conditions locale={locale} complexSlug={slug} />
       </section>
       <section id="section5">
-        <Infrastructure locale={locale} complexSlug={slug}/>
+        <Infrastructure locale={locale} complexSlug={slug} />
       </section>
       {/* <section id="section6">
         <ReviewsSlider />
