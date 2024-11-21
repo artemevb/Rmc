@@ -1,6 +1,4 @@
 import { client } from '../../../../sanity/lib/client';
-// import { GET_RESIDENTIAL_COMPLEXES } from '../../_components/NewBuildings/queries';
-// import { ResidentialComplex } from '../../_components/NewBuildings/types';
 import Banner from "@/src/app/[locale]/_components/Builing_page_main/Banner";
 import Schema from "@/src/app/[locale]/_components/InvestmentDubai/schema";
 import Counter from "@/src/app/[locale]/_components/Main/Counter";
@@ -10,7 +8,6 @@ import SliderInfo from '@/src/app/[locale]/_components/Builing_page_main/SliderI
 import GallerySlider from '@/src/app/[locale]/_components/Builing_page_main/GallerySlider'
 import Conditions from '@/src/app/[locale]/_components/Builing_page_main/Conditions'
 import Infrastructure from '@/src/app/[locale]/_components/Builing_page_main/Infrastructure'
-// import ReviewsSlider from "../../_components/Builing_page_main/ReviewsSlider";
 import NewsComp from "@/src/app/[locale]/_components/Builing_page_main/OtherBuildingsSlider";
 import Layouts from "../../_components/Builing_page_main/Layouts";
 import type { Locales } from "@/src/app/[locale]/layout";
@@ -30,61 +27,61 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
 
   const { slug } = params;
 
-  // Запрос для текущего жилого комплекса
+  // Запрос для текущего жилого комплекса с отключенным кэшированием
   const query = `*[_type == "residentialComplex" && slug.current == $slug][0]{
         _id,
-    mainImage{
-      asset->{
-        _id,
-        url
-      },
-      alt
-    },
-    alt,
-    subtitle,
-    price,
-    priceValue,
-    district->{
-      _id,
-      name_ru,
-      name_uz,
-      name_en
-    },
-    type->{
-      _id,
-      name_ru,
-      name_uz,
-      name_en
-    },
-    rooms->{
-      _id,
-      number_ru,
-      number_uz,
-      number_en
-    },
-    completionTime->{
-      _id,
-      term_ru,
-      term_uz,
-      term_en
-    },
-    slug,
-    gallery,
-    subtitle_main,
-    gallery_2,
-    desc_main,
-    gallery_3[]{
-          _type,
-          ...,
+        mainImage{
           asset->{
             _id,
             url
-          }
+          },
+          alt
+        },
+        alt,
+        subtitle,
+        price,
+        priceValue,
+        district->{
+          _id,
+          name_ru,
+          name_uz,
+          name_en
+        },
+        type->{
+          _id,
+          name_ru,
+          name_uz,
+          name_en
+        },
+        rooms->{
+          _id,
+          number_ru,
+          number_uz,
+          number_en
+        },
+        completionTime->{
+          _id,
+          term_ru,
+          term_uz,
+          term_en
+        },
+        slug,
+        gallery,
+        subtitle_main,
+        gallery_2,
+        desc_main,
+        gallery_3[]{
+              _type,
+              ...,
+              asset->{
+                _id,
+                url
+              }
         }
-      }`;
-  const data = await client.fetch(query, { slug });
+    }`;
+  const data = await client.fetch(query, { slug }, { cache: 'no-store' });
 
-  // Дополнительный запрос для других жилых комплексов(слайдер)
+  // Дополнительный запрос для других жилых комплексов (слайдер) с отключенным кэшированием
   const otherQuery = `*[_type == "residentialComplex" && slug.current != $slug]{
     _id,
     mainImage{
@@ -98,7 +95,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
     subtitle,
     slug
   }`;
-  const otherData = await client.fetch(otherQuery, { slug });
+  const otherData = await client.fetch(otherQuery, { slug }, { cache: 'no-store' });
 
   return (
     <div className="bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]">
@@ -119,9 +116,6 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
       <section id="section5">
         <Infrastructure locale={locale} complexSlug={slug} />
       </section>
-      {/* <section id="section6">
-        <ReviewsSlider />
-      </section> */}
       <Counter />
       <Schema />
       <Form />

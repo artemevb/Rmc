@@ -151,9 +151,10 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                                             <Image
                                                 src={complex.mainImage.asset.url}
                                                 alt={complex.mainImage.alt?.[locale as keyof typeof complex.mainImage.alt] || complex.subtitle?.[locale as keyof typeof complex.subtitle] || "Изображение отсутствует"}
-                                                className="object-cover w-full h-full"
-                                                width={467}
-                                                height={600}
+                                                className="object-cover w-full h-full min-h-[400px] mdx:min-h-[500px] xl:min-h-[600px]"
+                                                width={1500}
+                                                height={1500}
+                                                quality={100}
                                                 priority={false}
                                             />
                                         ) : (

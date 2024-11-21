@@ -10,6 +10,7 @@ import sobha from "@/public/images/partners/sobha_realty.jpg";
 import p4 from "@/public/images/partners/partner-4.svg";
 import p5 from "@/public/images/partners/partner-5.png";
 import p6 from "@/public/images/partners/partner-6.png";
+import tiger from "@/public/images/partners/tiger.webp";
 import ArrowLeft from '@/public/svg/partners/ArrowLeftSlider.png';
 import ArrowRight from '@/public/svg/partners/ArrowRightSlider.png';
 import { StaticImageData } from 'next/image';
@@ -30,6 +31,7 @@ const PartnersComp: React.FC = () => {
     const partners: Partner[] = useMemo(() => [
         { id: 1, image: azizi, url: 'https://home.azizidevelopments.com/' },
         { id: 2, image: sobha, url: 'https://www.sobharealty.com/' },
+        { id: 3, image: tiger, url: 'https://www.tigergroup.ae/' },
         { id: 4, image: p4, url: 'https://www.emaar.com/' },
         { id: 5, image: p5, url: 'https://www.damacproperties.com/' },
         { id: 6, image: p6, url: 'https://danubeproperties.com/' },
