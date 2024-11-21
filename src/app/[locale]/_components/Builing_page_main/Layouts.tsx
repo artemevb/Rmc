@@ -7,6 +7,9 @@ import arrow from "@/public/svg/arrow-bottom-black.svg";
 import arrow_top from "@/public/svg/arrow-top-white.svg";
 import { useTranslations } from "next-intl";
 import { client } from "@/src/sanity/lib/client";
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
 interface LayoutProps {
     locale: 'ru' | 'uz' | 'en';
@@ -81,6 +84,16 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
 
     // Ref for filters container
     const filtersRef = useRef<HTMLDivElement>(null);
+
+    // States for Lightbox
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentImage, setCurrentImage] = useState<{ src: string; alt: string } | null>(null);
+
+    // Function to open Lightbox
+    const openLightbox = (image: { src: string; alt: string }) => {
+        setCurrentImage(image);
+        setLightboxOpen(true);
+    };
 
     // Fetch data from Sanity
     useEffect(() => {
@@ -528,7 +541,16 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             key={item._id}
                             className="group relative overflow-hidden border pb-[16px] px-[12px] w-full transition duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer hover:h-full hover:pb-[70px]"
                         >
-                            <div className="w-full h-[250px] relative">
+                            {/* Кликабельный контейнер изображения для открытия Lightbox */}
+                            <div
+                                className="w-full h-[250px] relative cursor-pointer"
+                                onClick={() =>
+                                    openLightbox({
+                                        src: item.image?.asset?.url || "/images/default-image.png",
+                                        alt: item.title[locale] || "Название планировки",
+                                    })
+                                }
+                            >
                                 <Image
                                     src={item.image?.asset?.url || "/images/default-image.png"}
                                     alt={item.title[locale] || "Название планировки"}
@@ -588,6 +610,17 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     ))}
                 </div>
             ) : null}
+
+            {/* Компонент Lightbox для изображений */}
+            {currentImage && (
+                <Lightbox
+                    open={lightboxOpen}
+                    close={() => setLightboxOpen(false)}
+                    slides={[currentImage]}
+                    index={0}
+                    plugins={[Zoom]}
+                />
+            )}
         </div>
     );
 }
