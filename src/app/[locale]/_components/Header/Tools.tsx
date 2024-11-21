@@ -1,5 +1,5 @@
 'use client';
-import { useState, ChangeEvent, useTransition } from "react";
+import { useState, useTransition, useEffect, useRef } from "react";
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import phoneIcon from "@/public/svg/tools/phone-icon.svg";
@@ -9,7 +9,7 @@ import Image from "next/image";
 import burgerMenu from "@/public/svg/tools/burger-menu.svg";
 // import Link from "next/link";
 import heartIcon from "@/public/svg/tools/heart-icon.svg";
-import { NavItem } from "./NavItem"; // Adjust the path as needed
+import { NavItem } from "./NavItem"; // Убедитесь, что путь корректен
 import axios from 'axios';
 
 interface NavigationProps {
@@ -23,33 +23,38 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleOpenMenu = () => {
     setMenu(true);
   };
 
   const handlePhoneClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault(); // Prevent default behavior temporarily
+    event.preventDefault(); // Предотвращаем стандартное поведение
 
     try {
-      // Send the API request using axios
+      // Отправляем API запрос с помощью axios
       await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=CALL');
 
-      // After successful API call, redirect to the phone number
+      // После успешного запроса перенаправляем на номер телефона
       window.location.href = 'tel:+998785558787';
     } catch (error) {
-      console.error('API call failed:', error);
-      // You can add error handling logic here if needed
+      console.error('API вызов не удался:', error);
+      // Можно добавить логику обработки ошибок здесь, если необходимо
     }
   };
-
 
   const handleCloseMenu = () => {
     setMenu(false);
   };
 
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const nextLocale = e.target.value;
+  const toggleDropdown = () => {
+    setDropdownOpen(prev => !prev);
+  };
+
+  const handleLanguageSelect = (nextLocale: string) => {
+    setDropdownOpen(false);
     startTransition(() => {
       const segments = pathname.split('/');
       if (['ru', 'uz', 'en'].includes(segments[1])) {
@@ -62,6 +67,20 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
     });
   };
 
+  // Закрытие выпадающего списка при клике вне его области
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="flex items-center gap-[12px]">
       <div className="h-full items-center flex gap-[8px] xl:gap-[12px]">
@@ -70,7 +89,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             src={searchIcon}
             height={100}
             width={100}
-            alt={`Tools Item SearchIcon`}
+            alt={`Иконка поиска`}
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
@@ -80,46 +99,72 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             src={heartIcon}
             height={100}
             width={100}
-            alt={`Tools Item HeartIcon : Favorites`}
+            alt={`Иконка избранного`}
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
         {/* </Link> */}
         <a
           href="tel:+998785558787"
-          onClick={handlePhoneClick} // Add onClick handler here
+          onClick={handlePhoneClick} // Добавляем обработчик клика
           className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
         >
           <Image
             src={phoneIcon}
             height={100}
             width={100}
-            alt={`Tools Item PhoneIcon`}
+            alt={`Иконка телефона`}
             className="w-7 h-7 max-mdx:w-3 max-mdx:h-3"
           />
         </a>
-        <label className='items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full xl:flex hidden '>
-          <span className='sr-only'>Change language</span>
-          <select
-            defaultValue={localActive}
-            className='bg-transparent appearance-none w-auto'
-            onChange={onSelectChange}
-            disabled={isPending}
+        <div className='relative'>
+          <button
+            onClick={toggleDropdown}
+            className='flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full xl:flex hidden '
           >
-            <option value='en'>En</option>
-            <option value='ru'>Ru</option>
-            {/* <option value='uz'>O`z</option> */}
-          </select>
-          <svg
-            className="w-4 h-4 "
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </label>
+            <span className='sr-only'>Сменить язык</span>
+            {localActive.toUpperCase()}
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          {dropdownOpen && (
+            <div ref={dropdownRef} className="absolute right-4 w-[50px] bg-white border border-neutral-300 rounded-md shadow-lg z-10">
+              <ul className="py-1">
+                <li>
+                  <button
+                    onClick={() => handleLanguageSelect('en')}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    En
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleLanguageSelect('ru')}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    Ru
+                  </button>
+                </li>
+                {/* <li>
+                  <button
+                    onClick={() => handleLanguageSelect('uz')}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    O`z
+                  </button>
+                </li> */}
+              </ul>
+            </div>
+          )}
+        </div>
         <button
           onClick={handleOpenMenu}
           className="bg-[#333333] max-mdx:px-3 max-mdx:py-3 px-4 py-4 rounded-full 2xl:hidden"
@@ -128,12 +173,12 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             src={burgerMenu}
             height={100}
             width={100}
-            alt={`Tools Item Burger Menu`}
+            alt={`Иконка бургер-меню`}
             className="w-6 h-6 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
 
-        {/* Render Menu Component */}
+        {/* Рендер компонента Menu */}
         {menu && (
           <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} locale={locale} />
         )}

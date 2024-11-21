@@ -41,36 +41,50 @@ interface LayoutItem {
     };
 }
 
+// Utility function to extract numeric value from price string
+function extractNumericValue(priceString: string): number {
+    // Remove all non-numeric characters except dots and commas
+    let numericString = priceString.replace(/[^\d.,]/g, '').replace(/\s/g, '');
+    // Handle both dot and comma as decimal separators
+    if (numericString.indexOf('.') !== -1 && numericString.indexOf(',') !== -1) {
+        numericString = numericString.replace(',', '');
+    } else if (numericString.indexOf(',') !== -1) {
+        numericString = numericString.replace(',', '.');
+    }
+    const numericValue = parseFloat(numericString);
+    return numericValue;
+}
+
 export default function Layout({ locale, complexSlug }: LayoutProps) {
     const t = useTranslations("Building_page_main.Layout");
 
-    // Состояния для фильтров
+    // States for filters
     const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
     const [selectedRooms, setSelectedRooms] = useState<number | null>(null);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 0]);
     const [inputMin, setInputMin] = useState<number>(0);
     const [inputMax, setInputMax] = useState<number>(0);
 
-    // Состояния для управления открытием выпадающих списков
+    // States for dropdowns
     const [isFloorDropdownOpen, setIsFloorDropdownOpen] = useState(false);
     const [isRoomsDropdownOpen, setIsRoomsDropdownOpen] = useState(false);
     const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
 
-    // Состояния для данных и загрузки
+    // States for data and loading
     const [layouts, setLayouts] = useState<LayoutItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null);
 
-    // Состояния для динамических минимальной и максимальной цены
+    // States for dynamic min and max prices
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(0);
 
-    // Реф для контейнера фильтров
+    // Ref for filters container
     const filtersRef = useRef<HTMLDivElement>(null);
 
-    // Получение данных из Sanity при монтировании компонента или изменении complexSlug
+    // Fetch data from Sanity
     useEffect(() => {
-        if (!complexSlug) return; // Ждём, пока slug будет доступен
+        if (!complexSlug) return;
 
         const fetchData = async () => {
             setLoading(true);
@@ -107,7 +121,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
 
                 if (data.length > 0) {
                     const prices = data
-                        .map(item => Number(item.price))
+                        .map(item => extractNumericValue(item.price))
                         .filter(price => !isNaN(price) && price > 0);
 
                     if (prices.length === 0) {
@@ -144,24 +158,25 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         fetchData();
     }, [complexSlug]);
 
-    // Получение уникальных значений этажей и количества комнат для фильтров
+    // Get unique floors and rooms for filters
     const floors = [
         ...new Set(layouts.map((item) => item.floor?.floor).filter((floor): floor is number => floor !== undefined))
     ].sort((a, b) => a - b);
-    
+
     const rooms = [
         ...new Set(layouts.map((item) => item.rooms?.rooms).filter((rooms): rooms is number => rooms !== undefined))
     ].sort((a, b) => a - b);
 
-    // Фильтрация данных на основе выбранных фильтров
+    // Filtered layouts based on selected filters
     const filteredLayouts = layouts.filter((item) => {
         const floorMatch = !selectedFloor || item.floor?.floor === selectedFloor;
         const roomsMatch = !selectedRooms || item.rooms?.rooms === selectedRooms;
-        const priceMatch = Number(item.price) >= priceRange[0] && Number(item.price) <= priceRange[1];
+        const itemPriceNumeric = extractNumericValue(item.price);
+        const priceMatch = itemPriceNumeric >= priceRange[0] && itemPriceNumeric <= priceRange[1];
         return floorMatch && roomsMatch && priceMatch;
     });
 
-    // Функция для сброса всех фильтров
+    // Reset all filters
     const resetFilters = () => {
         setSelectedFloor(null);
         setSelectedRooms(null);
@@ -170,14 +185,14 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         setInputMax(maxPrice);
     };
 
-    // Условие для показа кнопки "Сбросить всё"
+    // Check if any filter is active
     const isFilterActive =
         selectedFloor !== null ||
         selectedRooms !== null ||
         priceRange[0] !== minPrice ||
         priceRange[1] !== maxPrice;
 
-    // Обработчики изменения значений в полях ввода
+    // Handle input changes
     const handleMinInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.target.value);
         setInputMin(value);
@@ -194,21 +209,18 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         }
     };
 
-    // Обработчик кликов вне фильтров
+    // Handle clicks outside filters
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (filtersRef.current && !filtersRef.current.contains(event.target as Node)) {
-                // Закрываем все выпадающие списки
                 setIsFloorDropdownOpen(false);
                 setIsRoomsDropdownOpen(false);
                 setIsPriceDropdownOpen(false);
             }
         };
 
-        // Добавляем обработчик кликов
         document.addEventListener("mousedown", handleClickOutside);
 
-        // Убираем обработчик при размонтировании
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
@@ -218,7 +230,6 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         return <div>Загрузка...</div>;
     }
 
-    // Если произошла ошибка или нет данных, не отображаем компонент
     if (error || layouts.length === 0) {
         return null;
     }
@@ -230,17 +241,16 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
             </h3>
             <div
                 className="w-full flex flex-col mdx:flex-row gap-[8px] mt-[20px] mdx:mt-[40px] xl:mt-[50px] text-[16px] mdx:text-[20px] relative"
-                ref={filtersRef} // Присваиваем реф контейнеру фильтров
+                ref={filtersRef}
             >
                 <div className="flex flex-row w-full gap-[8px] mdl:max-w-[277px]">
-                    {/* Фильтр по этажам */}
+                    {/* Floor Filter */}
                     <div className="relative w-full max-w-[133px]">
                         <button
-                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
-                                isFloorDropdownOpen
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isFloorDropdownOpen
                                     ? "bg-corporate text-white"
                                     : "bg-[#EDF3F5]"
-                            }`}
+                                }`}
                             onClick={() => {
                                 setIsFloorDropdownOpen(!isFloorDropdownOpen);
                                 setIsRoomsDropdownOpen(false);
@@ -271,11 +281,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         {isFloorDropdownOpen && (
                             <ul className="absolute z-10 bg-white border w-[150px] mdx:w-[170px] mt-1 max-h-60 overflow-auto">
                                 <li
-                                    className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${
-                                        !selectedFloor
+                                    className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${!selectedFloor
                                             ? "bg-[#FCE8E9] text-corporate"
                                             : ""
-                                    }`}
+                                        }`}
                                     onClick={() => {
                                         setSelectedFloor(null);
                                         setIsFloorDropdownOpen(false);
@@ -286,11 +295,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                 {floors.map((floor, index) => (
                                     <li
                                         key={index}
-                                        className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${
-                                            selectedFloor === floor
+                                        className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${selectedFloor === floor
                                                 ? "bg-[#FCE8E9] text-corporate "
                                                 : ""
-                                        }`}
+                                            }`}
                                         onClick={() => {
                                             setSelectedFloor(floor);
                                             setIsFloorDropdownOpen(false);
@@ -303,14 +311,13 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         )}
                     </div>
 
-                    {/* Фильтр по цене */}
+                    {/* Price Filter */}
                     <div className="relative w-full max-w-[137px]">
                         <button
-                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
-                                isPriceDropdownOpen
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isPriceDropdownOpen
                                     ? "bg-corporate text-white"
                                     : "bg-[#EDF3F5]"
-                            }`}
+                                }`}
                             onClick={() => {
                                 setIsPriceDropdownOpen(!isPriceDropdownOpen);
                                 setIsFloorDropdownOpen(false);
@@ -342,10 +349,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <div className="absolute z-10 bg-white border mt-1 p-4 w-[260px] right-[0] mdx:right-auto mdx:w-[300px] slg:w-[395px]">
                                 {minPrice < maxPrice ? (
                                     <>
-                                        {/* Поля ввода "От" и "До" */}
+                                        {/* Price Inputs */}
                                         <div className="flex justify-between text-[12px] mdx:text-[16px] mb-2">
                                             <div className="text-[#858585]">
-                                                <label htmlFor="minPrice">От {t("from")}($)</label>
+                                                <label htmlFor="minPrice">{t("from")}</label>
                                                 <input
                                                     type="number"
                                                     id="minPrice"
@@ -357,7 +364,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                                 />
                                             </div>
                                             <div className="text-[#858585]">
-                                                <label htmlFor="maxPrice">До {t("to")} ($)</label>
+                                                <label htmlFor="maxPrice">{t("to")}</label>
                                                 <input
                                                     type="number"
                                                     id="maxPrice"
@@ -369,7 +376,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                                 />
                                             </div>
                                         </div>
-                                        {/* Ползунок для диапазона цен */}
+                                        {/* Price Range Slider */}
                                         <Range
                                             step={10000}
                                             min={minPrice}
@@ -414,17 +421,17 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                                 />
                                             )}
                                         />
-                                        {/* Добавление минимальной и максимальной цены под ползунком */}
+                                        {/* Min and Max Prices */}
                                         <div className="flex justify-between text-[16px] mt-2 text-[#858585]">
                                             <span>{priceRange[0].toLocaleString()}</span>
                                             <span>{priceRange[1].toLocaleString()}</span>
                                         </div>
                                     </>
                                 ) : (
-                                    // Если minPrice === maxPrice, отображаем фиксированную цену
+                                    // Fixed Price
                                     <div className="flex flex-col items-center">
                                         <p className="text-center text-[16px] font-medium">
-                                            {t("price")}: ${minPrice.toLocaleString()}
+                                            {t("price")}: {minPrice.toLocaleString()}
                                         </p>
                                     </div>
                                 )}
@@ -433,14 +440,13 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     </div>
                 </div>
 
-                {/* Фильтр по количеству комнат */}
+                {/* Rooms Filter */}
                 <div className="relative w-full max-w-[195px] mdx:max-w-[254px]">
                     <button
-                        className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${
-                            isRoomsDropdownOpen
+                        className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isRoomsDropdownOpen
                                 ? "bg-corporate text-white"
                                 : "bg-[#EDF3F5]"
-                        }`}
+                            }`}
                         onClick={() => {
                             setIsRoomsDropdownOpen(!isRoomsDropdownOpen);
                             setIsFloorDropdownOpen(false);
@@ -471,11 +477,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     {isRoomsDropdownOpen && (
                         <ul className="absolute z-10 bg-white border w-full mt-1 max-h-60 overflow-auto">
                             <li
-                                className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${
-                                    !selectedRooms
+                                className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${!selectedRooms
                                         ? "bg-[#FCE8E9] text-corporate"
                                         : ""
-                                }`}
+                                    }`}
                                 onClick={() => {
                                     setSelectedRooms(null);
                                     setIsRoomsDropdownOpen(false);
@@ -486,11 +491,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             {rooms.map((room, index) => (
                                 <li
                                     key={index}
-                                    className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${
-                                        selectedRooms === room
+                                    className={`px-4 py-2 cursor-pointer hover:bg-[#FCE8E9] ${selectedRooms === room
                                             ? "bg-[#FCE8E9] text-corporate"
                                             : ""
-                                    }`}
+                                        }`}
                                     onClick={() => {
                                         setSelectedRooms(room);
                                         setIsRoomsDropdownOpen(false);
@@ -503,7 +507,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     )}
                 </div>
 
-                {/* Кнопка "Сбросить всё", показывается если что-то выбрано */}
+                {/* Reset Filters Button */}
                 {isFilterActive && (
                     <div className="slg:ml-[10px] flex justify-end">
                         <button
@@ -516,7 +520,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                 )}
             </div>
 
-            {/* Проверка наличия отфильтрованных данных */}
+            {/* Display Filtered Layouts */}
             {filteredLayouts.length > 0 ? (
                 <div className="w-full grid grid-cols-1 mdx:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4 gap-[20px] mt-[33px]">
                     {filteredLayouts.map((item) => (
@@ -524,14 +528,13 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             key={item._id}
                             className="group relative overflow-hidden border pb-[16px] px-[12px] w-full transition duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer hover:h-full hover:pb-[70px]"
                         >
-                            <div className="w-full h-auto">
+                            <div className="w-full h-[250px] relative">
                                 <Image
                                     src={item.image?.asset?.url || "/images/default-image.png"}
                                     alt={item.title[locale] || "Название планировки"}
                                     quality={100}
-                                    className="object-cover w-full h-full max-h-[345px]"
-                                    width={500}
-                                    height={300}
+                                    className="object-cover"
+                                    fill
                                 />
                             </div>
                             <div className="w-full text-[#B3B3B3] text-[16px]">
@@ -557,7 +560,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                     </div>
                                 </div>
                                 <div className="py-[16px] xl:py-[20px] font-medium text-[20px] mdx:text-[25px] text-corporate">
-                                    <h3>${Number(item.price).toLocaleString()}</h3>
+                                    {/* Display price without dollar sign */}
+                                    <h3>{item.price}</h3>
                                 </div>
                             </div>
                             <div className="group-hover:px-[12px] xl:group-hover:px-[16px] group-hover:mb-[15px] xl:group-hover:mb-[25px] absolute bottom-0 w-full left-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[0ms] group-hover:duration-[300ms] ease-in-out">
@@ -573,7 +577,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         </div>
                     ))}
                 </div>
-            ) : null /* Удаляем отображение сообщения при отсутствии отфильтрованных данных */}
+            ) : null}
         </div>
     );
 }

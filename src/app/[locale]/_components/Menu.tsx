@@ -99,7 +99,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
                 >
                   <option value='en'>{t('menu.languages.en')}</option>
                   <option value='ru'>{t('menu.languages.ru')}</option>
-                  <option value='O`z'>{t('menu.languages.uz')}</option>
+                  {/* <option value='O`z'>{t('menu.languages.uz')}</option> */}
                 </select>
                 <svg
                   className="w-4 h-4 "
