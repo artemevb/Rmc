@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -14,20 +13,16 @@ import arrowRight from "@/public/svg/ArrowRightSlider.png";
 import defaultImage from "@/public/images/main_buildings/Slide-1-full.png";
 import createImageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { dataset, projectId } from '@/src/sanity/env'; // Убедитесь, что пути указаны правильно
+import { dataset, projectId } from '@/src/sanity/env'; // Ensure paths are correct
 
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-
-// Инициализация imageUrlBuilder
+// Initialize the image URL builder
 const builder = createImageUrlBuilder({ projectId, dataset });
 
 export const urlFor = (source: SanityImageSource): string => {
     return builder.image(source).width(1920).height(800).url() || defaultImage.src;
 };
 
-// Определение интерфейсов
+// Define interfaces
 interface LocalizedField {
     uz?: string;
     en?: string;
@@ -43,7 +38,7 @@ interface GalleryImage {
 interface BannerData {
     subtitle_main?: LocalizedField;
     desc_main?: LocalizedField;
-    gallery_2?: GalleryImage[]; // Обновлено для использования gallery_2
+    gallery_2?: GalleryImage[]; // Updated to use gallery_2
 }
 
 interface BannerProps {
@@ -57,29 +52,16 @@ export default function Banner({ locale, data }: BannerProps) {
     const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
     const [slides, setSlides] = useState<{ imageSrc: string; title: string }[]>([]);
 
-    // Состояния для Lightbox
-    const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [images, setImages] = useState<{ src: string; alt: string }[]>([]);
-
     useEffect(() => {
-        // Обновлено для использования data.gallery_2
+        // Updated to use data.gallery_2
         if (data?.gallery_2 && Array.isArray(data.gallery_2)) {
             const mappedSlides = data.gallery_2.map((image, index) => ({
-                imageSrc: urlFor(image.asset),
+                imageSrc: urlFor(image.asset._ref),
                 title: `Slide ${index + 1}`
             }));
             setSlides(mappedSlides);
-
-            // Подготовка изображений для Lightbox
-            const mappedImages = data.gallery_2.map((image, index) => ({
-                src: urlFor(image.asset),
-                alt: `New buildings photo ${index + 1}`
-            }));
-            setImages(mappedImages);
         } else {
             setSlides([]);
-            setImages([]);
         }
     }, [data]);
 
@@ -97,29 +79,23 @@ export default function Banner({ locale, data }: BannerProps) {
         }
     };
 
-    // Определение наличия текста
+    // Determine if text exists
     const subtitle = getLocalizedField(data?.subtitle_main);
     const description = getLocalizedField(data?.desc_main);
     const hasSubtitle = subtitle.trim().length > 0;
     const hasDescription = description.trim().length > 0;
     const hasText = hasSubtitle || hasDescription;
 
-    // Если нет данных или нет слайдов и текста, ничего не отображаем
-    if (!data || (slides.length === 0 && !hasText)) {
+    // If no data or no slides and no text, render nothing
+    if (!data || (!hasText && slides.length === 0)) {
         return null;
     }
 
-    // Функция для открытия Lightbox
-    const openLightbox = (index: number) => {
-        setCurrentIndex(index);
-        setLightboxOpen(true);
-    };
-
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            {/* Условный рендеринг блока с текстом */}
+            {/* Conditionally render text block */}
             {hasText && (
-                <div className='xl:flex xl:justify-between xl:items-center'>
+                <div className='xl:flex xl:justify-between '>
                     {hasSubtitle && (
                         <div className='max-2xl:mx-[16px] w-full max-w-[263px] mdx:max-w-[413px] xl:max-w-[593px]'>
                             <h1 className='text-[33px] mdx:text-[65px] xl:text-[78px] font-medium leading-[41px] mdx:leading-[70px] xl:leading-[90px]'>
@@ -142,7 +118,7 @@ export default function Banner({ locale, data }: BannerProps) {
                 </div>
             )}
 
-            {/* Условный рендеринг Swiper только если есть слайды */}
+            {/* Conditionally render Swiper only if slides exist */}
             {slides.length > 0 && (
                 <div className="relative mySwiper max-2xl:mx-[16px] mt-[40px] xl:mt-[60px]">
                     <Swiper
@@ -157,36 +133,25 @@ export default function Banner({ locale, data }: BannerProps) {
                         spaceBetween={30}
                         slidesPerView={1}
                         speed={1500}
-                        onSlideChange={() => { }}
                     >
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
-                                <div
-                                    className="w-full h-auto relative cursor-pointer"
-                                    onClick={() => openLightbox(index)}
-                                >
-                                    <Image
-                                        src={slide.imageSrc || defaultImage.src} // Используем defaultImage, если imageSrc недоступен
-                                        quality={100}
-                                        alt={`New buildings photo ${index + 1}`}
-                                        fill
-                                        className="w-full h-auto min-h-[250px] max-h-[500px] object-cover"
-                                    />
-                                </div>
+                                <Image
+                                    src={slide.imageSrc || defaultImage.src} // Use defaultImage if imageSrc is unavailable
+                                    quality={100}
+                                    alt={`New buildings photo ${index + 1}`}
+                                    layout="responsive"
+                                    width={3000}
+                                    height={500}
+                                    className="w-full h-auto min-h-[250px] max-h-[500px] object-cover"
+                                />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                     <div>
-                        {/* Описание для мобильных устройств, если отсутствует subtitle */}
-                        {hasDescription && (
-                            <div className='mt-[20px] text-[16px] mdx:text-[20px] max-w-[588px] xl:hidden'>
-                                {description.length > 310
-                                    ? `${description.substring(0, 310)}...`
-                                    : description}
-                            </div>
-                        )}
+                        {/* Navigation buttons */}
                         <div className="flex gap-[8px] mt-[30px] mdx:mt-[40px] xl:absolute xl:top-[-150px] xl:right-[33.5%]">
-                            {/* Убедитесь, что элементы навигации существуют перед их рендерингом */}
+                            {/* Ensure navigation elements exist before rendering */}
                             {arrowLeft && (
                                 <div
                                     ref={setPrevEl}
@@ -215,19 +180,17 @@ export default function Banner({ locale, data }: BannerProps) {
                             )}
                         </div>
                     </div>
+                </div>
+            )}
 
-                    {/* Компонент Lightbox для изображений */}
-                    <Lightbox
-                        open={lightboxOpen}
-                        close={() => setLightboxOpen(false)}
-                        slides={images}
-                        index={currentIndex}
-                        plugins={[Zoom]}
-                    />
+            {/* Always render mobile description if it exists, independent of slides */}
+            {hasDescription && (
+                <div className='mt-[20px] text-[16px] mdx:text-[20px] max-w-[588px] xl:hidden px-4'>
+                    {description.length > 310
+                        ? `${description.substring(0, 310)}...`
+                        : description}
                 </div>
             )}
         </div>
     );
 }
-
-

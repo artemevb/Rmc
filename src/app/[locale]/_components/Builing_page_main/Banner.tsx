@@ -87,7 +87,7 @@ export default function Banner({ locale, data }: BannerProps) {
   })) || []; // Provide a default value in case data.gallery is undefined
 
   return (
-    <div className="w-full h-auto flex flex-col mx-auto ">
+    <div className="w-full h-full  flex flex-col mx-auto ">
       <div className="relative mySwiper ">
         <Swiper
           modules={[Navigation, Autoplay]}
@@ -103,7 +103,7 @@ export default function Banner({ locale, data }: BannerProps) {
           speed={1500}
         >
           {slides.map((slide, index) => (
-            <SwiperSlide key={index} className="relative max-mdx:h-[200px]">
+            <SwiperSlide key={index} className="relative ">
               <img
                 src={slide.imageSrc || defaultImage.src}
                 alt={`Slide ${index + 1}`}
