@@ -114,7 +114,6 @@ export default function Banner({ locale, data }: BannerProps) {
                 </div>
             )}
 
-            {/* Conditionally render Swiper only if slides exist */}
             {slides.length > 0 && (
                 <div className="relative mySwiper max-2xl:mx-[16px] mt-[40px] xl:mt-[60px]">
                     <Swiper
@@ -179,7 +178,6 @@ export default function Banner({ locale, data }: BannerProps) {
                 </div>
             )}
 
-            {/* Always render mobile description if it exists, independent of slides */}
             {hasDescription && (
                 <div className='mt-[20px] text-[16px] mdx:text-[20px] max-w-[588px] xl:hidden px-4'>
                     {description.length > 310

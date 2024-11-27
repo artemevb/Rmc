@@ -1,6 +1,5 @@
 "use client";
 
-// Импорт необходимых модулей и компонентов
 import { useEffect, useState } from 'react';
 import NewCardMain from './PopularCardMain';
 import NewCardMainSmallCard from './PopularCardMainSmall2';
@@ -11,30 +10,27 @@ import { urlFor } from '../../../../sanity/lib/image';
 import { groq } from 'next-sanity';
 import PropTypes from 'prop-types';
 
-// Интерфейс для новостей
 interface NewsItem {
-    slug: string; // Локализованный slug (несмотря на название, фактически не локализован)
-    title: string; // Локализованный заголовок
+    slug: string; 
+    title: string;
     date: string;
     viewCounter: number;
     mainImage: {
         asset: {
             url: string;
         };
-    } | null; // Возможность отсутствия изображения
+    } | null;
 }
 
-// Интерфейс для пропсов компонента
 interface NewsCompProps {
     locale: string;
 }
 
 const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
-    const t = useTranslations('Blog'); // Локализация интерфейсных текстов
+    const t = useTranslations('Blog');
 
     const [visibleNews, setVisibleNews] = useState<NewsItem[]>([]);
 
-    // Функция для форматирования даты
     const formatDate = (dateString: string): string => {
         const date = new Date(dateString);
         const day = String(date.getDate()).padStart(2, '0');
@@ -43,7 +39,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         return `${day}.${month}.${year}`;
     };
 
-    // Fetch news data from Sanity
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -68,14 +63,13 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
             }
         };
         fetchData();
-    }, [locale]); // Добавили `locale` в зависимости, чтобы перезапрашивать данные при смене языка
+    }, [locale]);
 
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
             <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
                 {t("title-popular")}
             </h2>
-            {/* Grid Layout */}
             <div className='w-full h-full grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px] xl:max-h-[600px]'>
                 {/* Первый блок (популярная новость) */}
                 {visibleNews[0] && (
@@ -84,8 +78,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                             <NewCardMain
                                 subtitle={visibleNews[0].title}
                                 date={visibleNews[0].date}
-                                // Проверка на наличие mainImage
-                                imageSrc={visibleNews[0].mainImage ? urlFor(visibleNews[0].mainImage).url() : '/default-image.jpg'} // Замените на реальный путь к заглушке, если нужно
+                                imageSrc={visibleNews[0].mainImage ? urlFor(visibleNews[0].mainImage).url() : '/default-image.jpg'}
                                 views={visibleNews[0].viewCounter.toString()}
                             />
                         </Link>
@@ -98,7 +91,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                             <NewCardMainSmallCard
                                 subtitle={item.title}
                                 date={item.date}
-                                // Проверка на наличие mainImage
                                 imageSrc={item.mainImage ? urlFor(item.mainImage).url() : '/default-image.jpg'}
                                 views={item.viewCounter.toString()}
                             />
@@ -112,7 +104,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
 export default NewsComp;
 
-// Определение PropTypes для компонента (опционально, если используете PropTypes)
 NewsComp.propTypes = {
     locale: PropTypes.oneOf(['ru', 'uz', 'en']).isRequired,
 };

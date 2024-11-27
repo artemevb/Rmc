@@ -4,7 +4,6 @@ import '@/src/app/[locale]/_styles/globals.css';
 import Head from 'next/head';
 import { ReactNode } from 'react';
 
-// Определение интерфейса для параметров маршрута
 interface LocaleLayoutProps {
   children: ReactNode;
   params: {
@@ -12,8 +11,8 @@ interface LocaleLayoutProps {
   };
 }
 
-// Определение доступных локалей
-const supportedLocales = ['ru', 'uz', 'en'] as const;
+// const supportedLocales = ['ru', 'uz', 'en'] as const;
+const supportedLocales = ['ru', 'en'] as const;
 type SupportedLocale = typeof supportedLocales[number];
 
 // Переводы для метаданных
@@ -47,21 +46,21 @@ const translations: Record<SupportedLocale, {
     },
     structuredDataDescription: 'RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.',
   },
-  uz: {
-    title: 'RMC De Luxe – BAA-da mulkni baholash, ijaraga berish va sotish',
-    description: 'RMC De Luxe tomonidan BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar. Jismoniy va korporativ mijozlar uchun ishonchli hamkor.',
-    keywords: 'rieltorlik agentligi, Toshkent ko\'chmas mulk, ko\'chmas mulkni ijaraga berish, sotish, baholash, RMC De Luxe, BAA, BAA ko\'chmas mulk, elit ko\'chmas mulk',
-    openGraph: {
-      locale: 'uz_UZ',
-      title: 'RMC De Luxe – BAA-da mulkni baholash, ijaraga berish va sotish',
-      description: 'RMC De Luxe tomonidan BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar. Jismoniy va korporativ mijozlar uchun ishonchli hamkor.',
-    },
-    twitter: {
-      title: 'RMC De Luxe - BAAdagi Rieltorlik Agentligi',
-      description: 'BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar.',
-    },
-    structuredDataDescription: 'RMC De Luxe BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha xizmatlar ko\'rsatadi. Jismoniy va korporativ mijozlar uchun professional yondashuv.',
-  },
+  // uz: {
+  //   title: 'RMC De Luxe – BAA-da mulkni baholash, ijaraga berish va sotish',
+  //   description: 'RMC De Luxe tomonidan BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar. Jismoniy va korporativ mijozlar uchun ishonchli hamkor.',
+  //   keywords: 'rieltorlik agentligi, Toshkent ko\'chmas mulk, ko\'chmas mulkni ijaraga berish, sotish, baholash, RMC De Luxe, BAA, BAA ko\'chmas mulk, elit ko\'chmas mulk',
+  //   openGraph: {
+  //     locale: 'uz_UZ',
+  //     title: 'RMC De Luxe – BAA-da mulkni baholash, ijaraga berish va sotish',
+  //     description: 'RMC De Luxe tomonidan BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar. Jismoniy va korporativ mijozlar uchun ishonchli hamkor.',
+  //   },
+  //   twitter: {
+  //     title: 'RMC De Luxe - BAAdagi Rieltorlik Agentligi',
+  //     description: 'BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha professional xizmatlar.',
+  //   },
+  //   structuredDataDescription: 'RMC De Luxe BAA-da mulkni baholash, ijaraga berish va sotish bo\'yicha xizmatlar ko\'rsatadi. Jismoniy va korporativ mijozlar uchun professional yondashuv.',
+  // },
   en: {
     title: 'RMC De Luxe – Valuation, Rental, and Sale of Real Estate in UAE',
     description: 'Professional real estate valuation, rental, and sales services in UAE by RMC De Luxe. A reliable partner for individual and corporate clients.',
@@ -79,13 +78,11 @@ const translations: Record<SupportedLocale, {
   },
 };
 
-// Функция для получения переводов по локали
 const getTranslation = (locale: string): typeof translations['ru'] => {
   if (supportedLocales.includes(locale as SupportedLocale)) {
     return translations[locale as SupportedLocale];
   }
-  // По умолчанию английская локаль
-  return translations.en;
+  return translations.en; // По умолчанию английский язык
 };
 
 export const dynamic = 'force-dynamic';
@@ -97,8 +94,11 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   // Проверка корректности локали
   const currentLocale = supportedLocales.includes(locale as SupportedLocale) ? locale : 'en';
 
+  // Определяем домен в зависимости от локали
+  const domain = currentLocale === 'ru' || currentLocale === 'en' ? 'rmcestate.uz' : 'rmcdeluxe.com';
+
   // Каноническая ссылка
-  const canonicalUrl = currentLocale === 'en' ? 'https://rmcestate.uz/en' : `https://rmcestate.uz/${currentLocale}`;
+  const canonicalUrl = currentLocale === 'en' ? `https://${domain}/en` : `https://${domain}/${currentLocale}`;
 
   // Структурированные данные
   const structuredData = {
@@ -123,14 +123,10 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={currentLocale} className='p-0 m-0 h-full w-full'>
       <Head>
-        {/* Favicon */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-        {/* Hreflang ссылки */}
         <link rel="alternate" hrefLang="ru" href="https://rmcestate.uz/ru" />
-        <link rel="alternate" hrefLang="uz" href="https://rmcestate.uz/uz" />
         <link rel="alternate" hrefLang="en" href="https://rmcestate.uz/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://rmcestate.uz" />
+        <link rel="alternate" hrefLang="x-default" href={`https://${domain}`} />
 
         {/* Каноническая ссылка */}
         <link rel="canonical" href={canonicalUrl} />
@@ -138,14 +134,11 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         {/* Open Graph изображения */}
         <meta property="og:image" content="https://rmcestate.uz/og-image.jpg" />
         <meta name="twitter:image" content="https://rmcestate.uz/og-image.jpg" />
-
-        {/* Другие метатеги можно добавить здесь при необходимости */}
       </Head>
       <body className='h-full w-full p-0 m-0'>
         {children}
       </body>
       <Head>
-        {/* Структурированные данные (JSON-LD) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

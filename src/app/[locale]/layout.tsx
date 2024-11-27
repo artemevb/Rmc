@@ -70,10 +70,8 @@ export default async function RootLayout({
 
   unstable_setRequestLocale(locale);
 
-  // Получаем сообщения для текущей локали
   const messages = await getMessages({ locale });
 
-  // Структурированные данные в формате JSON-LD
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -101,14 +99,12 @@ export default async function RootLayout({
           {children}
           <Footer locale={locale} />
 
-          {/* Внедрение структурированных данных */}
           <Script
             id="structured-data"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
           />
 
-          {/* Динамическая загрузка Yandex Metrica после полной загрузки страницы */}
           <Script
             id="yandex-metrika"
             strategy="lazyOnload"
