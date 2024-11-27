@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import './_styles/globals.css';
@@ -50,13 +49,12 @@ export const metadata: Metadata = {
     canonical: 'https://rmcestate.uz',
     languages: {
       ru: '/ru',
-      uz: '/uz',
       en: '/en',
     },
   },
 };
 
-export type Locales = 'ru' | 'uz' | 'en';
+export type Locales = 'ru' | 'en' | 'uz'; 
 
 export default async function RootLayout({
   children,
@@ -66,17 +64,24 @@ export default async function RootLayout({
   params: { locale?: string };
 }>) {
   const locale: Locales =
-    params?.locale === 'uz' ? 'uz' : params?.locale === 'en' ? 'en' : 'ru';
+    params?.locale === 'en' ? 'en' : 'ru'; 
 
   unstable_setRequestLocale(locale);
 
   const messages = await getMessages({ locale });
 
+  // Определяем домен в зависимости от локали
+  const domain = locale === 'ru' || locale === 'en' ? 'rmcestate.uz' : 'rmcdeluxe.com';
+
+  // Каноническая ссылка
+  const canonicalUrl = locale === 'en' ? `https://${domain}/en` : `https://${domain}/${locale}`;
+
+  // Структурированные данные
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
-    "url": "https://rmcestate.uz",
+    "url": canonicalUrl,
     "description": "RMC De Luxe предоставляет услуги по оценке, аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов.",
     "address": {
       "@type": "PostalAddress",
@@ -109,15 +114,13 @@ export default async function RootLayout({
             id="yandex-metrika"
             strategy="lazyOnload"
             dangerouslySetInnerHTML={{
-              __html: `
-                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                m[i].l=1*new Date();
-                for (var j = 0; j < document.scripts.length; j++) {
-                  if (document.scripts[j].src === r) { return; }
-                }
-                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
+              __html: ` 
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; 
+                m[i].l=1*new Date(); 
+                for (var j = 0; j < document.scripts.length; j++) { 
+                  if (document.scripts[j].src === r) { return; } 
+                } 
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
                 ym(98684651, "init", {
                   clickmap: true,
                   trackLinks: true,
@@ -144,3 +147,4 @@ export default async function RootLayout({
     </html>
   );
 }
+
