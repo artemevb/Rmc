@@ -20,13 +20,13 @@ export default function Main({ locale }: NewsCompProps) {
   return (
     <div className=" bg-white flex flex-col gap-[90px] mdl:gap-[130px] xl:gap-[180px]">
       <ScrollToCounter />
-      <Banner locale={locale}/>
+      <Banner locale={locale} />
       <AboutUs />
       <Investition locale={locale} />
       <Service />
       <Consalting />
       <WhyUs />
-      <BuildingsSlider locale={locale as Locale}/>
+      <BuildingsSlider locale={locale as Locale} />
       <div id="counter">
         <Counter />
       </div>

@@ -10,7 +10,6 @@ import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 import RateForm from "@/src/app/[locale]/_components/Converter/RateForm";
 
-// Определяем типы ключей для кнопок
 type ButtonLabels = 'Купить' | 'Снять' | 'Продать' | 'Сдать' | 'Оценить';
 
 export default function Banner() {
@@ -25,7 +24,6 @@ export default function Banner() {
         Оценить: <RateForm />,
     };
 
-    // Список меток кнопок
     const buttonLabels: ButtonLabels[] = ["Купить", "Снять", "Продать", "Сдать", "Оценить"];
 
     return (

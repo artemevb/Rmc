@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-// Импортируйте только необходимые изображения
+
 import photo5 from "@/public/images/main/main_small_slider.jpg";
 import photo6 from "@/public/images/main/main_small_slider-2.jpg";
 import photo7 from "@/public/images/main/main_small_slider-3.jpg";
@@ -51,7 +51,6 @@ export default function Banner() {
         nextEl: null,
     });
 
-    // Установка навигационных элементов после монтирования компонента
     useEffect(() => {
         setNavigation({
             prevEl: prevRef.current,
@@ -93,7 +92,7 @@ export default function Banner() {
                         modules={[Navigation, Autoplay]}
                         navigation={navigation}
                         autoplay={{
-                            delay: 5500, // 5.5 секунд
+                            delay: 5500,
                             disableOnInteraction: false,
                         }}
                         loop={true}
@@ -110,17 +109,14 @@ export default function Banner() {
                             }
                         }}
                         breakpoints={{
-                            // Настройки для мобильных устройств
                             0: {
                                 slidesPerView: 1,
                                 spaceBetween: 10,
                             },
-                            // Настройки для планшетов
                             768: {
                                 slidesPerView: 1,
                                 spaceBetween: 20,
                             },
-                            // Настройки для десктопов
                             1024: {
                                 slidesPerView: 1,
                                 spaceBetween: 30,

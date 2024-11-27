@@ -16,16 +16,16 @@ export default function NotFound() {
         backgroundImage: `url(/images/errors/404.png)`,
       }}
     >
-      <div className="absolute top-0 left-[35%] xl:left-0 w-[142px] xl:w-[175px] mt-6 xl:ml-[48px] 4xl:ml-[214px]">
-        <div className="w-full h-full max-h-[60px] max-w-[175px]">
+      <div className="absolute top-0 left-[28%] xl:left-0 w mt-6 xl:ml-[48px] 4xl:ml-[214px]">
+        <div className="w-full h-auto ">
           <Image
-            src="/images/errors/Logo.png"
+            src="/images/errors/rmclogo.png"
             alt="RMC De Luxe Logo"
-            width={178}
-            height={60}
+            width={400}
+            height={400}
             quality={100}
             objectFit="cover"
-            className="w-[142px] mdx:w-[178px] h-[48px] mdx:h-[60px]"
+            className="w-[185px] h-[50px]"
             priority
           />
         </div>

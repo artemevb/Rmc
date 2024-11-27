@@ -517,5 +517,86 @@
     "title": "Voy...",
     "description": "Sahifa topilmadi",
     "backHome": "Bosh sahifaga qaytish"
+  },
+  "CookieConsent": {
+    "title": "Biz ushbu veb-saytni yaxshiroq qilish uchun cookie-fayllardan foydalanamiz. Saytdan foydalanishni davom ettirib, bizning shartlarimizga rozilik bildirasiz.",
+    "send": "Qabul qilish Cookies"
+  },
+  "CookieConsent_page": {
+    "title": "Cookie Siyosati",
+    "intro": "Ushbu Cookie Siyosati veb-saytida cookie-fayllarining qoʻllanilishini bayon etadi. Bizning veb-saytimizdan foydalanish orqali siz ushbu siyosatda tavsiflangan cookie-fayllaridan foydalanishga rozilik bildirgan bo'lasiz.",
+    "sections": {
+      "section1": {
+        "title": "1. Cookie-fayllar nima?",
+        "text": "Cookie-fayllar foydalanuvchining kompyuterida saqlanadigan kichik fayllardir va ma'lum bir veb-sayt bilan bog'liq ma'lumotlarni o'z ichiga oladi. Ushbu fayllar veb-sayt tomonidan foydalanuvchining kompyuteriga joylashtiriladi va foydalanuvchi saytni har safar ko‘rib chiqqanda ularga kiriladi. Cookie-fayllar veb-saytlarning samarali ishlashini ta'minlash va veb-sayt egalari uchun ma'lumot taqdim etish maqsadida keng qo'llaniladi. Biz tomonidan ishlatiladigan cookie-fayllar zararli emas."
+      },
+      "section2": {
+        "title": "2. Danube Properties cookie-fayllarini qachon va nima uchun ishlatadi?",
+        "text": "Biz saytlarimizga tashrif buyurayotgan har qanday brauzerga cookie-fayllarini joylashtiramiz. Bu sizga veb-saytimizni ko‘rib chiqishda yaxshi tajriba taqdim etishga yordam beradi va saytimizni yaxshilashga imkon beradi. [Saytni ko‘rib chiqishda davom etish orqali siz cookie-fayllarimizdan foydalanishga rozi bo‘lasiz.] Cookie-fayllar saytning qaysi qismlarining ishlatilayotganini, foydalanuvchi navigatsiyasini va afzal ko‘rilgan o‘zaro aloqalarni tushunishga yordam beradi. Ushbu siyosat biz tomonidan ishlatiladigan cookie-fayllarni bayon etadi va siz tanlasangiz, ularni o'chirish imkoniyatini taqdim etadi."
+      },
+      "section3": {
+        "title": "3. Biz Cookie-fayllardan qanday foydalanamiz",
+        "items": {
+          "essential": {
+            "title": "Muhim Cookie-fayllar:",
+            "description": "Veb-saytning to‘g‘ri ishlashi uchun zarur."
+          },
+          "analytical": {
+            "title": "Analitik/Performans Cookie-fayllar:",
+            "description": "Tashrif buyuruvchilar veb-sayt bilan qanday o‘zaro aloqada ekanligini tushunishga yordam beradi, bu esa uning performansini yaxshilashga imkon beradi."
+          },
+          "functionality": {
+            "title": "Funktsional Cookie-fayllar:",
+            "description": "Foydalanuvchi tajribasini yaxshilash uchun afzalliklarni eslab qoladi."
+          }
+        }
+      },
+      "section4": {
+        "title": "4. Ishlatilayotgan Cookie-fayllar turlari",
+        "items": {
+          "browserSettings": {
+            "title": "Brauzer Sozlamalari:",
+            "description": "Cookie-fayllarni qabul qilish yoki rad etishni brauzer sozlamalari orqali tanlashingiz mumkin. Ko‘rsatmalar uchun brauzeringizning yordam menyusiga murojaat qiling."
+          }
+        }
+      },
+      "section5": {
+        "title": "5. Cookie-fayllar bilan bog‘liq tanlovlaringiz",
+        "items": {
+          "thirdParty": {
+            "title": "Uchinchi Tomon Cookie-fayllar:",
+            "description": "Biz uchinchi tomon xizmatlaridan foydalanishimiz mumkin, ular sizning qurilmangizga cookie-fayllarni joylashtirishi mumkin. Uchinchi tomon Cookie-fayllari o'z provayderlarining tegishli maxfiylik siyosatiga bo'ysunadi."
+          },
+          "session": {
+            "title": "Sessiya Cookie-fayllar:",
+            "description": "Brauzeringizni yopinganda o‘chirib tashlanadigan vaqtinchalik Cookie-fayllar."
+          },
+          "persistent": {
+            "title": "Doimiy Cookie-fayllar:",
+            "description": "Belgilangan muddat davomida yoki qo‘lda o‘chirilguncha qurilmangizda qoladi."
+          },
+          "doubleClick": {
+            "title": "DoubleClick Cookie-fayllar:",
+            "description": "Google’s DoubleClick reklama serveri orqali reklama berishda Cookie-fayllardan foydalanishimiz mumkin. Ushbu cookie-fayllar brauzer tarixi asosida foydalanuvchi qiziqishlariga moslashtirilgan reklama taqdim etadi, bu esa ‘qiziqishlarga asoslangan maqsadli reklama’ni ta'minlaydi."
+          },
+          "advertising": {
+            "title": "Reklama uchun Cookie-fayllar:",
+            "description": "Cookie-fayllar va reklama texnologiyalari bizga tegishli reklamalarni samarali tarzda taqdim etishga yordam beradi. Ular shuningdek, reklama beruvchilar uchun umumlashtirilgan auditing, tadqiqot va hisobotlarni taqdim etishda yordam beradi."
+          }
+        }
+      },
+      "section6": {
+        "title": "6. Mahalliy Saqlash",
+        "text": "Cookie-fayllardan tashqari, mahalliy saqlash qurilmangizda ma'lumotlarni saqlash uchun kichik bir qismini ishlatadi, bu esa ilgari bajarilgan harakatlarni doimiy ravishda eslab qolish orqali sayt safaringizni yaxshilaydi."
+      },
+      "section7": {
+        "title": "7. Ushbu Siyosatdagi O‘zgarishlar",
+        "text": "Biz ushbu Cookie Siyosatini yangilash huquqiga egamiz. O‘zgarishlar veb-saytda e'lon qilinganda kuchga kiradi."
+      },
+      "section8": {
+        "title": "8. Biz bilan Bog‘laning:",
+        "text": "Ushbu Cookie Siyosati bilan bog‘liq har qanday savollar uchun biz bilan bog‘laning"
+      }
+    }
   }
 }

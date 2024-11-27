@@ -61,7 +61,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
             height={20} // Adjusted to match the className width
             quality={100}
             alt="Green Arrow"
-            className="w-[25px] h-[25px]" // Ensure height matches for consistent sizing
+            className="w-[25px] h-[25px]" 
           />
         </div>
       </div>

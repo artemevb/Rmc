@@ -517,5 +517,86 @@
     "title": "Oops...",
     "description": "Page not found",
     "backHome": "Back to home"
+  },
+  "CookieConsent": {
+    "title": "We have placed cookies on your device to help make this website better. By continuing, you agree to our",
+    "send": "Accept Cookies"
+  },
+  "CookieConsent_page": {
+    "title": "Cookie Policy",
+    "intro": "This Cookie Policy describes the use of cookies on this website. By using our website, you agree to the use of cookies as described in this policy.",
+    "sections": {
+      "section1": {
+        "title": "1. What are Cookies?",
+        "text": "Cookies are small files stored on a user’s computer that contain data related to a specific website. These files are placed on the user’s computer by the website and accessed each time the user browses it. Cookies are widely used to make websites work efficiently and provide information to website owners. Cookies used by us are harmless."
+      },
+      "section2": {
+        "title": "2. When and why does Danube Properties use Cookies?",
+        "text": "We place Cookies on any browser visiting our sites. This helps us to provide you with a good experience when you browse our website and allows us to improve our site. [By continuing to browse the site, you are agreeing to our use of cookies.] Cookies help us understand which parts of the site are being used, user navigation, and preferred interactions. This Policy outlines the Cookies used by us, providing you with the option to opt-out if you choose."
+      },
+      "section3": {
+        "title": "3. How We Use Cookies",
+        "items": {
+          "essential": {
+            "title": "Essential Cookies:",
+            "description": "Necessary for the website to function properly."
+          },
+          "analytical": {
+            "title": "Analytical/Performance Cookies:",
+            "description": "Help us understand how visitors interact with the website, enabling us to improve its performance."
+          },
+          "functionality": {
+            "title": "Functionality Cookies:",
+            "description": "Enhance user experience by remembering preferences."
+          }
+        }
+      },
+      "section4": {
+        "title": "4. Types of Cookies Used",
+        "items": {
+          "browserSettings": {
+            "title": "Browser Settings:",
+            "description": "You can choose to accept or decline Cookies through your browser settings. Refer to your browser’s help menu for instructions."
+          }
+        }
+      },
+      "section5": {
+        "title": "5. Your Choices Regarding Cookies",
+        "items": {
+          "thirdParty": {
+            "title": "Third-Party Cookies:",
+            "description": "We may use third-party services that may place Cookies on your device. Third-party Cookies are subject to the respective privacy policies of their providers."
+          },
+          "session": {
+            "title": "Session Cookies:",
+            "description": "Temporary Cookies that are deleted when you close your browser."
+          },
+          "persistent": {
+            "title": "Persistent Cookies:",
+            "description": "Remain on your device for a set period or until manually deleted."
+          },
+          "doubleClick": {
+            "title": "DoubleClick Cookies:",
+            "description": "We may use Cookies for ad serving via Google’s DoubleClick ad server. These cookies serve ads tailored to user interests based on browsing history, ensuring ‘interest-based targeting.’"
+          },
+          "advertising": {
+            "title": "Cookies for Advertising:",
+            "description": "Cookies and ad technologies help us serve relevant ads effectively. They also aid in providing aggregated auditing, research, and reporting for advertisers."
+          }
+        }
+      },
+      "section6": {
+        "title": "6. Local Storage",
+        "text": "Apart from Cookies, local storage uses a small portion of your machine to store information, enhancing your site journey by remembering previous actions persistently."
+      },
+      "section7": {
+        "title": "7. Changes to this Policy",
+        "text": "We reserve the right to update this Cookie Policy. Changes are effective when posted on the website."
+      },
+      "section8": {
+        "title": "8. Contact Us:",
+        "text": "For any questions regarding this Cookie Policy, contact us at"
+      }
+    }
   }
 }

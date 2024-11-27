@@ -13,16 +13,14 @@ import arrowRight from "@/public/svg/ArrowRightSlider.png";
 import defaultImage from "@/public/images/main_buildings/Slide-1-full.png";
 import createImageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { dataset, projectId } from '@/src/sanity/env'; // Ensure paths are correct
+import { dataset, projectId } from '@/src/sanity/env';
 
-// Initialize the image URL builder
 const builder = createImageUrlBuilder({ projectId, dataset });
 
 export const urlFor = (source: SanityImageSource): string => {
     return builder.image(source).width(1920).height(800).url() || defaultImage.src;
 };
 
-// Define interfaces
 interface LocalizedField {
     uz?: string;
     en?: string;
@@ -38,7 +36,7 @@ interface GalleryImage {
 interface BannerData {
     subtitle_main?: LocalizedField;
     desc_main?: LocalizedField;
-    gallery_2?: GalleryImage[]; // Updated to use gallery_2
+    gallery_2?: GalleryImage[]; 
 }
 
 interface BannerProps {
@@ -53,7 +51,7 @@ export default function Banner({ locale, data }: BannerProps) {
     const [slides, setSlides] = useState<{ imageSrc: string; title: string }[]>([]);
 
     useEffect(() => {
-        // Updated to use data.gallery_2
+
         if (data?.gallery_2 && Array.isArray(data.gallery_2)) {
             const mappedSlides = data.gallery_2.map((image, index) => ({
                 imageSrc: urlFor(image.asset._ref),
@@ -79,21 +77,19 @@ export default function Banner({ locale, data }: BannerProps) {
         }
     };
 
-    // Determine if text exists
     const subtitle = getLocalizedField(data?.subtitle_main);
     const description = getLocalizedField(data?.desc_main);
     const hasSubtitle = subtitle.trim().length > 0;
     const hasDescription = description.trim().length > 0;
     const hasText = hasSubtitle || hasDescription;
 
-    // If no data or no slides and no text, render nothing
     if (!data || (!hasText && slides.length === 0)) {
         return null;
     }
 
     return (
         <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
-            {/* Conditionally render text block */}
+
             {hasText && (
                 <div className='xl:flex xl:justify-between '>
                     {hasSubtitle && (

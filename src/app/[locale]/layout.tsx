@@ -8,6 +8,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Script from 'next/script';
+import CookieConsent from "./_components/CookieConsent";
 
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
@@ -141,6 +142,7 @@ export default async function RootLayout({
               `,
             }}
           />
+          <CookieConsent locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
