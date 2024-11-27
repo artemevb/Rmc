@@ -36,7 +36,7 @@ interface GalleryImage {
 interface BannerData {
     subtitle_main?: LocalizedField;
     desc_main?: LocalizedField;
-    gallery_2?: GalleryImage[]; 
+    gallery_2?: GalleryImage[];
 }
 
 interface BannerProps {
@@ -133,7 +133,7 @@ export default function Banner({ locale, data }: BannerProps) {
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
                                 <Image
-                                    src={slide.imageSrc || defaultImage.src} // Use defaultImage if imageSrc is unavailable
+                                    src={slide.imageSrc || defaultImage.src}
                                     quality={100}
                                     alt={`New buildings photo ${index + 1}`}
                                     layout="responsive"
