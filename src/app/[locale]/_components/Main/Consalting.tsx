@@ -12,10 +12,8 @@ export default function Banner() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Function to open the modal
     const openModal = () => setIsModalOpen(true);
 
-    // Function to close the modal
     const closeModal = () => setIsModalOpen(false);
 
     const processText = (text: string) => {

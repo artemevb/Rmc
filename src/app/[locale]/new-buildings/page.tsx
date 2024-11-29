@@ -14,8 +14,8 @@ export default function InvestmentDubaiPage({ params }: InvestmentDubaiPageProps
         : params?.locale === 'en' ? 'en'
             : 'ru';
     return (
-        <div className=" bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px]">
-            <Main locale={locale}/>
+        <div className=" bg-white flex flex-col">
+            <Main locale={locale} />
             <Form />
         </div>
     );

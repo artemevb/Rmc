@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import AboutUs from "./AboutUs";
 import Investition from "./Investition";
+import PartnersSlider from "./SliderPartnersMain";
 import Consalting from "./Consalting";
 import Service from "./Service";
 import WhyUs from "./WhyUs";
@@ -22,6 +23,7 @@ export default function Main({ locale }: NewsCompProps) {
       <ScrollToCounter />
       <Banner locale={locale} />
       <AboutUs />
+      <PartnersSlider />
       <Investition locale={locale} />
       <Service />
       <Consalting />

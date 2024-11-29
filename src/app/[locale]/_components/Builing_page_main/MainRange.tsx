@@ -445,29 +445,26 @@ export default function Invest({ locale }: InvestProps) {
                     </button>
                     {openDropdown === 'price' && (
                         <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] p-4'>
-                            <div className='flex flex-row w-full'>
-                                <div className='flex flex-col w-full'>
-                                    <label className='text-[14px] mdx:text-[16px]'>{t('one')} ($)</label>
-                                    <input
-                                        type='number'
-                                        value={priceRange.min}
-                                        min={minPrice}
-                                        max={priceRange.max}
-                                        onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))} // изменяем min
-                                        className='border border-gray-300 p-2'
-                                    />
-                                </div>
-                                <div className='flex flex-col w-full'>
-                                    <label className='text-[14px] mdx:text-[16px]'>{t('two')} ($)</label>
-                                    <input
-                                        type='number'
-                                        value={priceRange.max}
-                                        min={priceRange.min}
-                                        max={maxPrice}
-                                        onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))} // изменяем max
-                                        className='border border-gray-300 p-2'
-                                    />
-                                </div>
+                            <div className='flex flex-col space-y-2'>
+                                <label className='text-[14px] mdx:text-[16px]'>{t('one')}:</label>
+                                <input
+    type='number'
+    value={priceRange.min}
+    min={minPrice}
+    max={priceRange.max}
+    onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))} // изменяем min
+    className='border border-gray-300 p-2'
+/>
+                                <label className='text-[14px] mdx:text-[16px]'>{t('two')}:</label>
+                                <input
+    type='number'
+    value={priceRange.max}
+    min={priceRange.min}
+    max={maxPrice}
+    onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))} // изменяем max
+    className='border border-gray-300 p-2'
+/>
+
                             </div>
                             <Range
                                 step={10000}
