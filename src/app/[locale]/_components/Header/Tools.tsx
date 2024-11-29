@@ -2,13 +2,13 @@
 import { useState, useTransition, useEffect, useRef } from "react";
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import phoneIcon from "@/public/svg/tools/phone-icon.svg";
+// import phoneIcon from "@/public/svg/tools/phone-icon.svg";
 import Menu from "../Menu";
 import searchIcon from "@/public/svg/tools/search-icon.svg";
 import Image from "next/image";
 import burgerMenu from "@/public/svg/tools/burger-menu.svg";
 // import Link from "next/link";
-import heartIcon from "@/public/svg/tools/heart-icon.svg";
+// import heartIcon from "@/public/svg/tools/heart-icon.svg";
 import { NavItem } from "./NavItem"; // Убедитесь, что путь корректен
 import axios from 'axios';
 
@@ -96,7 +96,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
           />
         </button>
         {/* <Link href={'/favorites'}> */}
-        <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
+        {/* <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
           <Image
             src={heartIcon}
             height={100}
@@ -104,11 +104,11 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             alt={`Иконка избранного`}
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
-        </button>
+        </button> */}
         {/* </Link> */}
-        <a
+        {/* <a
           href="tel:+998785558787"
-          onClick={handlePhoneClick} // Добавляем обработчик клика
+          onClick={handlePhoneClick} 
           className="border bg-[#333333] border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
         >
           <Image
@@ -118,7 +118,17 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             alt={`Иконка телефона`}
             className="w-7 h-7 max-mdx:w-3 max-mdx:h-3"
           />
+        </a> */}
+        <a
+          href="tel:+998785558787"
+          onClick={handlePhoneClick}
+          className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
+        >
+          <span className="text-black text-base font-medium">
+            +998 78 555-87-87
+          </span>
         </a>
+
         <div className='relative'>
           <button
             onClick={toggleDropdown}
