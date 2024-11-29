@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react';
 import Image from 'next/image';
 import build1 from "@/public/images/main/build1.png";
 import build1_big from "@/public/images/main/Build1-big.png";
@@ -5,6 +7,8 @@ import build2 from "@/public/images/main/build1.5.png";
 import build2_big from "@/public/images/main/build1-sm.png";
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import ArrowRigt from "@/public/svg/arrow-right-red.svg";
+import ArrowRigtWhite from "@/public/svg/arrow-right-white.svg";
 
 interface local {
     locale: string;
@@ -12,6 +16,7 @@ interface local {
 
 export default function Banner({ locale }: local) {
     const t = useTranslations('Main.Investition');
+    const [isHovered, setIsHovered] = useState(false); // Хук для отслеживания состояния наведения
 
     const processText = (text: string) => {
         return text.split('\n').map((line, index) => (
@@ -26,13 +31,27 @@ export default function Banner({ locale }: local) {
         <div className='w-full h-auto flex flex-col mx-auto bg-[#EDF3F5] py-[30px] mdx:py-[40px] xl:py-[80px]'>
             <div className='mx-2 xl:flex xl:items-center xl:flex-row max-w-[1440px] xl:mx-auto'>
                 <div className="xl:w-1/2 xl:pr-4">
-                    <h2 className='text-[29px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium mb-[12px] leading-[35px] xl:leading-[70px]'>{t('title')}</h2>
-                    <h4 className='text-[14px] mdx:text-[20px] mt-[16px] mb-[50px] hidden mdx:block'>
+                    <h2 className='text-[29px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium mb-[12px] leading-[25px] mdl:leading-[30px] xl:leading-[50px]'>{t('title')}</h2>
+                    <h4 className='text-[14px] mdx:text-[20px] mt-[30px] mb-[50px] hidden mdx:block'>
                         {processText(t('subtitle'))}
                     </h4>
                     <div>
                         <Link href={`/${locale}/investmentDubai`}>
-                            <button className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">{t('button')}</button>
+                            <button
+                                className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:flex items-center justify-center"
+                                onMouseEnter={() => setIsHovered(true)} // Наведение
+                                onMouseLeave={() => setIsHovered(false)} // Уборка наведения
+                            >
+                                <span>{t('button')}</span>
+                                <Image
+                                    src={isHovered ? ArrowRigtWhite : ArrowRigt} // Условная замена иконки
+                                    quality={100}
+                                    alt="Arrow Right"
+                                    width={20}  // Можно задать размер иконки
+                                    height={20}
+                                    className="ml-2"
+                                />
+                            </button>
                         </Link>
                     </div>
                 </div>
@@ -87,7 +106,21 @@ export default function Banner({ locale }: local) {
             </h4>
             <div className='max-xl:px-[10px]'>
                 <Link href={`/${locale}/investmentDubai`}>
-                    <button className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">{t('button')}</button>
+                    <button
+                        className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden flex items-center justify-center"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                    >
+                        <span>{t('button')}</span>
+                        <Image
+                            src={isHovered ? ArrowRigtWhite : ArrowRigt} 
+                            quality={100}
+                            alt="Arrow Right"
+                            width={18} 
+                            height={18}
+                            className="ml-[7px]"
+                        />
+                    </button>
                 </Link>
             </div>
         </div>

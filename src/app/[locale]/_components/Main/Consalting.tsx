@@ -31,8 +31,8 @@ export default function Banner() {
         <div className='w-full h-auto flex flex-col mx-auto bg-[#FCE8E9] py-[30px] mdx:py-[40px] xl:py-[80px]'>
             <div className='mx-2 xl:flex xl:items-center xl:justify-between xl:flex-row max-w-[1440px] xl:mx-auto'>
                 <div className="xl:w-full xl:max-w-[800px] xl:pr-4">
-                    <h2 className='text-[29px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium mb-[12px] leading-[35px] xl:leading-[70px]'>{t('title')}</h2>
-                    <h4 className='text-[14px] mdx:text-[20px] mt-[16px] mb-[50px] hidden mdx:block'>
+                    <h2 className='text-[29px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium mb-[12px] leading-[28px] mdl:leading-[37px] xl:leading-[58px]'>{t('title')}</h2>
+                    <h4 className='text-[14px] mdx:text-[20px] mt-[30px] mb-[50px] hidden mdx:block'>
                         {processText(t('subtitle'))}
                     </h4>
                     <div>

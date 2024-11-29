@@ -1,5 +1,5 @@
 "use client";
-import logoBig from "@/public/images/imed-f.svg";
+// import logoBig from "@/public/images/imed-f.svg";
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import axios from 'axios';
+import logo1 from "@/public/svg/logo/rmc_last.svg";
 
 interface LocaleProps {
   locale: string;
@@ -46,21 +47,21 @@ export default function Footer({ locale }: LocaleProps) {
           <div className="flex justify-between flex-row gap-5 border-b pb-[25px] xl:pb-[50px] items-center">
             <div className="flex flex-col gap-5 ">
               <Link href="/" className="h-auto w-auto items-center flex">
-                <div className="flex flex-row gap-[8px] items-center">
+                <div className="flex flex-row gap-[8px] items-center max-mdx:max-w-[300px]">
                   <Image
-                    src={logoBig}
+                    src={logo1}
                     width={300}
                     height={300}
                     quality={100}
                     alt="Rmc Logo"
-                    className="h-full w-[12%] mdx:h-[60px] mdx:w-auto"
+                    className="h-full max-mdx:max-h-[50px] max-mdx:w-[170px] mdx:h-[75px] mdx:w-auto"
                   />
-                  <div className="flex flex-col">
+                  {/* <div className="flex flex-col">
                     <div className="text-[15px] mdx:text-[22px] uppercase font-bold">Rmc De Luxe</div>
                     <div className="text-[11.5px] mdx:text-[15px] text-[#E94B50] ls">
                       real estate
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </Link>
             </div>

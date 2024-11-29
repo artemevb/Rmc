@@ -17,7 +17,7 @@ export default function Banner() {
     return (
         <div className='w-full h-auto flex flex-col mx-auto max-w-[1440px]'>
             <div className='mx-[10px]'>
-                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px] border-b">
+                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px] border-b leading-[23px] mdl:leading-[34px] xl:leading-[53px]">
                     {processText(t('title'))}
                 </h2>
                 <div className='xl:grid xl:grid-cols-2 max-xl:gap-x-[40px]'>

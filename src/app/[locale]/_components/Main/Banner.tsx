@@ -8,11 +8,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-
+import { useTranslations } from "next-intl";
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 import { urlFor } from '@/src/sanity/lib/image';
 import { client } from '@/src/sanity/lib/client';
+import QuestionSent from '../Modal/ApplicationNewBuildings';
 
 interface Slide {
   image: {
@@ -40,10 +41,12 @@ interface Slide {
 }
 
 export default function Banner({ locale }: { locale: string }) {
+  const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
 
   const [slides, setSlides] = useState<Slide[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -72,6 +75,15 @@ export default function Banner({ locale }: { locale: string }) {
 
     fetchSlides();
   }, []);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Закрыть модальное окно
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="w-full h-auto flex flex-col mx-auto">
@@ -102,14 +114,14 @@ export default function Banner({ locale }: { locale: string }) {
               }
             }}
             autoplay={{
-              delay: 5500,
+              delay: 6000,
               disableOnInteraction: false,
             }}
             loop={true}
             className="relative"
             spaceBetween={30}
             slidesPerView={1}
-            speed={1500}
+            speed={2000}
           >
             {slides.map((slide, index) => {
               const imageSrc = urlFor(slide.image)
@@ -123,15 +135,15 @@ export default function Banner({ locale }: { locale: string }) {
               return (
                 <SwiperSlide key={index}>
                   <div
-                    className="relative w-full h-auto min-h-[500px] mdx:min-h-[600px] xl:min-h-[630px] xl:max-h-[630px]  4xl:min-h-[850px] bg-center bg-cover"
+                    className="relative w-full h-auto min-h-[500px] mdx:min-h-[600px] xl:min-h-[630px] xl:max-h-[630px] 4xl:min-h-[850px] bg-center bg-cover"
                     style={{
                       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(${imageSrc}) lightgray 50% / cover no-repeat`,
                     }}
                   >
                     <div className="absolute inset-0"></div>
 
-                    {/* Контейнер для текста */}
-                    <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white z-10">
+                    {/* Контейнер для текста и кнопки */}
+                    <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white z-10 flex flex-col space-y-4">
                       {titleText && (
                         <h2
                           className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px] 3xl:text-[80px] font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
@@ -144,6 +156,16 @@ export default function Banner({ locale }: { locale: string }) {
                         <p className="text-[16px] mdx:text-[20px] mt-[8px] mdx:mt-[12px] xl:mt-[20px]">
                           {descriptionText}
                         </p>
+                      )}
+                      {index === 0 && (
+                        <div className="mt-4">
+                          <button
+                            onClick={openModal}
+                            className="bg-corporate hover:bg-hover_corporate text-white py-3 w-full max-w-[175px] mdx:max-w-[223px] text-lg font-semibold shadow-md transition duration-300"
+                          >
+                            {t('button-more')}
+                          </button>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -177,6 +199,7 @@ export default function Banner({ locale }: { locale: string }) {
           </div>
         </div>
       </div>
+      <QuestionSent isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }

@@ -8,12 +8,11 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { client } from '@/src/sanity/lib/client';
 
-// Интерфейс для пропсов компонента
+
 interface LocaleProps {
     locale: string;
 }
 
-// Интерфейс для исходных данных новостей
 interface NewsItem {
     slug: { current: string };
     title: { [key: string]: string };
@@ -22,7 +21,6 @@ interface NewsItem {
     mainImage?: { asset?: { url?: string } };
 }
 
-// Интерфейс для отображаемых данных новостей
 interface MappedNewsItem {
     slug: string;
     title: string;
@@ -36,7 +34,6 @@ export default function NewsComp({ locale }: LocaleProps) {
     const [visibleNews, setVisibleNews] = useState<MappedNewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // Настройки слайдера
     const settings = {
         infinite: true,
         speed: 1500,
@@ -82,7 +79,6 @@ export default function NewsComp({ locale }: LocaleProps) {
         return `${day}.${month}.${year}`;
     };
 
-    // Функция для получения новостей из Sanity
     const fetchNews = async () => {
         try {
             const query = `*[_type == "news"] | order(date desc) {
