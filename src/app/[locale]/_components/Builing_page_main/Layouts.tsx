@@ -10,7 +10,7 @@ import { client } from "@/src/sanity/lib/client";
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-
+import ApplicationLayouts from "../Modal/ApplicationLayouts";
 interface LayoutProps {
     locale: 'ru' | 'uz' | 'en';
     complexSlug: string;
@@ -88,13 +88,20 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
     // States for Lightbox
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState<{ src: string; alt: string } | null>(null);
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
     // Function to open Lightbox
     const openLightbox = (image: { src: string; alt: string }) => {
         setCurrentImage(image);
         setLightboxOpen(true);
     };
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
 
+    // Function to close the ApplicationLayouts modal
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     // Fetch data from Sanity
     useEffect(() => {
         if (!complexSlug) return;
@@ -532,7 +539,6 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     </div>
                 )}
             </div>
-
             {/* Display Filtered Layouts */}
             {filteredLayouts.length > 0 ? (
                 <div className="w-full grid grid-cols-1 mdx:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4 gap-[20px] mt-[33px]">
@@ -541,7 +547,6 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             key={item._id}
                             className="group relative overflow-hidden border pb-[16px] px-[12px] w-full transition duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer hover:h-full hover:pb-[70px]"
                         >
-                            {/* Кликабельный контейнер изображения для открытия Lightbox */}
                             <div
                                 className="w-full h-[250px] relative cursor-pointer"
                                 onClick={() =>
@@ -599,9 +604,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <div className="group-hover:px-[12px] xl:group-hover:px-[16px] group-hover:mb-[15px] xl:group-hover:mb-[25px] absolute bottom-0 w-full left-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[0ms] group-hover:duration-[300ms] ease-in-out">
                                 <button
                                     className="w-full h-12 transition-transform duration-300 ease-in-out bg-corporate text-white hover:bg-hover_corporate font-semibold"
-                                    onClick={() =>
-                                        (window.location.href = "tel:+998785558787")
-                                    }
+                                    // onClick={() =>
+                                    //     (window.location.href = "tel:+998785558787")
+                                    // }
+                                    onClick={openModal}
                                 >
                                     {t("book")}
                                 </button>
@@ -610,7 +616,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     ))}
                 </div>
             ) : null}
-
+            {isModalOpen && <ApplicationLayouts isOpen={isModalOpen} onClose={closeModal} />}
             {/* Компонент Lightbox для изображений */}
             {currentImage && (
                 <Lightbox

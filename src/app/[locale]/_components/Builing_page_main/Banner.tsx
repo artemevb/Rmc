@@ -107,7 +107,7 @@ export default function Banner({ locale, data }: BannerProps) {
               <img
                 src={slide.imageSrc || defaultImage.src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-auto min-h-[550px] xl:min-h-[728px] max-mdx:max-h-[700px] object-cover"
+                className="w-full h-auto min-h-[450px] xl:min-h-[728px] max-mdx:max-h-[700px] object-cover"
                 style={{ width: '100%', height: 'auto' }}
               />
               {/* Градиентный затемнитель */}

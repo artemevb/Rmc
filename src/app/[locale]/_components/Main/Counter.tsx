@@ -79,7 +79,7 @@ export default function MortgageCalculator() {
 
     return (
         <div className="max-2xl:px-[15px] max-w-[1440px] w-full mx-auto flex flex-col">
-            <h2 className="font-medium text-[30px] md:text-[45px] mdx:text-[55px] mb-4">
+            <h2 className="font-medium text-[30px] md:text-[45px] mdx:text-[55px] mb-4 leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
                 {t("title")}
             </h2>
             <div className="bg-white px-[20px] py-[25px] counter-shadow 2xl:p-[0px]">

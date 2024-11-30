@@ -10,7 +10,7 @@ export default function Scheme() {
 
             <div className="flex flex-col gap-16">
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium">
+                    <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
                         {t('title')}
                     </h2>
                 </div>
@@ -84,7 +84,7 @@ export default function Scheme() {
                                 03
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh">
+                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh 3xl:whitespace-nowrap">
                                     {t('text-3')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">

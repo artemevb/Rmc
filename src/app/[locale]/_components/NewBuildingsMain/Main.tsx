@@ -15,8 +15,8 @@ import {
 } from '../NewBuildings/queries';
 import { ResidentialComplex, District, HousingType, Room, CompletionTime } from '../NewBuildings/types';
 import { client } from '../../../../sanity/lib/client';
-import { ClimbingBoxLoader } from 'react-spinners'; // Импорт ClimbingBoxLoader
-import { Range } from 'react-range'; // Импорт компонента Range
+import { ClimbingBoxLoader } from 'react-spinners';
+import { Range } from 'react-range';
 
 interface InvestProps {
     locale: string;
@@ -58,7 +58,7 @@ export default function Invest({ locale }: InvestProps) {
     const [selectedCompletionTime, setSelectedCompletionTime] = useState<string>('Любой');
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [itemsPerPage, setItemsPerPage] = useState<number>(6);
-    const [error, setError] = useState<string | null>(null);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -112,7 +112,6 @@ export default function Invest({ locale }: InvestProps) {
                 setIsLoading(false);
             } catch (err) {
                 console.error('Ошибка при получении данных из Sanity:', err);
-                setError('Произошла ошибка при загрузке данных.');
                 setIsLoading(false);
             }
         };
@@ -209,6 +208,20 @@ export default function Invest({ locale }: InvestProps) {
     const currentItems = filteredImages.slice(indexOfFirstItem, indexOfLastItem);
     const totalPages = Math.ceil(filteredImages.length / itemsPerPage);
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (filtersRef.current && !filtersRef.current.contains(event.target as Node)) {
+                closeAllDropdowns();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const loaderStyle: React.CSSProperties = {
         display: 'flex',
@@ -424,72 +437,85 @@ export default function Invest({ locale }: InvestProps) {
                             </div>
                         )}
                     </div>
-                    <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
-                        onClick={() => handleDropdownToggle('price')}
-                    >
-                        <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
-                        {(priceRange.min !== minPrice || priceRange.max !== maxPrice) && (
-                            <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
-                        )}
-                        <Image
-                            src={arrow.src}
-                            alt={arrow.alt}
-                            width={20}
-                            height={20}
-                            quality={100}
-                            layout="fixed"
-                            objectFit="contain"
-                            className='w-full h-full max-h-[20px] max-w-[20px]'
-                        />
-                    </button>
-                    {openDropdown === 'price' && (
-                        <div className='absolute left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] p-4'>
-                            <div className='flex flex-row w-full'>
-                                <div className='flex flex-col w-full'>
-                                    <label className='text-[14px] mdx:text-[16px]'>{t('one')} ($)</label>
-                                    <input
-                                        type='number'
-                                        value={priceRange.min}
-                                        min={minPrice}
-                                        max={priceRange.max}
-                                        onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))} // изменяем min
-                                        className='border border-gray-300 p-2'
-                                    />
-                                </div>
-                                <div className='flex flex-col w-full'>
-                                    <label className='text-[14px] mdx:text-[16px]'>{t('two')} ($)</label>
-                                    <input
-                                        type='number'
-                                        value={priceRange.max}
-                                        min={priceRange.min}
-                                        max={maxPrice}
-                                        onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))} // изменяем max
-                                        className='border border-gray-300 p-2'
-                                    />
-                                </div>
-                            </div>
-                            <Range
-                                step={10000}
-                                min={minPrice}
-                                max={maxPrice}
-                                values={[priceRange.min, priceRange.max]}
-                                onChange={handlePriceChange}
-                                renderTrack={({ props, children }) => (
-                                    <div {...props} className='h-2 bg-gray-300 rounded-md'>
-                                        {children}
-                                    </div>
-                                )}
-                                renderThumb={({ props }) => (
-                                    <div {...props} className='w-6 h-6 bg-corporate rounded-full' />
-                                )}
+                    <div className='relative'>
+                        <button
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            onClick={() => handleDropdownToggle('price')}
+                        >
+                            <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
+                            {(priceRange.min !== minPrice || priceRange.max !== maxPrice) && (
+                                <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
+                            )}
+                            <Image
+                                src={arrow.src}
+                                alt={arrow.alt}
+                                width={20}
+                                height={20}
+                                quality={100}
+                                layout="fixed"
+                                objectFit="contain"
+                                className='w-full h-full max-h-[20px] max-w-[20px]'
                             />
-                            <div className='flex justify-between'>
-                                <span>{priceRange.min}</span>
-                                <span>{priceRange.max}</span>
+                        </button>
+
+                        {openDropdown === 'price' && (
+                            <div className='absolute md:left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] p-4 max-md:right-[-10px]'>
+                                <div className='flex flex-row w-full mb-[25px]'>
+                                    <div className='flex flex-col w-full'>
+                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('one')} ($)</label>
+                                        <input
+                                            type='number'
+                                            value={priceRange.min}
+                                            min={minPrice}
+                                            max={priceRange.max}
+                                            onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))} // изменяем min
+                                            className='border border-gray-300 p-2'
+                                        />
+                                    </div>
+                                    <div className='flex flex-col w-full'>
+                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('two')} ($)</label>
+                                        <input
+                                            type='number'
+                                            value={priceRange.max}
+                                            min={priceRange.min}
+                                            max={maxPrice}
+                                            onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))} // изменяем max
+                                            className='border border-gray-300 p-2'
+                                        />
+                                    </div>
+                                </div>
+                                <Range
+                                    step={10000}
+                                    min={minPrice}
+                                    max={maxPrice}
+                                    values={[priceRange.min, priceRange.max]}
+                                    onChange={handlePriceChange}
+                                    renderTrack={({ props, children }) => (
+                                        <div {...props} className='h-1 bg-gray-300 rounded-md relative'>
+                                            {/* Красная часть (выбранный диапазон) */}
+                                            <div
+                                                className="absolute top-0 left-0 h-1 bg-red-500"
+                                                style={{
+                                                    // Вычисляем ширину красной полосы
+                                                    width: `${((priceRange.max - priceRange.min) / (maxPrice - minPrice)) * 100}%`,
+                                                    left: `${((priceRange.min - minPrice) / (maxPrice - minPrice)) * 100}%`, // позиционируем красную часть по левому краю
+                                                }}
+                                            />
+                                            {children}
+                                        </div>
+                                    )}
+                                    renderThumb={({ props }) => (
+                                        <div {...props} className='w-[22px] h-[22px] bg-corporate rounded-full transition-all duration-100' />
+                                    )}
+                                />
+
+                                <div className='flex justify-between mt-[4px]'>
+                                    <span>{priceRange.min}</span>
+                                    <span>{priceRange.max}</span>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
