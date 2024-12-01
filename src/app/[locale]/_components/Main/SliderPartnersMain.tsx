@@ -61,7 +61,7 @@ const PartnersComp: React.FC = () => {
       speed: 1500,
       slidesToShow: windowWidth >= 1200 ? 3 : windowWidth >= 600 ? 2 : 2, // Мин. 2 слайда на всех экранах
       slidesToScroll: 1,
-      arrows: true,
+      arrows: false,
       autoplay: true,
       autoplaySpeed: 3000,
       responsive: [
@@ -83,7 +83,7 @@ const PartnersComp: React.FC = () => {
         },
       ],
     }),
-    [windowWidth] // Настройки пересчитываются, когда изменяется ширина окна
+    [windowWidth] 
   );
 
   const handlePrev = () => {
