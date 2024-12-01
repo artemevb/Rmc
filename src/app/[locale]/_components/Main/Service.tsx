@@ -22,109 +22,111 @@ export default function Banner() {
                 </h2>
                 <div className='xl:grid xl:grid-cols-2 max-xl:gap-x-[40px]'>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b xl:border-r py-[20px] text-[18px] mdx:text-[20px] mdl:text-[22px] slg:text-[24px] xl:pr-[20px]'>
-                        <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center flex-shrink-0'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                width={16}
+                                height={16}
+                                className='w-[16px] h-[16px]'
                             />
                         </div>
                         {t('points.tenantCheck')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px] xl:pl-[20px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px]  bg-corporate flex items-center justify-center flex-shrink-0'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.maintenance')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b xl:border-r py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.leaseContracts')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px] xl:pl-[20px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.repairs')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b xl:border-r py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.rentCollection')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px] xl:pl-[20px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.propertyControl')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b xl:border-r py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.tenantRequests')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px] xl:pl-[20px]'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.tenantSelection')}
                     </div>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] py-[20px] xl:py-[40px] text-[18px] mdx:text-[24px] xl:border-r'>
-                    <div className='rounded-full w-[25px] h-[25px] bg-corporate flex items-center justify-center'>
+                        <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center'>
                             <Image
                                 src={check}
                                 quality={100}
                                 alt="check"
                                 objectFit="cover"
-                                className='w-[13px] h-[14px] mdx:w-[16px] mdx:h-[16px]'
+                                className='min-w-[13px] min-h-[14px] mdx:w-[16px] mdx:h-[16px]'
                             />
                         </div>
                         {t('points.leaseCompliance')}
