@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { useTranslations } from "next-intl";
 
 export default function MortgageCalculator() {
@@ -11,6 +11,27 @@ export default function MortgageCalculator() {
     const [monthlyPayment, setMonthlyPayment] = useState<string | null>(null);
     const [loanAmount, setLoanAmount] = useState<string | null>(null);
     const [finalDate, setFinalDate] = useState<string | null>(null);
+    const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false); // State to track screen width
+
+    useEffect(() => {
+        // Function to check and set the screen size
+        const checkScreenSize = () => {
+            if (typeof window !== 'undefined') {
+                setIsLargeScreen(window.innerWidth > 1000);
+            }
+        };
+
+        // Initial check
+        checkScreenSize();
+
+        // Event listener for window resize
+        window.addEventListener('resize', checkScreenSize);
+
+        // Cleanup event listener on unmount
+        return () => {
+            window.removeEventListener('resize', checkScreenSize);
+        };
+    }, []);
 
     // Проверка, что все поля заполнены
     const isButtonDisabled = !propertyCost || !downPayment || !loanTerm || !interestRate;
@@ -163,14 +184,14 @@ export default function MortgageCalculator() {
                     </div>
 
                     {/* Результаты */}
-                    {monthlyPayment !== null && (
+                    {(isLargeScreen || monthlyPayment !== null) && (
                         <div className="mt-6 text-left p-[15px] mdl:w-[45%] mdl:mt-0 2xl:flex 2xl:flex-wrap 2xl:justify-between 2xl:ml-[30px] 3xl:ml-[50px] 2xl:p-0 max-mdl:gap-[16px] max-2xl:gap-[40px] max-2xl:flex max-2xl:flex-col">
                             <div className="2xl:w-[48%]">
                                 <p className="text-[16px] mdx:text-[18px] text-[#989898]">
                                     {t("five")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
-                                    {monthlyPayment} у.е.
+                                    {monthlyPayment !== null ? `${monthlyPayment} у.е.` : ""}
                                 </p>
                             </div>
 
@@ -179,7 +200,7 @@ export default function MortgageCalculator() {
                                     {t("six")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
-                                    {loanAmount} у.е.
+                                    {loanAmount !== null ? `${loanAmount} у.е.` : ""}
                                 </p>
                             </div>
 
@@ -188,7 +209,7 @@ export default function MortgageCalculator() {
                                     {t("seven")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
-                                    {interestRate}%
+                                    {interestRate !== "" ? `${interestRate}%` : ""}
                                 </p>
                             </div>
 
@@ -197,7 +218,7 @@ export default function MortgageCalculator() {
                                     {t("eight")}
                                 </p>
                                 <p className="text-[22px] font-medium mdx:text-[25px] text-[#151515]">
-                                    {finalDate}
+                                    {finalDate !== null ? finalDate : ""}
                                 </p>
                             </div>
                         </div>

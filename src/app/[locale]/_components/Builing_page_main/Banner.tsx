@@ -93,7 +93,7 @@ export default function Banner({ locale, data }: BannerProps) {
           modules={[Navigation, Autoplay]}
           navigation={navigation}
           autoplay={{
-            delay: 5500,
+            delay: 6000,
             disableOnInteraction: false,
           }}
           loop={true}
