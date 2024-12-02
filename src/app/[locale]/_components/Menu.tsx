@@ -79,7 +79,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
 
   return (
     <div
-    className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "animate-slideInFromRight" : "transform translate-x-full"} transition-transform duration-300 ease-in-out`}
+      className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "animate-slideInFromRight" : "transform translate-x-full"} transition-transform duration-300 ease-in-out`}
 
     >
       {/* Header with Language Switcher and Close Button */}
@@ -88,7 +88,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center gap-[12px]">
               {/* Language Switcher */}
-              <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full'>
+              <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none  px-4 py-3'>
                 <span className='sr-only'>{t('menu.changeLanguage')}</span>
                 <select
                   defaultValue={localActive}
@@ -192,7 +192,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           <Link
             onClick={() => {
               closeMenu();
-              router.push(`/${locale}/new-buildings`); 
+              router.push(`/${locale}/new-buildings`);
             }}
             href={`/${locale}/new-buildings`}
           >

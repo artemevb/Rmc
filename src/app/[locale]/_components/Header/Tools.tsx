@@ -86,12 +86,12 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   return (
     <div className="flex items-center gap-[12px]">
       <div className="h-full items-center flex gap-[8px] xl:gap-[12px]">
-        <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3">
+        <button className=" px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3">
           <Image
             src={searchIcon}
             height={100}
             width={100}
-            alt={`Иконка поиска`}
+            alt={`search-icon`}
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
@@ -122,7 +122,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
         <a
           href="tel:+998785558787"
           onClick={handlePhoneClick}
-          className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
+          className=" px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 hidden xl:block"
         >
           <span className="text-black text-base font-medium">
             +998 78 555-87-87
@@ -132,7 +132,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
         <div className='relative'>
           <button
             onClick={toggleDropdown}
-            className='flex items-center text-[19px] font-normal bg-white focus:outline-none border border-neutral-300 px-4 py-3 rounded-full xl:flex hidden '
+            className='flex items-center text-[16px] font-normal bg-white focus:outline-none px-4 py-3  xl:flex hidden '
           >
             <span className='sr-only'>Сменить язык</span>
             {localActive.toUpperCase()}
@@ -147,7 +147,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             </svg>
           </button>
           {dropdownOpen && (
-            <div ref={dropdownRef} className="absolute right-4 w-[50px] bg-white border border-neutral-300 rounded-md shadow-lg z-10">
+            <div ref={dropdownRef} className="absolute right-4 w-[50px] bg-white shadow-lg z-10">
               <ul className="py-1">
                 <li>
                   <button
@@ -185,7 +185,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             src={burgerMenu}
             height={100}
             width={100}
-            alt={`Иконка бургер-меню`}
+            alt={`burger-menu icon`}
             className="w-6 h-6 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
