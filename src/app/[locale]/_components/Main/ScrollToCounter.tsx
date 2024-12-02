@@ -13,5 +13,5 @@ export default function ScrollToCounter() {
     }
   }, []);
 
-  return null; // Компонент не рендерит ничего, он нужен только для логики прокрутки
+  return null;
 }

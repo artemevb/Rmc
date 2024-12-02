@@ -14,20 +14,16 @@ export default function MortgageCalculator() {
     const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false); // State to track screen width
 
     useEffect(() => {
-        // Function to check and set the screen size
         const checkScreenSize = () => {
             if (typeof window !== 'undefined') {
                 setIsLargeScreen(window.innerWidth > 1000);
             }
         };
 
-        // Initial check
         checkScreenSize();
 
-        // Event listener for window resize
         window.addEventListener('resize', checkScreenSize);
 
-        // Cleanup event listener on unmount
         return () => {
             window.removeEventListener('resize', checkScreenSize);
         };
@@ -175,7 +171,7 @@ export default function MortgageCalculator() {
                         {/* Кнопка расчета */}
                         <button
                             onClick={calculateMortgage}
-                            className="bg-corporate hover:bg-hover_corporate text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold"
+                            className="bg-corporate hover:bg-hover_corporate text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold transition-all duration-300"
                             type="button"
                             disabled={isButtonDisabled} // Устанавливаем атрибут disabled
                         >

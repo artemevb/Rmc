@@ -161,7 +161,7 @@ export default function NewsComp({ locale }: LocaleProps) {
       <div className="flex items-center justify-center xl:mt-[60px] mdx:mt-[40px] mt-[30px]">
         <Link
           href={`/${locale}/blog`}
-          className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px]'
+          className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px] transition-all duration-300'
         >
           {t("button-more")}
         </Link>

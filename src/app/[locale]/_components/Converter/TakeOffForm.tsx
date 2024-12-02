@@ -15,7 +15,7 @@ export default function BuyForm() {
                             key={index}
                             className={`${activeButton === label
                                 ? "text-corporate border-b-2 border-corporate"
-                                : "text-[#858585] border-transparent"
+                                : "text-[#858585] border-transparent transition-all duration-300"
                                 } ${index === 0 ? "xl:ml-[30px]" : "xl:ml-[120px]"}`}
                             onClick={() => setActiveButton(label)}
                         >
@@ -139,7 +139,7 @@ export default function BuyForm() {
                             height={24}
                         />
                     </button>
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate">
+                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate transition-all duration-300">
                         Показать {results} результата
                     </button>
                 </div>

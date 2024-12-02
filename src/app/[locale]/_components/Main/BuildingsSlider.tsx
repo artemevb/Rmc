@@ -173,11 +173,11 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                                                         {complex.type[`name_${locale}`]}
                                                     </p>
                                                 )}
-                                                {complex.completionTime && complex.completionTime[`term_${locale}`] && (
+                                                {/* {complex.completionTime && complex.completionTime[`term_${locale}`] && (
                                                     <h5 className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
                                                         {complex.completionTime[`term_${locale}`]}
                                                     </h5>
-                                                )}
+                                                )} */}
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                 )}
                 <div className="flex w-full justify-center mt-10">
                     <Link href={`/${locale}/new-buildings`}>
-                        <button className="border flex items-center justify-center py-3 bg-corporate hover:bg-hover_corporate text-white font-semibold text-lg w-[223px]">
+                        <button className="border flex items-center justify-center py-3 bg-corporate hover:bg-hover_corporate text-white font-semibold text-lg w-[223px] transition-all duration-300">
                             {t('button-more')}
                         </button>
                     </Link>

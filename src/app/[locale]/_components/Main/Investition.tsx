@@ -38,7 +38,7 @@ export default function Banner({ locale }: local) {
                     <div>
                         <Link href={`/${locale}/investmentDubai`}>
                             <button
-                                className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:flex items-center justify-center"
+                                className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:flex items-center justify-center transition-all duration-300"
                                 onMouseEnter={() => setIsHovered(true)} // Наведение
                                 onMouseLeave={() => setIsHovered(false)} // Уборка наведения
                             >
@@ -107,7 +107,7 @@ export default function Banner({ locale }: local) {
             <div className='max-xl:px-[10px]'>
                 <Link href={`/${locale}/investmentDubai`}>
                     <button
-                        className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden flex items-center justify-center"
+                        className="border border-corporate hover:bg-hover_corporate text-[17px] font-semibold text-black hover:text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden flex items-center justify-center transition-all duration-300"
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                     >

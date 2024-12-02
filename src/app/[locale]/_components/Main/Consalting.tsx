@@ -36,7 +36,7 @@ export default function Banner() {
                     <div>
                         <button
                             onClick={openModal}
-                            className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block">
+                            className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] hidden xl:block transition-all duration-300">
                             {t('button')}
                         </button>
                     </div>
@@ -92,7 +92,7 @@ export default function Banner() {
                 {/* Added onClick handler here */}
                 <button 
                     onClick={openModal} 
-                    className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden">
+                    className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-full max-w-[175px] mdx:max-w-[223px] mt-[30px] xl:hidden transition-all duration-300">
                     {t('button')}
                 </button>
             </div>

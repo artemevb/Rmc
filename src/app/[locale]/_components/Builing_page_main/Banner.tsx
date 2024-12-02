@@ -125,12 +125,12 @@ export default function Banner({ locale, data }: BannerProps) {
                 <div className="w-full gap-[12px] mdx:gap-[20px] flex font-semibold text-[17px] pr-[16px]">
                   <button
                     onClick={openModal}
-                    className="min-w-[158px] w-full bg-corporate hover:bg-hover_corporate h-[49px] mdx:w-[223px]"
+                    className="min-w-[158px] w-full bg-corporate hover:bg-hover_corporate h-[49px] mdx:w-[223px] transition-all duration-300"
                   >
                     {t('button-more')}
                   </button>
                   <a href="tel:+998785558787">
-                    <button className="min-w-[158px] w-full bg-transparent border border-[#FFFFFF] h-[49px] mdx:w-[223px]">
+                    <button className="min-w-[158px] w-full bg-transparent border border-[#FFFFFF] h-[49px] mdx:w-[223px] ">
                       {t('button-call')}
                     </button>
                   </a>

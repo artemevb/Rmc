@@ -13,7 +13,7 @@ export default function BuyForm() {
                             key={index}
                             className={`${activeButton === label
                                 ? "text-corporate border-b-2 border-corporate"
-                                : "text-[#858585] border-transparent"
+                                : "text-[#858585] border-transparent transition-all duration-300"
                                 } ${index === 0 ? "xl:ml-[30px]" : "xl:ml-[120px]"}`}
                             onClick={() => setActiveButton(label)}
                         >
@@ -93,7 +93,7 @@ export default function BuyForm() {
                     </div>
                 </div>
                 <div className="mt-4 flex gap-[16px] items-center justify-end ">
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate max-w-[223px] xl:max-w-[255px] w-full">
+                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate max-w-[223px] xl:max-w-[255px] w-full transition-all duration-300">
                         Отправить заявку
                     </button>
                 </div>

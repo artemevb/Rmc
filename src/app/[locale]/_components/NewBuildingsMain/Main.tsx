@@ -247,7 +247,7 @@ export default function Invest({ locale }: InvestProps) {
                 <div ref={filtersRef} className='flex flex-wrap gap-[8px] mdx:gap-[12px] mt-[20px] mdx:mt-[40px] xl:mt-[50px] relative'>
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                             onClick={() => handleDropdownToggle('district')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-1')}</p>
@@ -295,7 +295,7 @@ export default function Invest({ locale }: InvestProps) {
                     </div>
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                             onClick={() => handleDropdownToggle('type')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-3')}</p>
@@ -343,7 +343,7 @@ export default function Invest({ locale }: InvestProps) {
                     </div>
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                             onClick={() => handleDropdownToggle('rooms')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-4')}</p>
@@ -391,7 +391,7 @@ export default function Invest({ locale }: InvestProps) {
                     </div>
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                             onClick={() => handleDropdownToggle('completionTime')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-5')}</p>
@@ -439,7 +439,7 @@ export default function Invest({ locale }: InvestProps) {
                     </div>
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                             onClick={() => handleDropdownToggle('price')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
@@ -520,7 +520,7 @@ export default function Invest({ locale }: InvestProps) {
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
                         <button
-                            className=' text-corporate py-2 px-4 underline font-medium text-[14px] mdx:text-[18px]'
+                            className=' text-corporate py-2 px-4 underline font-medium text-[14px] mdx:text-[18px] transition-all duration-300'
                             onClick={resetAllFilters}
                         >
                             {t('clear')}
@@ -565,11 +565,11 @@ export default function Invest({ locale }: InvestProps) {
                                             {image.type}
                                         </p>
                                     )}
-                                    {image.completionTime && (
+                                    {/* {image.completionTime && (
                                         <h5 className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
                                             {image.completionTime}
                                         </h5>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </Link>
@@ -588,7 +588,7 @@ export default function Invest({ locale }: InvestProps) {
                         <ul className="flex space-x-2">
                             <li>
                                 <button
-                                    className={`px-2 py-2 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
+                                    className={`px-2 py-2 transition-all duration-300 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                                     onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
                                     disabled={currentPage === 1}
                                 >
@@ -603,7 +603,7 @@ export default function Invest({ locale }: InvestProps) {
                             {pages.map((page) => (
                                 <li key={page}>
                                     <button
-                                        className={`px-4 py-2 border ${page === currentPage ? 'bg-corporate text-white' : 'hover:bg-corporate'
+                                        className={`px-4 py-2 border transition-all duration-300 ${page === currentPage ? 'bg-corporate text-white' : 'hover:bg-corporate'
                                             }`}
                                         onClick={() => handlePageChange(page)}
                                     >
@@ -613,7 +613,7 @@ export default function Invest({ locale }: InvestProps) {
                             ))}
                             <li>
                                 <button
-                                    className={`px-2 py-2 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
+                                    className={`px-2 py-2 transition-all duration-300 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-corporate'}`}
                                     onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
                                     disabled={currentPage === totalPages}
                                 >

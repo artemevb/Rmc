@@ -15,7 +15,7 @@ export default function BuyForm() {
                             key={index}
                             className={`${activeButton === label
                                 ? "text-corporate border-b-2 border-corporate"
-                                : "text-[#858585] border-transparent"
+                                : "text-[#858585] border-transparent transition-all duration-300"
                                 } ${index === 0 ? "xl:ml-[30px]" : "xl:ml-[120px]"}`}
                             onClick={() => setActiveButton(label)}
                         >

@@ -256,7 +256,7 @@ export default function Invest({ locale }: InvestProps) {
                 {/* District Filter */}
                 <div className='relative'>
                     <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                         onClick={() => handleDropdownToggle('district')}
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-1')}</p>
@@ -305,7 +305,7 @@ export default function Invest({ locale }: InvestProps) {
                 {/* Housing Type Filter */}
                 <div className='relative'>
                     <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                         onClick={() => handleDropdownToggle('type')}
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-3')}</p>
@@ -354,7 +354,7 @@ export default function Invest({ locale }: InvestProps) {
                 {/* Rooms Filter */}
                 <div className='relative'>
                     <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                         onClick={() => handleDropdownToggle('rooms')}
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-4')}</p>
@@ -403,7 +403,7 @@ export default function Invest({ locale }: InvestProps) {
                 {/* Completion Time Filter */}
                 <div className='relative'>
                     <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                         onClick={() => handleDropdownToggle('completionTime')}
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-5')}</p>
@@ -452,7 +452,7 @@ export default function Invest({ locale }: InvestProps) {
                 {/* Price Filter */}
                 <div className='relative'>
                     <button
-                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between'
+                        className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
                         onClick={() => handleDropdownToggle('price')}
                     >
                         <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
@@ -492,7 +492,7 @@ export default function Invest({ locale }: InvestProps) {
                                     className='border border-gray-300 p-2'
                                 />
                                 <button
-                                    className='mt-2 bg-corporate text-white py-1 px-2 rounded'
+                                    className='mt-2 bg-corporate text-white py-1 px-2 rounded transition-all duration-300'
                                     onClick={applyPriceFilter}
                                 >
                                     Применить
@@ -543,7 +543,7 @@ export default function Invest({ locale }: InvestProps) {
             {filteredImages.length > visibleCount && (
                 <div className='max-xl:px-[10px] flex justify-center w-full'>
                     {/* <Link href={`/${locale}/catalog`}> */}
-                    <button onClick={loadMore} className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px]">
+                    <button onClick={loadMore} className="bg-corporate hover:bg-hover_corporate text-[17px] font-semibold text-white py-2 px-4 mdx:py-3 w-[223px] mt-[40px] mdx:mt-[50px] xl:mt-[60px] transition-all duration-300">
                         {t('button-more')}
                     </button>
                     {/* </Link> */}

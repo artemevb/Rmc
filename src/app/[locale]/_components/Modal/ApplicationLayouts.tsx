@@ -276,7 +276,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                         <div>
                             <button
                                 type="submit"
-                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-corporate hover:bg-hover_corporate transition-colors mdx:max-w-[223px]"
+                                className="py-[13px] w-full mdx:px-12 text-[14px] text-white font-bold  focus:outline-none xl:text-[16px] bg-corporate hover:bg-hover_corporate transition-colors mdx:max-w-[223px] transition-all duration-300"
                             >
                                 {t("send")}
                             </button>

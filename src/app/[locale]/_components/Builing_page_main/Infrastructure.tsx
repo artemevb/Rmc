@@ -131,7 +131,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
             {apiData.markets && (
               <button
                 onClick={() => handleCategoryClick('markets')}
-                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
+                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 transition-all duration-300 ${
                   category === 'markets' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >
@@ -141,7 +141,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
             {apiData.Machine && (
               <button
                 onClick={() => handleCategoryClick('Machine')}
-                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
+                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 transition-all duration-300 ${
                   category === 'Machine' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >
@@ -151,7 +151,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
             {apiData.schools && (
               <button
                 onClick={() => handleCategoryClick('schools')}
-                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 ${
+                className={`text-[#858585] text-[16px] mdx:text-[20px] pb-[19px] border-b-2 transition-all duration-300 ${
                   category === 'schools' ? 'text-corporate border-corporate' : 'border-transparent'
                 }`}
               >

@@ -267,7 +267,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     {/* Floor Filter */}
                     <div className="relative w-full max-w-[133px]">
                         <button
-                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isFloorDropdownOpen
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4  transition-all duration-300${isFloorDropdownOpen
                                 ? "bg-corporate text-white"
                                 : "bg-[#EDF3F5]"
                                 }`}
@@ -334,7 +334,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     {/* Price Filter */}
                     <div className="relative w-full max-w-[137px]">
                         <button
-                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isPriceDropdownOpen
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 transition-all duration-300 ${isPriceDropdownOpen
                                 ? "bg-corporate text-white"
                                 : "bg-[#EDF3F5]"
                                 }`}
@@ -463,7 +463,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                 {/* Rooms Filter */}
                 <div className="relative w-full max-w-[195px] mdx:max-w-[254px]">
                     <button
-                        className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 ${isRoomsDropdownOpen
+                        className={`w-full flex whitespace-nowrap items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4 transition-all duration-300 ${isRoomsDropdownOpen
                             ? "bg-corporate text-white"
                             : "bg-[#EDF3F5]"
                             }`}

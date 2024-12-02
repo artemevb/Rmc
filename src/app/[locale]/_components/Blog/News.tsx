@@ -21,7 +21,7 @@ interface LocalizedField {
   [key: string]: string | undefined;
 }
 interface NewsItem {
-  title: LocalizedField; // Локализованный заголовок
+  title: LocalizedField;
   date: string;
   slug: {
       current: string;
@@ -70,7 +70,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
     getNews();
   }, []);
 
-  // Update news displayed when page or items per page changes
   useEffect(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -143,7 +142,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         </div>
         <div className="relative h-[23px]" ref={sortRef}>
           <button
-            className="flex items-center space-x-2 text-sm focus:outline-none"
+            className="flex items-center space-x-2 text-sm focus:outline-none transition-all duration-300"
             onClick={() => setIsSortOpen(!isSortOpen)}
           >
             <span className="text-[16px] mdx:text-[20px]">{t('sort')}</span>
@@ -156,7 +155,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
               {sortOptions.map((option) => (
                 <li key={option.value}>
                   <button
-                    className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCE8E9] ${
+                    className={`block w-full border-b text-left px-4 py-2 text-base hover:bg-[#FCE8E9] transition-all duration-300 ${
                       selectedSortOption === option.value ? 'bg-[#FCE8E9] text-corporate' : ''
                     }`}
                     onClick={() => handleSortChange(option.value)}
@@ -175,10 +174,10 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         {newsToShow.map((news, i) => (
           <Link key={i} href={`/${locale}/blog/${news.slug.current}`} passHref>
             <NewCard
-              subtitle={getLocalizedField(news.title)} // Localized title
-              date={new Date(news.date).toLocaleDateString(locale)} // Formatted date
-              imageSrc={news.mainImage?.asset?.url || ''} // Main image
-              views={news.viewCounter?.toString() || '0'} // View count
+              subtitle={getLocalizedField(news.title)}
+              date={new Date(news.date).toLocaleDateString(locale)}
+              imageSrc={news.mainImage?.asset?.url || ''} 
+              views={news.viewCounter?.toString() || '0'} 
             />
           </Link>
         ))}
@@ -192,7 +191,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
           </label>
           <select
             id="itemsPerPage"
-            className="px-4 py-2 border rounded"
+            className="px-4 py-2 border rounded transition-all duration-300"
             value={itemsPerPage}
             onChange={handleItemsPerPageChange}
           >
@@ -215,7 +214,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
 export default NewsComp;
 
-// Define PropTypes if using them
 NewsComp.propTypes = {
   locale: PropTypes.oneOf(['ru', 'uz', 'en']).isRequired,
 };

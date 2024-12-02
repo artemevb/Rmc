@@ -144,7 +144,7 @@ export default function NewsComp({ locale }: LocaleProps) {
                 </Slider>
             </div>
             <div className="flex items-center justify-center xl:mt-[35px] mdx:mt-[20px] mt-[10px]">
-                <Link href={`/${locale}/blog`} className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px]'>
+                <Link href={`/${locale}/blog`} className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px] transition-all duration-300'>
                     {t("button-more")}
                 </Link>
             </div>

@@ -98,7 +98,7 @@ export default function Banner({ locale, data }: BannerProps) {
                                 {subtitle}
                             </h1>
                             <a href="tel:+998785558787">
-                                <button className='w-[223px] bg-corporate hover:bg-hover_corporate font-semibold h-[49px] text-[#fff] text-[17px] mt-[24px] mdx:mt-[30px] xl:mt-[40px]'>
+                                <button className='w-[223px] bg-corporate hover:bg-hover_corporate font-semibold h-[49px] text-[#fff] text-[17px] mt-[24px] mdx:mt-[30px] xl:mt-[40px] transition-all duration-300'>
                                     {t('button-call')}
                                 </button>
                             </a>

@@ -21,7 +21,6 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
   const t = useTranslations('Header');
-  // Removed setLanguageMenu as it was not used
   const [isPending, startTransition] = useTransition();
   // const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const router = useRouter();
@@ -183,8 +182,8 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
         <div className="flex flex-col gap-[32px] pl-[20px] font-normal mt-[32px] text-[20px] mdx:text-[24px]">
           <Link
             onClick={() => {
-              closeMenu(); // Закрытие модального окна
-              router.push(`/${locale}/about`); // Перенаправление по URL
+              closeMenu();
+              router.push(`/${locale}/about`);
             }}
             href={`/${locale}/about`}
           >
@@ -192,8 +191,8 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </Link>
           <Link
             onClick={() => {
-              closeMenu(); // Закрытие модального окна
-              router.push(`/${locale}/new-buildings`); // Перенаправление по URL
+              closeMenu();
+              router.push(`/${locale}/new-buildings`); 
             }}
             href={`/${locale}/new-buildings`}
           >
@@ -201,7 +200,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </Link>
           <Link
             onClick={() => {
-              closeMenu(); // Закрытие модального окна
+              closeMenu();
               router.push(`/${locale}/blog`);
             }}
             href={`/${locale}/blog`}
@@ -210,7 +209,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </Link>
           <Link
             onClick={() => {
-              closeMenu(); // Закрытие модального окна
+              closeMenu();
               router.push(`/${locale}/contacts`);
             }}
             href={`/${locale}/contacts`}

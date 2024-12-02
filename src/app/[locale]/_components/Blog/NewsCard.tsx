@@ -61,7 +61,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           {subtitle}
         </p>
         <div className="flex flex-row gap-[5px] items-center mt-[10px]">
-          <p className="text-corporate hover:text-corporate-dark text-[16px] mdx:text-[18px] font-semibold">
+          <p className="text-corporate hover:text-corporate-dark text-[16px] mdx:text-[18px] font-semibold transition-all duration-300">
             {t('button-more')}
           </p>
           <Image
