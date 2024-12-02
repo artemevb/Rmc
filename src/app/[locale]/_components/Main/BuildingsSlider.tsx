@@ -1,6 +1,4 @@
-// Banner.tsx
 "use client"
-
 import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css";
@@ -146,12 +144,12 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                         {complexes.map((complex) => (
                             <div key={complex._id} className="px-2.5 mdx:px-1.5">
                                 <Link href={`/${locale}/new-buildings/${complex.slug?.current || '#'}`} passHref>
-                                    <div className="relative flex flex-col items-center max-h-[600px] max-w-[467px] overflow-hidden">
+                                    <div className="relative flex flex-col items-center max-h-[800px] max-w-[467px] overflow-hidden">
                                         {complex.mainImage?.asset?.url ? (
                                             <Image
                                                 src={complex.mainImage.asset.url}
                                                 alt={complex.mainImage.alt?.[locale as keyof typeof complex.mainImage.alt] || complex.subtitle?.[locale as keyof typeof complex.subtitle] || "Изображение отсутствует"}
-                                                className="object-cover w-full h-full min-h-[400px] mdx:min-h-[500px] xl:min-h-[600px]"
+                                                className="object-cover w-full h-full min-h-[350px] mdx:min-h-[450px] xl:min-h-[550px]"
                                                 width={1500}
                                                 height={1500}
                                                 quality={100}
@@ -162,13 +160,25 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
                                                 {t('noImage')}
                                             </div>
                                         )}
-                                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent">
-                                            <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-white">
+                                        <div className=" bottom-0 left-0 right-0 p-1 w-full">
+                                            <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-black">
                                                 {complex.subtitle?.[locale as keyof typeof complex.subtitle] || ""}
                                             </h3>
-                                            <p className="text-base mdx:text-lg text-white">
+                                            <p className="text-base mdx:text-lg text-black">
                                                 {complex.price}
                                             </p>
+                                            <div className="w-full flex gap-[20%]">
+                                                {complex.type && complex.type[`name_${locale}`] && (
+                                                    <p className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
+                                                        {complex.type[`name_${locale}`]}
+                                                    </p>
+                                                )}
+                                                {complex.completionTime && complex.completionTime[`term_${locale}`] && (
+                                                    <h5 className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
+                                                        {complex.completionTime[`term_${locale}`]}
+                                                    </h5>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
@@ -191,3 +201,4 @@ const Banner: React.FC<LocalProps> = ({ locale }) => {
 };
 
 export default Banner;
+

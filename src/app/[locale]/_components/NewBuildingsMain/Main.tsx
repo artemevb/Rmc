@@ -531,26 +531,57 @@ export default function Invest({ locale }: InvestProps) {
             <div className='w-full h-auto flex flex-col mx-auto px-4 max-w-full md:max-w-[1440px] mb-[120px] mdl:mb-[150px] xl:mb-[200px]'>
                 <div className='mt-[25px] grid gap-[12px] xl:gap-[20px] mdx:grid-cols-2 xl:grid-cols-3'>
                     {currentItems.map((image) => (
-                        <Link key={image._id} href={`/${locale}/new-buildings/${image.slug?.current || ''}`} className='relative w-full h-[400px] xl:h-[600px]'>
-                            <Image
-                                src={image.mainImageUrl}
-                                alt={image.mainImageAlt}
-                                layout="fill"
-                                objectFit="cover"
-                                className="w-full h-full"
-                            />
-                            <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2">
+                        <Link
+                            key={image._id}
+                            href={`/${locale}/new-buildings/${image.slug?.current || ''}`}
+                            className='w-full flex flex-col'
+                        >
+                            <div className='relative w-full h-[350px] xl:h-[550px]'>
+                                <Image
+                                    src={image.mainImageUrl}
+                                    alt={image.mainImageAlt}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="w-full h-full"
+                                />
+                            </div>
+                            {/* текст, который будет распологаться на самой карточке*/}
+                            {/* <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium absolute bottom-[38px] left-2 text-white p-2 leading-[35px] xl:leading-[45px] line-clamp-2">
                                 {image.subtitle}
                             </h3>
                             <h5 className="text-[16px] mdx:text-[20px] absolute bottom-2 left-2 text-white p-2">
                                 {image.price}
-                            </h5>
+                            </h5> */}
+                            <div className="mt-2 p-1">
+                                <h3 className="text-[28px] mdx:text-[30px] xl:text-[35px] font-medium text-gray-900 leading-[35px] xl:leading-[45px] line-clamp-2">
+                                    {image.subtitle}
+                                </h3>
+                                <h5 className="text-[16px] mdx:text-[20px] text-gray-900 mt-2">
+                                    {image.price}
+                                </h5>
+                                <div className='flex gap-[20%] '>
+                                    {image.type && (
+                                        <p className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
+                                            {image.type}
+                                        </p>
+                                    )}
+                                    {image.completionTime && (
+                                        <h5 className="text-[14px] mdx:text-[16px] text-gray-700 mt-1">
+                                            {image.completionTime}
+                                        </h5>
+                                    )}
+                                </div>
+                            </div>
                         </Link>
                     ))}
+
                     {filteredImages.length === 0 && (
-                        <p className="col-span-full text-center text-gray-500 ">{t("noResults") || "Нет доступных объектов."}</p>
+                        <p className="col-span-full text-center text-gray-500">
+                            {t("noResults") || "Нет доступных объектов."}
+                        </p>
                     )}
                 </div>
+
 
                 <div className='flex flex-row-reverse justify-center mdx:justify-between items-center mt-[50px] mdx:mt-[70px]'>
                     <div>
