@@ -5,9 +5,13 @@ import Image from 'next/image';
 import build1 from "@/public/images/main/about_company/bdngs1.png";
 import build2 from "@/public/images/main/about_company/bdngs2.png";
 import build3 from "@/public/images/main/about_company/bdngs3.png";
+import Link from 'next/link';
 
+interface local {
+    locale: string;
+}
 
-export default function Banner() {
+export default function Banner({ locale }: local) {
     const t = useTranslations('Main.AboutUs');
     // const [activeTab, setActiveTab] = useState('buy');
 
@@ -83,7 +87,6 @@ export default function Banner() {
                                 className="w-full h-full object-cover xl:h-[361px] xl:w-full mt-auto"
                             />
                         </div>
-
                     </div>
                     {/*Старый формат с переключением при помощи активных кнопок */}
                     {/* <div className="w-full mx-auto xl:mt-0 mt-6 max-w-[1000px] xl:max-w-[710px]">
@@ -105,6 +108,11 @@ export default function Banner() {
                             ))}
                         </div>
                     </div> */}
+                    <div className="flex items-center justify-start xl:mt-[35px] mdx:mt-[20px] mt-[10px] w-full">
+                        <Link href={`/${locale}/about`} className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px] transition-all duration-300'>
+                            {t("button-more")}
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

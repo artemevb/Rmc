@@ -25,6 +25,17 @@
     }
   },
   "Main": {
+    "Search": {
+      "resultsTitle": "Qidiruv natijalari",
+      "resultsForQuery": "«{query}» so'rovi bo'yicha natijalar",
+      "district": "Tuman",
+      "type": "Tur",
+      "noResults": "Sizning so'rovingizga mos natijalar topilmadi.",
+      "error": {
+        "fetchingData": "Sanity'dan ma'lumotlarni olishda xatolik yuz berdi."
+      },
+      "defaultImageAlt": "Kompleks"
+    },
     "Banner": {
       "button-more": "Murojaat qiling",
       "slides": {
@@ -56,6 +67,7 @@
     },
     "AboutUs": {
       "title": "Kompaniya haqida",
+      "button-more": "Biz haqimizda",
       "tabs": {
         "rent": {
           "label": "Ijaraga Berish",
@@ -148,7 +160,7 @@
     },
     "Investition": {
       "title": "Dubayda ko'chmas mulkka sarmoya kiritish",
-      "subtitle": "Dubaydagi ko'chmas mulk barqaror daromad va kapital o'sishi uchun ajoyib imkoniyatlarni taqdim etadi.\n\nTo'liq sarmoya tsikli: Bozor tahlili va mulk tanlashdan tortib sarmoyalarni boshqarish va ularni amalga oshirishgacha.\n\nMutaxassislarimiz sarmoyaviy jarayonning barcha bosqichlarida sizga yordam beradi, yuqori sifatli xizmat va ishonchlilikni ta'minlaydi.\n\nBizning xizmatlarimiz sizning sarmoyaviy mulkingizni boshqarishni o'z ichiga oladi, uning saqlanishi va barqaror daromadini ta'minlaydi. Biz boshqaruvning barcha jihatlarini o'z zimmamizga olamiz, shu jumladan ijarachilarni tanlash va tekshirish, texnik xizmat ko'rsatish, moliyaviy hisobot va yuridik yordam.",
+      "subtitle": "Dubay ko'chmas mulk bozori barqaror o'sishni ko'rsatmoqda, shu jumladan villalar va townxouselar, so'nggi yillarda narxlar 25% ga oshgan. Ushbu obyektlar yuqori daromad potensialini saqlab qolmoqda, ayniqsa prestijli hududlarda.\n\nKvartiralar va studiyalar 40% ga o'sgan, lekin katta hajmdagi obyektlar investorlar uchun hali ham foydali. Shu bilan birga, bunday obyektlar barqaror talabni jalb qilmoqda va kapitalizatsiya qilish imkoniyatlarini taqdim etmoqda.\n\nShuningdek, Dubay soliqlar bilan qulay — ijaradan olingan daromad va kapitalning oshishi bo'yicha soliqlar yo'qligi, bu uni uzoq muddatli investitsiyalar uchun jozibador qiladi.",
       "button": "Batafsil"
     },
     "Consalting": {

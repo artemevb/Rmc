@@ -11,6 +11,7 @@ import burgerMenu from "@/public/svg/tools/burger-menu.svg";
 // import heartIcon from "@/public/svg/tools/heart-icon.svg";
 import { NavItem } from "./NavItem"; // Убедитесь, что путь корректен
 import axios from 'axios';
+import SearchModal from '../Modal/Search';
 
 interface NavigationProps {
   navOptions: NavItem[];
@@ -21,7 +22,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const [menu, setMenu] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
-
+  const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
@@ -36,10 +37,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
     event.preventDefault(); // Предотвращаем стандартное поведение
 
     try {
-      // Отправляем API запрос с помощью axios
       await axios.post('https://rmc.mrjtrade.uz/api/counter/add?button=CALL');
-
-      // После успешного запроса перенаправляем на номер телефона
       window.location.href = 'tel:+998785558787';
     } catch (error) {
       console.error('API вызов не удался:', error);
@@ -86,7 +84,10 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   return (
     <div className="flex items-center gap-[12px]">
       <div className="h-full items-center flex gap-[8px] xl:gap-[12px]">
-        <button className=" px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3">
+        <button
+          className="px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3"
+          onClick={() => setShowSearchModal(true)} 
+        >
           <Image
             src={searchIcon}
             height={100}
@@ -95,6 +96,9 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             className="w-7 h-7 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
+        {showSearchModal && (
+          <SearchModal onClose={() => setShowSearchModal(false)} />
+        )}
         {/* <Link href={'/favorites'}> */}
         {/* <button className="border border-neutral-300 px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3 ">
           <Image

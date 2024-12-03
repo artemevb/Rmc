@@ -25,6 +25,17 @@
     }
   },
   "Main": {
+    "Search": {
+      "resultsTitle": "Search Results",
+      "resultsForQuery": "Results for the query",
+      "district": "District",
+      "type": "Type",
+      "noResults": "No results found for your query.",
+      "error": {
+        "fetchingData": "An error occurred while fetching data from Sanity."
+      },
+      "defaultImageAlt": "Complex"
+    },
     "Banner": {
       "button-more": "Submit a request",
       "slides": {
@@ -56,6 +67,7 @@
     },
     "AboutUs": {
       "title": "About the company",
+      "button-more": "About us",
       "tabs": {
         "rent": {
           "label": "Rent",
@@ -148,7 +160,7 @@
     },
     "Investition": {
       "title": "Investing in Real Estate in Dubai",
-      "subtitle": "Real estate in Dubai provides excellent opportunities for stable income and capital growth.\n\nFull investment cycle: From market analysis and property selection to investment management and realization.\n\nOur experts will assist you at all stages of the investment process, ensuring high-quality service and reliability.\n\nOur services include managing your investment property, ensuring its preservation and stable income. We handle all aspects of management, including tenant selection and verification, maintenance, financial reporting, and legal support.",
+      "subtitle": "The Dubai real estate market is showing stable growth, including villas and townhouses, with a 25% increase in prices over the past few years. These properties maintain a high income potential, especially in prestigious areas.\n\nApartments and studios have risen by 40%, but larger properties continue to be profitable for investors. At the same time, such properties attract steady demand and provide opportunities for capitalization.\n\nAdditionally, Dubai is advantageous in terms of tax conditions — there are no taxes on rental income and capital gains, making it attractive for long-term investments.",
       "button": "Learn More"
     },
     "Consalting": {

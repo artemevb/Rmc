@@ -267,7 +267,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                     {/* Floor Filter */}
                     <div className="relative w-full max-w-[133px]">
                         <button
-                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4  transition-all duration-300${isFloorDropdownOpen
+                            className={`w-full flex items-center justify-center gap-[10px] h-[43px] mdx:h-[53px] px-4  transition-all duration-300 ${isFloorDropdownOpen
                                 ? "bg-corporate text-white"
                                 : "bg-[#EDF3F5]"
                                 }`}

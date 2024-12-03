@@ -49,7 +49,7 @@ export default function Banner({ locale }: local) {
                                     alt="Arrow Right"
                                     width={20}  // Можно задать размер иконки
                                     height={20}
-                                    className="ml-2"
+                                    className="ml-2 transition-all duration-300"
                                 />
                             </button>
                         </Link>
@@ -118,7 +118,7 @@ export default function Banner({ locale }: local) {
                             alt="Arrow Right"
                             width={18} 
                             height={18}
-                            className="ml-[7px]"
+                            className="ml-[7px] transition-all duration-300"
                         />
                     </button>
                 </Link>
