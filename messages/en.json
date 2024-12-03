@@ -59,15 +59,15 @@
       "tabs": {
         "rent": {
           "label": "Rent",
-          "content": "Wide selection of properties: We offer a variety of rental options—from apartments and houses to commercial spaces—to meet any needs.\nReliable tenants: Conducting thorough screening and selection of tenants to ensure steady income and minimize risks."
+          "content": "We buy and sell real estate properties under the most favorable conditions."
         },
         "buy": {
           "label": "Buy - Sell",
-          "content": "We buy and sell real estate properties under the most favorable conditions, ensuring transparency and legal cleanliness of transactions.\nSupport at all stages of the transaction, including legal and financial consultations."
+          "content": "We offer a variety of rental options."
         },
         "manage": {
           "label": "Management",
-          "content": "Managing real estate with maximum efficiency and care for each client.\nProfessional maintenance and support at all stages."
+          "content": "Property management with maximum efficiency and care for each client."
         }
       }
     },
@@ -157,7 +157,7 @@
       "button": "Submit an application"
     },
     "Service": {
-      "title": "What’s included in property \nmanagement service",
+      "title": "What’s included in property management service",
       "points": {
         "tenantCheck": "Tenant screening (credit history, recommendations)",
         "maintenance": "Regular maintenance",

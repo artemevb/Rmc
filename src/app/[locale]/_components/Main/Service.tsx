@@ -1,5 +1,11 @@
 import Image from 'next/image';
-import check from "@/public/svg/check_white.svg";
+// import check from "@/public/svg/check_white.svg";
+import svg1 from "@/public/svg/main/service/1.svg";
+import svg2 from "@/public/svg/main/service/2.svg";
+import svg3 from "@/public/svg/main/service/3.svg";
+import svg4 from "@/public/svg/main/service/4.svg";
+import svg5 from "@/public/svg/main/service/5.svg";
+import svg6 from "@/public/svg/main/service/6.svg";
 import { useTranslations } from 'next-intl';
 
 export default function Banner() {
@@ -17,10 +23,192 @@ export default function Banner() {
     return (
         <div className='w-full h-auto flex flex-col mx-auto max-w-[1440px]'>
             <div className='mx-[10px]'>
-                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px] border-b leading-[23px] mdl:leading-[34px] xl:leading-[53px]">
+                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px]  leading-[23px] mdl:leading-[34px] xl:leading-[53px]">
                     {processText(t('title'))}
                 </h2>
-                <div className='xl:grid xl:grid-cols-2 max-xl:gap-x-[40px]'>
+                <div className='grid mdl:grid-cols-2 xl:grid-cols-3 max-xl:gap-5 xl:gap-y-[100px] '>
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg1}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantCheck')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantCheck')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg2}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.rentCollection')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.rentCollection')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg3}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.propertyControl')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.propertyControl')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg4}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantRequests')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantRequests')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg5}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantSelection')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantSelection')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg6}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.leaseCompliance')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.leaseCompliance')}
+                        </p>
+                    </div>
+
+                    {/* <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg6}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantCheck')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantCheck')}
+                        </p>
+                    </div> */}
+
+                    {/* <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg6}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantCheck')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantCheck')}
+                        </p>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
+                        <div>
+                            <Image
+                                src={svg6}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={16}
+                                height={16}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                            {t('points.tenantCheck')}
+                        </h4>
+                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                            {t('points.tenantCheck')}
+                        </p>
+                    </div> */}
+                </div>
+
+                {/* <div className='xl:grid mdl:grid-cols-2 xl:grid-cols-3 gap-x-[40px]'>
                     <div className='flex flex-row mdl:items-center gap-[12px] mdx:gap-[16px] border-b xl:border-r py-[20px] text-[18px] mdx:text-[20px] mdl:text-[22px] slg:text-[24px] xl:pr-[20px]'>
                         <div className='rounded-full min-w-[25px] min-h-[25px] max-w-[25px] max-h-[25px] bg-corporate flex items-center justify-center flex-shrink-0'>
                             <Image
@@ -131,7 +319,7 @@ export default function Banner() {
                         </div>
                         {t('points.leaseCompliance')}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
