@@ -98,7 +98,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
   const otherData = await client.fetch(otherQuery, { slug }, { cache: 'no-store' });
 
   return (
-    <div className="bg-white flex flex-col gap-[120px] mdl:gap-[150px] xl:gap-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]">
+    <div className="bg-white flex flex-col ">
       <Banner locale={locale} data={data} />
       <StickyMenu />
       <section id="section1">
@@ -116,10 +116,18 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
       <section id="section5">
         <Infrastructure locale={locale} complexSlug={slug} />
       </section>
-      <Counter />
-      <Schema />
-      <Form />
-      <NewsComp locale={locale} data={otherData} />
+      <div className='mt-[120px] mdl:mt-[150px] xl:mt-[200px]'>
+        <Counter />
+      </div>
+      <div className='mt-[120px] mdl:mt-[150px] xl:mt-[200px]'>
+        <Schema />
+      </div>
+      <div className='mt-[120px] mdl:mt-[150px] xl:mt-[200px]'>
+        <Form />
+      </div>
+      <div className='mt-[120px] mdl:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]'>
+        <NewsComp locale={locale} data={otherData} />
+      </div>
     </div>
   );
 }

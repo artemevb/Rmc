@@ -88,7 +88,7 @@ export default function Banner({ locale, data }: BannerProps) {
     }
 
     return (
-        <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px]">
+        <div className="w-full h-auto flex flex-col mx-auto max-w-[1440px] mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
 
             {hasText && (
                 <div className='xl:flex xl:justify-between '>

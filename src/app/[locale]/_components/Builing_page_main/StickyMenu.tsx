@@ -40,7 +40,7 @@ const StickyMenu = () => {
     };
 
     return (
-        <nav className="sticky top-0 bg-white border-b z-50 max-w-[1440px] w-full mx-auto overflow-x-auto hide-scrollbar">
+        <nav className="sticky top-0 bg-white border-b z-50 max-w-[1440px] w-full mx-auto overflow-x-auto hide-scrollbar mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
             <ul className="flex items-center justify-between gap-[30px] mdx:gap-[120px] xl:justify-around p-4 text-[16px] mdx:text-[20px] w-full whitespace-nowrap pb-[25px] mdx:pb-[30px]">
                 <li className="flex-shrink-0">
                     <a

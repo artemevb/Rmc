@@ -122,7 +122,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
     };
 
     return (
-        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px]">
+        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
             <div className="relative max-2xl:mx-2.5">
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-10 leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-mdx:max-w-[324px]">
                     {t('title')}

@@ -77,7 +77,7 @@ const Conditions: React.FC<ConditionsProps> = ({ locale, complexSlug }) => {
     }
 
     return (
-        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-2xl:px-[16px]">
+        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-2xl:px-[16px] mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
             <div className='max-xl:border-b'>
                 <h2 className='text-[30px] mdx:text-[45px] xl:text-[55px] font-medium pb-[12px] mdx:pb-[15px]'>
                     {t('title')}

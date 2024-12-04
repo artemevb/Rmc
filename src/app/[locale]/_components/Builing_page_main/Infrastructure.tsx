@@ -105,7 +105,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
   };
 
   return (
-    <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-3xl:px-[16px]">
+    <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-3xl:px-[16px] mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
       <div className="xl:flex xl:h-full xl:items-center xl:gap-[20px] 3xl:gap-[60px] w-full">
         <h3 className="text-[30px] font-medium mdx:text-[45px] xl:text-[55px] leading-[38px] max-mdx:max-w-[224px] xl:hidden">
           {t('title')}

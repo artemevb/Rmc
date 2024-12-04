@@ -255,7 +255,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
     }
 
     return (
-        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-3xl:px-[16px]">
+        <div className="w-full h-full flex flex-col mx-auto max-w-[1440px] max-3xl:px-[16px] mt-[120px] mdl:mt-[150px] xl:mt-[200px]">
             <h3 className="text-[30px] font-medium mdx:text-[45px] xl:text-[55px] leading-[38px] w-full max-w-[328px] mdx:max-w-[542px] xl:max-w-[100%]">
                 {t("title")}
             </h3>
