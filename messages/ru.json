@@ -1,4 +1,5 @@
 {
+  "searchPlaceholder": "Введите поисковый запрос...",
   "Header": {
     "nav": {
       "services": "Услуги",

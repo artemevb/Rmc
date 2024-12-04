@@ -1,4 +1,5 @@
 {
+  "searchPlaceholder": "Qidiruv so'rovini kiriting...",
   "Header": {
     "nav": {
       "services": "Xizmatlar",
@@ -193,7 +194,7 @@
     "Banner": {
       "title": "BAAdagi ko‘chmas mulkka sarmoya",
       "subtitle": "Moliyaviy muvaffaqiyat va uzoq muddatli barqarorlikning kaliti",
-      "button-more":"Batafsil ma’lumot olish"
+      "button-more": "Batafsil ma’lumot olish"
     },
     "invest": {
       "title": "Kelajakka Sarmoya Qiling: \nDubayda Ko'chmas Mulk",

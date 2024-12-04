@@ -1,4 +1,5 @@
 {
+  "searchPlaceholder": "Enter search query...",
   "Header": {
     "nav": {
       "services": "Services",
@@ -193,7 +194,7 @@
     "Banner": {
       "title": "Real Estate Investment in the UAE",
       "subtitle": "The key to financial success and long-term stability",
-      "button-more":"Learn more"
+      "button-more": "Learn more"
     },
     "invest": {
       "title": "Global imkoniyatlarga yo'l oching.",

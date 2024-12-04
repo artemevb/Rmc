@@ -122,14 +122,15 @@ const ResultsPage: React.FC = () => {
       {results.length > 0 ? (
         <div className="grid grid-cols-1 mdx:grid-cols-2 xl:grid-cols-3 gap-4 mt-[40px]">
           {results.map((complex) => (
-            <div key={complex._id} className="border hover:bg-[#F7F7F7] transition-all">
+            <div key={complex._id} className=" hover:bg-[#F7F7F7] transition-all">
               <Link href={`/${locale}/new-buildings/${complex.slug.current}`}>
                 {complex.mainImage && complex.mainImage.asset._ref && (
                   <Image
                     src={urlFor(complex.mainImage).url() || '/placeholder.png'}
                     alt={complex.subtitle[locale as keyof ResidentialComplexTitle] || t('defaultImageAlt')}
-                    width={400}
-                    height={300}
+                    width={1000}
+                    height={1000}
+                    priority
                     quality={100}
                     className="w-full h-[300px] object-cover"
                   />

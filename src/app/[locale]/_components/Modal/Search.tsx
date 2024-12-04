@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl'; // Импортируем useLocale из next-intl
+import { useLocale, useTranslations } from 'next-intl'; // Импортируем useTranslations
 import Image from "next/image";
 import search from '@/public/svg/main/search.svg';
 
@@ -13,6 +13,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
     const [searchQuery, setSearchQuery] = useState<string>(''); // Состояние для текста поиска
     const router = useRouter(); // Хук для навигации
     const locale = useLocale(); // Получаем текущую локаль из next-intl
+    const t = useTranslations(); // Хук для получения переводов
 
     // Обработчик для клика по кнопке поиска
     const handleSearchClick = () => {
@@ -63,7 +64,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
                         type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Введите поисковый запрос..."
+                        placeholder={t('searchPlaceholder')} 
                         className="w-full h-[40px] ml-4 border-0 outline-none text-[16px] mdx:text-[20px] text-[#333]"
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
@@ -95,3 +96,4 @@ const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
 };
 
 export default SearchModal;
+
