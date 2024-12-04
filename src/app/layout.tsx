@@ -116,7 +116,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
     },
     "telephone": "+9989785558787",
     "openingHours": "Mo-Fr 09:00-18:00",
-    "image": "https://rmcestate.uz/og-image.jpg",
+    "image": "https://rmcestate.uz/og-im2age.jpg",
     "priceRange": "$$$"
   };
 
@@ -132,8 +132,8 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Open Graph изображения */}
-        <meta property="og:image" content="https://rmcestate.uz/og-image.jpg" />
-        <meta name="twitter:image" content="https://rmcestate.uz/og-image.jpg" />
+        <meta property="og:image" content="https://rmcestate.uz/og-im2age.jpg" />
+        <meta name="twitter:image" content="https://rmcestate.uz/og-im2age.jpg" />
       </Head>
       <body className='h-full w-full p-0 m-0'>
         {children}
