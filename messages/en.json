@@ -71,11 +71,11 @@
       "tabs": {
         "rent": {
           "label": "Rent",
-          "content": "We buy and sell real estate properties under the most favorable conditions."
+          "content": "We offer a variety of rental options."
         },
         "buy": {
           "label": "Buy - Sell",
-          "content": "We offer a variety of rental options."
+          "content": "We buy and sell real estate properties under the most favorable conditions."
         },
         "manage": {
           "label": "Management",
@@ -196,12 +196,12 @@
       "button-more":"Learn more"
     },
     "invest": {
-      "title": "Invest in the Future: \nReal Estate in Dubai",
-      "subtitle": "Dubai, one of the world's fastest-growing cities, offers enormous opportunities for real estate investments. A favorable investment climate, sustainable economic growth, and a high standard of living make this city attractive to investors from around the world",
-      "text-1": "No taxes on real estate income",
-      "text-2": "Stable economy and growing market",
-      "text-3": "Growth and opportunities for high returns",
-      "text-4": "Strategic location and infrastructure"
+      "title": "Global imkoniyatlarga yo'l oching.",
+      "subtitle": "Dubai is not just a city, it is the financial center of the future. Tax benefits, a stable currency, unique opportunities for long-term investments, and rising real estate prices make this market one of the most attractive in the world. By investing in property here, you are not just purchasing square meters, but gaining access to one of the most dynamic and profitable markets.",
+      "text-1": "No income or property tax for investors",
+      "text-2": "Rising real estate prices, high rental yields",
+      "text-3": "Access to international markets and investments",
+      "text-4": "Transparent legislation and protection of property owners' rights"
     },
     "Consalting": {
       "title": "Golden Visa in the UAE: How to optimize taxes",

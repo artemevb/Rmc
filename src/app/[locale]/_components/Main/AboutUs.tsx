@@ -37,17 +37,17 @@ export default function Banner({ locale }: local) {
         <div className="w-full h-full flex flex-col mx-auto max-w-[1440px]">
             <div className='mx-[10px]'>
                 <div className='lh w-full flex flex-col'>
-                    <h2 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-gray-800">{t('title')} RMC DE LUXE</h2>
+                    <h2 className="text-[30px] mdx:text-[35px] mdl:text-[40px] slg:text-[45px] xl:text-[50px] font-medium text-gray-800">{t('title')}</h2>
                     <div className='w-full grid xl:grid-cols-3 mt-[40px] mdx:mt-[60px] gap-[21px]'>
                         <div className="w-full min-h-[454px] mdx:h-[529px] xl:h-[569px] bg-[#EDF3F5] overflow-hidden flex flex-col">
                             <div className="w-full pt-[33px] px-[33px] flex-grow">
                                 <h4 className="font-medium text-[28px] text-[#333333] mdx:text-[30px] mdx:font-semibold xl:text-[35px] mb-[12px] max-w-[569px]">
-                                    {t('tabs.rent.label')}
+                                    {t('tabs.buy.label')}
                                 </h4>
-                                <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.rent.content')}</p>
+                                <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.buy.content')}</p>
                             </div>
                             <Image
-                                src={build1}
+                                src={build2}
                                 quality={100}
                                 width={1500}
                                 height={1500}
@@ -58,12 +58,12 @@ export default function Banner({ locale }: local) {
                         <div className="w-full min-h-[454px] mdx:h-[529px] xl:h-[569px] bg-[#EDF3F5] overflow-hidden flex flex-col">
                             <div className="w-full p-[33px] flex-grow">
                                 <h4 className="font-medium text-[28px] text-[#333333] mdx:text-[30px] mdx:font-semibold xl:text-[35px] mb-[12px] max-w-[569px]">
-                                    {t('tabs.buy.label')}
+                                    {t('tabs.rent.label')}
                                 </h4>
-                                <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.buy.content')}</p>
+                                <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.rent.content')}</p>
                             </div>
                             <Image
-                                src={build2}
+                                src={build1}
                                 quality={100}
                                 width={1500}
                                 height={1500}
@@ -108,7 +108,7 @@ export default function Banner({ locale }: local) {
                             ))}
                         </div>
                     </div> */}
-                    <div className="flex items-center justify-center xl:mt-[35px] mdx:mt-[20px] mt-[10px] w-full">
+                    <div className="flex items-center justify-center xl:mt-[35px] mdx:mt-[35px] mt-[30px] w-full">
                         <Link href={`/${locale}/about`} className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px] transition-all duration-300'>
                             {t("button-more")}
                         </Link>

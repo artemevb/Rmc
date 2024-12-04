@@ -15,12 +15,12 @@ export default function Banner() {
 
     const openModal = () => {
         setIsModalOpen(true);
-      };
-    
-      // Close modal function
-      const closeModal = () => {
+    };
+
+    // Close modal function
+    const closeModal = () => {
         setIsModalOpen(false);
-      };
+    };
     return (
         <div className="w-full h-auto flex flex-col mx-auto">
             <div className='relative'>
@@ -33,7 +33,7 @@ export default function Banner() {
                 />
                 <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white max-xl:max-w-[80%]">
                     <h2
-                        className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px] 3xl:text-[80px] font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
+                        className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px]  font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
                         style={{ lineHeight: "1.1" }}
                     >
                         {t('title')}

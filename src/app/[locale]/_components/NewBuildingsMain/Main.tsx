@@ -462,7 +462,7 @@ export default function Invest({ locale }: InvestProps) {
                             <div className='absolute md:left-0 mt-2 z-10 bg-white shadow-lg w-[250px] mdx:w-[344px] p-4 max-md:right-[-10px]'>
                                 <div className='flex flex-row w-full mb-[25px]'>
                                     <div className='flex flex-col w-full'>
-                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('one')} ($)</label>
+                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('one')}</label>
                                         <input
                                             type='number'
                                             value={priceRange.min}
@@ -473,7 +473,7 @@ export default function Invest({ locale }: InvestProps) {
                                         />
                                     </div>
                                     <div className='flex flex-col w-full'>
-                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('two')} ($)</label>
+                                        <label className='text-[14px] mdx:text-[16px] text-[#858585] mb-[5px]'>{t('two')}</label>
                                         <input
                                             type='number'
                                             value={priceRange.max}
@@ -509,9 +509,9 @@ export default function Invest({ locale }: InvestProps) {
                                     )}
                                 />
 
-                                <div className='flex justify-between mt-[4px]'>
-                                    <span>{priceRange.min}</span>
-                                    <span>{priceRange.max}</span>
+                                <div className='flex justify-between mt-[4px] text-[#858585]'>
+                                    <span>{priceRange.min} AED</span>
+                                    <span>{priceRange.max} AED</span>
                                 </div>
                             </div>
                         )}

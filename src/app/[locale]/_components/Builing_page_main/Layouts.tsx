@@ -370,8 +370,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                 {minPrice < maxPrice ? (
                                     <>
                                         {/* Price Inputs */}
-                                        <div className="flex justify-between text-[12px] mdx:text-[16px] mb-2">
-                                            <div className="text-[#858585]">
+                                        <div className="flex flex-row w-full text-[12px] mdx:text-[16px] mb-2">
+                                            <div className="text-[#858585] flex flex-col w-full">
                                                 <label htmlFor="minPrice">{t("from")}</label>
                                                 <input
                                                     type="number"
@@ -383,7 +383,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                                     max={priceRange[1]}
                                                 />
                                             </div>
-                                            <div className="text-[#858585]">
+                                            <div className="text-[#858585] flex flex-col w-full">
                                                 <label htmlFor="maxPrice">{t("to")}</label>
                                                 <input
                                                     type="number"
@@ -443,8 +443,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                         />
                                         {/* Min and Max Prices */}
                                         <div className="flex justify-between text-[16px] mt-2 text-[#858585]">
-                                            <span>{priceRange[0].toLocaleString()}</span>
-                                            <span>{priceRange[1].toLocaleString()}</span>
+                                            <span>{priceRange[0].toLocaleString()} AED</span>
+                                            <span>{priceRange[1].toLocaleString()} AED</span>
                                         </div>
                                     </>
                                 ) : (
