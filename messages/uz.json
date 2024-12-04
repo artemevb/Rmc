@@ -169,17 +169,23 @@
       "button": "Batafsil"
     },
     "Service": {
-      "title": "Ko'chmas mulkni boshqarish \nxizmatiga kiradigan narsalar",
+      "title": "Ko'chmas mulkni boshqarish",
       "points": {
-        "tenantCheck": "Ijarachini tekshirish (kredit tarixi, tavsiyalar)",
+        "tenantCheck": "Ijarachilarni qidirish va marketing",
+        "tenantCheck-desc": "Ijarachilarni jalb qilish va ijara shartnomalarini imzolash",
         "maintenance": "Muntazam texnik xizmat ko'rsatish",
         "leaseContracts": "Ijaraga berish shartnomalarini tayyorlash va imzolash",
         "repairs": "Ta'mirlash ishlarini tashkil qilish va bajarish",
-        "rentCollection": "Ijara haqini yig'ish",
-        "propertyControl": "Ko'chmas mulkning holatini nazorat qilish",
-        "tenantRequests": "Ijarachilarning so'rovlari va shikoyatlarini qayta ishlash",
-        "tenantSelection": "Ishonchli ijarachilarni tanlash",
-        "leaseCompliance": "Ijara shartlariga rioya qilishni nazorat qilish"
+        "rentCollection": "Yuridik yordam",
+        "rentCollection-desc": "Mahalliy qonunchilikka muvofiq ijara shartnomalarini tayyorlash",
+        "propertyControl": "Texnik xizmat ko'rsatish va ta'mirlash",
+        "propertyControl-desc": "Ko'chmas mulkni muntazam xizmat ko'rsatishni ta'minlash",
+        "tenantRequests": "Moliyaviy boshqaruv",
+        "tenantRequests-desc": "Ijara to'lovlarini yig'ish va ularni egasiga o'z vaqtida o'tkazish",
+        "tenantSelection": "Ijarachilarni boshqarish",
+        "tenantSelection-desc": "Kommunal to'lovlarni nazorat qilish",
+        "leaseCompliance": "Ko'chmas mulkning holatini nazorat qilish",
+        "leaseCompliance-desc": "Zarur ta'mir yoki texnik xizmatni tashkil qilish"
       }
     }
   },

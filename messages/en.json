@@ -169,17 +169,23 @@
       "button": "Submit an application"
     },
     "Service": {
-      "title": "What’s included in property management service",
+      "title": "Property management",
       "points": {
-        "tenantCheck": "Tenant screening (credit history, recommendations)",
+        "tenantCheck": "Tenant search and marketing",
+        "tenantCheck-desc": "Attracting tenants and signing lease agreements",
         "maintenance": "Regular maintenance",
         "leaseContracts": "Preparation and signing of lease agreements",
         "repairs": "Organization and execution of repairs",
-        "rentCollection": "Rent collection",
-        "propertyControl": "Monitoring property conditions",
-        "tenantRequests": "Handling tenant requests and complaints",
-        "tenantSelection": "Selection of reliable tenants",
-        "leaseCompliance": "Monitoring lease compliance"
+        "rentCollection": "Legal support",
+        "rentCollection-desc": "Preparation of lease agreements in accordance with local legislation",
+        "propertyControl": "Technical maintenance and repairs",
+        "propertyControl-desc": "Ensuring regular property maintenance",
+        "tenantRequests": "Financial management",
+        "tenantRequests-desc": "Collecting rent payments and transferring them to the owner on time",
+        "tenantSelection": "Tenant management",
+        "tenantSelection-desc": "Utility payment control",
+        "leaseCompliance": "Organizing necessary repairs or technical maintenance",
+        "leaseCompliance-desc": "Monitoring lease compliance"
       }
     }
   },

@@ -4,8 +4,10 @@ import svg1 from "@/public/svg/main/service/1.svg";
 import svg2 from "@/public/svg/main/service/2.svg";
 import svg3 from "@/public/svg/main/service/3.svg";
 import svg4 from "@/public/svg/main/service/4.svg";
-import svg5 from "@/public/svg/main/service/5.svg";
+// import svg5 from "@/public/svg/main/service/5.svg";
 import svg6 from "@/public/svg/main/service/6.svg";
+import people from "@/public/svg/main/service/pepople.svg";
+import gka from "@/public/svg/main/service/gayka.svg";
 import { useTranslations } from 'next-intl';
 
 export default function Banner() {
@@ -27,124 +29,136 @@ export default function Banner() {
                     {processText(t('title'))}
                 </h2>
                 <div className='grid mdl:grid-cols-2 xl:grid-cols-3 max-xl:gap-5 xl:gap-y-[100px] '>
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
-                        <div>
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
                             <Image
                                 src={svg1}
                                 quality={100}
                                 alt="icons searh "
                                 objectFit="cover"
-                                width={16}
-                                height={16}
+                                width={40}
+                                height={40}
                                 className='w-[40px] h-[40px]'
                             />
                         </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.tenantCheck')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.tenantCheck')}
-                        </p>
+                        <div>
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.tenantCheck')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.tenantCheck-desc')}
+                            </p>
+                        </div>
                     </div>
 
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
-                        <div>
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
                             <Image
                                 src={svg2}
                                 quality={100}
                                 alt="icons searh "
                                 objectFit="cover"
-                                width={16}
-                                height={16}
+                                width={40}
+                                height={40}
                                 className='w-[40px] h-[40px]'
                             />
                         </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.rentCollection')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.rentCollection')}
-                        </p>
-                    </div>
-
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
                         <div>
-                            <Image
-                                src={svg3}
-                                quality={100}
-                                alt="icons searh "
-                                objectFit="cover"
-                                width={16}
-                                height={16}
-                                className='w-[40px] h-[40px]'
-                            />
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.rentCollection')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.rentCollection-desc')}
+                            </p>
                         </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.propertyControl')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.propertyControl')}
-                        </p>
                     </div>
 
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
-                        <div>
-                            <Image
-                                src={svg4}
-                                quality={100}
-                                alt="icons searh "
-                                objectFit="cover"
-                                width={16}
-                                height={16}
-                                className='w-[40px] h-[40px]'
-                            />
-                        </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.tenantRequests')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.tenantRequests')}
-                        </p>
-                    </div>
-
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
-                        <div>
-                            <Image
-                                src={svg5}
-                                quality={100}
-                                alt="icons searh "
-                                objectFit="cover"
-                                width={16}
-                                height={16}
-                                className='w-[40px] h-[40px]'
-                            />
-                        </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.tenantSelection')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.tenantSelection')}
-                        </p>
-                    </div>
-
-                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
-                        <div>
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
                             <Image
                                 src={svg6}
                                 quality={100}
                                 alt="icons searh "
                                 objectFit="cover"
-                                width={16}
-                                height={16}
+                                width={40}
+                                height={40}
                                 className='w-[40px] h-[40px]'
                             />
                         </div>
-                        <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
-                            {t('points.leaseCompliance')}
-                        </h4>
-                        <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
-                            {t('points.leaseCompliance')}
-                        </p>
+                        <div>
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.propertyControl')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.propertyControl-desc')}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
+                            <Image
+                                src={svg3}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={40}
+                                height={40}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <div>
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.tenantRequests')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.tenantRequests-desc')}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
+                            <Image
+                                src={people}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={40}
+                                height={40}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <div>
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.tenantSelection')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.tenantSelection-desc')}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
+                        <div className='w-full max-w-[40px] h-[40px]'>
+                            <Image
+                                src={gka}
+                                quality={100}
+                                alt="icons searh "
+                                objectFit="cover"
+                                width={40}
+                                height={40}
+                                className='w-[40px] h-[40px]'
+                            />
+                        </div>
+                        <div>
+                            <h4 className='text-[20px] mdx:text-[25px] font-medium text-[#333] opacity-80'>
+                                {t('points.leaseCompliance')}
+                            </h4>
+                            <p className='text-[18px] mdx:text-[24px] text-[#333] opacity-60'>
+                                {t('points.leaseCompliance-desc')}
+                            </p>
+                        </div>
                     </div>
 
                     {/* <div className='w-full flex flex-col gap-[16px] xl:max-w-[372px]'>
