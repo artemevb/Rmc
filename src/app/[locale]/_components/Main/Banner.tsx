@@ -174,7 +174,7 @@ export default function Banner({ locale }: { locale: string }) {
                         <div className="mt-4">
                           <button
                             onClick={openModal}
-                            className="bg-corporate hover:bg-hover_corporate text-white py-3 w-full max-w-[175px] mdx:max-w-[223px] text-lg font-semibold shadow-md transition duration-300"
+                            className="bg-corporate hover:bg-hover_corporate text-white py-3 w-auto font-semibold shadow-md transition duration-300 px-[43.5px] text-[16px] mdx:text-[17px]"
                           >
                             {buttonText}
                           </button>
