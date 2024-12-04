@@ -21,11 +21,19 @@ const faqData: FaqItem[] = [
   {
     question: "faq_question_3",
     answer: "faq_answer_3"
+  },
+  {
+    question: "faq_question_4",
+    answer: "faq_answer_4"
+  },
+  {
+    question: "faq_question_5",
+    answer: "faq_answer_5"
+  },
+  {
+    question: "faq_question_6",
+    answer: "faq_answer_6"
   }
-  // {
-  //   question: "faq_question_4",
-  //   answer: "faq_answer_4"
-  // }
 ];
 
 interface ArrowProps {
@@ -33,27 +41,27 @@ interface ArrowProps {
 }
 
 const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
-    <>
-      {isOpen ? (
-        <Image
-          src={openIcon}
-          alt="Open"
-          width={50}
-          height={50}
-          quality={100}
-          className="transition-transform duration-300"
-        />
-      ) : (
-        <Image
-          src={closedIcon}
-          alt="Closed"
-          width={50}
-          height={50}
-          quality={100}
-          className="transition-transform duration-300"
-        />
-      )}
-    </>
+  <>
+    {isOpen ? (
+      <Image
+        src={openIcon}
+        alt="Open"
+        width={50}
+        height={50}
+        quality={100}
+        className="transition-transform duration-300"
+      />
+    ) : (
+      <Image
+        src={closedIcon}
+        alt="Closed"
+        width={50}
+        height={50}
+        quality={100}
+        className="transition-transform duration-300"
+      />
+    )}
+  </>
 );
 
 const FaqSection: React.FC = () => {

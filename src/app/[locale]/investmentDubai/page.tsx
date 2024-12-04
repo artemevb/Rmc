@@ -1,6 +1,6 @@
 import Banner from "../_components/InvestmentDubai/Banner";
 import Invest from "../_components/InvestmentDubai/invest";
-import Consalting from "../_components/Main/Consalting";
+import Consalting from "../_components/InvestmentDubai/ConsaltingDubaiPages";
 // import SliderMap from "../_components/InvestmentDubai/SliderMap";
 import Types from "../_components/InvestmentDubai/Types";
 import Schema from "../_components/InvestmentDubai/schema";

@@ -184,6 +184,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                 width={30}
                                 height={30}
                                 quality={100}
+                                priority
                                 alt="close"
                                 className="object-contain"
                             />

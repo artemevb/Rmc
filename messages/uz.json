@@ -146,16 +146,16 @@
     },
     "WhyUs": {
       "title": "Nega bizni tanlashadi",
-      "experienceTitle": "Tajriba va professionallik",
-      "experienceDescription": "Bizning mutaxassislarimiz ko'p yillik tajribaga ega bo'lib, ko'chmas mulk sohasida yuqori sifatli xizmatlarni ta'minlaydi",
-      "transparencyTitle": "Shaffoflik va ishonch",
-      "transparencyDescription": "Barcha operatsiyalarning to'liq shaffofligini ta'minlash va hisobotlar taqdim etish. Ish prinsiplarimiz halollik va ishonchga asoslangan, bu sharhlar bilan tasdiqlangan",
-      "serviceTitle": "Yuqori xizmat darajasi",
-      "serviceDescription": "Har doim sizga yordam berishga tayyormiz",
-      "individualTitle": "Individual yondashuv",
-      "individualDescription": "Biz har bir mijozning o'ziga xos ehtiyojlarini hisobga olgan holda shaxsiy yechimlarni ishlab chiqamiz",
-      "comprehensiveTitle": "Kompleks xizmat",
-      "comprehensiveDescription": "Ijaradan tortib, sotish, boshqaruv va ko'chmas mulk investitsiyalarini o'z ichiga olgan to'liq xizmatlar spektri.",
+      "experienceTitle": "Sanoatda 14 yillik tajriba",
+      "experienceDescription": "Biz 14 yil davomida mijozlarga muvaffaqiyatli xizmat ko'rsatib kelyapmiz, orqada ko'plab yechilgan vazifalar mavjud.",
+      "transparencyTitle": "200+ muvaffaqiyatli mijozlar",
+      "transparencyDescription": "200+ mijoz bizning tajribamiz va aniqligimiz tufayli yangi statusga erishdi.",
+      "serviceTitle": "20+ investitsion dasturlar",
+      "serviceDescription": "Sizning maqsadlaringizga moslashtirilgan keng tanlovdagi dasturlar. Biz minimal xavflar va maksimal foyda bilan eng yaxshi variantni tanlaymiz.",
+      "individualTitle": "To'liq maxfiylik",
+      "individualDescription": "Ma'lumotlaringiz ishonchli himoya ostida. Biz eng qat'iy xavfsizlik standartlariga rioya qilamiz.",
+      "comprehensiveTitle": "Ishonchlilik va shaffoflik",
+      "comprehensiveDescription": "Biz har bir qadamni tushuntirib, natijaning oldindan aytib bo'lishini ta'minlaymiz. Har bir qarorda ishonch bilan boshlang.",
       "imageAlt": "bino"
     },
     "Investition": {
@@ -164,8 +164,8 @@
       "button": "Batafsil"
     },
     "Consalting": {
-      "title": "Biznesni ochish va ro'yxatdan o'tkazishda konsalting va yordam",
-      "subtitle": "Bizning yordamiz bilan Dubayda biznes ochish oddiy va tez jarayon! Biz to'liq qo'llab-quvvatlashni taklif etamiz: kompaniya shaklini tanlashdan tortib ro'yxatdan o'tkazish va litsenziyalarni olishgacha. Har bir bosqichda mutaxassis yordami biznesingizning BAAda muvaffaqiyatli boshlanishini ta'minlaydi.",
+      "title": "BAAdagi biznes: Dubayda kompaniya ochish",
+      "subtitle": "Dubayda kompaniya ro‘yxatga olish sizga bir qator strategik afzalliklarni taqdim etadi, bu esa biznesingiz samaradorligini sezilarli darajada oshirishi mumkin. BAA xorijiy tadbirkorlar uchun noyob imkoniyatlarni taqdim etadi, past soliq stavkalari, barqaror iqtisodiyot va xalqaro bozorga kirish imkoniyatlari bilan.",
       "button": "Batafsil"
     },
     "Service": {
@@ -191,8 +191,9 @@
   },
   "investmentsDubai": {
     "Banner": {
-      "title": "Dubayda Ko'chmas Mulkga Sarmoya",
-      "subtitle": "Dubayda sarmoya qilish imkoniyatlari va afzalliklari haqida bilib oling"
+      "title": "BAAdagi ko‘chmas mulkka sarmoya",
+      "subtitle": "Moliyaviy muvaffaqiyat va uzoq muddatli barqarorlikning kaliti",
+      "button-more":"Batafsil ma’lumot olish"
     },
     "invest": {
       "title": "Kelajakka Sarmoya Qiling: \nDubayda Ko'chmas Mulk",
@@ -201,6 +202,11 @@
       "text-2": "Barqaror iqtisodiyot va o'sayotgan bozor",
       "text-3": "O'sish va yuqori daromad olish imkoniyatlari",
       "text-4": "Strategik joylashuv va infratuzilma"
+    },
+    "Consalting": {
+      "title": "Zolotiy visa BAAda: soliqni qanday optimallashtirish mumkin",
+      "subtitle": "Kompa­niyani Dubayda ro‘yxatga olish — bu biznesingizni yangi bosqichga olib chiqish imkoniyatidir. Kam soliq, barqaror pul birligi va eng yirik jahondagi bozorlar bilan ulanish ideal o‘sish sharoitlarini yaratadi. BAA xorijiy tadbirkorlar uchun noyob imtiyozlarni taqdim etadi: foyda solig‘i yo‘qligi, tez ro‘yxatdan o‘tish va har bir bosqichda professional yordam. Biror erkin iqtisodiy zonada biznes oching va muvaffaqiyatli xalqaro kengayish uchun barcha zarur vositalarga ega bo‘ling.",
+      "button": "Оставить заявку"
     },
     "Types": {
       "title": "Ko'chmas Mulk Turlari",
@@ -212,22 +218,29 @@
     },
     "Scheme": {
       "title": "Ko'chmas Mulk Sotib Olish Jarayoni",
-      "text-1": "Konsultatsiya va Mulk Tanlash",
-      "text-1-subtitle": "Biz mulklarni ko'rishlarni tashkil qilamiz va ularning afzalliklari va kamchiliklarini baholashingizga yordam beramiz",
-      "text-2": "Huquqiy Qo'llab-quvvatlash",
-      "text-2-subtitle": "Qonunchilikka rioya qilinishini ta'minlash va mijoz manfaatlarini himoya qilish",
-      "text-3": "Bitimni Yozib Olish",
-      "text-3-subtitle": "Barcha kerakli hujjatlarni tayyorlash va imzolash. To'lovlarni amalga oshirish",
-      "text-4": "Ko'chmas Mulkni Boshqarish Xizmatlari",
-      "text-4-subtitle": "Mutaxassislarimiz mulkingizni boshqarish bo'yicha to'liq xizmatlarni taqdim etadi"
+      "text-1": "Ob'ektni tanlash",
+      "text-1-subtitle": "Ob'ektni masofadan turib yoki Dubayga kelib shaxsan tanlashingiz mumkin. Biz sizga ishonchli quruvchilardan o'z bazamizdagi ob'ektlar takliflarini taqdim etamiz.",
+      "text-2": "Quruvchidan sotib olish va sotish shartnomasini so'rash",
+      "text-2-subtitle": "Ob'ektni tanlaganingizdan so'ng, bron to'lovini amalga oshirish va quruvchidan sotib olish va sotish shartnomasini (SPA) kutish jarayoni boshlanadi.",
+      "text-3": "Birinchi to'lov — down payment",
+      "text-3-subtitle": "Birinchi to'lovning miqdori muayyan kompleksning to'lov rejasiga bog'liq bo'lib, odatda ob'ekt narxining 10 yoki 20 foiziga teng bo'ladi.",
+      "text-4": "Yer bo'limida ro'yxatga olish",
+      "text-4-subtitle": "Barcha hujjatlar tayyor bo'lsa, ro'yxatga olish bir kun davom etadi. Shundan so'ng, xaridor mulk huquqi to'g'risidagi hujjat — Title Deed (egalik huquqini tasdiqlovchi hujjat)ni oladi."
     },
     "PopularReviews": {
       "title": "Tez-tez So'raladigan Savollar",
-      "faq_question_1": "Chet elliklar uchun ko'chmas mulk sotib olish qoidalari",
-      "faq_answer_1": "Chet elliklar uchun ko'chmas mulk sotib olish qoidalari mamlakatga bog'liq. Odatda talablar va cheklovlar mavjud. Ko'pgina mamlakatlarda chet elliklar faqat mahalliy hukumatlarning ruxsati yoki maxsus litsenziya asosida ko'chmas mulk sotib olishlari mumkin. Cheklovlar ko'chmas mulk turiga tegishli bo'lishi mumkin: masalan, chet elliklar faqat yashash joylarini sotib olish huquqiga ega bo'lishi mumkin, savdo yoki yerlarni emas. Shuningdek, chet elliklar ma'lum bir huquqiy maqomga ega bo'lishlari kerak, masalan, rezidentlar yoki sarmoyadorlar. Ko'pincha moliyaviy qobiliyat va daromad manbalarini tasdiqlash talab qilinadi, shuningdek, sotib olishda qo'shimcha soliqlar yoki to'lovlar bo'lishi mumkin. Sotib olish jarayoni huquqiy va ma'muriy qadamlarni o'z ichiga olishi mumkin, masalan notarial tasdiqlash va mulk huquqlarini ro'yxatdan o'tkazish. Ba'zi mamlakatlarda chet elliklar ko'chmas mulk sotib olishlari mumkin bo'lgan hududlar yoki zonalar bo'yicha cheklovlar mavjud. Aniq ma'lumot uchun mahalliy huquqiy mutaxassislar yoki ko'chmas mulk agentliklariga murojaat qilish eng yaxshisi",
-      "faq_question_2": "Minimal sarmoya miqdori",
-      "faq_question_3": "Bitimni yozib olish tartibi",
-      "faq_question_4": "Texnik xizmat ko'rsatish va kommunal to'lovlar narxi"
+      "faq_question_1": "Chet elliklar Dubayda ko'chmas mulk sotib olishi mumkinmi?",
+      "faq_answer_1": "Ha, chet elliklar Dubayda ko'chmas mulk sotib olishlari mumkin, lekin faqat chet ellik investorlarga mulk sotib olish ruxsat etilgan ba'zi hududlarda. Bu odatda yuqori darajada rivojlangan infratuzilma va qulayliklarga ega bo'lgan prestijli hududlar.",
+      "faq_question_2": "Chet elliklar qayerda ko'chmas mulk sotib olishlari mumkin?",
+      "faq_answer_2": "Chet elliklar freehold zonalarida (erkin hududlarda) ko'chmas mulk sotib olishlari mumkin, masalan, Dubai Marina, Palm Jumeirah, Downtown Dubai, Business Bay, Jumeirah Beach Residence (JBR) va boshqa mashhur hududlar. Bu zonalar investorlar, jumladan chet ellik fuqarolar uchun mo'ljallangan.",
+      "faq_question_3": "Qaysi turdagi ko'chmas mulk sotib olish uchun mavjud?",
+      "faq_answer_3": "Chet elliklar turli xil ko'chmas mulk turlarini sotib olishlari mumkin, jumladan, kvartiralar (apartamentlar), villalar, townhouse'lar va tijorat ko'chmas mulk (ofislar, do'konlar va omborlar). Villalar va kvartiralar uzoq muddat yashash va ijaraga berish uchun ayniqsa mashhur.",
+      "faq_question_4": "Dubayda ko'chmas mulkning narxi qanday?",
+      "faq_answer_4": "Dubayda ko'chmas mulk narxlari hudud, mulk turi va uning holatiga qarab sezilarli darajada farq qiladi. Masalan, kichik kvartiralar uchun kamroq qimmat hududlarda o'rtacha narx 700,000 AED dan boshlanadi, Palm Jumeirah yoki Downtown Dubai kabi premium hududlardagi yuqori sifatli ob'ektlar esa bir necha million dirhamga borishi mumkin.",
+      "faq_question_5": "Ipoteka olish mumkinmi?",
+      "faq_answer_5": "Ha, chet elliklar Dubayda ipoteka olishlari mumkin, lekin shartlar turli xil turdagi yashash holatiga bog'liq. Nerezidentlar uchun odatda 40% dastlabki to'lov talab qilinadi, UAE rezidentlari uchun esa 20-30%. Kredit shartlari bankka qarab farq qilishi mumkin, ammo odatda ipoteka 25 yilgacha beriladi.",
+      "faq_question_6": "Dubayda ko'chmas mulk solig'i qanday?",
+      "faq_answer_6": "Dubayda ko'chmas mulk solig'i yo'q, lekin mulk sotib olishda davlat to'lovi 4% tashkil etadi. Qo'shimcha xarajatlar ro'yxatga olish to'lovlari, hujjatlarni rasmiylashtirish va yuridik xizmatlarni o'z ichiga olishi mumkin."
     }
   },
   "Contacts": {

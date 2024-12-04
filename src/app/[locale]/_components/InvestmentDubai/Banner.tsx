@@ -1,13 +1,26 @@
 
+"use client";
+
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-
+import QuestionSent from '../Modal/ApplicationNewBuildings';
 import photo1 from "@/public/images/investmentsDubai/First screen.png";
 
 
 export default function Banner() {
     const t = useTranslations('investmentsDubai.Banner');
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+      };
+    
+      // Close modal function
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
     return (
         <div className="w-full h-auto flex flex-col mx-auto">
             <div className='relative'>
@@ -29,10 +42,17 @@ export default function Banner() {
                         {t('subtitle')}
                     </p>
 
-                    <div>
+                    <div className="mt-4">
+                        <button
+                            onClick={openModal}
+                            className="bg-corporate hover:bg-hover_corporate text-white py-3 w-full max-w-[175px] mdx:max-w-[223px] text-lg font-semibold shadow-md transition duration-300"
+                        >
+                            {t('button-more')}
+                        </button>
                     </div>
                 </div>
             </div>
+            <QuestionSent isOpen={isModalOpen} onClose={closeModal} />
         </div>
     );
 }

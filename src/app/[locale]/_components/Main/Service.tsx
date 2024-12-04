@@ -3,7 +3,7 @@ import Image from 'next/image';
 import svg1 from "@/public/svg/main/service/1.svg";
 import svg2 from "@/public/svg/main/service/2.svg";
 import svg3 from "@/public/svg/main/service/3.svg";
-import svg4 from "@/public/svg/main/service/4.svg";
+// import svg4 from "@/public/svg/main/service/4.svg";
 // import svg5 from "@/public/svg/main/service/5.svg";
 import svg6 from "@/public/svg/main/service/6.svg";
 import people from "@/public/svg/main/service/pepople.svg";

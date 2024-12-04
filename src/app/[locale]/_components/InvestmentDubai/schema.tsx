@@ -84,7 +84,7 @@ export default function Scheme() {
                                 03
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh 3xl:whitespace-nowrap">
+                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
                                     {t('text-3')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">

@@ -8,7 +8,7 @@ export default function Invest() {
 
     const formatText = (text: string) => {
         return text.split('\n').map((line, index) => (
-            <p key={index} className='mb-[10px]'>{line}</p>
+            <p key={index} className='mb-[5px]'>{line}</p>
         ));
     };
 
@@ -18,7 +18,7 @@ export default function Invest() {
             <div>
                 <div className='xl:flex flex-row-reverse xl:gap-[80px] xl:items-center'>
                     <div className='xl:max-w-[772px]'>
-                        <h3 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-w-[710px]'>
+                        <h3 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[25px] mdl:leading-[30px] xl:leading-[50px] max-w-[710px]'>
                             {formatText(t('title'))}
                         </h3>
                         <div className='text-[16px] font-normal mdx:text-[20px] text-[#858585] mt-[25px] mdx:mt-[30px] xl:mt-[25px]'>

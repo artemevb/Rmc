@@ -146,16 +146,16 @@
     },
     "WhyUs": {
       "title": "Why choose us",
-      "experienceTitle": "Experience and professionalism",
-      "experienceDescription": "Our specialists have many years of experience in various areas of real estate, ensuring high-quality services",
-      "transparencyTitle": "Transparency and trust",
-      "transparencyDescription": "Ensuring full transparency of all operations and providing reports. Work is based on principles of honesty and trust, as confirmed by reviews",
-      "serviceTitle": "High level of service",
-      "serviceDescription": "We are always available to assist you at any time",
-      "individualTitle": "Individual approach",
-      "individualDescription": "We develop personalized solutions, considering the unique needs of each client",
-      "comprehensiveTitle": "Comprehensive service",
-      "comprehensiveDescription": "A full range of services, including rent, buying and selling, management, and real estate investment.",
+      "experienceTitle": "14 years of experience in the industry",
+      "experienceDescription": "We have been successfully supporting clients for 14 years, with many solved tasks behind us.",
+      "transparencyTitle": "200+ successful clients",
+      "transparencyDescription": "Over 200 clients have already achieved a new status thanks to our experience and precision",
+      "serviceTitle": "20+ investment programs",
+      "serviceDescription": "A wide range of programs tailored to your goals. We will choose the best option with minimal risks and maximum benefit.",
+      "individualTitle": "Complete confidentiality",
+      "individualDescription": "Your data is under reliable protection. We adhere to the strictest security standards.",
+      "comprehensiveTitle": "Reliability and transparency",
+      "comprehensiveDescription": "We will explain each step and ensure predictability of the result. Start with confidence in every decision.",
       "imageAlt": "building"
     },
     "Investition": {
@@ -164,8 +164,8 @@
       "button": "Learn More"
     },
     "Consalting": {
-      "title": "Consulting and Support for Business Formation and Registration",
-      "subtitle": "Starting a business in Dubai with our help is a simple and fast process! We offer full support: from choosing the company form to registration and obtaining licenses. Expert support at every stage to ensure a successful start for your business in the UAE.",
+      "title": "Business in the UAE: How to open a company in Dubai",
+      "subtitle": "Registering a company in Dubai opens up a range of strategic advantages that can significantly improve your business efficiency. The UAE offers a unique opportunity for foreign entrepreneurs, providing low tax rates, a stable economy, and access to international markets.",
       "button": "Submit an application"
     },
     "Service": {
@@ -191,8 +191,9 @@
   },
   "investmentsDubai": {
     "Banner": {
-      "title": "Investments in Dubai Real Estate",
-      "subtitle": "Learn about the opportunities and advantages of investing in Dubai"
+      "title": "Real Estate Investment in the UAE",
+      "subtitle": "The key to financial success and long-term stability",
+      "button-more":"Learn more"
     },
     "invest": {
       "title": "Invest in the Future: \nReal Estate in Dubai",
@@ -201,6 +202,11 @@
       "text-2": "Stable economy and growing market",
       "text-3": "Growth and opportunities for high returns",
       "text-4": "Strategic location and infrastructure"
+    },
+    "Consalting": {
+      "title": "Golden Visa in the UAE: How to optimize taxes",
+      "subtitle": "Registering a company in Dubai is an opportunity to take your business to the next level. Low taxes, stable currency, and access to the world’s largest markets create ideal conditions for growth. The UAE offers unique advantages for foreign entrepreneurs: no corporate taxes, fast registration, and professional support at every step. Open a business in one of the free zones and get all the necessary tools for successful international expansion.",
+      "button": "Оставить заявку"
     },
     "Types": {
       "title": "Types of Real Estate",
@@ -212,22 +218,29 @@
     },
     "Scheme": {
       "title": "Real Estate Purchase Process",
-      "text-1": "Consultation and Property Selection",
-      "text-1-subtitle": "We arrange property viewings and help you assess their advantages and disadvantages",
-      "text-2": "Legal Support",
-      "text-2-subtitle": "Ensuring compliance with legislation and protecting the client's interests",
-      "text-3": "Deal Execution",
-      "text-3-subtitle": "Preparation and signing of all necessary documents. Payment processing",
-      "text-4": "Property Management Services",
-      "text-4-subtitle": "Our specialists provide a full range of services to manage your property"
+      "text-1": "Property selection",
+      "text-1-subtitle": "You can select a property remotely or in person by visiting Dubai. We will provide offers from our own database of properties from trusted developers.",
+      "text-2": "Request for the sale and purchase agreement from the developer",
+      "text-2-subtitle": "After selecting the property, the process of paying the booking fee and awaiting the sale and purchase agreement (SPA) from the developer begins.",
+      "text-3": "Payment of the first installment – down payment",
+      "text-3-subtitle": "The amount of the first installment depends on the payment plan of the specific development and is usually 10 or 20% of the property value.",
+      "text-4": "Registration with the Land Department",
+      "text-4-subtitle": "Once all the documents are in place, registration takes about one day. After that, the buyer receives the Title Deed (proof of ownership)."
     },
     "PopularReviews": {
       "title": "Frequently Asked Questions",
-      "faq_question_1": "Rules for foreigners buying real estate",
-      "faq_answer_1": "The rules for foreigners buying real estate depend on the country. Usually, there are requirements and restrictions. In many countries, foreigners can purchase real estate only with the permission of local authorities or under a special license. Restrictions may pertain to the type of real estate: for example, foreigners may have the right to purchase only residential properties, not commercial or land. Also, foreigners must have a certain legal status, such as residents or investors. Often, proof of financial capability and sources of income is required, and there may be additional taxes or fees upon purchase. The purchase process may involve legal and administrative steps, such as notarial certification and registration of ownership rights. In some countries, there are regional or zone restrictions where foreigners can acquire real estate. For accurate information, it's best to consult local legal specialists or real estate agencies",
-      "faq_question_2": "Minimum investment amount",
-      "faq_question_3": "Deal execution procedure",
-      "faq_question_4": "Maintenance costs and utility payments"
+      "faq_question_1": "Can a foreigner buy property in Dubai?",
+      "faq_answer_1": "Yes, foreigners can buy property in Dubai, but only in certain areas where property ownership is allowed for foreign investors. These are typically prestigious areas with highly developed infrastructure and amenities.",
+      "faq_question_2": "Where can foreigners buy property?",
+      "faq_answer_2": "Foreigners can buy property in freehold areas, such as Dubai Marina, Palm Jumeirah, Downtown Dubai, Business Bay, Jumeirah Beach Residence (JBR), and other popular areas. These zones are designated for investors, including foreign nationals.",
+      "faq_question_3": "What types of property are available for purchase?",
+      "faq_answer_3": "Foreigners can purchase various types of properties, including apartments, villas, townhouses, and commercial properties (offices, shops, and warehouses). Villas and apartments are especially popular for long-term living and renting out.",
+      "faq_question_4": "What is the cost of property in Dubai?",
+      "faq_answer_4": "Property prices in Dubai vary widely depending on the area, type of property, and its condition. For example, the average cost of an apartment can start from 700,000 AED for small apartments in less expensive areas, to several million dirhams for luxury properties in premium locations such as Palm Jumeirah or Downtown Dubai.",
+      "faq_question_5": "Can a mortgage be obtained?",
+      "faq_answer_5": "Yes, foreigners can obtain a mortgage in Dubai, but the terms depend on the type of residency. For non-residents, an initial payment of 40% is usually required, while for UAE residents, it is 20-30%. Mortgage terms may vary depending on the bank, but generally, mortgages are offered for up to 25 years.",
+      "faq_question_6": "What are the property taxes in Dubai?",
+      "faq_answer_6": "There is no property tax in Dubai, but a government fee of 4% of the property value is charged when purchasing property. Additional costs may include registration fees, processing costs, and legal services."
     }
   },
   "Contacts": {

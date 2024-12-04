@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import Application from '../Modal/Application';
 
 export default function Banner() {
-    const t = useTranslations('Main.Consalting');
+    const t = useTranslations('investmentsDubai.Consalting');
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
