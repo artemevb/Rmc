@@ -150,7 +150,7 @@ export default function Banner({ locale }: { locale: string }) {
                   <div
                     className="relative w-full h-auto min-h-[500px] mdx:min-h-[600px] xl:min-h-[630px] xl:max-h-[630px] 4xl:min-h-[850px] bg-center bg-cover"
                     style={{
-                      background: `linear-gradient(395deg, rgba(0, 0, 0, 0.774) 0%, rgba(0, 0, 0, 0.2) 100%), url(${imageSrc}) lightgray 50% / cover no-repeat`,
+                      background: `linear-gradient(380deg, rgba(0, 0, 0, 0.765) 0%, rgba(0, 0, 0, 0.2) 100%), url(${imageSrc}) lightgray 50% / cover no-repeat`,
                     }}
                   >
                     <div className="absolute inset-0"></div>
