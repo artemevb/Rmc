@@ -128,8 +128,8 @@ const PartnersComp: React.FC = () => {
               key={partner.id}
               className=" flex justify-center items-center"
             >
-              <div className="flex justify-center items-center border border-[#EAEAEA] h-[120px] mdx:h-[200px] xl:h-[250px] px-[8px] mdx:px-[30px] xl:px-[70px] py-[65px] cursor-pointer">
-                <a href={partner.url} target="_blank" rel="noopener noreferrer">
+              <div className="flex justify-center items-center border border-[#EAEAEA] h-[120px] mdx:h-[200px] xl:h-[250px] px-[8px] mdx:px-[30px] xl:px-[70px] py-[65px]">
+                {/* <a href={partner.url} target="_blank" rel="noopener noreferrer"> */}
                   <Image
                     src={partner.image}
                     alt={`Partner ${partner.id}`}
@@ -138,7 +138,7 @@ const PartnersComp: React.FC = () => {
                     width={500}
                     height={500}
                   />
-                </a>
+                {/* </a> */}
               </div>
             </div>
           ))}
