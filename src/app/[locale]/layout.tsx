@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'RMC De Luxe',
     images: [
       {
-        url: 'https://rmcestate.uz/og-im2age.jpg',
+        url: 'https://rmcestate.uz/og-im2age.jpg?v=2',
         width: 1200,
         height: 630,
         alt: 'RMC De Luxe - Недвижимость в ОАЭ',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RMC De Luxe - Риэлторское Агентство в ОАЭ',
     description: 'Профессиональные услуги по оценке, аренде и продаже недвижимости в ОАЭ.',
-    images: 'https://rmcestate.uz/og-im2age.jpg',
+    images: 'https://rmcestate.uz/og-im2age.jpg?v=2',
   },
   icons: {
     icon: '/favicon.ico',
@@ -92,7 +92,7 @@ export default async function RootLayout({
     },
     "telephone": "+9989785558787",
     "openingHours": "Mo-Fr 09:00-18:00",
-    "image": "https://rmcestate.uz/og-im2age.jpg",
+    "image": "https://rmcestate.uz/og-im2age.jpg?v=2",
     "priceRange": "$$$"
   };
 
