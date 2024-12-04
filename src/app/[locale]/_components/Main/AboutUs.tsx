@@ -108,7 +108,7 @@ export default function Banner({ locale }: local) {
                             ))}
                         </div>
                     </div> */}
-                    <div className="flex items-center justify-start xl:mt-[35px] mdx:mt-[20px] mt-[10px] w-full">
+                    <div className="flex items-center justify-center xl:mt-[35px] mdx:mt-[20px] mt-[10px] w-full">
                         <Link href={`/${locale}/about`} className='bg-corporate hover:bg-hover_corporate text-white py-[12px] px-4 w-[223px] flex justify-center font-semibold text-[17px] transition-all duration-300'>
                             {t("button-more")}
                         </Link>

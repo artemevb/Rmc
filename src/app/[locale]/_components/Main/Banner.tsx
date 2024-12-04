@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import arrowLeft from "@/public/svg/arrowLeftWhite.svg";
 import arrowRight from "@/public/svg/arrowRightWhite.svg";
 import { urlFor } from '@/src/sanity/lib/image';
@@ -38,10 +38,15 @@ interface Slide {
     uz?: string;
     en: string;
   };
+  buttonText?: { // Make buttonText optional
+    ru?: string;
+    uz?: string;
+    en?: string;
+  };
 }
 
 export default function Banner({ locale }: { locale: string }) {
-  const t = useTranslations('Main.Banner');
+  // const t = useTranslations('Main.Banner');
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
 
@@ -63,13 +68,18 @@ export default function Banner({ locale }: { locale: string }) {
             }
           },
           title,
-          description
+          description,
+          buttonText // Ensure buttonText is fetched
         }
       }`;
 
-      const data = await client.fetch(query);
-      if (data && data.slides) {
-        setSlides(data.slides);
+      try {
+        const data = await client.fetch(query);
+        if (data && data.slides) {
+          setSlides(data.slides);
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
       }
     };
 
@@ -80,7 +90,7 @@ export default function Banner({ locale }: { locale: string }) {
     setIsModalOpen(true);
   };
 
-  // Закрыть модальное окно
+  // Close modal function
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -131,6 +141,9 @@ export default function Banner({ locale }: { locale: string }) {
                 .url();
               const titleText = slide.title[locale as keyof typeof slide.title] || slide.title.en;
               const descriptionText = slide.description[locale as keyof typeof slide.description] || slide.description.en;
+              const buttonText = slide.buttonText
+                ? (slide.buttonText[locale as keyof typeof slide.buttonText] || slide.buttonText.en)
+                : undefined; 
 
               return (
                 <SwiperSlide key={index}>
@@ -142,7 +155,7 @@ export default function Banner({ locale }: { locale: string }) {
                   >
                     <div className="absolute inset-0"></div>
 
-                    {/* Контейнер для текста и кнопки */}
+                    {/* Container for text and button */}
                     <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white z-10 flex flex-col space-y-4">
                       {titleText && (
                         <h2
@@ -157,13 +170,13 @@ export default function Banner({ locale }: { locale: string }) {
                           {descriptionText}
                         </p>
                       )}
-                      {index === 0 && (
+                      {buttonText && ( 
                         <div className="mt-4">
                           <button
                             onClick={openModal}
                             className="bg-corporate hover:bg-hover_corporate text-white py-3 w-full max-w-[175px] mdx:max-w-[223px] text-lg font-semibold shadow-md transition duration-300"
                           >
-                            {t('button-more')}
+                            {buttonText}
                           </button>
                         </div>
                       )}

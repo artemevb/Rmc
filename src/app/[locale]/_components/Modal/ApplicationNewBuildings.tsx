@@ -149,7 +149,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
             // Optionally, provide user feedback on error
         }
     };
-    
+
     useEffect(() => {
         if (!isOpen) {
             setValues({ name: "", phone: "", message: "" });
@@ -173,6 +173,7 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                         <h2 className="lh text-[30px] font-semibold mdx:text-[35px] max-mdx:max-w-[168px]">
                             {formatText(t("type-of-service"))}
                         </h2>
+
                         <button
                             onClick={handleClose}
                             className="w-6 h-6 mdx:w-7 mdx:h-7 absolute right-[15px] top-[15px] cursor-pointer focus:outline-none"
@@ -188,9 +189,9 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                             />
                         </button>
                     </div>
-
+                    <p className="text-base text-[#989898] text-left w-full mt-[9px] ml-[2px]">{t("type-of-service-description")}</p>
                     <form
-                        className="flex flex-col gap-[20px] w-full xl:gap-[30px] mt-[30px] mdx:mt-[50px]"
+                        className="flex flex-col gap-[20px] w-full xl:gap-[30px] mt-[25px] mdx:mt-[40px]"
                         onSubmit={handleSubmit}
                     >
                         {(["name", "phone"] as Array<keyof FormValues>).map((field) => {
@@ -205,17 +206,16 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                         onChange={handleInputChange}
                                         onFocus={() => setFocusedInput(field)}
                                         onBlur={() => handleInputBlur(field)}
-                                        className={`block w-full px-3 py-2  placeholder-transparent focus:outline-none border-b-2 transition-colors ${
-                                            focusedInput === field
+                                        className={`block w-full px-3 py-2  placeholder-transparent focus:outline-none border-b-2 transition-colors ${focusedInput === field
+                                            ? validation.isValid
+                                                ? "border-corporate"
+                                                : "border-[#FF0000]"
+                                            : touched[field]
                                                 ? validation.isValid
-                                                    ? "border-corporate" // Green border on focus and valid input
-                                                    : "border-[#FF0000]" // Red border on focus and invalid input
-                                                : touched[field]
-                                                    ? validation.isValid
-                                                        ? "border-[#EEEEEE]" // Neutral border if field is touched and valid
-                                                        : "border-[#FF0000]" // Red border if field is touched and invalid
-                                                    : "border-[#EEEEEE]" // Neutral border if field is untouched
-                                        }`}
+                                                    ? "border-[#EEEEEE]"
+                                                    : "border-[#FF0000]"
+                                                : "border-[#EEEEEE]"
+                                            }`}
 
                                         placeholder={
                                             field === "name" ? t("full-name") : t("telephone-number")
@@ -225,11 +225,10 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                     />
                                     <label
                                         htmlFor={field}
-                                        className={`absolute transition-all text-[16px] mdx:text-[18px] ${
-                                            focusedInput === field || values[field].length > 0
-                                                ? "-top-4 text-xs"
-                                                : "top-1 text-[16px] mdx:text-[18px]"
-                                        }  cursor-text`}
+                                        className={`absolute transition-all text-[16px] mdx:text-[18px] ${focusedInput === field || values[field].length > 0
+                                            ? "-top-4 text-xs"
+                                            : "top-1 text-[16px] mdx:text-[18px]"
+                                            }  cursor-text`}
                                         onClick={() => {
                                             const input = document.getElementById(field) as HTMLInputElement;
                                             input.focus();
@@ -248,10 +247,9 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                 </div>
                             );
                         })}
-
                         {/* Message Field */}
                         <div className="relative">
-                            <textarea // Changed input to textarea for better UX with multiline messages
+                            <textarea
                                 name="message"
                                 id="message"
                                 value={values.message}
@@ -260,16 +258,15 @@ const QuestionSent: React.FC<QuestionSentProps> = ({ isOpen, onClose }) => {
                                 onBlur={() => handleInputBlur("message")}
                                 className="block w-full py-2 placeholder-transparent focus:outline-none border-b-2 border-[#EEEEEE] transition-colors resize-none"
                                 placeholder={t("message")}
-                                rows={1} // Adjust rows as needed
+                                rows={1}
                                 aria-describedby="message-error"
                             />
                             <label
                                 htmlFor="message"
-                                className={`absolute transition-all text-[18px] mdx:text-[18px] ${
-                                    focusedInput === "message" || values.message.length > 0
-                                        ? "-top-4 text-xs"
-                                        : "top-1 text-[16px] mdx:text-[18px]"
-                                }  cursor-text`}
+                                className={`absolute transition-all text-[18px] mdx:text-[18px] ${focusedInput === "message" || values.message.length > 0
+                                    ? "-top-4 text-xs"
+                                    : "top-1 text-[16px] mdx:text-[18px]"
+                                    }  cursor-text`}
                                 onClick={() => {
                                     const textarea = document.getElementById("message") as HTMLTextAreaElement;
                                     textarea.focus();

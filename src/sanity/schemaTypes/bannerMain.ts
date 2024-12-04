@@ -72,6 +72,31 @@ export const bannerMain = defineType({
                                 }),
                             ],
                         }),
+                        defineField({
+                            name: 'buttonText', 
+                            title: 'Текст кнопки',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'ru',
+                                    title: 'Russian',
+                                    type: 'string',
+                                    validation: (Rule) => Rule.required().max(100),
+                                }),
+                                defineField({
+                                    name: 'uz',
+                                    title: 'Uzbek',
+                                    type: 'string',
+                                    validation: (Rule) => Rule.required().max(100),
+                                }),
+                                defineField({
+                                    name: 'en',
+                                    title: 'English',
+                                    type: 'string',
+                                    validation: (Rule) => Rule.required().max(100),
+                                }),
+                            ],
+                        }),
                     ],
                     preview: {
                         select: {

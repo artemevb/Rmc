@@ -66,8 +66,8 @@
       "button-more": "Смотреть все"
     },
     "AboutUs": {
-      "title": "О компании",
-      "button-more": "О нас",
+      "title": "О нас",
+      "button-more": "Подробнее",
       "tabs": {
         "rent": {
           "label": "Аренда",
@@ -351,6 +351,7 @@
     "send": "Отправить",
     "enter_full_name": "Введите полное имя",
     "type-of-service": "Оставить заявку",
+    "type-of-service-description": "Оставьте данные, и мы свяжемся с вами.",
     "enter_valid_phone_number": "Введите номер телефона",
     "services-1": "Регистрация компании",
     "services-2": "Консалтинг",

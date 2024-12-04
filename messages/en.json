@@ -66,8 +66,8 @@
       "button-more": "See all"
     },
     "AboutUs": {
-      "title": "About the company",
-      "button-more": "About us",
+      "title": "About us",
+      "button-more": "More details",
       "tabs": {
         "rent": {
           "label": "Rent",
@@ -334,6 +334,7 @@
     "send": "Send",
     "enter_full_name": "Enter your full name",
     "type-of-service": "Investment Application",
+    "type-of-service-description": "Leave your details, and we will contact you.",
     "enter_valid_phone_number": "Enter your phone number",
     "services-1": "Company Registration",
     "services-2": "Consulting",

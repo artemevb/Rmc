@@ -66,8 +66,8 @@
       "button-more": "Hammasini ko'rish"
     },
     "AboutUs": {
-      "title": "Kompaniya haqida",
-      "button-more": "Biz haqimizda",
+      "title": "Biz haqimizda",
+      "button-more": "Ko'proq ma'lumot",
       "tabs": {
         "rent": {
           "label": "Ijaraga Berish",
@@ -351,6 +351,7 @@
     "send": "Yuborish",
     "enter_full_name": "To'liq ismingizni kiriting",
     "type-of-service": "Ariza qoldirish",
+    "type-of-service-description": "Ma'lumotlaringizni qoldiring, biz siz bilan bog'lanamiz.",
     "enter_valid_phone_number": "Telefon raqamingizni kiriting",
     "services-1": "Kompaniya Ro'yxatdan O'tkazish",
     "services-2": "Konsalting",
