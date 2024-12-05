@@ -71,12 +71,12 @@
       "button-more": "More details",
       "tabs": {
         "rent": {
-          "label": "Rent",
-          "content": "We offer a variety of rental options."
+          "label": "Sale",
+          "content": "We will make the process simple and profitable so you can quickly find a buyer at the best price."
         },
         "buy": {
-          "label": "Buy - Sell",
-          "content": "We buy and sell real estate properties under the most favorable conditions."
+          "label": "Purchase",
+          "content": "We buy real estate under the most favorable conditions."
         },
         "manage": {
           "label": "Management",

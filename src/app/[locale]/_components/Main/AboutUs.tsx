@@ -2,11 +2,11 @@
 // import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import build1 from "@/public/images/main/about_company/bdngs1.png";
-import build2 from "@/public/images/main/about_company/bdngs2.png";
-import build3 from "@/public/images/main/about_company/bdngs3.png";
 import Link from 'next/link';
 
+import build1_ from "@/public/images/main/about_company/Chartline.png";
+import build2_ from "@/public/images/main/about_company/ll2.png";
+import build3_ from "@/public/images/main/about_company/uprv.png";
 interface local {
     locale: string;
 }
@@ -47,12 +47,12 @@ export default function Banner({ locale }: local) {
                                 <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.buy.content')}</p>
                             </div>
                             <Image
-                                src={build2}
+                                src={build2_}
                                 quality={100}
                                 width={1500}
                                 height={1500}
                                 alt={t('imageAlt')}
-                                className="w-full h-full object-cover xl:h-[361px] xl:w-full mt-auto"
+                                className="w-[70%] max-xl:h-[60%] xl:w-full h-full object-cover mdx:object-contain xl:object-cover max-w-[370px] max-h-[300px] mt-auto"
                             />
                         </div>
                         <div className="w-full min-h-[454px] mdx:h-[529px] xl:h-[569px] bg-[#EDF3F5] overflow-hidden flex flex-col">
@@ -63,12 +63,12 @@ export default function Banner({ locale }: local) {
                                 <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.rent.content')}</p>
                             </div>
                             <Image
-                                src={build1}
+                                src={build1_}
                                 quality={100}
                                 width={1500}
                                 height={1500}
                                 alt={t('imageAlt')}
-                                className="w-full h-full object-cover xl:h-[385px] xl:w-full mt-auto"
+                                className=" max-xl:h-[50%] w-full h-full object-cover mdx:object-contain xl:object-cover ml-auto max-h-[262px] xl:max-w-[414px] mt-auto"
                             />
                         </div>
                         <div className="w-full min-h-[454px] mdx:h-[529px] xl:h-[569px] bg-[#EDF3F5] overflow-hidden flex flex-col">
@@ -78,14 +78,16 @@ export default function Banner({ locale }: local) {
                                 </h4>
                                 <p className="text-[#858585] max-w-[569px] text-[16px] mdx:text-[20px]">{t('tabs.manage.content')}</p>
                             </div>
-                            <Image
-                                src={build3}
-                                quality={100}
-                                width={1500}
-                                height={1500}
-                                alt={t('imageAlt')}
-                                className="w-full h-full object-cover xl:h-[361px] xl:w-full mt-auto"
-                            />
+                            <div className=''>
+                                <Image
+                                    src={build3_}
+                                    quality={100}
+                                    width={1500}
+                                    height={1500}
+                                    alt={t('imageAlt')}
+                                    className="w-full h-full object-cover max-w-[270px] mt-auto ml-auto"
+                                />
+                            </div>
                         </div>
                     </div>
                     {/*Старый формат с переключением при помощи активных кнопок */}

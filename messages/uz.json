@@ -71,12 +71,12 @@
       "button-more": "Ko'proq ma'lumot",
       "tabs": {
         "rent": {
-          "label": "Ijaraga Berish",
-          "content": "Keng ko‘lamli obyektlar: Biz har qanday ehtiyojlarga javob beradigan kvartiralar va uylaridan tijorat joylariga qadar turli ijaraga olish variantlarini taklif etamiz.\nIshonchli ijarachilar: Barqaror daromadni ta'minlash va xavflarni kamaytirish uchun ijarachilarni diqqat bilan tekshirish va tanlash."
+          "label": "Sotish",
+          "content": "Jarayonni oddiy va foydali qilamiz, shunda siz eng yaxshi narxda tezda xaridor topishingiz mumkin."
         },
         "buy": {
-          "label": "Sotib Olish - Sotish",
-          "content": "Biz eng qulay shartlarda ko‘chmas mulk obyektlarini sotib olamiz va sotamiz, tranzaktsiyalarning shaffofligi va huquqiy tozaligini ta'minlaymiz.\nTranzaktsiyaning barcha bosqichlarida, jumladan, huquqiy va moliyaviy maslahatlar bilan birga qo‘llab-quvvatlash."
+          "label": "Xarid qilish",
+          "content": "Biz eng qulay shartlarda ko'chmas mulkni sotib olamiz."
         },
         "manage": {
           "label": "Boshqaruv",

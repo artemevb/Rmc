@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
 };
 
-export type Locales = 'ru' | 'en' | 'uz'; 
+export type Locales = 'ru' | 'en' | 'uz';
 
 export default async function RootLayout({
   children,
@@ -64,7 +64,7 @@ export default async function RootLayout({
   params: { locale?: string };
 }>) {
   const locale: Locales =
-    params?.locale === 'en' ? 'en' : 'ru'; 
+    params?.locale === 'en' ? 'en' : 'ru';
 
   unstable_setRequestLocale(locale);
 
