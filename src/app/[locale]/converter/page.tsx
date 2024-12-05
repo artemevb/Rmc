@@ -8,9 +8,9 @@ import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
 import TakeOff from "@/src/app/[locale]/_components/Converter/TakeOffForm";
 import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
-import RateForm from "@/src/app/[locale]/_components/Converter/RateForm";
+// import RateForm from "@/src/app/[locale]/_components/Converter/RateForm";
 
-type ButtonLabels = 'Купить' | 'Снять' | 'Продать' | 'Сдать' | 'Оценить';
+type ButtonLabels = 'Купить' | 'Снять' | 'Продать' | 'Сдать' ;
 
 export default function Banner() {
     const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
@@ -21,10 +21,10 @@ export default function Banner() {
         Снять: <TakeOff />,
         Продать: <Sell />,
         Сдать: <ToRentOut />,
-        Оценить: <RateForm />,
+        // Оценить: <RateForm />,
     };
 
-    const buttonLabels: ButtonLabels[] = ["Купить", "Снять", "Продать", "Сдать", "Оценить"];
+    const buttonLabels: ButtonLabels[] = ["Купить", "Снять", "Продать", "Сдать"];
 
     return (
         <div className="relative w-full h-auto flex flex-col mx-auto">
@@ -79,7 +79,7 @@ export default function Banner() {
 
                     {/* Меню при Desktop */}
                     <div className="w-full h-full max-h-[61px] hidden slg:block mt-[40px] mb-[12px]">
-                        <div className="w-full h-full max-h-[61px] backdrop-blur-7.5 grid grid-cols-5 text-[20px] font-semibold gap-[10px] p-[4px] ">
+                        <div className="w-full h-full max-h-[61px] backdrop-blur-7.5 grid grid-cols-4 text-[20px] font-semibold gap-[10px] p-[4px] ">
                             {buttonLabels.map(
                                 (label, index) => (
                                     <button

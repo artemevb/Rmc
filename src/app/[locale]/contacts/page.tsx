@@ -92,14 +92,14 @@ const ContactSchema = () => (
           "telephone": "+998 (78) 555 87 87",
           "contactType": "customer service",
           "areaServed": "RU",
-          "availableLanguage": "ru"
+          "availableLanguage": "ae"
         },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Deira, Baniyas road, Twin Towers, 20 floor office number 10",
           "addressLocality": "Dubai",
           "postalCode": "000000",
-          "addressCountry": "UZ"
+          "addressCountry": "AE"
         }
       }),
     }}
