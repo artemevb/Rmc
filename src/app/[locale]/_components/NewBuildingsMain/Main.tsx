@@ -17,6 +17,7 @@ import { ResidentialComplex, District, HousingType, Room, CompletionTime } from 
 import { client } from '../../../../sanity/lib/client';
 import { ClimbingBoxLoader } from 'react-spinners';
 import { Range } from 'react-range';
+import arrow_top from "@/public/svg/arrow-top-white.svg";
 
 interface InvestProps {
     locale: string;
@@ -245,17 +246,18 @@ export default function Invest({ locale }: InvestProps) {
                     {t('title')}
                 </h3>
                 <div ref={filtersRef} className='flex flex-wrap gap-[8px] mdx:gap-[12px] mt-[20px] mdx:mt-[40px] xl:mt-[50px] relative'>
+                    {/* Фильтр District */}
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
+                            className={`relative inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300 ${openDropdown === 'district' ? 'bg-corporate text-white' : 'bg-[#EDF3F5]'}`}
                             onClick={() => handleDropdownToggle('district')}
                         >
-                            <p className='text-[16px] mdx:text-[20px]'>{t('filter-1')}</p>
+                            <p className="text-[16px] mdx:text-[20px]">{t('filter-1')}</p>
                             {selectedDistrict && (
-                                <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
+                                <span className="absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full"></span>
                             )}
                             <Image
-                                src={arrow.src}
+                                src={openDropdown === 'district' ? arrow_top : arrow}
                                 alt={arrow.alt}
                                 width={20}
                                 height={20}
@@ -273,8 +275,7 @@ export default function Invest({ locale }: InvestProps) {
                                         return (
                                             <li
                                                 key={district._id}
-                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-corporate text-white' : ''
-                                                    }`}
+                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedDistrict === districtName ? 'bg-corporate text-white' : ''}`}
                                                 onClick={() => handleSelection('district', districtName)}
                                             >
                                                 {districtName}
@@ -293,17 +294,19 @@ export default function Invest({ locale }: InvestProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Фильтр Type */}
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
+                            className={`relative inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between text-nowrap transition-all duration-300 ${openDropdown === 'type' ? 'bg-corporate text-white' : 'bg-[#EDF3F5]'}`}
                             onClick={() => handleDropdownToggle('type')}
                         >
-                            <p className='text-[16px] mdx:text-[20px]'>{t('filter-3')}</p>
+                            <p className="text-[16px] mdx:text-[20px]">{t('filter-3')}</p>
                             {selectedType && (
-                                <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
+                                <span className="absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full"></span>
                             )}
                             <Image
-                                src={arrow.src}
+                                src={openDropdown === 'type' ? arrow_top : arrow}
                                 alt={arrow.alt}
                                 width={20}
                                 height={20}
@@ -321,8 +324,7 @@ export default function Invest({ locale }: InvestProps) {
                                         return (
                                             <li
                                                 key={type._id}
-                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-corporate text-white' : ''
-                                                    }`}
+                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedType === typeName ? 'bg-corporate text-white' : ''}`}
                                                 onClick={() => handleSelection('type', typeName)}
                                             >
                                                 {typeName}
@@ -341,17 +343,19 @@ export default function Invest({ locale }: InvestProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Фильтр Rooms */}
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
+                            className={`relative inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all text-nowrap duration-300 ${openDropdown === 'rooms' ? 'bg-corporate text-white' : 'bg-[#EDF3F5]'}`}
                             onClick={() => handleDropdownToggle('rooms')}
                         >
-                            <p className='text-[16px] mdx:text-[20px]'>{t('filter-4')}</p>
+                            <p className="text-[16px] mdx:text-[20px]">{t('filter-4')}</p>
                             {selectedRooms !== 'Не важно' && (
-                                <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
+                                <span className="absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full"></span>
                             )}
                             <Image
-                                src={arrow.src}
+                                src={openDropdown === 'rooms' ? arrow_top : arrow}
                                 alt={arrow.alt}
                                 width={20}
                                 height={20}
@@ -369,8 +373,7 @@ export default function Invest({ locale }: InvestProps) {
                                         return (
                                             <li
                                                 key={room._id}
-                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-corporate text-white' : ''
-                                                    }`}
+                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedRooms === roomNumber ? 'bg-corporate text-white' : ''}`}
                                                 onClick={() => handleSelection('rooms', roomNumber)}
                                             >
                                                 {roomNumber}
@@ -389,17 +392,19 @@ export default function Invest({ locale }: InvestProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Фильтр Completion Time */}
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
+                            className={`relative inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all text-nowrap duration-300 ${openDropdown === 'completionTime' ? 'bg-corporate text-white' : 'bg-[#EDF3F5]'}`}
                             onClick={() => handleDropdownToggle('completionTime')}
                         >
-                            <p className='text-[16px] mdx:text-[20px]'>{t('filter-5')}</p>
+                            <p className="text-[16px] mdx:text-[20px]">{t('filter-5')}</p>
                             {selectedCompletionTime !== 'Любой' && (
-                                <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
+                                <span className="absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full"></span>
                             )}
                             <Image
-                                src={arrow.src}
+                                src={openDropdown === 'completionTime' ? arrow_top : arrow}
                                 alt={arrow.alt}
                                 width={20}
                                 height={20}
@@ -417,8 +422,7 @@ export default function Invest({ locale }: InvestProps) {
                                         return (
                                             <li
                                                 key={time._id}
-                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-corporate text-white' : ''
-                                                    }`}
+                                                className={`px-4 py-2 hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b text-[16px] mdx:text-[18px] ${selectedCompletionTime === term ? 'bg-corporate text-white' : ''}`}
                                                 onClick={() => handleSelection('completionTime', term)}
                                             >
                                                 {term}
@@ -437,9 +441,11 @@ export default function Invest({ locale }: InvestProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Фильтр Price */}
                     <div className='relative'>
                         <button
-                            className='relative bg-[#EDF3F5] inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300'
+                            className={`relative inline-flex items-center gap-[4px] py-[10px] px-[12px] justify-between transition-all duration-300 ${openDropdown === 'price' ? 'bg-corporate text-white' : 'bg-[#EDF3F5]'}`}
                             onClick={() => handleDropdownToggle('price')}
                         >
                             <p className='text-[16px] mdx:text-[20px]'>{t('filter-2')}</p>
@@ -447,7 +453,7 @@ export default function Invest({ locale }: InvestProps) {
                                 <span className='absolute top-0 right-0 mt-1 mr-1 w-2 h-2 bg-corporate rounded-full'></span>
                             )}
                             <Image
-                                src={arrow.src}
+                                src={openDropdown === 'price' ? arrow_top : arrow}
                                 alt={arrow.alt}
                                 width={20}
                                 height={20}
@@ -468,7 +474,7 @@ export default function Invest({ locale }: InvestProps) {
                                             value={priceRange.min}
                                             min={minPrice}
                                             max={priceRange.max}
-                                            onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))} // изменяем min
+                                            onChange={(e) => setPriceRange(prev => ({ ...prev, min: Number(e.target.value) }))}
                                             className='border border-gray-300 p-2'
                                         />
                                     </div>
@@ -479,7 +485,7 @@ export default function Invest({ locale }: InvestProps) {
                                             value={priceRange.max}
                                             min={priceRange.min}
                                             max={maxPrice}
-                                            onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))} // изменяем max
+                                            onChange={(e) => setPriceRange(prev => ({ ...prev, max: Number(e.target.value) }))}
                                             className='border border-gray-300 p-2'
                                         />
                                     </div>
@@ -496,9 +502,8 @@ export default function Invest({ locale }: InvestProps) {
                                             <div
                                                 className="absolute top-0 left-0 h-1 bg-red-500"
                                                 style={{
-                                                    // Вычисляем ширину красной полосы
                                                     width: `${((priceRange.max - priceRange.min) / (maxPrice - minPrice)) * 100}%`,
-                                                    left: `${((priceRange.min - minPrice) / (maxPrice - minPrice)) * 100}%`, // позиционируем красную часть по левому краю
+                                                    left: `${((priceRange.min - minPrice) / (maxPrice - minPrice)) * 100}%`,
                                                 }}
                                             />
                                             {children}
@@ -517,6 +522,7 @@ export default function Invest({ locale }: InvestProps) {
                         )}
                     </div>
                 </div>
+
                 {isAnyFilterActive() && (
                     <div className='mt-1'>
                         <button

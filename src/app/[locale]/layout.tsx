@@ -12,7 +12,7 @@ import CookieConsent from "./_components/CookieConsent";
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
 export const metadata: Metadata = {
-  title: 'RMC De Luxe – Аренда и продажа недвижимости в ОАЭ',  // это будет работать для всех языков, если используешь динамическую подмену
+  title: 'RMC De Luxe – Аренда и продажа недвижимости в ОАЭ',
   description: 'Профессиональные услуги по аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
   keywords:
     'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, RMC De Luxe, ОАЭ, недвижимость ОАЭ, элитная недвижимость',
@@ -74,8 +74,8 @@ export default async function RootLayout({
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
     "url": 'https://rmcdeluxe.com',
-    "description": locale === 'ru' 
-      ? "RMC De Luxe предоставляет услуги по аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов." 
+    "description": locale === 'ru'
+      ? "RMC De Luxe предоставляет услуги по аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов."
       : "RMC De Luxe provides real estate rental and sales services in the UAE. Professional approach for individual and corporate clients.",
     "address": {
       "@type": "PostalAddress",

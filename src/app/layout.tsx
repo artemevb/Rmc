@@ -15,7 +15,6 @@ interface LocaleLayoutProps {
 const supportedLocales = ['ru', 'en'] as const;
 type SupportedLocale = typeof supportedLocales[number];
 
-// Переводы для метаданных
 const translations: Record<SupportedLocale, {
   title: string;
   description: string;
@@ -67,7 +66,7 @@ const getTranslation = (locale: string): typeof translations['ru'] => {
   if (supportedLocales.includes(locale as SupportedLocale)) {
     return translations[locale as SupportedLocale];
   }
-  return translations.en; // По умолчанию английский язык
+  return translations.en;
 };
 
 export const dynamic = 'force-dynamic';
@@ -76,16 +75,12 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = params;
   const t = getTranslation(locale);
 
-  // Проверка корректности локали
   const currentLocale = supportedLocales.includes(locale as SupportedLocale) ? locale : 'en';
 
-  // Устанавливаем домен как единственный - rmcdeluxe.com
   const domain = 'rmcdeluxe.com';
 
-  // Каноническая ссылка
   const canonicalUrl = currentLocale === 'en' ? `https://${domain}/en` : `https://${domain}/${currentLocale}`;
 
-  // Структурированные данные
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -112,11 +107,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         <link rel="alternate" hrefLang="ru" href={`https://${domain}/ru`} />
         <link rel="alternate" hrefLang="en" href={`https://${domain}/en`} />
         <link rel="alternate" hrefLang="x-default" href={`https://${domain}`} />
-
-        {/* Каноническая ссылка */}
         <link rel="canonical" href={canonicalUrl} />
-
-        {/* Open Graph изображения */}
         <meta property="og:image" content="https://rmcestate.uz/og-im2age.jpg?v=2" />
         <meta name="twitter:image" content="https://rmcestate.uz/og-im2age.jpg?v=2" />
       </Head>

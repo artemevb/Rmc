@@ -44,11 +44,10 @@ interface LayoutItem {
     };
 }
 
-// Utility function to extract numeric value from price string
 function extractNumericValue(priceString: string): number {
-    // Remove all non-numeric characters except dots and commas
+
     let numericString = priceString.replace(/[^\d.,]/g, '').replace(/\s/g, '');
-    // Handle both dot and comma as decimal separators
+
     if (numericString.indexOf('.') !== -1 && numericString.indexOf(',') !== -1) {
         numericString = numericString.replace(',', '');
     } else if (numericString.indexOf(',') !== -1) {
@@ -61,35 +60,29 @@ function extractNumericValue(priceString: string): number {
 export default function Layout({ locale, complexSlug }: LayoutProps) {
     const t = useTranslations("Building_page_main.Layout");
 
-    // States for filters
     const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
     const [selectedRooms, setSelectedRooms] = useState<number | null>(null);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 0]);
     const [inputMin, setInputMin] = useState<number>(0);
     const [inputMax, setInputMax] = useState<number>(0);
 
-    // States for dropdowns
     const [isFloorDropdownOpen, setIsFloorDropdownOpen] = useState(false);
     const [isRoomsDropdownOpen, setIsRoomsDropdownOpen] = useState(false);
     const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
 
-    // States for data and loading
     const [layouts, setLayouts] = useState<LayoutItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null);
 
-    // States for dynamic min and max prices
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(0);
 
-    // Ref for filters container
     const filtersRef = useRef<HTMLDivElement>(null);
 
-    // States for Lightbox
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState<{ src: string; alt: string } | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    // Function to open Lightbox
+
     const openLightbox = (image: { src: string; alt: string }) => {
         setCurrentImage(image);
         setLightboxOpen(true);
@@ -98,11 +91,10 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
         setIsModalOpen(true);
     };
 
-    // Function to close the ApplicationLayouts modal
     const closeModal = () => {
         setIsModalOpen(false);
     };
-    // Fetch data from Sanity
+
     useEffect(() => {
         if (!complexSlug) return;
 
@@ -450,8 +442,8 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                 ) : (
                                     // Fixed Price
                                     <div className="flex flex-col items-center">
-                                        <p className="text-center text-[16px] font-medium">
-                                            {t("price")}: {minPrice.toLocaleString()}
+                                        <p className="text-center text-[16px] font-medium text-[#858585]">
+                                            {t("price")}: {minPrice.toLocaleString()} AED
                                         </p>
                                     </div>
                                 )}
@@ -576,9 +568,9 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                         </div>
                                     )}
                                     {item.home && (
-                                        <div className="flex justify-between">
-                                            <p>{t("house")}</p>
-                                            <p>{item.home}</p>
+                                        <div className="flex justify-between w-full">
+                                            <p className="w-full">{t("house")}</p>
+                                            <p className="w-full">{item.home}</p>
                                         </div>
                                     )}
                                     {item.entrance && (
