@@ -1,23 +1,58 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+
 import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
 import arrow from "@/public/svg/arrow-right-white.svg";
+
 import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
 import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 
-type ButtonLabels = 'Купить' | 'Продать' | 'Сдать' ;
+import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
+// import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
+import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
+
+import PopularRewiewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/PopularRewiewsSell";
+import SellDock from "@/src/app/[locale]/_components/Converter/SellFormComponents/SellDocBlock";
+
+import PopularRewiewsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/PopularRewiewsRent";
+import Form from "@/src/app/[locale]/_components/Main/Form";
+import Contacts from "@/src/app/[locale]/_components/Converter/BuyFormComponents/Contacts";
+import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
+
+type ButtonLabels = "Купить" | "Продать" | "Сдать";
 
 export default function Banner() {
     const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
 
-    // Маппинг кнопок и компонентов с явным указанием типов
     const components: Record<ButtonLabels, JSX.Element> = {
         Купить: <BuyForm />,
         Продать: <Sell />,
         Сдать: <ToRentOut />,
+    };
+
+    const additionalComponents: Record<ButtonLabels, JSX.Element[]> = {
+        Купить: [
+            // <ListBuildings key="ListBuildings" />,
+            <BuyDock key="BuyDock" />,
+            <PopularRewiewsBuy key="PopularRewiewsBuy" />,
+            <Form key="form" />,
+            <Contacts key="contacts" />,
+        ],
+        Продать: [
+            <SellDock key="SellDock" />,
+            <PopularRewiewsSell key="PopularRewiewsSell" />,
+            <Form key="form" />,
+            <Contacts key="contacts" />,
+        ],
+        Сдать: [
+            <RentDock key="RentDock" />,
+            <PopularRewiewsRent key="PopularRewiewsRent" />,
+            <Form key="form" />,
+            <Contacts key="contacts" />,
+        ],
     };
 
     const buttonLabels: ButtonLabels[] = ["Купить", "Продать", "Сдать"];
@@ -54,7 +89,7 @@ export default function Banner() {
                     </div>
 
                     {/* МЕНЮ ПРИ МОБИЛКЕ*/}
-                    <div className="bottom-0 w-full slg:hidden text-[20px] font-medium">
+                    <div className="mt-[293px] h-full w-full slg:hidden text-[20px] font-medium">
                         {buttonLabels.map((label, index) => (
                             <div
                                 key={index}
@@ -76,26 +111,32 @@ export default function Banner() {
                     {/* Меню при Desktop */}
                     <div className="w-full h-full max-h-[61px] hidden slg:block mt-[40px] mb-[12px]">
                         <div className="w-full h-full max-h-[61px] backdrop-blur-7.5 grid grid-cols-3 text-[20px] font-semibold gap-[10px] p-[4px] ">
-                            {buttonLabels.map(
-                                (label, index) => (
-                                    <button
-                                        key={index}
-                                        className={`${activeButton === label
-                                            ? "bg-white text-[#333333]"
-                                            : "bg-transparent text-[#fff]"
-                                            } max-h-[53px] h-full w-full mx-auto`}
-                                        onClick={() => setActiveButton(label)}
-                                    >
-                                        {label}
-                                    </button>
-                                )
-                            )}
+                            {buttonLabels.map((label, index) => (
+                                <button
+                                    key={index}
+                                    className={`${activeButton === label
+                                        ? "bg-white text-[#333333]"
+                                        : "bg-transparent text-[#fff]"
+                                        } max-h-[53px] h-full w-full mx-auto`}
+                                    onClick={() => setActiveButton(label)}
+                                >
+                                    {label}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
                     {/* Показ выбранной формы */}
                     {components[activeButton]}
+
+
                 </div>
+                {/* Показ дополнительных компонентов в зависимости от выбранного состояния */}
+                {additionalComponents[activeButton].map((Comp, idx) => (
+                    <div key={idx} className="w-full mt-[120px] mdx:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] max-3xl:px-[10px] mx-auto relative z-[999999]">
+                        {Comp}
+                    </div>
+                ))}
             </div>
         </div>
     );

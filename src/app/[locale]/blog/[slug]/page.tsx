@@ -17,6 +17,8 @@ interface NewsContentBlock {
   imageUrl?: string;
 }
 
+export const dynamic = 'force-dynamic'; // Отключение кэширования страницы
+
 export async function generateMetadata({ params }: InvestmentDubaiPageProps) {
   const locale: Locales = params?.locale === 'uz' ? 'uz'
       : params?.locale === 'en' ? 'en'
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: InvestmentDubaiPageProps) {
     }
   }`;
 
-  const news = await client.fetch(query, { slug });
+  const news = await client.fetch(query, { slug }, { cache: 'no-store' }); // Отключение кэширования
 
   const seoTitle = news.title || 'Default Title';
   const seoDescription = (news.content.find((block: NewsContentBlock) => block._type === 'textBlock')?.description?.en) || 'Default description';
@@ -102,7 +104,8 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
         )
       }
     }`;
-    const news = await client.fetch(query, { slug });
+    
+    const news = await client.fetch(query, { slug }, { cache: 'no-store' }); // Отключение кэширования
 
     return (
         <div>
