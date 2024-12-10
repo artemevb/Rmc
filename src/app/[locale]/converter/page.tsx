@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-
+import { useLocale } from 'next-intl';
 import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
 import arrow from "@/public/svg/arrow-right-white.svg";
@@ -11,7 +11,7 @@ import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 
 import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
-// import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
+import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
 import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
 
 import PopularRewiewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/PopularRewiewsSell";
@@ -21,11 +21,13 @@ import PopularRewiewsRent from "@/src/app/[locale]/_components/Converter/ToRentO
 import Form from "@/src/app/[locale]/_components/Main/Form";
 import Contacts from "@/src/app/[locale]/_components/Converter/BuyFormComponents/Contacts";
 import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
+import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
 
 type ButtonLabels = "Купить" | "Продать" | "Сдать";
 
 export default function Banner() {
     const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
+    const locale = useLocale();
 
     const components: Record<ButtonLabels, JSX.Element> = {
         Купить: <BuyForm />,
@@ -35,7 +37,7 @@ export default function Banner() {
 
     const additionalComponents: Record<ButtonLabels, JSX.Element[]> = {
         Купить: [
-            // <ListBuildings key="ListBuildings" />,
+            <ListBuildings key="ListBuildings" locale={locale} />,
             <BuyDock key="BuyDock" />,
             <PopularRewiewsBuy key="PopularRewiewsBuy" />,
             <Form key="form" />,
@@ -48,6 +50,7 @@ export default function Banner() {
             <Contacts key="contacts" />,
         ],
         Сдать: [
+            <BlockCardsRent key="BlockCardsRent" />,
             <RentDock key="RentDock" />,
             <PopularRewiewsRent key="PopularRewiewsRent" />,
             <Form key="form" />,

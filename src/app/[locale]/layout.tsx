@@ -12,33 +12,33 @@ import CookieConsent from "./_components/CookieConsent";
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
 export const metadata: Metadata = {
-  title: 'RMC De Luxe – Аренда и продажа недвижимости в ОАЭ',
-  description: 'Профессиональные услуги по аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
+  title: 'RMC De Luxe – Rental and Sale of Real Estate in UAE',
+  description: 'Professional rental and sales services for real estate in UAE from RMC De Luxe. A reliable partner for individual and corporate clients.',
   keywords:
-    'риэлторское агентство, недвижимость Ташкент, аренда недвижимости, продажа недвижимости, RMC De Luxe, ОАЭ, недвижимость ОАЭ, элитная недвижимость',
+    'real estate agency, real estate Tashkent, real estate rental, real estate sales, RMC De Luxe, UAE, real estate UAE, luxury real estate',
   authors: [{ name: 'RMC De Luxe', url: 'https://rmcdeluxe.com' }],
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     type: 'website',
-    locale: 'ru_RU',
+    locale: 'en_US',
     url: 'https://rmcdeluxe.com',
-    title: 'RMC De Luxe – Аренда и продажа недвижимости в ОАЭ',
-    description: 'Профессиональные услуги по аренде и продаже недвижимости в ОАЭ от RMC De Luxe. Надежный партнер для физических и корпоративных клиентов.',
+    title: 'RMC De Luxe – Rental and Sale of Real Estate in UAE',
+    description: 'Professional rental and sales services for real estate in UAE from RMC De Luxe. A reliable partner for individual and corporate clients.',
     siteName: 'RMC De Luxe',
     images: [
       {
-        url: 'https://rmcdeluxe.com/og-im2age.jpg?v=2',
+        url: 'https://rmcdeluxe.com/og-image.jpg?v=2',
         width: 1200,
         height: 630,
-        alt: 'RMC De Luxe - Недвижимость в ОАЭ',
+        alt: 'RMC De Luxe - Real Estate in UAE',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RMC De Luxe - Риэлторское Агентство в ОАЭ',
-    description: 'Профессиональные услуги по аренде и продаже недвижимости в ОАЭ.',
-    images: 'https://rmcdeluxe.com/og-im2age.jpg?v=2',
+    title: 'RMC De Luxe - Real Estate Agency in UAE',
+    description: 'Professional rental and sales services for real estate in UAE.',
+    images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
   },
   icons: {
     icon: '/favicon.ico',
@@ -74,19 +74,19 @@ export default async function RootLayout({
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
     "url": 'https://rmcdeluxe.com',
-    "description": locale === 'ru'
-      ? "RMC De Luxe предоставляет услуги по аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и корпоративных клиентов."
-      : "RMC De Luxe provides real estate rental and sales services in the UAE. Professional approach for individual and corporate clients.",
+    "description": locale === 'en'
+      ? "RMC De Luxe provides rental and sales services for real estate in UAE. Professional approach for individual and corporate clients."
+      : "RMC De Luxe provides rental and sales services for real estate in UAE. Professional approach for individual and corporate clients.", 
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Deira, Baniyas road, Twin Towers, 20 floor office number 10",
-      "addressLocality": "Ташкент",
+      "streetAddress": "Deira, Baniyas road, Twin Towers, 20th floor, Office number 10",
+      "addressLocality": "Tashkent",
       "postalCode": "100000",
-      "addressCountry": "ae"
+      "addressCountry": "AE"
     },
     "telephone": "+9989785558787",
     "openingHours": "Mo-Fr 09:00-18:00",
-    "image": "https://rmcdeluxe.com/og-im2age.jpg?v=2",
+    "image": "https://rmcdeluxe.com/og-image.jpg?v=2",
     "priceRange": "AED"
   };
 
