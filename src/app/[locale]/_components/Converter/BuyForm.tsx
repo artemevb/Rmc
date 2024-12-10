@@ -1,7 +1,7 @@
 "use client"
-import settings from "@/public/svg/settings.svg";
+// import settings from "@/public/svg/settings.svg";
 import { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function BuyForm() {
     const [results] = useState(954);
@@ -130,7 +130,7 @@ export default function BuyForm() {
                     </div>
                 </div>
                 <div className="mt-4 flex gap-[16px] items-center justify-end">
-                    <button className="font-medium px-[30px] py-[12px] text-[#333333] border flex gap-[12px] flex-row-reverse text-[17px]">Расширенный поиск
+                    {/* <button className="font-medium px-[30px] py-[12px] text-[#333333] border flex gap-[12px] flex-row-reverse text-[17px]">Расширенный поиск
                         <Image
                             src={settings}
                             quality={100}
@@ -138,7 +138,7 @@ export default function BuyForm() {
                             width={24}
                             height={24}
                         />
-                    </button>
+                    </button> */}
                     <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate">
                         Показать {results} результата
                     </button>
