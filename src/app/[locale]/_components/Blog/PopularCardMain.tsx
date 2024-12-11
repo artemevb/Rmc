@@ -9,7 +9,7 @@ import { useTranslations } from 'next-intl';
 interface NewCardProps {
     subtitle: string;
     date: string;
-    views: string;  // Количество просмотров
+    views: string;  
     imageSrc: string;
 
 }

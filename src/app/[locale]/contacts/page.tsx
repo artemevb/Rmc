@@ -3,57 +3,20 @@ import Info from '../_components/Contacts/Info';
 import PartnersSlider from '../_components/Contacts/SliderPartners';
 import Form from '../_components/Main/Form';
 
-type InvestmentDubaiPageProps = {
-  params: {
-    locale?: string;
-  };
-};
 
-const metadataRu = {
-  title: 'Контакты | RMC De Luxe',
-  description: 'Свяжитесь с нами, чтобы узнать больше о наших услугах и предложениях. Мы всегда готовы ответить на ваши вопросы! Телефон: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Адрес: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
-  keywords: ['контакты', 'связь', 'услуги', 'компания', 'email', 'телефон', 'адрес'],
-  openGraph: {
-    title: 'Контакты | RMC De Luxe',
-    description: 'Свяжитесь с нами, чтобы узнать больше о наших услугах и предложениях. Телефон: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Адрес: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
-    images: [
-      {
-        url: 'https://rmcestate.uz/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Контактная информация',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Контакты | RMC De Luxe',
-    description: 'Свяжитесь с нами, чтобы узнать больше о наших услугах и предложениях. Телефон: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Адрес: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
-    images: [
-      {
-        url: 'https://rmcestate.uz/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Контактная информация',
-      },
-    ],
-  },
-};
-
-const metadataEn = {
+const metadataEn: Metadata = {
   title: 'Contact | RMC De Luxe',
-  description: 'Get in touch with us to learn more about our services and offers. We are always ready to answer your questions! Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
+  description: 'Get in touch with us to learn more about our services and offers. We are always ready to answer your questions! Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10',
   keywords: ['contact', 'communication', 'services', 'company', 'email', 'phone', 'address'],
   openGraph: {
     title: 'Contact | RMC De Luxe',
-    description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
+    description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10',
     images: [
       {
         url: 'https://rmcestate.uz/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Deira, Baniyas road, Twin Towers, 20 floor office number 10',
+        alt: 'Contact Information',
       },
     ],
     type: 'website',
@@ -61,22 +24,20 @@ const metadataEn = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | RMC De Luxe',
-    description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas road, Twin Towers, 20 floor office number 10',
+    description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10',
     images: [
       {
         url: 'https://rmcestate.uz/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Deira, Baniyas road, Twin Towers, 20 floor office number 10',
+        alt: 'Contact Information',
       },
     ],
   },
 };
 
-export async function generateMetadata({ params }: InvestmentDubaiPageProps): Promise<Metadata> {
-  const metaData = params?.locale === 'ru' ? metadataRu : metadataEn;
-
-  return metaData;
+export async function generateMetadata(): Promise<Metadata> {
+  return metadataEn;
 }
 
 const ContactSchema = () => (
@@ -91,12 +52,12 @@ const ContactSchema = () => (
           "@type": "ContactPoint",
           "telephone": "+998 (78) 555 87 87",
           "contactType": "customer service",
-          "areaServed": "RU",
-          "availableLanguage": "ae"
+          "areaServed": "AE",
+          "availableLanguage": "en"
         },
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Deira, Baniyas road, Twin Towers, 20 floor office number 10",
+          "streetAddress": "Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10",
           "addressLocality": "Dubai",
           "postalCode": "000000",
           "addressCountry": "AE"

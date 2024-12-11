@@ -43,7 +43,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
         const fetchData = async () => {
             try {
                 const query = groq`*[_type == "news"] | order(viewCounter desc)[0...3] {
-                    "slug": slug.current, // Исправлено: убран locale
+                    "slug": slug.current, 
                     "title": title.${locale},
                     date,
                     viewCounter,

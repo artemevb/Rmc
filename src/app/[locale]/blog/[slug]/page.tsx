@@ -105,7 +105,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
       }
     }`;
     
-    const news = await client.fetch(query, { slug }, { cache: 'no-store' }); // Отключение кэширования
+    const news = await client.fetch(query, { slug }, { cache: 'no-store' });
 
     return (
         <div>

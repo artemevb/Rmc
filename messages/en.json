@@ -632,5 +632,39 @@
         "text": "For any questions regarding this Cookie Policy, contact us at"
       }
     }
+  },
+  "MainFilter": {
+    "FormRent": {
+      "validFullName": "Correct",
+      "enterFullName": "Enter full name",
+      "validPhoneNumber": "Correct",
+      "enterValidPhoneNumber": "Enter valid phone number",
+      "validEmail": "Correct",
+      "enterValidEmail": "Enter valid email",
+      "haveQuestions": "Rent out your property quickly and profitably!",
+      "contactUs": "Looking for a reliable tenant for your property? Our team of professionals will help you find the perfect tenant and simplify the rental process as much as possible.",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "question": "Comment",
+      "pleaseFillAllFields": "Fill the field",
+      "submit": "Submit request"
+    },
+    "FormSell": {
+      "validFullName": "Correct",
+      "enterFullName": "Enter full name",
+      "validPhoneNumber": "Correct",
+      "enterValidPhoneNumber": "Enter valid phone number",
+      "validEmail": "Correct",
+      "enterValidEmail": "Enter valid email",
+      "haveQuestions": "Sell your property quickly and safely!",
+      "contactUs": "Speed up the process with our help! Our team of professionals will assist you in selling your property and simplifying the rental process as much as possible.",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "question": "Comment",
+      "pleaseFillAllFields": "Fill the field",
+      "submit": "Submit request"
+    }
   }
 }

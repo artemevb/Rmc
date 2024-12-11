@@ -632,5 +632,39 @@
         "text": "Ushbu Cookie Siyosati bilan bog‘liq har qanday savollar uchun biz bilan bog‘laning"
       }
     }
+  },
+  "MainFilter": {
+    "FormRent": {
+      "validFullName": "To'g'ri",
+      "enterFullName": "To'liq ismingizni kiriting",
+      "validPhoneNumber": "To'g'ri",
+      "enterValidPhoneNumber": "To'g'ri telefon raqamini kiriting",
+      "validEmail": "To'g'ri",
+      "enterValidEmail": "To'g'ri email kiriting",
+      "haveQuestions": "Mulkingizni tez va foydali ijaraga bering!",
+      "contactUs": "Mulkingiz uchun ishonchli ijarachi izlayapsizmi? Bizning professional jamoamiz mukammal ijarachini topishda va ijara jarayonini iloji boricha soddalashtirishda yordam beradi.",
+      "fullName": "To'liq ismi",
+      "phoneNumber": "Telefon raqami",
+      "email": "E-mail",
+      "question": "Izoh",
+      "pleaseFillAllFields": "Maydonni to'ldiring",
+      "submit": "So'rov yuborish"
+    },
+    "FormSell": {
+      "validFullName": "To'g'ri",
+      "enterFullName": "To'liq ismingizni kiriting",
+      "validPhoneNumber": "To'g'ri",
+      "enterValidPhoneNumber": "To'g'ri telefon raqamini kiriting",
+      "validEmail": "To'g'ri",
+      "enterValidEmail": "To'g'ri email kiriting",
+      "haveQuestions": "Mulkingizni tez va xavfsiz sotib oling!",
+      "contactUs": "Jarayonni bizning yordamimiz bilan tezlashtiring! Bizning professional jamoamiz sizga mulkingizni sotishda yordam beradi va ijara jarayonini iloji boricha soddalashtiradi.",
+      "fullName": "To'liq ismi",
+      "phoneNumber": "Telefon raqami",
+      "email": "E-mail",
+      "question": "Izoh",
+      "pleaseFillAllFields": "Maydonni to'ldiring",
+      "submit": "So'rov yuborish"
+    }
   }
 }

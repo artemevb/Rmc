@@ -10,16 +10,27 @@ import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
 import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 
+import ShemeBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ShemeBuy";
+import InfoReviewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/InfoReviewsBuy";
+import BlockCardsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/BlockCardsBuy";
 import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
 import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
 import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
 
+
+import BlockCardsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/BlockCardsSell";
+import InfoReviewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/InfoReviewsSell";
 import PopularRewiewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/PopularRewiewsSell";
+import SellForm from "@/src/app/[locale]/_components/Converter/SellFormComponents/SellForm";
+import ShemeSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/ShemeSell";
 import SellDock from "@/src/app/[locale]/_components/Converter/SellFormComponents/SellDocBlock";
 
 import PopularRewiewsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/PopularRewiewsRent";
+import InfoReviewsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/InfoReviewsRent";
 import Form from "@/src/app/[locale]/_components/Main/Form";
 import Contacts from "@/src/app/[locale]/_components/Converter/BuyFormComponents/Contacts";
+import RentForm from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentForm";
+import ShemeRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/ShemeRent";
 import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
 import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
 
@@ -37,13 +48,20 @@ export default function Banner() {
 
     const additionalComponents: Record<ButtonLabels, JSX.Element[]> = {
         Купить: [
+            <BlockCardsBuy key="BlockCardsBuy" />,
+            <InfoReviewsBuy key="InfoReviewsBuy" />,
             <ListBuildings key="ListBuildings" locale={locale} />,
+            <ShemeBuy key="ShemeBuy" />,
             <BuyDock key="BuyDock" />,
             <PopularRewiewsBuy key="PopularRewiewsBuy" />,
             <Form key="form" />,
             <Contacts key="contacts" />,
         ],
         Продать: [
+            <BlockCardsSell key="BlockCardsSell" />,
+            <InfoReviewsSell key="InfoReviewsSell" />,
+            <SellForm key="SellForm" />,
+            <ShemeSell key="ShemeSell" />,
             <SellDock key="SellDock" />,
             <PopularRewiewsSell key="PopularRewiewsSell" />,
             <Form key="form" />,
@@ -51,6 +69,9 @@ export default function Banner() {
         ],
         Сдать: [
             <BlockCardsRent key="BlockCardsRent" />,
+            <InfoReviewsRent key="InfoReviewsRent" />,
+            <RentForm key="RentForm" />,
+            <ShemeRent key="ShemeRent" />,
             <RentDock key="RentDock" />,
             <PopularRewiewsRent key="PopularRewiewsRent" />,
             <Form key="form" />,
@@ -92,7 +113,7 @@ export default function Banner() {
                     </div>
 
                     {/* МЕНЮ ПРИ МОБИЛКЕ*/}
-                    <div className="mt-[293px] h-full w-full slg:hidden text-[20px] font-medium">
+                    <div className="mt-[293px] mdx:mt-[326px] h-full w-full slg:hidden text-[20px] font-medium">
                         {buttonLabels.map((label, index) => (
                             <div
                                 key={index}
@@ -136,7 +157,7 @@ export default function Banner() {
                 </div>
                 {/* Показ дополнительных компонентов в зависимости от выбранного состояния */}
                 {additionalComponents[activeButton].map((Comp, idx) => (
-                    <div key={idx} className="w-full mt-[120px] mdx:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] max-3xl:px-[10px] mx-auto relative z-[999999]">
+                    <div key={idx} className="w-full mt-[120px] mdx:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] mx-auto relative z-[999999]">
                         {Comp}
                     </div>
                 ))}

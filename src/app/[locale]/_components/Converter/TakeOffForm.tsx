@@ -5,25 +5,9 @@ import Image from 'next/image';
 
 export default function BuyForm() {
     const [results] = useState(258);
-    const [activeButton, setActiveButton] = useState("Квартиры");
     return (
         <div className="w-full h-full bg-[#fff] max-h-[452px] mb-[76px] hidden slg:block max-xl:px-[12px]">
-            <div className="h-full w-full max-h-[75px] text-[#858585] flex justify-around border-b xl:justify-start text-[20px]">
-                {["Квартиры", "Новостройки", "Дома и участки", "Коммерческая"].map(
-                    (label, index) => (
-                        <button
-                            key={index}
-                            className={`${activeButton === label
-                                ? "text-corporate border-b-2 border-corporate"
-                                : "text-[#858585] border-transparent transition-all duration-300"
-                                } ${index === 0 ? "xl:ml-[30px]" : "xl:ml-[120px]"}`}
-                            onClick={() => setActiveButton(label)}
-                        >
-                            {label}
-                        </button>
-                    )
-                )}
-            </div>
+            
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
