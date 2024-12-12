@@ -1,16 +1,16 @@
-import { useTranslations } from 'next-intl';
+// import { useTranslations } from 'next-intl';
 import Marker from "@/public/images/investmentsDubai/Marker.svg";
 import Image from 'next/image';
 
 export default function Scheme() {
-    const t = useTranslations('investmentsDubai.Scheme');
+    // const t = useTranslations('investmentsDubai.Scheme');
 
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto max-3xl:px-[10px] flex flex-col gap-10">
             <div className="flex flex-col gap-16">
                 <div className="flex flex-col gap-2">
                     <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
-                        {t('title')}
+                        Процесс работы
                     </h2>
                 </div>
                 {/** 
@@ -39,10 +39,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    {t('text-1')}
+                                    Определение целей и бюджета
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    {t('text-1-subtitle')}
+                                    Оценка финансовых возможностей. Установление целей покупки
                                 </p>
                             </div>
                         </div>
@@ -66,10 +66,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    {t('text-2')}
+                                    Поиск и отбор объектов
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    {t('text-2-subtitle')}
+                                    Просмотр объявлений и отбор объектов, соответствующих требованиям-
                                 </p>
                             </div>
                         </div>
@@ -93,10 +93,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
-                                    {t('text-3')}
+                                    Осмотр объектов
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    {t('text-3-subtitle')}
+                                    Тщательный осмотр и оценка состояния объектов
                                 </p>
                             </div>
                         </div>
@@ -120,10 +120,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    {t('text-4')}
+                                    Оценка и анализ
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    {t('text-4-subtitle')}
+                                    Юридическая проверка правового статуса и наличия обременений
                                 </p>
                             </div>
                         </div>
@@ -147,10 +147,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                Заключительный этап
+                                    Заключение договора
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                Получение ключей и завершение сделки
+                                    Подготовка, подписание и проверка необходимых документов
                                 </p>
                             </div>
                         </div>
@@ -174,10 +174,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                Подписание основного договора
+                                    Подписание основного договора
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                Нотариальное удостоверение договора купли-продажи
+                                    Нотариальное удостоверение договора купли-продажи
                                 </p>
                             </div>
                         </div>
@@ -201,10 +201,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                Заключение договора
+                                    Заключительный этап
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                Подготовка, подписание и проверка необходимых документов
+                                    Получение ключей и завершение сделки
                                 </p>
                             </div>
                         </div>

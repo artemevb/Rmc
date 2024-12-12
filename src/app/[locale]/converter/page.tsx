@@ -7,15 +7,13 @@ import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
 import arrowRightWhite from "@/public/svg/arrow-right-white.svg";
 
-// Import Desktop Forms
 import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
 import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 
-// Import Additional Components
 import BlockCardsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/BlockCardsBuy";
 import InfoReviewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/InfoReviewsBuy";
-import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
+import ListBuildings from "@/src/app/[locale]/_components/Converter/ListBuildings";
 import ShemeBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ShemeBuy";
 import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
 import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
@@ -36,7 +34,6 @@ import ShemeRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormCom
 import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
 import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
 
-// Import Mobile Forms
 import BuyFormMobile from "@/src/app/[locale]/_components/Converter/BuyFormMobile";
 import SellFormMobile from "@/src/app/[locale]/_components/Converter/SellFormMobile";
 import RentFormMobile from "@/src/app/[locale]/_components/Converter/RentFormMobile";
@@ -54,21 +51,18 @@ export default function Banner() {
             <>
                 {/* Desktop */}
                 <BuyForm className="hidden slg:block" />
-                {/* Mobile – будет через модалку */}
             </>
         ),
         Продать: (
             <>
                 {/* Desktop */}
                 <Sell className="hidden slg:block" />
-                {/* Mobile – будет через модалку */}
             </>
         ),
         Сдать: (
             <>
                 {/* Desktop */}
                 <ToRentOut className="hidden slg:block" />
-                {/* Mobile – будет через модалку */}
             </>
         ),
     };
@@ -110,7 +104,7 @@ export default function Banner() {
 
     // Determine mobile/desktop mode
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 1023px)"); // Adjust if your breakpoint differs
+        const mediaQuery = window.matchMedia("(max-width: 1023px)");
         const handler = () => setIsSmallScreen(mediaQuery.matches);
         handler();
         mediaQuery.addEventListener("change", handler);
@@ -120,7 +114,6 @@ export default function Banner() {
     const handleButtonClick = (label: ButtonLabels) => {
         setActiveButton(label);
         if (isSmallScreen) {
-            // If on mobile, open the modal
             setIsModalOpen(true);
         }
     };

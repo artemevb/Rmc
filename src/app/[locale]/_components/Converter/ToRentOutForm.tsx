@@ -1,7 +1,13 @@
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
-export default function ToRentOutForm() {
+type ToRentOutFormProps = {
+    className?: string;
+  };
+
+const ToRentOutForm: React.FC<ToRentOutFormProps> = () => {
+    const t = useTranslations('MainFilter.ToRentOutForm');
     const [propertyType, setPropertyType] = useState<string>("");
     const [area, setArea] = useState<string>("");
     const [numberOfRoom, setNumberOfRoom] = useState<string>("");
@@ -12,13 +18,13 @@ export default function ToRentOutForm() {
 
     const handleSubmit = async () => {
         if (!propertyType || !area || !numberOfRoom || !phoneNumber || !address) {
-            setErrorMessage("Пожалуйста, заполните все поля.");
+            setErrorMessage(t('error_fill_all_fields'));
             return;
         }
 
-        const phoneRegex = /^\+?\d{10,15}$/;
+        const phoneRegex = /^\+?\d{9,15}$/;
         if (!phoneRegex.test(phoneNumber)) {
-            setErrorMessage("Пожалуйста, введите корректный номер телефона.");
+            setErrorMessage(t('error_invalid_phone'));
             return;
         }
 
@@ -51,7 +57,7 @@ export default function ToRentOutForm() {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || "Ошибка при отправке заявки.");
+                throw new Error(errorData.message || t('error_submit'));
             }
 
             setPropertyType("");
@@ -61,9 +67,9 @@ export default function ToRentOutForm() {
             setAddress("");
         } catch (err: unknown) {
             if (err instanceof Error) {
-                console.error(err.message || "Что-то пошло не так.");
+                setErrorMessage(err.message || t('error_generic'));
             } else {
-                console.error("Что-то пошло не так.");
+                setErrorMessage(t('error_generic'));
             }
         } finally {
             setIsSubmitting(false);
@@ -81,25 +87,25 @@ export default function ToRentOutForm() {
                     {/* Тип недвижимости */}
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
                         <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
-                            Тип недвижимости
+                            {t('propertyTypeLabel')}
                         </label>
                         <select
                             id="type"
                             name="type"
                             value={propertyType}
                             onChange={(e) => setPropertyType(e.target.value)}
-                            className="mt-1 block w-full bg-white border  h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
+                            className="mt-1 block w-full bg-white border h-full max-h-[51px] text-gray-700 appearance-none pr-10 pl-2"
                         >
                             <option value="" disabled>
-                                Не выбрано
+                                {t('selectPlaceholder')}
                             </option>
-                            <option value="apartment">Квартира</option>
-                            <option value="room">Комната</option>
-                            <option value="house">Дом</option>
-                            <option value="townhouse">Таунхаус</option>
-                            <option value="land">Земельный участок</option>
-                            <option value="dacha">Дача</option>
-                            <option value="commercial">Коммерческое помещение</option>
+                            <option value="apartment">{t('option_apartment')}</option>
+                            <option value="room">{t('option_room')}</option>
+                            <option value="house">{t('option_house')}</option>
+                            <option value="townhouse">{t('option_townhouse')}</option>
+                            <option value="land">{t('option_land')}</option>
+                            <option value="dacha">{t('option_dacha')}</option>
+                            <option value="commercial">{t('option_commercial')}</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -111,13 +117,13 @@ export default function ToRentOutForm() {
                     {/* Площадь */}
                     <div className='h-full max-h-[81px] 2xl:order-4 max-w-[438px] 3xl:-ml-[165px]'>
                         <label htmlFor="area" className="text-[16px] block font-medium text-gray-700">
-                            Площадь, м²
+                            {t('areaLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             <input
                                 type="number"
                                 name="area"
-                                placeholder="Введите площадь"
+                                placeholder={t('areaPlaceholder')}
                                 value={area}
                                 onChange={(e) => setArea(e.target.value)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -129,7 +135,7 @@ export default function ToRentOutForm() {
                     {/* Комнатность */}
                     <div className='h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
                         <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
-                            Комнатность
+                            {t('roomsLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             {["Студия", "1", "2", "3", "4+"].map((room) => (
@@ -140,7 +146,7 @@ export default function ToRentOutForm() {
                                         }`}
                                     onClick={() => handleNumberOfRoom(room)}
                                 >
-                                    {room}
+                                    {room === "Студия" ? t('room_studio') : room}
                                 </button>
                             ))}
                         </div>
@@ -150,13 +156,13 @@ export default function ToRentOutForm() {
                     {/* Номер телефона */}
                     <div className=' h-full max-h-[81px] 2xl:order-4 max-w-[438px]'>
                         <label htmlFor="phoneNumber" className="text-[16px] block font-medium text-gray-700 ">
-                            Номер телефона
+                            {t('phoneNumberLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             <input
                                 type="tel"
                                 name="phoneNumber"
-                                placeholder="Укажите ваш номер телефона"
+                                placeholder={t('phoneNumberPlaceholder')}
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -167,12 +173,12 @@ export default function ToRentOutForm() {
                     {/* Адрес */}
                     <div className=' h-full max-h-[81px] 2xl:order-6'>
                         <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
-                            Адрес
+                            {t('addressLabel')}
                         </label>
                         <input
                             type="text"
                             name="address"
-                            placeholder="Город, адрес, ориентир, район, улица"
+                            placeholder={t('addressPlaceholder')}
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                             className="mt-1 block w-full border px-2 py-1 h-full max-h-[51px] text-[#333333]"
@@ -187,10 +193,11 @@ export default function ToRentOutForm() {
                         disabled={isSubmitting}
                         className={`bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate max-w-[223px] xl:max-w-[255px] w-full ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                     >
-                        {isSubmitting ? "Отправка..." : "Отправить заявку"}
+                        {isSubmitting ? t('submitButtonSending') : t('submitButton')}
                     </button>
                 </div>
             </form>
         </div>
     );
 }
+export default ToRentOutForm;

@@ -29,7 +29,7 @@ export default function BuyFormMobile({ onClose }: BuyFormMobileProps) {
                 Назад
             </button>
             <div className="space-y-4 mt-[31px] px-[16px]">
-                
+
                 {/* Тип недвижимости */}
                 <div className="relative">
                     <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
@@ -54,7 +54,7 @@ export default function BuyFormMobile({ onClose }: BuyFormMobileProps) {
                 {/* Стоимость */}
                 <div>
                     <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
-                        Стоимость, у.е.
+                        Стоимость, AED
                     </label>
                     <div className="mt-1 flex">
                         <input

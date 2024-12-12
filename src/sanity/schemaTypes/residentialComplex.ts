@@ -28,6 +28,12 @@ export const residentialComplex = defineType({
       description: 'Альтернативный текст для изображения на разных языках (важен для seo оптимизации)',
     }),
     defineField({
+      name: 'seller',
+      title: 'Продавец',
+      type: 'string',
+      description: 'Название продавца ',
+    }),
+    defineField({
       name: 'subtitle',
       title: 'Название жилого комплекса',
       type: 'object',

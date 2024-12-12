@@ -1,7 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
 import { newsType } from './news';
-import { residentialComplex } from './building';
+import { residentialComplex } from './residentialComplex';
 import { district } from './district';
 import { housingType } from './housingType';
 import { rooms } from './rooms';

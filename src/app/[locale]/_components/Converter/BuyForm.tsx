@@ -3,11 +3,15 @@
 import { useState } from 'react';
 // import Image from 'next/image';
 
-export default function BuyForm() {
+type BuyFormProps = {
+    className?: string;
+};
+
+const BuyForm: React.FC<BuyFormProps> = () => {
     const [results] = useState(954);
     return (
         <div className="w-full h-full bg-[#fff] max-h-[382px] mb-[76px] hidden slg:block max-xl:px-[12px]">
-           
+
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
@@ -32,7 +36,7 @@ export default function BuyForm() {
 
                     <div className=' h-full max-h-[81px] 2xl:order-2'>
                         <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
-                            Стоимость, у.е.
+                            Стоимость, AED
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             <input
@@ -131,3 +135,4 @@ export default function BuyForm() {
         </div>
     );
 }
+export default BuyForm;
