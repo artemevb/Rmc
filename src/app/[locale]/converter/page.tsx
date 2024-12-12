@@ -1,22 +1,24 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocale } from 'next-intl';
+
 import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
-import arrow from "@/public/svg/arrow-right-white.svg";
+import arrowRightWhite from "@/public/svg/arrow-right-white.svg";
 
+// Import Desktop Forms
 import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
 import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
 import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
 
-import ShemeBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ShemeBuy";
-import InfoReviewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/InfoReviewsBuy";
+// Import Additional Components
 import BlockCardsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/BlockCardsBuy";
-import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
+import InfoReviewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/InfoReviewsBuy";
 import ListBuildings from "@/src/app/[locale]/_components/NewBuildingsMain/Main";
+import ShemeBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ShemeBuy";
 import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
-
+import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
 
 import BlockCardsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/BlockCardsSell";
 import InfoReviewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/InfoReviewsSell";
@@ -34,16 +36,41 @@ import ShemeRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormCom
 import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
 import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
 
+// Import Mobile Forms
+import BuyFormMobile from "@/src/app/[locale]/_components/Converter/BuyFormMobile";
+import SellFormMobile from "@/src/app/[locale]/_components/Converter/SellFormMobile";
+import RentFormMobile from "@/src/app/[locale]/_components/Converter/RentFormMobile";
+
 type ButtonLabels = "Купить" | "Продать" | "Сдать";
 
 export default function Banner() {
     const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(true);
     const locale = useLocale();
 
     const components: Record<ButtonLabels, JSX.Element> = {
-        Купить: <BuyForm />,
-        Продать: <Sell />,
-        Сдать: <ToRentOut />,
+        Купить: (
+            <>
+                {/* Desktop */}
+                <BuyForm className="hidden slg:block" />
+                {/* Mobile – будет через модалку */}
+            </>
+        ),
+        Продать: (
+            <>
+                {/* Desktop */}
+                <Sell className="hidden slg:block" />
+                {/* Mobile – будет через модалку */}
+            </>
+        ),
+        Сдать: (
+            <>
+                {/* Desktop */}
+                <ToRentOut className="hidden slg:block" />
+                {/* Mobile – будет через модалку */}
+            </>
+        ),
     };
 
     const additionalComponents: Record<ButtonLabels, JSX.Element[]> = {
@@ -81,6 +108,37 @@ export default function Banner() {
 
     const buttonLabels: ButtonLabels[] = ["Купить", "Продать", "Сдать"];
 
+    // Determine mobile/desktop mode
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 1023px)"); // Adjust if your breakpoint differs
+        const handler = () => setIsSmallScreen(mediaQuery.matches);
+        handler();
+        mediaQuery.addEventListener("change", handler);
+        return () => mediaQuery.removeEventListener("change", handler);
+    }, []);
+
+    const handleButtonClick = (label: ButtonLabels) => {
+        setActiveButton(label);
+        if (isSmallScreen) {
+            // If on mobile, open the modal
+            setIsModalOpen(true);
+        }
+    };
+
+    // Determine which mobile form to render
+    const renderMobileForm = () => {
+        switch (activeButton) {
+            case "Купить":
+                return <BuyFormMobile onClose={() => setIsModalOpen(false)} />;
+            case "Продать":
+                return <SellFormMobile onClose={() => setIsModalOpen(false)} />;
+            case "Сдать":
+                return <RentFormMobile onClose={() => setIsModalOpen(false)} />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <div className="relative w-full h-auto flex flex-col mx-auto">
             <div className="relative w-full">
@@ -112,17 +170,17 @@ export default function Banner() {
                         </h5>
                     </div>
 
-                    {/* МЕНЮ ПРИ МОБИЛКЕ*/}
+                    {/* MOBILE MENU */}
                     <div className="mt-[293px] mdx:mt-[326px] h-full w-full slg:hidden text-[20px] font-medium">
                         {buttonLabels.map((label, index) => (
                             <div
                                 key={index}
                                 className="flex justify-between items-center px-4 border-t border-gray-400 cursor-pointer w-full py-[17px]"
-                                onClick={() => setActiveButton(label)}
+                                onClick={() => handleButtonClick(label)}
                             >
                                 <span className="text-lg">{label}</span>
                                 <Image
-                                    src={arrow}
+                                    src={arrowRightWhite}
                                     quality={100}
                                     alt="Arrow icon"
                                     width={24}
@@ -132,7 +190,7 @@ export default function Banner() {
                         ))}
                     </div>
 
-                    {/* Меню при Desktop */}
+                    {/* Desktop MENU */}
                     <div className="w-full h-full max-h-[61px] hidden slg:block mt-[40px] mb-[12px]">
                         <div className="w-full h-full max-h-[61px] backdrop-blur-7.5 grid grid-cols-3 text-[20px] font-semibold gap-[10px] p-[4px] ">
                             {buttonLabels.map((label, index) => (
@@ -150,18 +208,29 @@ export default function Banner() {
                         </div>
                     </div>
 
-                    {/* Показ выбранной формы */}
+                    {/* Desktop Forms */}
                     {components[activeButton]}
-
-
                 </div>
-                {/* Показ дополнительных компонентов в зависимости от выбранного состояния */}
+
+                {/* Additional Components */}
                 {additionalComponents[activeButton].map((Comp, idx) => (
-                    <div key={idx} className="w-full mt-[120px] mdx:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] mx-auto relative z-[999999]">
+                    <div
+                        key={idx}
+                        className="w-full mt-[120px] mdx:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px] mx-auto relative z-[999999]"
+                    >
                         {Comp}
                     </div>
                 ))}
             </div>
+
+            {/* Modal for Mobile Forms */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-[999999] flex items-center justify-center bg-black bg-opacity-50 h-screen">
+                    <div className="bg-white w-full h-screen relative">
+                        {renderMobileForm()}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
