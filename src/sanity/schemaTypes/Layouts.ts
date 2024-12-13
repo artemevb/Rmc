@@ -36,6 +36,11 @@ export const layouts = defineType({
       type: 'string'
     }),
     defineField({
+      name: 'area',
+      title: 'Площадь',
+      type: 'string'
+    }),
+    defineField({
       name: 'entrance',
       title: 'Подъезд',
       type: 'string'

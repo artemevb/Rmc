@@ -1,12 +1,14 @@
 "use client";
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from 'next-intl';
-import { client } from '../../../../sanity/lib/client';
-import { ClimbingBoxLoader } from 'react-spinners';
-import { GET_RESIDENTIAL_COMPLEXES } from '../NewBuildings/queries';
-import { ResidentialComplex } from '../NewBuildings/types';
+import { useTranslations } from "next-intl";
+import { client } from "../../../../sanity/lib/client";
+import { ClimbingBoxLoader } from "react-spinners";
+import { GET_RESIDENTIAL_COMPLEXES } from "../NewBuildings/queries";
+import { ResidentialComplex } from "../NewBuildings/types";
+import rightArrow from "@/public/svg/arrowrightbanners.svg";
+import leftArrow from "@/public/svg/arrowleftbanners.svg";
 
 interface InvestProps {
     locale: string;
@@ -24,40 +26,62 @@ interface ImageItem {
     };
 }
 
-export default function Invest({ locale }: InvestProps) {
-    const t = useTranslations('NewBuildingsMain');
+export default function ListBuildings({ locale }: InvestProps) {
+    const t = useTranslations("NewBuildingsMain");
     const [images, setImages] = useState<ImageItem[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+
+    // Для пагинации
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const itemsPerPage = 6;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
 
-                const complexes: ResidentialComplex[] = await client.fetch(GET_RESIDENTIAL_COMPLEXES);
+                const complexes: ResidentialComplex[] = await client.fetch(
+                    GET_RESIDENTIAL_COMPLEXES
+                );
 
-                const transformedData: ImageItem[] = complexes.map(item => ({
+                const transformedData: ImageItem[] = complexes.map((item) => ({
                     _id: item._id,
                     mainImageUrl: item.mainImage.asset.url,
-                    mainImageAlt: item.alt[locale as keyof typeof item.alt] || item.alt['ru'],
-                    subtitle: item.subtitle[locale as keyof typeof item.subtitle] || item.subtitle['ru'],
+                    mainImageAlt:
+                        item.alt[locale as keyof typeof item.alt] || item.alt["ru"],
+                    subtitle:
+                        item.subtitle[locale as keyof typeof item.subtitle] ||
+                        item.subtitle["ru"],
                     price: item.price,
                     priceValue: item.priceValue,
                     slug: {
-                        current: item.slug?.current || '',
+                        current: item.slug?.current || "",
                     },
                 }));
 
                 setImages(transformedData);
                 setIsLoading(false);
             } catch (err) {
-                console.error('Ошибка при получении данных из Sanity:', err);
+                console.error("Ошибка при получении данных из Sanity:", err);
                 setIsLoading(false);
             }
         };
 
         fetchData();
     }, [locale]);
+
+    const totalPages = Math.ceil(images.length / itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
+    const displayedImages = images.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
     if (isLoading) {
         return (
@@ -67,19 +91,16 @@ export default function Invest({ locale }: InvestProps) {
         );
     }
 
-    // Ограничение на отображение 6 карточек
-    const displayedImages = images.slice(0, 6);
-
     return (
         <div className="w-full h-auto flex flex-col mx-auto px-4 max-w-full md:max-w-[1440px] mb-[120px]">
             <h3 className="font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-w-[710px]">
-                {t('title')}
+                {t("title")}
             </h3>
             <div className="mt-[25px] grid gap-[12px] xl:gap-[20px] mdx:grid-cols-2 xl:grid-cols-3">
                 {displayedImages.map((image) => (
                     <Link
                         key={image._id}
-                        href={`/${locale}/new-buildings/${image.slug?.current || ''}`}
+                        href={`/${locale}/new-buildings/${image.slug?.current || ""}`}
                         className="w-full flex flex-col"
                     >
                         <div className="relative w-full h-[350px] xl:h-[550px]">
@@ -109,14 +130,57 @@ export default function Invest({ locale }: InvestProps) {
                 )}
             </div>
 
-            {/* Кнопка перейти в каталог */}
+            {/* Пагинация */}
             <div className="flex justify-center mt-[50px]">
-                <Link
-                    href={`/${locale}/new-buildings`}
-                    className="py-3 px-8 bg-corporate text-white text-[16px] mdx:text-[18px] rounded-md shadow-md transition-all hover:bg-hover_corporate"
-                >
-                    {t('goToCatalog') || "Перейти в каталог"}
-                </Link>
+                <ul className="flex space-x-1 mdl:space-x-2">
+                    <li>
+                        <button
+                            className={`px-2 py-2 transition-all duration-300 ${currentPage === 1
+                                ? "cursor-not-allowed opacity-50"
+                                : "hover:bg-corporate"
+                                }`}
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                        >
+                            <Image
+                                src={leftArrow}
+                                width={25}
+                                height={25}
+                                alt="Left Arrow"
+                            />
+                        </button>
+                    </li>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <li key={page}>
+                            <button
+                                className={`px-4 py-2 border transition-all duration-300 ${page === currentPage
+                                    ? "bg-corporate text-white"
+                                    : "hover:bg-corporate"
+                                    }`}
+                                onClick={() => handlePageChange(page)}
+                            >
+                                {page}
+                            </button>
+                        </li>
+                    ))}
+                    <li>
+                        <button
+                            className={`px-2 py-2 transition-all duration-300 ${currentPage === totalPages
+                                ? "cursor-not-allowed opacity-50"
+                                : "hover:bg-corporate"
+                                }`}
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                        >
+                            <Image
+                                src={rightArrow}
+                                width={25}
+                                height={25}
+                                alt="Right Arrow"
+                            />
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     );

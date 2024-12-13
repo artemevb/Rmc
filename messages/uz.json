@@ -468,6 +468,7 @@
     "all": "Hammasi",
     "see-pages": "Sahifada ko'rsatish",
     "noResults": "Yo'qolgan",
+    "ListBuildingsToCatalogButton": "Katalogga o'tish",
     "Form": {
       "validFullName": "To'g'ri",
       "enterFullName": "To'liq ismingizni kiriting",

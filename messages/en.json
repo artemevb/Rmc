@@ -369,6 +369,7 @@
     "company-name": "Company Name",
     "telephone-number": "Phone Number",
     "text-3": "Choose a Service",
+    "type-of-service-description": "Leave your details, and we will contact you.",
     "message": "Message",
     "send": "Send",
     "enter_full_name": "Enter your full name",
@@ -468,6 +469,7 @@
     "all": "All",
     "see-pages": "Show per page",
     "noResults": "Missing",
+    "ListBuildingsToCatalogButton": "Go to catalog",
     "Form": {
       "validFullName": "Correct",
       "enterFullName": "Enter full name",

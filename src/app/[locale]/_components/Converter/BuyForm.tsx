@@ -15,6 +15,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
+                        {/*приходит со схемы residentialComplex.ts и имеет name: 'type' */}
                         <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
                             Тип недвижимости
                         </label>
@@ -33,7 +34,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                             </svg>
                         </div>
                     </div>
-
+                    {/*приходит со схемы residentialComplex.ts и имеет name: 'priceValue' */}
                     <div className=' h-full max-h-[81px] 2xl:order-2'>
                         <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
                             Стоимость, AED
@@ -53,6 +54,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                             />
                         </div>
                     </div>
+                    {/*приходит со схемы Layouts.ts и имеет name: 'area' */}
                     <div className=' h-full max-h-[81px] 2xl:order-4'>
                         <label htmlFor="area" className="text-[16px] block font-medium text-gray-700 ">
                             Площадь, м²
@@ -72,6 +74,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                             />
                         </div>
                     </div>
+                    {/*в схеме sanity продавец имеет name: 'rooms' */}
                     <div className=' h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
                         <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
                             Комнатность
@@ -84,6 +87,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                             <button className="flex-1 border  py-1 text-[18px] text-[#333]">4+</button>
                         </div>
                     </div>
+                    {/*в схеме sanity продавец имеет name: seller */}
                     <div className="relative h-full max-h-[81px] 2xl:order-5">
                         <label htmlFor="seller" className="block text-[16px] font-medium text-gray-700">
                             Продавец
@@ -104,7 +108,7 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                         </div>
                     </div>
 
-
+                    {/*в схеме sanity продавец имеет name: 'district' */}
                     <div className=' h-full max-h-[81px] 2xl:order-6'>
                         <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
                             Адрес

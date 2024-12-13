@@ -468,6 +468,7 @@
     "all": "Все",
     "see-pages": "Показывать на странице",
     "noResults": "Отсутствует",
+    "ListBuildingsToCatalogButton": "Перейти в каталог",
     "Form": {
       "validFullName": "Правильно",
       "enterFullName": "Введите полное имя",

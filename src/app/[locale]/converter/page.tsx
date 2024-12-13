@@ -192,7 +192,7 @@ export default function Banner() {
                                     className={`${activeButton === label
                                         ? "bg-white text-[#333333]"
                                         : "bg-transparent text-[#fff]"
-                                        } max-h-[53px] h-full w-full mx-auto`}
+                                        } max-h-[53px] h-full w-full mx-auto hover:text-[#333333] hover:bg-white hover:bg-opacity-80 transition duration-300 ease-in-out`}
                                     onClick={() => setActiveButton(label)}
                                 >
                                     {label}
