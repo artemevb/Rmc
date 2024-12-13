@@ -135,7 +135,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                                     key={r}
                                     type="button"
                                     onClick={() => toggleRoom(r)}
-                                    className={`flex-1 border py-1 text-[18px] text-[#333] ${rooms.includes(r) ? "bg-gray-200" : ""}`}
+                                    className={`flex-1 border px-3 py-2 text-[18px] text-[#333] ${rooms.includes(r) ? "bg-gray-200" : ""}`}
                                 >
                                     {r}
                                 </button>
