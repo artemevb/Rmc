@@ -16,7 +16,7 @@ export default function Scheme() {
                             <p className='text-[#B3B3B3] text-[14px] mdx:text-[18px] xl:text-[20px]'> {t('telephone')}</p>
                             <a href="tel:+998785558787" className='whitespace-nowrap text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>+998 (78) 555 87 87</a>
                             <br />
-                            <a href="tel:971543980707" className=' text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>+971 54 398 0707</a>
+                            <a href="tel:971543980707" className=' text-[22px] mdx:text-[28px] xl:text-[30px] hover:text-[#868585]'>+971 052 949 07 07</a>
                         </div>
                         <hr className='w-full' />
                         <div className='pt-[20px]'>

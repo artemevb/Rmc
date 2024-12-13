@@ -37,8 +37,8 @@ export const layouts = defineType({
     }),
     defineField({
       name: 'area',
-      title: 'Площадь',
-      type: 'string'
+      title: 'Площадь(еденица измерения m2)',
+      type: 'number'
     }),
     defineField({
       name: 'entrance',

@@ -1,41 +1,83 @@
-"use client"
-// import settings from "@/public/svg/settings.svg";
-import { useState } from 'react';
-// import Image from 'next/image';
+"use client";
+import React from 'react';
 
 type BuyFormProps = {
     className?: string;
+    type: string;
+    onShowResults: () => void;
+    onTypeChange: (val: string) => void;
+    seller: string;
+    onSellerChange: (val: string) => void;
+    sellers: string[];
+    propertyTypes: string[];
+    address: string;
+    onAddressChange: (val: string) => void;
+    priceFrom?: number;
+    onPriceFromChange: (val?: number) => void;
+    priceTo?: number;
+    onPriceToChange: (val?: number) => void;
+    areaFrom?: number;
+    onAreaFromChange: (val?: number) => void;
+    areaTo?: number;
+    onAreaToChange: (val?: number) => void;
+    rooms: string[];
+    onRoomsChange: (val: string) => void;
+    results: number;
+
+    addressSuggestions: string[]; // новые пропы
+    onAddressSelect: (val: string) => void;
 };
 
-const BuyForm: React.FC<BuyFormProps> = () => {
-    const [results] = useState(954);
+const BuyForm: React.FC<BuyFormProps> = ({
+    type, onTypeChange,
+    seller, onSellerChange,
+    onShowResults,
+    sellers,
+    propertyTypes,
+    address, onAddressChange,
+    priceFrom, onPriceFromChange,
+    priceTo, onPriceToChange,
+    areaFrom, onAreaFromChange,
+    areaTo, onAreaToChange,
+    rooms,
+    onRoomsChange,
+    results,
+    addressSuggestions,
+    onAddressSelect
+}) => {
+
+    const toggleRoom = (roomValue: string) => {
+        onRoomsChange(roomValue);
+    };
+
     return (
         <div className="w-full h-full bg-[#fff] max-h-[382px] mb-[76px] hidden slg:block max-xl:px-[12px]">
-
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
-                        {/*приходит со схемы residentialComplex.ts и имеет name: 'type' */}
                         <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
                             Тип недвижимости
                         </label>
                         <select
-                            id="seller"
-                            name="seller"
-                            className="mt-1 block w-full bg-white border  h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
+                            id="type"
+                            name="type"
+                            value={type}
+                            onChange={(e) => onTypeChange(e.target.value)}
+                            className="mt-1 block w-full bg-white border h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
                         >
-                            <option value="" disabled selected>Выбрать</option>
-                            {/* Add more options here */}
+                            <option value="">Выбрать</option>
+                            {propertyTypes.map((pt) => (
+                                <option key={pt} value={pt}>{pt}</option>
+                            ))}
                         </select>
-                        {/* Custom arrow */}
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </div>
                     </div>
-                    {/*приходит со схемы residentialComplex.ts и имеет name: 'priceValue' */}
-                    <div className=' h-full max-h-[81px] 2xl:order-2'>
+
+                    <div className='h-full max-h-[81px] 2xl:order-2'>
                         <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
                             Стоимость, AED
                         </label>
@@ -44,18 +86,22 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                                 type="number"
                                 name="priceFrom"
                                 placeholder="От"
-                                className="w-full border  px-2 py-1 text-[#333333]"
+                                value={priceFrom || ""}
+                                onChange={(e) => onPriceFromChange(e.target.value ? Number(e.target.value) : undefined)}
+                                className="w-full border px-2 py-1 text-[#333333]"
                             />
                             <input
                                 type="number"
                                 name="priceTo"
                                 placeholder="До"
-                                className="w-full border  px-2 py-1 text-[#333333]"
+                                value={priceTo || ""}
+                                onChange={(e) => onPriceToChange(e.target.value ? Number(e.target.value) : undefined)}
+                                className="w-full border px-2 py-1 text-[#333333]"
                             />
                         </div>
                     </div>
-                    {/*приходит со схемы Layouts.ts и имеет name: 'area' */}
-                    <div className=' h-full max-h-[81px] 2xl:order-4'>
+
+                    <div className='h-full max-h-[81px] 2xl:order-4'>
                         <label htmlFor="area" className="text-[16px] block font-medium text-gray-700 ">
                             Площадь, м²
                         </label>
@@ -64,30 +110,39 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                                 type="number"
                                 name="areaFrom"
                                 placeholder="От"
-                                className="w-full border  px-2 py-1 text-[#333333]"
+                                value={areaFrom || ""}
+                                onChange={(e) => onAreaFromChange(e.target.value ? Number(e.target.value) : undefined)}
+                                className="w-full border px-2 py-1 text-[#333333]"
                             />
                             <input
                                 type="number"
                                 name="areaTo"
                                 placeholder="До"
-                                className="w-full border  px-2 py-1 text-[#333333]"
+                                value={areaTo || ""}
+                                onChange={(e) => onAreaToChange(e.target.value ? Number(e.target.value) : undefined)}
+                                className="w-full border px-2 py-1 text-[#333333]"
                             />
                         </div>
                     </div>
-                    {/*в схеме sanity продавец имеет name: 'rooms' */}
-                    <div className=' h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
+
+                    <div className='h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
                         <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
                             Комнатность
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
-                            <button className="flex-1 border  py-1 text-[18px] text-[#333] px-[11px]">Студия</button>
-                            <button className="flex-1 border  py-1 text-[18px] text-[#333]">1</button>
-                            <button className="flex-1 border  py-1 text-[18px] text-[#333]">2</button>
-                            <button className="flex-1 border  py-1 text-[18px] text-[#333]">3</button>
-                            <button className="flex-1 border  py-1 text-[18px] text-[#333]">4+</button>
+                            {["Студия", "1", "2", "3", "4+"].map(r => (
+                                <button
+                                    key={r}
+                                    type="button"
+                                    onClick={() => toggleRoom(r)}
+                                    className={`flex-1 border py-1 text-[18px] text-[#333] ${rooms.includes(r) ? "bg-gray-200" : ""}`}
+                                >
+                                    {r}
+                                </button>
+                            ))}
                         </div>
                     </div>
-                    {/*в схеме sanity продавец имеет name: seller */}
+
                     <div className="relative h-full max-h-[81px] 2xl:order-5">
                         <label htmlFor="seller" className="block text-[16px] font-medium text-gray-700">
                             Продавец
@@ -95,21 +150,23 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                         <select
                             id="seller"
                             name="seller"
-                            className="mt-1 block w-full bg-white border  h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
+                            value={seller}
+                            onChange={(e) => onSellerChange(e.target.value)}
+                            className="mt-1 block w-full bg-white border h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
                         >
-                            <option value="" disabled selected>Выбрать</option>
-                            {/* Add more options here */}
+                            <option value="">Выбрать</option>
+                            {sellers.map((s) => (
+                                <option key={s} value={s}>{s}</option>
+                            ))}
                         </select>
-                        {/* Custom arrow */}
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </div>
                     </div>
 
-                    {/*в схеме sanity продавец имеет name: 'district' */}
-                    <div className=' h-full max-h-[81px] 2xl:order-6'>
+                    <div className='h-full max-h-[81px] 2xl:order-6 relative'>
                         <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
                             Адрес
                         </label>
@@ -117,26 +174,34 @@ const BuyForm: React.FC<BuyFormProps> = () => {
                             type="text"
                             name="address"
                             placeholder="Город, адрес, ориентир, район, улица"
-                            className="mt-1 block w-full border  px-2 py-1 h-full max-h-[51px] text-[#333333]"
+                            value={address}
+                            onChange={(e) => onAddressChange(e.target.value)}
+                            className="mt-1 block w-full border px-2 py-1 h-full max-h-[51px] text-[#333333]"
                         />
+                        {addressSuggestions.length > 0 && (
+                            <ul className="absolute z-50 bg-white border border-gray-300 w-full mt-1 max-h-[150px] overflow-auto">
+                                {addressSuggestions.map(suggestion => (
+                                    <li
+                                        key={suggestion}
+                                        className="px-2 py-1 hover:bg-gray-100 cursor-pointer text-[#333333]"
+                                        onClick={() => onAddressSelect(suggestion)}
+                                    >
+                                        {suggestion}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
                 <div className="mt-4 flex gap-[16px] items-center justify-end">
-                    {/* <button className="font-medium px-[30px] py-[12px] text-[#333333] border flex gap-[12px] flex-row-reverse text-[17px]">Расширенный поиск
-                        <Image
-                            src={settings}
-                            quality={100}
-                            alt="Settings icon"
-                            width={24}
-                            height={24}
-                        />
-                    </button> */}
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate">
+                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate"
+                        onClick={() => onShowResults()}>
                         Показать {results} результата
                     </button>
                 </div>
             </div>
         </div>
     );
-}
+};
+
 export default BuyForm;

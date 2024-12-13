@@ -25,6 +25,7 @@ export default function Share({ news }: ShareProps) {
             alt: 'Instagram Icon',
             link: 'https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx',
         },
+        { src: '/svg/footer/whatsapp.svg', alt: 'Whatsapp Icon', link: 'https://wa.me/971543980707' },
         { src: '/svg/footer/telegram.svg', alt: 'Telegram Icon', link: 'https://t.me/rmc_de_luxe' },
         { src: '/svg/footer/youtube.svg', alt: 'Youtube Icon', link: 'https://www.youtube.com/@RMC_DE_LUXE' },
     ];

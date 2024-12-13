@@ -3,6 +3,7 @@
 import telegram from "@/public/svg/footer/telegram.svg";
 // import facebook from "@/public/svg/footer/facebook.svg";
 import instagram from "@/public/svg/footer/instagram.svg";
+import whatsapp from "@/public/svg/footer/whatsapp.svg";
 import youtube from "@/public/svg/footer/youtube.svg";
 // import resultLogo from "@/public/svg/footer/result-logo.png";
 import Link from "next/link";
@@ -91,6 +92,19 @@ export default function Footer({ locale }: LocaleProps) {
                   className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
                 />
               </a> */}
+              <a href="https://wa.me/971543980707" target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => handleSocialClick(e, "https://wa.me/971543980707", "WHATSAPP")}
+              >
+                <Image
+                  src={whatsapp}
+                  width={100}
+                  height={100}
+                  quality={100}
+                  alt="whatsapp"
+                  className="w-[28px] h-[28px] mdx:w-[33px] mdx:h-[33px] xl:w-[35px] xl:h-[35px]"
+                />
+              </a>
               <a
                 href="https://www.instagram.com/rmc_de_luxe?igsh=cWpxdXVobHgxODcx"
                 target="_blank"
