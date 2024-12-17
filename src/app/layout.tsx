@@ -3,6 +3,8 @@
 import '@/src/app/[locale]/_styles/globals.css';
 import Head from 'next/head';
 import { ReactNode } from 'react';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 interface LocaleLayoutProps {
   children: ReactNode;
@@ -65,12 +67,15 @@ const getTranslation = (
 
 export const dynamic = 'force-dynamic';
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
   const { locale } = params;
   const t = getTranslation(locale);
+
+  // Получаем сообщения для текущей локали
+  const messages = await getMessages({ locale });
 
   const currentLocale = supportedLocales.includes(
     locale as SupportedLocale
@@ -139,9 +144,12 @@ export default function LocaleLayout({
           content={t.twitter.description}
         />
       </Head>
-      <body className='h-full w-full p-0 m-0'>
-        {children}
-      </body>
+      {/* Передаем locale и messages в провайдер */}
+      <NextIntlClientProvider locale={currentLocale} messages={messages}>
+        <body className='h-full w-full p-0 m-0'>
+          {children}
+        </body>
+      </NextIntlClientProvider>
       <Head>
         <script
           type="application/ld+json"

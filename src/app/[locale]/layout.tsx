@@ -124,8 +124,6 @@ export default async function RootLayout({
               `,
             }}
           />
-
-          {/* Внедрение <noscript> для Yandex Metrica */}
           <noscript
             dangerouslySetInnerHTML={{
               __html: `

@@ -8,7 +8,7 @@ import SliderInfo from '@/src/app/[locale]/_components/Builing_page_main/SliderI
 import GallerySlider from '@/src/app/[locale]/_components/Builing_page_main/GallerySlider'
 import Conditions from '@/src/app/[locale]/_components/Builing_page_main/Conditions'
 import Infrastructure from '@/src/app/[locale]/_components/Builing_page_main/Infrastructure'
-import NewsComp from "@/src/app/[locale]/_components/Builing_page_main/OtherBuildingsSlider";
+import OtherBuildingsSlider from "@/src/app/[locale]/_components/Builing_page_main/OtherBuildingsSlider";
 import Layouts from "../../_components/Builing_page_main/Layouts";
 import type { Locales } from "@/src/app/[locale]/layout";
 
@@ -82,7 +82,8 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
   const data = await client.fetch(query, { slug }, { cache: 'no-store' });
 
   // Дополнительный запрос для других жилых комплексов (слайдер) с отключенным кэшированием
-  const otherQuery = `*[_type == "residentialComplex" && slug.current != $slug]{
+  const otherQuery = `
+  *[_type == "residentialComplex" && slug.current != $slug]{
     _id,
     mainImage{
       asset->{
@@ -93,8 +94,16 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
     },
     price,
     subtitle,
-    slug
-  }`;
+    slug,
+    type->{
+      _id,
+      name_ru,
+      name_uz,
+      name_en
+    }
+  }
+`;
+
   const otherData = await client.fetch(otherQuery, { slug }, { cache: 'no-store' });
 
   return (
@@ -126,7 +135,7 @@ export default async function Page({ params }: InvestmentDubaiPageProps) {
         <Form />
       </div>
       <div className='mt-[120px] mdl:mt-[150px] xl:mt-[200px] mb-[120px] mdx:mb-[150px] xl:mb-[200px]'>
-        <NewsComp locale={locale} data={otherData} />
+        <OtherBuildingsSlider locale={locale} data={otherData} />
       </div>
     </div>
   );

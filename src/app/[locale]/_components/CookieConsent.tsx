@@ -26,7 +26,7 @@ const CookieConsent = ({ locale }: local) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-[rgba(247,247,247,0.4)] text-gray-600 flex flex-wrap items-center justify-center px-6 py-4 shadow-lg z-50 transition-all">
+    <div className="fixed bottom-0 left-0 w-full bg-[rgba(247,247,247,0.4)] text-gray-600 flex flex-wrap items-center justify-center px-6 py-4 shadow-lg z-[9999999] transition-all">
       <div className="max-w-[1440px] w-full flex items-center justify-center flex-row">
         <p className="text-sm flex-1">
           {t('title')}

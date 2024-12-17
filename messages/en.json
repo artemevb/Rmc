@@ -405,6 +405,11 @@
     "text-2": "Page not found",
     "goHome": "Go to homepage"
   },
+  "error-page": {
+    "text-1": "Server error",
+    "text-2": "Something went wrong. But we are already working on solving this problem",
+    "goHome": "Go to homepage"
+  },
   "NewBuildings": {
     "InTashkent": {
       "title-1": "New Buildings",
