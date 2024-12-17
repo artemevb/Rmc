@@ -116,8 +116,8 @@
       "enterValidPhoneNumber": "Введите правильный номер",
       "validEmail": "Правильно",
       "enterValidEmail": "Введите правильный email",
-      "haveQuestions": "Остались вопросы?",
-      "contactUs": "Свяжитесь с нами",
+      "haveQuestions": "Оставьте заявку",
+      "contactUs": "мы свяжемся с вами",
       "fullName": "ФИО",
       "phoneNumber": "Номер телефона",
       "email": "E-mail",
@@ -523,7 +523,7 @@
       "read-more": "Читать полностью"
     },
     "Other": {
-      "title": "Другие ЖК"
+      "title": "Рекомендуем для выбора"
     },
     "Layout": {
       "title": "Планировки и доступные квартиры",

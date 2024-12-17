@@ -3,15 +3,16 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { useTranslations } from "next-intl";
 
 export default function MortgageCalculator() {
+
     const t = useTranslations('Main.Counter');
-    const [propertyCost, setPropertyCost] = useState<number | string>(""); // Updated default state to an empty string
-    const [downPayment, setDownPayment] = useState<number | string>(""); // Updated default state to an empty string
-    const [loanTerm, setLoanTerm] = useState<number | string>(""); // Updated default state to an empty string
-    const [interestRate, setInterestRate] = useState<number | string>(""); // Updated default state to an empty string
+    const [propertyCost, setPropertyCost] = useState<number | string>("");
+    const [downPayment, setDownPayment] = useState<number | string>("");
+    const [loanTerm, setLoanTerm] = useState<number | string>("");
+    const [interestRate, setInterestRate] = useState<number | string>("");
     const [monthlyPayment, setMonthlyPayment] = useState<string | null>(null);
     const [loanAmount, setLoanAmount] = useState<string | null>(null);
     const [finalDate, setFinalDate] = useState<string | null>(null);
-    const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false); // State to track screen width
+    const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
 
     useEffect(() => {
         const checkScreenSize = () => {
@@ -29,7 +30,6 @@ export default function MortgageCalculator() {
         };
     }, []);
 
-    // Проверка, что все поля заполнены
     const isButtonDisabled = !propertyCost || !downPayment || !loanTerm || !interestRate;
 
     const calculateMortgage = (): void => {
@@ -96,7 +96,7 @@ export default function MortgageCalculator() {
 
     return (
         <div className="max-2xl:px-[15px] max-w-[1440px] w-full mx-auto flex flex-col">
-            <h2 className="font-medium text-[30px] md:text-[45px] mdx:text-[55px] mb-4 leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
+            <h2 className="font-medium text-[30px] mdx:text-[45px] xl:text-[55px] mb-4 leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
                 {t("title")}
             </h2>
             <div className="bg-white px-[20px] py-[25px] counter-shadow 2xl:p-[0px]">
@@ -167,13 +167,12 @@ export default function MortgageCalculator() {
                                 step="0.01"
                             />
                         </div>
-
                         {/* Кнопка расчета */}
                         <button
                             onClick={calculateMortgage}
                             className="bg-corporate hover:bg-hover_corporate text-[#fff] py-[12px] focus:outline-none focus:shadow-outline text-[17px] w-[223px] font-semibold transition-all duration-300"
                             type="button"
-                            disabled={isButtonDisabled} // Устанавливаем атрибут disabled
+                            disabled={isButtonDisabled}
                         >
                             {t("four")}
                         </button>

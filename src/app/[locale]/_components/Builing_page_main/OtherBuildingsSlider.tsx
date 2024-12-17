@@ -59,18 +59,18 @@ const NewsComp: FC<NewsCompProps> = ({ locale, data }) => {
   return (
     <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 '>
       <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
-        {t("title")}
+        {t('title')} {/*Вам может быть интересно, Другие комплексы*/}
       </h2>
       <div className='w-full h-auto'>
         <Slider {...settings} className='h-auto w-full'>
           {data.map((item) => (
             <div className='px-[10px] xl:max-h-[600px] max-h-full' key={item._id}>
               <Link href={`/${locale}/new-buildings/${item.slug?.current || '#'}`} passHref>
-                  <BuildingsCard
-                    coast={item.price || 'от неизвестной суммы'}
-                    subtitle={item.subtitle?.[locale as 'ru' | 'uz' | 'en'] || 'Без названия'}
-                    imageSrc={item.mainImage?.asset?.url || 'нет фото'}
-                  />
+                <BuildingsCard
+                  coast={item.price || 'от неизвестной суммы'}
+                  subtitle={item.subtitle?.[locale as 'ru' | 'uz' | 'en'] || 'Без названия'}
+                  imageSrc={item.mainImage?.asset?.url || 'нет фото'}
+                />
               </Link>
             </div>
           ))}

@@ -179,7 +179,7 @@ export default function ContAddress() {
             <div className="xl:w-[35%] max-xl:px-[16px] xl:ml-[20px] 2xl:ml-[30px] 3xl:ml-[60px] 3xl:w-[37%]">
                 <h3 className="text-[25px] text-[#000] font-medium md:text-[32px] mdl:text-[40px] pt-[20px] pb-[17px] xl:pt-[40px] 3xl:pt-[60px] 3xl:pb-[50px] xl:leading-[55px] 3xl:text-[55px] lh">
                     {t('haveQuestions')}<br />
-                    {t('contactUs')}
+                    <span className="text-[15px] md:text-[23px] mdl:text-[32px] 3xl:text-[40px]">{t('contactUs')}</span>
                 </h3>
                 <form className="flex flex-col gap-6 w-full" onSubmit={handleSubmit}>
                     {(["fullName", "phoneNumber", "email", "question"] as Array<keyof FormValues>).map((field) => (

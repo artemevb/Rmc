@@ -116,8 +116,8 @@
       "enterValidPhoneNumber": "Enter a valid phone number",
       "validEmail": "Correct",
       "enterValidEmail": "Enter a valid email",
-      "haveQuestions": "Have questions?",
-      "contactUs": "Contact us",
+      "haveQuestions": "Leave a request",
+      "contactUs": "we will contact you",
       "fullName": "Full Name",
       "phoneNumber": "Phone Number",
       "email": "E-mail",
@@ -524,7 +524,7 @@
       "read-more": "Read more"
     },
     "Other": {
-      "title": "Other residential complexes"
+      "title": "Recommended for selection"
     },
     "Layout": {
       "title": "Layouts and available apartments",
