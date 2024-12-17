@@ -3,7 +3,7 @@
 import '@/src/app/[locale]/_styles/globals.css';
 import React from 'react';
 import Image from "next/image";
-import error1 from "@/public/images/errors/505.png";
+import error1 from "@/public/images/errors/rmclogo.png";
 import logo from "@/public/images/errors/Logo_black_text.png";
 import { useRouter } from 'next/navigation';
 
