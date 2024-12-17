@@ -83,13 +83,13 @@ interface Layout {
     };
 }
 
-interface BannerProps {
+interface PageContentProps {
     complexes: Complex[];
     layouts: Layout[];
     locale: string;
 }
-// export default function Banner({ complexes, layouts, locale }: BannerProps) {
-export default function Banner({ complexes, layouts }: BannerProps) {
+// export default function PageContent({ complexes, layouts, locale }: PageContentProps) {
+export default function PageContent({ complexes, layouts }: PageContentProps) {
     const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(true);

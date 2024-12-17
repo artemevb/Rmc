@@ -1,10 +1,7 @@
-// src/app/_layout.tsx
-
+// app/[locale]/layout.tsx
 import '@/src/app/[locale]/_styles/globals.css';
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 
 interface LocaleLayoutProps {
   children: ReactNode;
@@ -74,8 +71,7 @@ export default async function LocaleLayout({
   const { locale } = params;
   const t = getTranslation(locale);
 
-  // Получаем сообщения для текущей локали
-  const messages = await getMessages({ locale });
+
 
   const currentLocale = supportedLocales.includes(
     locale as SupportedLocale
@@ -84,7 +80,6 @@ export default async function LocaleLayout({
     : 'en';
 
   const domain = 'rmcdeluxe.com';
-
   const canonicalUrl = `https://${domain}/en`;
 
   const structuredData = {
@@ -144,12 +139,9 @@ export default async function LocaleLayout({
           content={t.twitter.description}
         />
       </Head>
-      {/* Передаем locale и messages в провайдер */}
-      <NextIntlClientProvider locale={currentLocale} messages={messages}>
         <body className='h-full w-full p-0 m-0'>
           {children}
         </body>
-      </NextIntlClientProvider>
       <Head>
         <script
           type="application/ld+json"

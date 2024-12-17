@@ -7,11 +7,9 @@ import PageContent from '../_components/Converter/PageContent';
 export default async function Page() {
   const locale = useLocale();
 
-  // Получаем все жилые комплексы и все планировки на сервере
   const complexes = await client.fetch(GET_RESIDENTIAL_COMPLEXES);
   const layouts = await client.fetch(GET_LAYOUTS);
 
-  // Передаем все данные в клиентский компонент для фильтрации
   return (
     <PageContent complexes={complexes} layouts={layouts} locale={locale} />
   );
