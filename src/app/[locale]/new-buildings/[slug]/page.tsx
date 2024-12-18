@@ -48,7 +48,7 @@ export async function generateMetadata(
   const description = data?.desc_main?.[locale] || data?.desc_main?.ru || 'Discover the best property in Dubai';
 
   // Формируем динамический канонический URL
-  const canonicalUrl = `${baseUrl}/${locale}/${slug}`;
+  const canonicalUrl = `${baseUrl}/${locale}/new-buildings/${slug}`;
 
   return {
     title,
