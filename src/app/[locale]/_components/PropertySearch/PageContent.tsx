@@ -7,37 +7,37 @@ import photo1 from "@/public/images/Calculator/table_mobile.png";
 import photo2 from "@/public/images/Calculator/Full.png";
 import arrowRightWhite from "@/public/svg/arrow-right-white.svg";
 
-import BuyForm from "@/src/app/[locale]/_components/Converter/BuyForm";
-import Sell from "@/src/app/[locale]/_components/Converter/SellForm";
-import ToRentOut from "@/src/app/[locale]/_components/Converter/ToRentOutForm";
+import BuyForm from "@/src/app/[locale]/_components/PropertySearch/BuyForm";
+import Sell from "@/src/app/[locale]/_components/PropertySearch/SellForm";
+import ToRentOut from "@/src/app/[locale]/_components/PropertySearch/ToRentOutForm";
 
-import BlockCardsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/BlockCardsBuy";
-import InfoReviewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/InfoReviewsBuy";
-import ListBuildings from "@/src/app/[locale]/_components/Converter/ListBuildings";
-import ShemeBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ShemeBuy";
-import BuyDock from "@/src/app/[locale]/_components/Converter/BuyFormComponents/ByDocBlock";
-import PopularRewiewsBuy from "@/src/app/[locale]/_components/Converter/BuyFormComponents/PopularRewiewsBuy";
+import BlockCardsBuy from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/BlockCardsBuy";
+import InfoReviewsBuy from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/InfoReviewsBuy";
+import ListBuildings from "@/src/app/[locale]/_components/PropertySearch/ListBuildings";
+import ShemeBuy from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/ShemeBuy";
+import BuyDock from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/ByDocBlock";
+import PopularRewiewsBuy from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/PopularRewiewsBuy";
 
-import BlockCardsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/BlockCardsSell";
-import InfoReviewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/InfoReviewsSell";
-import PopularRewiewsSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/PopularRewiewsSell";
-import SellForm from "@/src/app/[locale]/_components/Converter/SellFormComponents/SellForm";
-import ShemeSell from "@/src/app/[locale]/_components/Converter/SellFormComponents/ShemeSell";
-import SellDock from "@/src/app/[locale]/_components/Converter/SellFormComponents/SellDocBlock";
+import BlockCardsSell from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/BlockCardsSell";
+import InfoReviewsSell from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/InfoReviewsSell";
+import PopularRewiewsSell from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/PopularRewiewsSell";
+import SellForm from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/SellForm";
+import ShemeSell from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/ShemeSell";
+import SellDock from "@/src/app/[locale]/_components/PropertySearch/SellFormComponents/SellDocBlock";
 
-import PopularRewiewsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/PopularRewiewsRent";
-import InfoReviewsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/InfoReviewsRent";
+import PopularRewiewsRent from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/PopularRewiewsRent";
+import InfoReviewsRent from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/InfoReviewsRent";
 import Form from "@/src/app/[locale]/_components/Main/Form";
-import Contacts from "@/src/app/[locale]/_components/Converter/BuyFormComponents/Contacts";
-import RentForm from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentForm";
-import ShemeRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/ShemeRent";
-import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
-import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
+import Contacts from "@/src/app/[locale]/_components/PropertySearch/BuyFormComponents/Contacts";
+import RentForm from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/RentForm";
+import ShemeRent from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/ShemeRent";
+import RentDock from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/RentDocBlock";
+import BlockCardsRent from "@/src/app/[locale]/_components/PropertySearch/ToRentOutFormComponents/BlockCardsRent";
 import { useTranslations } from "next-intl";
 
-import BuyFormMobile from "@/src/app/[locale]/_components/Converter/BuyFormMobile";
-import SellFormMobile from "@/src/app/[locale]/_components/Converter/SellFormMobile";
-import RentFormMobile from "@/src/app/[locale]/_components/Converter/RentFormMobile";
+import BuyFormMobile from "@/src/app/[locale]/_components/PropertySearch/BuyFormMobile";
+import SellFormMobile from "@/src/app/[locale]/_components/PropertySearch/SellFormMobile";
+import RentFormMobile from "@/src/app/[locale]/_components/PropertySearch/RentFormMobile";
 
 type ButtonLabels = "buy" | "sell" | "rent";
 

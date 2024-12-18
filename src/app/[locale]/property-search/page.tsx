@@ -1,8 +1,8 @@
 // src/app/[locale]/page.tsx
 import { client } from '@/src/sanity/lib/client';
-import { GET_RESIDENTIAL_COMPLEXES, GET_LAYOUTS } from '../_components/Converter/queries';
-import PageContent from '../_components/Converter/PageContent';
-import { Locale } from '@/src/app/[locale]/_components/Converter/locale';
+import { GET_RESIDENTIAL_COMPLEXES, GET_LAYOUTS } from '../_components/PropertySearch/queries';
+import PageContent from '../_components/PropertySearch/PageContent';
+import { Locale } from '@/src/app/[locale]/_components/PropertySearch/locale';
 
 interface PageProps {
   params: {
