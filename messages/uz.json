@@ -531,6 +531,8 @@
       "floor": "Qavat",
       "house": "Uy",
       "entrance": "Kirish",
+      "area": "Maydon",
+      "m":"m",
       "rooms": "Xonalar",
       "clear": "Hammasini qayta o'rnating",
       "AllRooms": "Barcha xonalar",
@@ -721,5 +723,47 @@
       "backButton": "Orqaga",
       "alt_arrow": "Orqaga o'q"
     }
+  },
+  "ListBuildings": {
+    "title": "Yangi Qurilishlar",
+    "sort": "Saralash",
+    "sortOptions": {
+      "priceAsc": "Narx bo'yicha, avval arzon",
+      "priceDesc": "Narx bo'yicha, avval qimmat",
+      "areaDesc": "Maydon bo'yicha, avval katta",
+      "areaAsc": "Maydon bo'yicha, avval kichik"
+    },
+    "noObjects": "Mavjud obyektlar yo'q."
+  },
+  "BuyForm": {
+    "backButton": {
+      "label": "Orqaga",
+      "alt": "orqaga o'q"
+    },
+    "propertyTypeLabel": "Mulkiyat Turi",
+    "selectPlaceholder": "Tanlash",
+    "priceLabel": "Narxi, AED",
+    "from": "Dan",
+    "to": "Gacha",
+    "areaLabel": "Maydon, m²",
+    "roomsLabel": "Xonalar Soni",
+    "rooms": {
+      "studio": "Studia",
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "fourPlus": "4+"
+    },
+    "sellerLabel": "Sotuvchi",
+    "addressLabel": "Manzil",
+    "addressPlaceholder": "Shahar, manzil, belgi, tuman, ko'cha",
+    "showResultsButton": "{results} natijalarni ko'rsatish"
+  },
+  "PageContent": {
+    "buy": "Sotib olish",
+    "sell": "Sotish",
+    "rent": "Ijaraga berish",
+    "mainTitle": "Kelajagingiz uchun yashash yechimlari",
+    "subtitle": "Biz bilan o'zingiz uchun ideal uy toping"
   }
 }

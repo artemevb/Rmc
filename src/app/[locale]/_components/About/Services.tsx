@@ -241,7 +241,7 @@ export default function Services() {
                     {/* Отображаем сразу и текст, и изображение */}
                     {isAbove460px ? (
                         <div className='relative'>
-                            <div className='absolute right-[-20px] bottom-[-50px] w-[250px] h-[270px]'>
+                            <div className='absolute right-[-20px] bottom-[-50px] mdx:bottom-[-62px] w-[250px] h-[270px]'>
                                 <Image
                                     src={nedvijimost}
                                     quality={100}

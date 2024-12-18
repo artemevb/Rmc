@@ -536,6 +536,8 @@
       "floor": "Этаж",
       "house": "Дом",
       "entrance": "Подъезд",
+      "area": "Площадь",
+      "m":"м",
       "rooms": "Комнат",
       "clear": "Сбросить всё",
       "AllRooms": "Все комнаты",
@@ -728,19 +730,45 @@
     }
   },
   "ListBuildings": {
-    "validFullName": "Correct",
-    "enterFullName": "Enter full name",
-    "validPhoneNumber": "Correct",
-    "enterValidPhoneNumber": "Enter valid phone number",
-    "validEmail": "Correct",
-    "enterValidEmail": "Enter valid email",
-    "haveQuestions": "Sell your property quickly and safely!",
-    "contactUs": "Speed up the process with our help! Our team of professionals will assist you in selling your property and simplifying the rental process as much as possible.",
-    "fullName": "Full Name",
-    "phoneNumber": "Phone Number",
-    "email": "Email",
-    "question": "Comment",
-    "pleaseFillAllFields": "Fill the field",
-    "submit": "Submit request"
+    "title": "Новостройки",
+    "sort": "Сортировка",
+    "sortOptions": {
+      "priceAsc": "По цене, сначала дешевые",
+      "priceDesc": "По цене, сначала дорогие",
+      "areaDesc": "По площади, сначала большие",
+      "areaAsc": "По площади, сначала малые"
+    },
+    "noObjects": "Нет доступных объектов."
+  },
+  "BuyForm": {
+    "backButton": {
+      "label": "Назад",
+      "alt": "стрелка назад"
+    },
+    "propertyTypeLabel": "Тип недвижимости",
+    "selectPlaceholder": "Выбрать",
+    "priceLabel": "Стоимость, AED",
+    "from": "От",
+    "to": "До",
+    "areaLabel": "Площадь, м²",
+    "roomsLabel": "Комнатность",
+    "rooms": {
+      "studio": "Студия",
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "fourPlus": "4+"
+    },
+    "sellerLabel": "Продавец",
+    "addressLabel": "Адрес",
+    "addressPlaceholder": "Город, адрес, ориентир, район, улица",
+    "showResultsButton": "{results, plural, =1 {Показать # результат} one {Показать # результат} few {Показать # результата} many {Показать # результатов} other {Показать # результатов}}"
+  },
+  "PageContent": {
+    "buy": "Купить",
+    "sell": "Продать",
+    "rent": "Сдать",
+    "mainTitle": "Жилые решения для вашего будущего",
+    "subtitle": "Найди свой идеальный дом с нами"
   }
 }

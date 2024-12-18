@@ -35,6 +35,7 @@ interface LayoutItem {
     home: string;
     entrance: string;
     price: string;
+    area: number;
     rooms?: {
         rooms: number;
     };
@@ -118,6 +119,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         home,
                         entrance,
                         price,
+                        area,
                         rooms->{
                             rooms
                         },
@@ -577,6 +579,12 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                                         <div className="flex justify-between">
                                             <p>{t("entrance")}</p>
                                             <p>{item.entrance}</p>
+                                        </div>
+                                    )}
+                                    {item.area && (
+                                        <div className="flex justify-between">
+                                            <p>{t("area")}</p>
+                                            <p>{item.area} {t("m")}<sup>2</sup></p>
                                         </div>
                                     )}
                                     {item.rooms?.rooms !== undefined && (

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Select, { StylesConfig, SingleValue } from 'react-select';
+import { useTranslations } from "next-intl";
 
 type OptionType = {
     value: string;
@@ -51,7 +52,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
     addressSuggestions,
     onAddressSelect
 }) => {
-
+    const t = useTranslations("BuyForm");
     const toggleRoom = (roomValue: string) => {
         const updatedRooms = rooms.includes(roomValue)
             ? rooms.filter(r => r !== roomValue)
@@ -59,11 +60,11 @@ const BuyForm: React.FC<BuyFormProps> = ({
         onRoomsChange(updatedRooms);
     };
 
-    // Подготовка опций для react-select
+    // Prepare options for react-select
     const propertyTypeOptions: OptionType[] = propertyTypes.map(pt => ({ value: pt, label: pt }));
     const sellerOptions: OptionType[] = sellers.map(s => ({ value: s, label: s }));
 
-    // Кастомные стили для react-select
+    // Custom styles for react-select
     const customStyles: StylesConfig<OptionType, false> = {
         control: (provided) => ({
             ...provided,
@@ -72,7 +73,8 @@ const BuyForm: React.FC<BuyFormProps> = ({
             boxShadow: 'none',
             height: '50px',
             marginTop: '5px',
-            borderRadius: '0px', 
+            borderRadius: '0px',
+            cursor:'pointer', 
             '&:hover': {
                 borderColor: '#333',
             },
@@ -82,26 +84,26 @@ const BuyForm: React.FC<BuyFormProps> = ({
             backgroundColor: state.isSelected ? '#333' : state.isFocused ? '#f0f0f0' : '#fff',
             color: state.isSelected ? '#fff' : '#333',
             cursor: 'pointer',
-            borderRadius: '0px', // Убираем скругление
+            borderRadius: '0px', // Remove rounding
         }),
         dropdownIndicator: (provided) => ({
             ...provided,
             color: '#333',
         }),
         indicatorSeparator: () => ({
-            display: 'none', // Убираем разделитель индикаторов
+            display: 'none', // Remove indicator separator
         }),
-        // Добавьте другие стили по необходимости
+        // Add other styles as needed
     };
 
     return (
         <div className="w-full h-full bg-[#fff] max-h-[382px] mb-[76px] hidden slg:block max-xl:px-[12px]">
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
-                    {/* Тип недвижимости */}
+                    {/* Property Type */}
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
                         <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
-                            Тип недвижимости
+                            {t('propertyTypeLabel')}
                         </label>
                         <Select<OptionType, false>
                             id="type"
@@ -110,21 +112,21 @@ const BuyForm: React.FC<BuyFormProps> = ({
                             onChange={(selectedOption: SingleValue<OptionType>) => onTypeChange(selectedOption ? selectedOption.value : '')}
                             options={propertyTypeOptions}
                             styles={customStyles}
-                            placeholder="Выбрать"
+                            placeholder={t('selectPlaceholder')}
                             isClearable
                         />
                     </div>
 
-                    {/* Стоимость */}
+                    {/* Price */}
                     <div className='h-full max-h-[81px] 2xl:order-2'>
                         <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
-                            Стоимость, AED
+                            {t('priceLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             <input
                                 type="number"
                                 name="priceFrom"
-                                placeholder="От"
+                                placeholder={t('from')}
                                 value={priceFrom || ""}
                                 onChange={(e) => onPriceFromChange(e.target.value ? Number(e.target.value) : undefined)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -132,7 +134,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                             <input
                                 type="number"
                                 name="priceTo"
-                                placeholder="До"
+                                placeholder={t('to')}
                                 value={priceTo || ""}
                                 onChange={(e) => onPriceToChange(e.target.value ? Number(e.target.value) : undefined)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -140,16 +142,16 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         </div>
                     </div>
 
-                    {/* Площадь */}
+                    {/* Area */}
                     <div className='h-full max-h-[81px] 2xl:order-4'>
                         <label htmlFor="area" className="text-[16px] block font-medium text-gray-700 ">
-                            Площадь, м²
+                            {t('areaLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
                             <input
                                 type="number"
                                 name="areaFrom"
-                                placeholder="От"
+                                placeholder={t('from')}
                                 value={areaFrom || ""}
                                 onChange={(e) => onAreaFromChange(e.target.value ? Number(e.target.value) : undefined)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -157,7 +159,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                             <input
                                 type="number"
                                 name="areaTo"
-                                placeholder="До"
+                                placeholder={t('to')}
                                 value={areaTo || ""}
                                 onChange={(e) => onAreaToChange(e.target.value ? Number(e.target.value) : undefined)}
                                 className="w-full border px-2 py-1 text-[#333333]"
@@ -165,29 +167,35 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         </div>
                     </div>
 
-                    {/* Комнатность */}
+                    {/* Rooms */}
                     <div className='h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
                         <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
-                            Комнатность
+                            {t('roomsLabel')}
                         </label>
                         <div className="mt-1 flex h-full max-h-[50px]">
-                            {["Студия", "1", "2", "3", "4+"].map(r => (
+                            {[
+                                { key: 'Студия', label: t('rooms.studio') },
+                                { key: '1', label: t('rooms.one') },
+                                { key: '2', label: t('rooms.two') },
+                                { key: '3', label: t('rooms.three') },
+                                { key: '4Plus', label: t('rooms.fourPlus') }
+                            ].map(room => (
                                 <button
-                                    key={r}
+                                    key={room.key}
                                     type="button"
-                                    onClick={() => toggleRoom(r)}
-                                    className={`flex-1 border px-3 py-2 text-[18px] text-[#333] ${rooms.includes(r) ? "bg-gray-200" : ""}`}
+                                    onClick={() => toggleRoom(room.key)}
+                                    className={`flex-1 border px-3 py-2 text-[18px] text-[#333] ${rooms.includes(room.key) ? "bg-gray-200" : ""}`}
                                 >
-                                    {r}
+                                    {room.label}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Продавец */}
+                    {/* Seller */}
                     <div className="relative h-full max-h-[81px] 2xl:order-5">
                         <label htmlFor="seller" className="block text-[16px] font-medium text-gray-700">
-                            Продавец
+                            {t('sellerLabel')}
                         </label>
                         <Select<OptionType, false>
                             id="seller"
@@ -196,20 +204,20 @@ const BuyForm: React.FC<BuyFormProps> = ({
                             onChange={(selectedOption: SingleValue<OptionType>) => onSellerChange(selectedOption ? selectedOption.value : '')}
                             options={sellerOptions}
                             styles={customStyles}
-                            placeholder="Выбрать"
+                            placeholder={t('selectPlaceholder')}
                             isClearable
                         />
                     </div>
 
-                    {/* Адрес */}
+                    {/* Address */}
                     <div className='h-full max-h-[81px] 2xl:order-6 relative'>
                         <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
-                            Адрес
+                            {t('addressLabel')}
                         </label>
                         <input
                             type="text"
                             name="address"
-                            placeholder="Город, адрес, ориентир, район, улица"
+                            placeholder={t('addressPlaceholder')}
                             value={address}
                             onChange={(e) => onAddressChange(e.target.value)}
                             className="mt-1 block w-full border px-2 py-1 h-full max-h-[51px] text-[#333333]"
@@ -234,7 +242,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate"
                         onClick={() => onShowResults()}
                     >
-                        Показать {results} результата
+                        {t('showResultsButton', { results })}
                     </button>
                 </div>
             </div>
@@ -243,4 +251,3 @@ const BuyForm: React.FC<BuyFormProps> = ({
 };
 
 export default BuyForm;
-

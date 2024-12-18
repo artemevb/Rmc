@@ -33,12 +33,13 @@ import RentForm from "@/src/app/[locale]/_components/Converter/ToRentOutFormComp
 import ShemeRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/ShemeRent";
 import RentDock from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/RentDocBlock";
 import BlockCardsRent from "@/src/app/[locale]/_components/Converter/ToRentOutFormComponents/BlockCardsRent";
+import { useTranslations } from "next-intl";
 
 import BuyFormMobile from "@/src/app/[locale]/_components/Converter/BuyFormMobile";
 import SellFormMobile from "@/src/app/[locale]/_components/Converter/SellFormMobile";
 import RentFormMobile from "@/src/app/[locale]/_components/Converter/RentFormMobile";
 
-type ButtonLabels = "Купить" | "Продать" | "Сдать";
+type ButtonLabels = "buy" | "sell" | "rent";
 
 interface ComplexType {
     name_ru: string;
@@ -94,7 +95,8 @@ interface PageContentProps {
 }
 // export default function PageContent({ complexes, layouts, locale }: PageContentProps) {
     export default function PageContent({ complexes, layouts }: PageContentProps) {
-        const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
+        const t = useTranslations("PageContent");
+        const [activeButton, setActiveButton] = useState<ButtonLabels>("buy");
         const [isModalOpen, setIsModalOpen] = useState(false);
         const [isSmallScreen, setIsSmallScreen] = useState(true);
         const loc: Locale = useLocale() as Locale;
@@ -120,7 +122,7 @@ interface PageContentProps {
         return () => mediaQuery.removeEventListener("change", handler);
     }, []);
 
-    const buttonLabels: ButtonLabels[] = ["Купить", "Продать", "Сдать"];
+    const buttonLabels: ButtonLabels[] = ["buy", "sell", "rent"];
 
     const handleButtonClick = (label: ButtonLabels) => {
         setActiveButton(label);
@@ -293,7 +295,7 @@ interface PageContentProps {
     };
 
     const components: Record<ButtonLabels, JSX.Element> = {
-        Купить: (
+        buy: (
             <>
                 {/* Desktop */}
                 <BuyForm
@@ -323,13 +325,13 @@ interface PageContentProps {
                 />
             </>
         ),
-        Продать: (
+        sell: (
             <>
                 {/* Desktop */}
                 <Sell className="hidden slg:block" />
             </>
         ),
-        Сдать: (
+        rent: (
             <>
                 {/* Desktop */}
                 <ToRentOut className="hidden slg:block" />
@@ -338,7 +340,7 @@ interface PageContentProps {
     };
 
     const additionalComponents: Record<ButtonLabels, JSX.Element[]> = {
-        Купить: [
+        buy: [
             <BlockCardsBuy key="BlockCardsBuy" />,
             <InfoReviewsBuy key="InfoReviewsBuy" />,
             <ListBuildings key="ListBuildings" locale={loc} complexes={filteredComplexes} />,
@@ -348,7 +350,7 @@ interface PageContentProps {
             <Form key="form" />,
             <Contacts key="contacts" />,
         ],
-        Продать: [
+        sell: [
             <BlockCardsSell key="BlockCardsSell" />,
             <InfoReviewsSell key="InfoReviewsSell" />,
             <SellForm key="SellForm" />,
@@ -358,7 +360,7 @@ interface PageContentProps {
             <Form key="form" />,
             <Contacts key="contacts" />,
         ],
-        Сдать: [
+        rent: [
             <BlockCardsRent key="BlockCardsRent" />,
             <InfoReviewsRent key="InfoReviewsRent" />,
             <RentForm key="RentForm" />,
@@ -370,9 +372,10 @@ interface PageContentProps {
         ],
     };
 
+
     const renderMobileForm = () => {
         switch (activeButton) {
-            case "Купить":
+            case "buy":
                 return (
                     <BuyFormMobile
                         onClose={() => setIsModalOpen(false)}
@@ -400,9 +403,9 @@ interface PageContentProps {
                         onAddressSelect={handleAddressSelect}
                     />
                 );
-            case "Продать":
+            case "sell":
                 return <SellFormMobile onClose={() => setIsModalOpen(false)} />;
-            case "Сдать":
+            case "rent":
                 return <RentFormMobile onClose={() => setIsModalOpen(false)} />;
             default:
                 return null;
@@ -433,10 +436,10 @@ interface PageContentProps {
                     {/* Main Text */}
                     <div className="text-center max-slg:max-w-[456px] mt-[141px] mdx:mt-[75px]">
                         <h1 className="text-[30px] font-medium mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px]">
-                            Жилые решения для вашего будущего
+                        {t("mainTitle")}
                         </h1>
                         <h5 className="text-[14px] mdx:text-[20px] mt-2">
-                            Найди свой идеальный дом с нами
+                        {t("subtitle")}
                         </h5>
                     </div>
 
@@ -448,7 +451,7 @@ interface PageContentProps {
                                 className="flex justify-between items-center px-4 border-t border-gray-400 cursor-pointer w-full py-[17px]"
                                 onClick={() => handleButtonClick(label)}
                             >
-                                <span className="text-lg">{label}</span>
+                                <span className="text-lg">{t(label)}</span>
                                 <Image
                                     src={arrowRightWhite}
                                     quality={100}
@@ -463,7 +466,7 @@ interface PageContentProps {
                     {/* Desktop MENU */}
                     <div className="w-full h-full max-h-[61px] hidden slg:block mt-[40px] mb-[12px]">
                         <div className="w-full h-full max-h-[61px] backdrop-blur-7.5 grid grid-cols-3 text-[20px] font-semibold gap-[10px] p-[4px] ">
-                            {buttonLabels.map((label, index) => (
+                        {buttonLabels.map((label, index) => (
                                 <button
                                     key={index}
                                     className={`${activeButton === label
@@ -472,7 +475,7 @@ interface PageContentProps {
                                         } max-h-[53px] h-full w-full mx-auto hover:text-[#333333] hover:bg-white hover:bg-opacity-80 transition duration-300 ease-in-out`}
                                     onClick={() => setActiveButton(label)}
                                 >
-                                    {label}
+                                    {t(label)}
                                 </button>
                             ))}
                         </div>

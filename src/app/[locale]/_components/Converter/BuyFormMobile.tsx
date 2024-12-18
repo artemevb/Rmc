@@ -1,6 +1,14 @@
-
+"use client";
+import React from 'react';
 import Image from "next/image";
 import arrow from "@/public/svg/arrow-left-red.svg";
+import Select, { StylesConfig, SingleValue } from 'react-select';
+import { useTranslations } from "next-intl";
+
+type OptionType = {
+    value: string;
+    label: string;
+};
 
 interface BuyFormMobileProps {
     onClose: () => void;
@@ -22,14 +30,14 @@ interface BuyFormMobileProps {
     areaTo?: number;
     onAreaToChange: (val?: number) => void;
     rooms: string[];
-    onRoomsChange: (val: string[]) => void; 
+    onRoomsChange: (val: string[]) => void;
     results: number;
 
     addressSuggestions: string[];
     onAddressSelect: (val: string) => void;
 }
 
-export default function BuyFormMobile({
+const BuyFormMobile: React.FC<BuyFormMobileProps> = ({
     onClose,
     onShowResults,
     type, onTypeChange,
@@ -46,13 +54,50 @@ export default function BuyFormMobile({
     results,
     addressSuggestions,
     onAddressSelect
-}: BuyFormMobileProps) {
+}) => {
+
+    const t = useTranslations("BuyForm");
 
     const toggleRoom = (roomValue: string) => {
         const updatedRooms = rooms.includes(roomValue)
             ? rooms.filter(r => r !== roomValue)
             : [...rooms, roomValue];
         onRoomsChange(updatedRooms);
+    };
+
+    // Подготовка опций для React Select
+    const propertyTypeOptions: OptionType[] = propertyTypes.map(pt => ({ value: pt, label: pt }));
+    const sellerOptions: OptionType[] = sellers.map(s => ({ value: s, label: s }));
+
+    // Пользовательские стили для react-select
+    const customStyles: StylesConfig<OptionType, false> = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: '#fff',
+            borderColor: '#EAEAEA',
+            boxShadow: 'none',
+            height: '50px',
+            marginTop: '5px',
+            borderRadius: '0px',
+            '&:hover': {
+                borderColor: '#333',
+            },
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#333' : state.isFocused ? '#f0f0f0' : '#fff',
+            color: state.isSelected ? '#fff' : '#333',
+            cursor: 'pointer',
+            borderRadius: '0px',
+        }),
+        dropdownIndicator: (provided) => ({
+            ...provided,
+            color: '#333',
+        }),
+        indicatorSeparator: () => ({
+            display: 'none',
+        }),
+        // Добавьте другие стили по необходимости
     };
 
     return (
@@ -64,62 +109,45 @@ export default function BuyFormMobile({
             >
                 <Image
                     src={arrow}
-                    alt="arrow"
+                    alt={t('backButton.alt')}
                     width={20}
                     priority
                     height={20}
                     quality={100}
                     className="transition-transform duration-300"
                 />
-                Назад
+                {t('backButton.label')}
             </button>
             <div className="space-y-4 mt-[31px] px-[16px]">
 
                 {/* Тип недвижимости */}
                 <div className="relative">
                     <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
-                        Тип недвижимости
+                        {t('propertyTypeLabel')}
                     </label>
-                    <select
+                    <Select<OptionType, false>
                         id="type"
                         name="type"
-                        className="mt-1 block w-full bg-white border px-3 py-2 text-gray-400 appearance-none"
-                        value={type}
-                        onChange={(e) => onTypeChange(e.target.value)}
-                    >
-                        <option value="hover:bg-red">Выбрать</option>
-                        {propertyTypes.map((pt) => (
-                            <option key={pt} value={pt}>{pt}</option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                        <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M19 9l-7 7-7-7"
-                            ></path>
-                        </svg>
-                    </div>
+                        className="mt-1"
+                        value={propertyTypeOptions.find(option => option.value === type) || null}
+                        onChange={(selectedOption: SingleValue<OptionType>) => onTypeChange(selectedOption ? selectedOption.value : '')}
+                        options={propertyTypeOptions}
+                        placeholder={t('selectPlaceholder')}
+                        isClearable
+                        styles={customStyles}
+                    />
                 </div>
 
                 {/* Стоимость */}
                 <div>
                     <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
-                        Стоимость, AED
+                        {t('priceLabel')}
                     </label>
                     <div className="mt-1 flex">
                         <input
                             type="number"
                             name="priceFrom"
-                            placeholder="От"
+                            placeholder={t('from')}
                             className="w-1/2 border px-3 py-2 text-[#333333]"
                             value={priceFrom || ""}
                             onChange={(e) => onPriceFromChange(e.target.value ? Number(e.target.value) : undefined)}
@@ -127,7 +155,7 @@ export default function BuyFormMobile({
                         <input
                             type="number"
                             name="priceTo"
-                            placeholder="До"
+                            placeholder={t('to')}
                             className="w-1/2 border px-3 py-2 text-[#333333]"
                             value={priceTo || ""}
                             onChange={(e) => onPriceToChange(e.target.value ? Number(e.target.value) : undefined)}
@@ -138,13 +166,13 @@ export default function BuyFormMobile({
                 {/* Площадь */}
                 <div>
                     <label htmlFor="area" className="block text-[16px] font-medium text-gray-700">
-                        Площадь, м²
+                        {t('areaLabel')}
                     </label>
-                    <div className="mt-1 flex ">
+                    <div className="mt-1 flex">
                         <input
                             type="number"
                             name="areaFrom"
-                            placeholder="От"
+                            placeholder={t('from')}
                             className="w-1/2 border px-3 py-2 text-[#333333]"
                             value={areaFrom || ""}
                             onChange={(e) => onAreaFromChange(e.target.value ? Number(e.target.value) : undefined)}
@@ -152,7 +180,7 @@ export default function BuyFormMobile({
                         <input
                             type="number"
                             name="areaTo"
-                            placeholder="До"
+                            placeholder={t('to')}
                             className="w-1/2 border px-3 py-2 text-[#333333]"
                             value={areaTo || ""}
                             onChange={(e) => onAreaToChange(e.target.value ? Number(e.target.value) : undefined)}
@@ -163,17 +191,23 @@ export default function BuyFormMobile({
                 {/* Комнатность */}
                 <div className="max-w-[290px]">
                     <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
-                        Комнатность
+                        {t('roomsLabel')}
                     </label>
                     <div className="mt-1 flex">
-                        {["Студия", "1", "2", "3", "4+"].map(r => (
+                        {[
+                            { key: 'Студия', label: t('rooms.studio') },
+                            { key: '1', label: t('rooms.one') },
+                            { key: '2', label: t('rooms.two') },
+                            { key: '3', label: t('rooms.three') },
+                            { key: '4Plus', label: t('rooms.fourPlus') }
+                        ].map(room => (
                             <button
-                                key={r}
+                                key={room.key}
                                 type="button"
-                                onClick={() => toggleRoom(r)}
-                                className={`flex-1 border px-3 py-2 text-[16px] text-[#333] ${rooms.includes(r) ? "bg-gray-200" : ""}`}
+                                onClick={() => toggleRoom(room.key)}
+                                className={`flex-1 border px-3 py-2 text-[16px] text-[#333] ${rooms.includes(room.key) ? "bg-gray-200" : ""}`}
                             >
-                                {r}
+                                {room.label}
                             </button>
                         ))}
                     </div>
@@ -182,47 +216,30 @@ export default function BuyFormMobile({
                 {/* Продавец */}
                 <div className="relative">
                     <label htmlFor="seller" className="block text-[16px] font-medium text-gray-700">
-                        Продавец
+                        {t('sellerLabel')}
                     </label>
-                    <select
+                    <Select<OptionType, false>
                         id="seller"
                         name="seller"
-                        className="mt-1 block w-full bg-white border px-3 py-2 text-gray-400 appearance-none"
-                        value={seller}
-                        onChange={(e) => onSellerChange(e.target.value)}
-                    >
-                        <option value="">Выбрать</option>
-                        {sellers.map((s) => (
-                            <option key={s} value={s}>{s}</option>
-                        ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                        <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M19 9l-7 7-7-7"
-                            ></path>
-                        </svg>
-                    </div>
+                        className="mt-1"
+                        value={sellerOptions.find(option => option.value === seller) || null}
+                        onChange={(selectedOption: SingleValue<OptionType>) => onSellerChange(selectedOption ? selectedOption.value : '')}
+                        options={sellerOptions}
+                        placeholder={t('selectPlaceholder')}
+                        isClearable
+                        styles={customStyles}
+                    />
                 </div>
 
                 {/* Адрес */}
                 <div className="relative">
                     <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
-                        Адрес
+                        {t('addressLabel')}
                     </label>
                     <input
                         type="text"
                         name="address"
-                        placeholder="Город, адрес, ориентир, район, улица"
+                        placeholder={t('addressPlaceholder')}
                         className="mt-1 block w-full border px-3 py-2 text-[#333333]"
                         value={address}
                         onChange={(e) => onAddressChange(e.target.value)}
@@ -248,10 +265,12 @@ export default function BuyFormMobile({
                         className="w-full bg-corporate text-white py-3 font-medium hover:bg-hover_corporate"
                         onClick={() => onShowResults()}
                     >
-                        Показать {results} результата
+                        {t('showResultsButton', { results })}
                     </button>
                 </div>
             </div>
         </div>
     );
 }
+
+export default BuyFormMobile;

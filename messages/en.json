@@ -537,6 +537,8 @@
       "floor": "Floor",
       "house": "House",
       "entrance": "Entrance",
+      "area": "Area",
+      "m":"m",
       "rooms": "Rooms",
       "clear": "Reset everything",
       "AllRooms": "All rooms",
@@ -729,19 +731,45 @@
     }
   },
   "ListBuildings": {
-    "validFullName": "Correct",
-    "enterFullName": "Enter full name",
-    "validPhoneNumber": "Correct",
-    "enterValidPhoneNumber": "Enter valid phone number",
-    "validEmail": "Correct",
-    "enterValidEmail": "Enter valid email",
-    "haveQuestions": "Sell your property quickly and safely!",
-    "contactUs": "Speed up the process with our help! Our team of professionals will assist you in selling your property and simplifying the rental process as much as possible.",
-    "fullName": "Full Name",
-    "phoneNumber": "Phone Number",
-    "email": "Email",
-    "question": "Comment",
-    "pleaseFillAllFields": "Fill the field",
-    "submit": "Submit request"
+    "title": "New Buildings",
+    "sort": "Sort",
+    "sortOptions": {
+      "priceAsc": "By price, cheapest first",
+      "priceDesc": "By price, most expensive first",
+      "areaDesc": "By area, largest first",
+      "areaAsc": "By area, smallest first"
+    },
+    "noObjects": "No available properties."
+  },
+  "BuyForm": {
+    "backButton": {
+      "label": "Back",
+      "alt": "back arrow"
+    },
+    "propertyTypeLabel": "Property Type",
+    "selectPlaceholder": "Select",
+    "priceLabel": "Price, AED",
+    "from": "From",
+    "to": "To",
+    "areaLabel": "Area, m²",
+    "roomsLabel": "Rooms",
+    "rooms": {
+      "studio": "Studio",
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "fourPlus": "4+"
+    },
+    "sellerLabel": "Seller",
+    "addressLabel": "Address",
+    "addressPlaceholder": "City, address, landmark, district, street",
+    "showResultsButton": "{results, plural, one {Show # result} other {Show # results}}"
+  },
+  "PageContent": {
+    "buy": "Buy",
+    "sell": "Sell",
+    "rent": "Rent",
+    "mainTitle": "Residential solutions for your future",
+    "subtitle": "Find your ideal home with us"
   }
 }

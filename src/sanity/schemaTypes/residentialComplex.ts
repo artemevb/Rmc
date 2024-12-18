@@ -54,7 +54,7 @@ export const residentialComplex = defineType({
       name: 'priceValue',
       title: 'Значение Цены',
       type: 'number',
-      description: 'Здесь пишется только числовое значение цены (Пример: 700000)',
+      description: 'Здесь пишется только числовое значение цены (Пример: 700000)(ТОЛЬКО ЦИФРЫ! без символовов)',
     }),
     defineField({
       name: 'district',
@@ -86,7 +86,7 @@ export const residentialComplex = defineType({
     }),
     defineField({
       name: 'slug',
-      title: 'url ссылка для страницы',
+      title: 'url ссылка для страницы(можно использовать название новостройки/обЪекта, без пробелов, без символов)',
       type: 'slug',
       options: {
         source: 'subtitle',
