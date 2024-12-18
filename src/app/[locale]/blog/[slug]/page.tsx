@@ -149,7 +149,7 @@ export async function generateMetadata({ params }: InvestmentDubaiPageProps) {
           alt: seoTitle,
         }
       ],
-      url: `https://rmcdeluxe.com/${locale}/${slug}`,
+      url: `https://rmcdeluxe.com/${locale}/blog/${slug}`,
       type: 'article',
       locale: ogLocale,
       siteName: 'RMC Deluxe',
