@@ -132,8 +132,8 @@ const PartnersComp: React.FC = () => {
                         <div key={slideIndex} className='px-[10px]'>
                             <div className='grid grid-cols-2 xl:grid-cols-3 py-[25px]'>
                                 {slide.map(partner => (
-                                    <div key={partner.id} className='flex justify-center items-center border border-[#EAEAEA] h-[140px] mdx:h-[200px] xl:h-[250px] px-[8px] mdx:px-[30px] xl:px-[70px] py-[65px] cursor-pointer'>
-                                        <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                                    <div key={partner.id} className='flex justify-center items-center border border-[#EAEAEA] h-[140px] mdx:h-[200px] xl:h-[250px] px-[8px] mdx:px-[30px] xl:px-[70px] py-[65px] '>
+                                        <div >
                                             <Image
                                                 src={partner.image}
                                                 alt={`Partner ${partner.id}`}
@@ -142,7 +142,7 @@ const PartnersComp: React.FC = () => {
                                                 width={500}
                                                 height={500}
                                             />
-                                        </a>
+                                        </div>
                                     </div>
                                 ))}
                             </div>

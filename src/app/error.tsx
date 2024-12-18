@@ -1,15 +1,35 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { NextIntlClientProvider, useTranslations } from 'next-intl';
 import '@/src/app/[locale]/_styles/globals.css';
 import React from 'react';
 import Image from "next/image";
-import error1 from "@/public/images/errors/505.png";
-import logo from "@/public/images/errors/rmclogo.png";
 import Link from 'next/link';
 
+import error1 from "@/public/images/errors/505.png";
+import logo from "@/public/images/errors/rmclogo.png";
 
-export default function GlobalError() {
+import ruMessages from '@/messages/ru.json';
+import uzMessages from '@/messages/uz.json';
+import enMessages from '@/messages/en.json';
+
+// Функция для выбора сообщений на основе локали
+function getMessagesForLocale(locale: string) {
+  switch (locale) {
+    case 'ru':
+      return ruMessages;
+    case 'uz':
+      return uzMessages;
+    case 'en':
+    default:
+      return enMessages;
+  }
+}
+
+const currentLocale = 'en'; 
+const messages = getMessagesForLocale(currentLocale);
+
+function ErrorContent() {
   const t = useTranslations('error-page');
 
   return (
@@ -53,3 +73,10 @@ export default function GlobalError() {
   );
 }
 
+export default function GlobalError() {
+  return (
+    <NextIntlClientProvider locale={currentLocale} messages={messages}>
+      <ErrorContent />
+    </NextIntlClientProvider>
+  );
+}

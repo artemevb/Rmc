@@ -22,7 +22,7 @@ interface BuyFormMobileProps {
     areaTo?: number;
     onAreaToChange: (val?: number) => void;
     rooms: string[];
-    onRoomsChange: (val: string) => void;
+    onRoomsChange: (val: string[]) => void; 
     results: number;
 
     addressSuggestions: string[];
@@ -49,7 +49,10 @@ export default function BuyFormMobile({
 }: BuyFormMobileProps) {
 
     const toggleRoom = (roomValue: string) => {
-        onRoomsChange(roomValue);
+        const updatedRooms = rooms.includes(roomValue)
+            ? rooms.filter(r => r !== roomValue)
+            : [...rooms, roomValue];
+        onRoomsChange(updatedRooms);
     };
 
     return (

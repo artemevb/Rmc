@@ -1,5 +1,11 @@
 "use client";
 import React from 'react';
+import Select, { StylesConfig, SingleValue } from 'react-select';
+
+type OptionType = {
+    value: string;
+    label: string;
+};
 
 type BuyFormProps = {
     className?: string;
@@ -21,10 +27,10 @@ type BuyFormProps = {
     areaTo?: number;
     onAreaToChange: (val?: number) => void;
     rooms: string[];
-    onRoomsChange: (val: string) => void;
+    onRoomsChange: (val: string[]) => void; 
     results: number;
 
-    addressSuggestions: string[]; // новые пропы
+    addressSuggestions: string[];
     onAddressSelect: (val: string) => void;
 };
 
@@ -47,36 +53,69 @@ const BuyForm: React.FC<BuyFormProps> = ({
 }) => {
 
     const toggleRoom = (roomValue: string) => {
-        onRoomsChange(roomValue);
+        const updatedRooms = rooms.includes(roomValue)
+            ? rooms.filter(r => r !== roomValue)
+            : [...rooms, roomValue];
+        onRoomsChange(updatedRooms);
+    };
+
+    // Подготовка опций для react-select
+    const propertyTypeOptions: OptionType[] = propertyTypes.map(pt => ({ value: pt, label: pt }));
+    const sellerOptions: OptionType[] = sellers.map(s => ({ value: s, label: s }));
+
+    // Кастомные стили для react-select
+    const customStyles: StylesConfig<OptionType, false> = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: '#fff',
+            borderColor: '#EAEAEA',
+            boxShadow: 'none',
+            height: '50px',
+            marginTop: '5px',
+            borderRadius: '0px', 
+            '&:hover': {
+                borderColor: '#333',
+            },
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#333' : state.isFocused ? '#f0f0f0' : '#fff',
+            color: state.isSelected ? '#fff' : '#333',
+            cursor: 'pointer',
+            borderRadius: '0px', // Убираем скругление
+        }),
+        dropdownIndicator: (provided) => ({
+            ...provided,
+            color: '#333',
+        }),
+        indicatorSeparator: () => ({
+            display: 'none', // Убираем разделитель индикаторов
+        }),
+        // Добавьте другие стили по необходимости
     };
 
     return (
         <div className="w-full h-full bg-[#fff] max-h-[382px] mb-[76px] hidden slg:block max-xl:px-[12px]">
             <div className="px-6 py-[35px] h-full 2xl:max-h-[316px]">
                 <div className="grid grid-cols-2 gap-x-[20px] 2xl:gap-x-[33px] h-full max-h-[258px] xl:max-h-[270px] 2xl:grid-cols-3">
+                    {/* Тип недвижимости */}
                     <div className="relative h-full max-h-[81px] 2xl:order-1">
                         <label htmlFor="type" className="block text-[16px] font-medium text-gray-700">
                             Тип недвижимости
                         </label>
-                        <select
+                        <Select<OptionType, false>
                             id="type"
                             name="type"
-                            value={type}
-                            onChange={(e) => onTypeChange(e.target.value)}
-                            className="mt-1 block w-full bg-white border h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
-                        >
-                            <option value="">Выбрать</option>
-                            {propertyTypes.map((pt) => (
-                                <option key={pt} value={pt}>{pt}</option>
-                            ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
+                            value={propertyTypeOptions.find(option => option.value === type)}
+                            onChange={(selectedOption: SingleValue<OptionType>) => onTypeChange(selectedOption ? selectedOption.value : '')}
+                            options={propertyTypeOptions}
+                            styles={customStyles}
+                            placeholder="Выбрать"
+                            isClearable
+                        />
                     </div>
 
+                    {/* Стоимость */}
                     <div className='h-full max-h-[81px] 2xl:order-2'>
                         <label htmlFor="price" className="block text-[16px] font-medium text-gray-700">
                             Стоимость, AED
@@ -101,6 +140,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         </div>
                     </div>
 
+                    {/* Площадь */}
                     <div className='h-full max-h-[81px] 2xl:order-4'>
                         <label htmlFor="area" className="text-[16px] block font-medium text-gray-700 ">
                             Площадь, м²
@@ -125,6 +165,7 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         </div>
                     </div>
 
+                    {/* Комнатность */}
                     <div className='h-full max-h-[81px] 2xl:order-3 max-w-[276px]'>
                         <label htmlFor="rooms" className="block text-[16px] font-medium text-gray-700">
                             Комнатность
@@ -143,29 +184,24 @@ const BuyForm: React.FC<BuyFormProps> = ({
                         </div>
                     </div>
 
+                    {/* Продавец */}
                     <div className="relative h-full max-h-[81px] 2xl:order-5">
                         <label htmlFor="seller" className="block text-[16px] font-medium text-gray-700">
                             Продавец
                         </label>
-                        <select
+                        <Select<OptionType, false>
                             id="seller"
                             name="seller"
-                            value={seller}
-                            onChange={(e) => onSellerChange(e.target.value)}
-                            className="mt-1 block w-full bg-white border h-full max-h-[51px] text-gray-400 appearance-none pr-10 pl-2"
-                        >
-                            <option value="">Выбрать</option>
-                            {sellers.map((s) => (
-                                <option key={s} value={s}>{s}</option>
-                            ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900 mt-6">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
+                            value={sellerOptions.find(option => option.value === seller)}
+                            onChange={(selectedOption: SingleValue<OptionType>) => onSellerChange(selectedOption ? selectedOption.value : '')}
+                            options={sellerOptions}
+                            styles={customStyles}
+                            placeholder="Выбрать"
+                            isClearable
+                        />
                     </div>
 
+                    {/* Адрес */}
                     <div className='h-full max-h-[81px] 2xl:order-6 relative'>
                         <label htmlFor="address" className="block text-[16px] font-medium text-gray-700">
                             Адрес
@@ -194,8 +230,10 @@ const BuyForm: React.FC<BuyFormProps> = ({
                     </div>
                 </div>
                 <div className="mt-4 flex gap-[16px] items-center justify-end">
-                    <button className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate"
-                        onClick={() => onShowResults()}>
+                    <button
+                        className="bg-corporate text-white px-[27px] py-[12px] font-medium hover:bg-hover_corporate"
+                        onClick={() => onShowResults()}
+                    >
                         Показать {results} результата
                     </button>
                 </div>
@@ -205,3 +243,4 @@ const BuyForm: React.FC<BuyFormProps> = ({
 };
 
 export default BuyForm;
+

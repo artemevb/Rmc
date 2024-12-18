@@ -4,13 +4,11 @@ import Image from 'next/image';
 import eyes from '../../../../../public/svg/eyes-gray.svg';
 import { FC } from 'react';
 
-// Интерфейс для пропсов компонента
 interface NewPageProps {
   news: News | null;
   locale: string;
 }
 
-// Интерфейс для объекта новости
 interface News {
   date: string;
   viewCounter?: number;

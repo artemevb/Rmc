@@ -726,5 +726,21 @@
       "backButton": "Назад",
       "alt_arrow": "Стрелка назад"
     }
+  },
+  "ListBuildings": {
+    "validFullName": "Correct",
+    "enterFullName": "Enter full name",
+    "validPhoneNumber": "Correct",
+    "enterValidPhoneNumber": "Enter valid phone number",
+    "validEmail": "Correct",
+    "enterValidEmail": "Enter valid email",
+    "haveQuestions": "Sell your property quickly and safely!",
+    "contactUs": "Speed up the process with our help! Our team of professionals will assist you in selling your property and simplifying the rental process as much as possible.",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email",
+    "question": "Comment",
+    "pleaseFillAllFields": "Fill the field",
+    "submit": "Submit request"
   }
 }

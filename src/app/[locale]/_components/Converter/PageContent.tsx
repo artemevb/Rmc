@@ -40,6 +40,12 @@ import RentFormMobile from "@/src/app/[locale]/_components/Converter/RentFormMob
 
 type ButtonLabels = "Купить" | "Продать" | "Сдать";
 
+interface ComplexType {
+    name_ru: string;
+    name_uz: string;
+    name_en: string;
+}
+
 interface Complex {
     _id: string;
     mainImage: {
@@ -55,11 +61,7 @@ interface Complex {
         name_uz: string;
         name_en: string;
     };
-    type?: {
-        name_ru: string;
-        name_uz: string;
-        name_en: string;
-    };
+    type?: ComplexType; 
     rooms?: {
         number_ru?: string;
         number_uz?: string;
@@ -69,6 +71,7 @@ interface Complex {
         current: string;
     };
 }
+
 
 interface Layout {
     _id: string;
@@ -82,18 +85,19 @@ interface Layout {
         _id: string;
     };
 }
+type Locale = 'ru' | 'uz' | 'en';
 
 interface PageContentProps {
     complexes: Complex[];
     layouts: Layout[];
-    locale: string;
+    locale: Locale;
 }
 // export default function PageContent({ complexes, layouts, locale }: PageContentProps) {
-export default function PageContent({ complexes, layouts }: PageContentProps) {
-    const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(true);
-    const loc = useLocale(); // Если нужно использовать именно useLocale
+    export default function PageContent({ complexes, layouts }: PageContentProps) {
+        const [activeButton, setActiveButton] = useState<ButtonLabels>("Купить");
+        const [isModalOpen, setIsModalOpen] = useState(false);
+        const [isSmallScreen, setIsSmallScreen] = useState(true);
+        const loc: Locale = useLocale() as Locale;
 
     // Фильтрация - состояния
     const [filterRooms, setFilterRooms] = useState<string[]>([]);
@@ -124,15 +128,33 @@ export default function PageContent({ complexes, layouts }: PageContentProps) {
             setIsModalOpen(true);
         }
     };
+    const enrichedComplexes = useMemo(() => {
+        return complexes.map(complex => {
+            const relatedLayouts = layouts.filter(l => l.residentialComplex?._id === complex._id);
+            let maxArea = 0;
 
+            // Допустим, берём максимальную площадь
+            relatedLayouts.forEach(l => {
+                const areaValue = parseFloat(l.area || '0');
+                if (areaValue > maxArea) {
+                    maxArea = areaValue;
+                }
+            });
+
+            return {
+                ...complex,
+                area: maxArea // Добавляем поле area, теперь complex.area будет числовым
+            };
+        });
+    }, [complexes, layouts]);
     const filteredComplexes = useMemo(() => {
-        let result = [...complexes];
+        let result = [...enrichedComplexes];
 
         if (filterType) {
             result = result.filter(c => {
                 const names = [c.type?.name_ru, c.type?.name_uz, c.type?.name_en]
-                  .filter(Boolean)
-                  .map(n => n!.toLowerCase());
+                    .filter(Boolean)
+                    .map(n => n!.toLowerCase());
                 return names.some(n => n.includes(filterType.toLowerCase()));
             });
         }
@@ -147,8 +169,8 @@ export default function PageContent({ complexes, layouts }: PageContentProps) {
         if (filterAddress) {
             result = result.filter(c => {
                 const names = [c.district?.name_ru, c.district?.name_uz, c.district?.name_en]
-                  .filter(Boolean)
-                  .map(n => n!.toLowerCase());
+                    .filter(Boolean)
+                    .map(n => n!.toLowerCase());
                 return names.some(n => n.includes(filterAddress.toLowerCase()));
             });
         }
@@ -198,7 +220,7 @@ export default function PageContent({ complexes, layouts }: PageContentProps) {
 
         return result;
     }, [
-        complexes,
+        enrichedComplexes,
         layouts,
         filterType,
         filterSeller,
@@ -223,11 +245,13 @@ export default function PageContent({ complexes, layouts }: PageContentProps) {
     const filteredPropertyTypes = useMemo(() => {
         const setOfTypes = new Set<string>();
         filteredComplexes.forEach(c => {
-            const typeName = c.type?.name_ru;
+            const typeName = c.type?.[`name_${loc}` as keyof ComplexType];
             if (typeName) setOfTypes.add(typeName);
         });
         return Array.from(setOfTypes);
-    }, [filteredComplexes]);
+    }, [filteredComplexes, loc]);
+    
+
 
     const handleShowResults = () => {
         setIsModalOpen(false);
@@ -237,12 +261,8 @@ export default function PageContent({ complexes, layouts }: PageContentProps) {
         }
     };
 
-    const handleRoomsChange = (newValue: string) => {
-        if (filterRooms.includes(newValue)) {
-            setFilterRooms(filterRooms.filter(r => r !== newValue));
-        } else {
-            setFilterRooms([...filterRooms, newValue]);
-        }
+    const handleRoomsChange = (newRooms: string[]) => {
+        setFilterRooms(newRooms);
     };
 
     const allAddresses = useMemo(() => {

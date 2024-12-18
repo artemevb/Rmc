@@ -1,7 +1,7 @@
 // app/[locale]/page.tsx или соответствующий файл
 
 import Main from "@/src/app/[locale]/_components/Main/Main";
-import type { Locales } from "@/src/app/[locale]/layout"; // Убедитесь, что тип Locales экспортируется из RootLayout
+import type { Locales } from "@/src/app/[locale]/layout";
 
 type HomeProps = {
   params: {

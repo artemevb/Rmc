@@ -13,7 +13,7 @@ const metadataEn: Metadata = {
     description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10',
     images: [
       {
-        url: 'https://rmcestate.uz/og-image.jpg',
+        url: 'https://rmcdeluxe.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Contact Information',
@@ -27,7 +27,7 @@ const metadataEn: Metadata = {
     description: 'Get in touch with us to learn more about our services and offers. Phone: +998 (78) 555 87 87, Email: rmcrmc603@gmail.com, Address: Deira, Baniyas Road, Twin Towers, 20th Floor, Office Number 10',
     images: [
       {
-        url: 'https://rmcestate.uz/og-image.jpg',
+        url: 'https://rmcdeluxe.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Contact Information',
