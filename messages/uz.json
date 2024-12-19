@@ -532,7 +532,7 @@
       "house": "Uy",
       "entrance": "Kirish",
       "area": "Maydon",
-      "m":"m",
+      "m": "m",
       "rooms": "Xonalar",
       "clear": "Hammasini qayta o'rnating",
       "AllRooms": "Barcha xonalar",
@@ -765,5 +765,291 @@
     "rent": "Ijaraga berish",
     "mainTitle": "Kelajagingiz uchun yashash yechimlari",
     "subtitle": "Biz bilan o'zingiz uchun ideal uy toping"
+  },
+  "PropertySearch": {
+    "BlockCardsBuy": {
+      "title": "Ko'chmas mulk sotib olish",
+      "description": "Ko'chmas mulk sotib olishda to'liq qo'llab-quvvatlash tsikli: obyektni tanlashdan bitimni muvaffaqiyatli yakunlashgacha",
+      "card1_title": "Ideal obyektni tanlash",
+      "card1_image_alt": "Yangi binolar fotosi",
+      "card2_title": "Marketing strategiyasini ishlab chiqish va reklama",
+      "card2_image_alt": "Yangi binolar ro'yxati fotosi",
+      "card3_title": "Yuridik qo'llab-quvvatlash va maslahatlar",
+      "card3_image_alt": "Yangi binolar fotosi",
+      "card4_title": "Muzokaralar o'tkazish va bitimlarni rasmiylashtirish",
+      "card4_image_alt": "Yangi binolar ro'yxati fotosi",
+      "card5_title": "Strategiyani ishlab chiqish va maslahatlar",
+      "card5_image_alt": "Yangi binolar ro'yxati fotosi"
+    },
+    "ByDockBlock": {
+      "title": "Kerakli hujjatlar va muddatlar",
+      "documents": {
+        "document_icon_alt": "Hujjat ikonkasi",
+        "doc1": "Kadastr reja",
+        "doc2": "Mulk huquqini tasdiqlovchi guvohnoma",
+        "doc3": "Obyektning texnik pasporti",
+        "doc4": "Sotib olish-sotish shartnomasi",
+        "doc5": "Yuklamalarning yo‘qligini tasdiqlovchi hujjatlar",
+        "doc6": "Yerga mulk huquqini tasdiqlovchi hujjatlar",
+        "doc7": "EGRN (Yagona davlat mulk reestridan olingan chiqarma)",
+        "doc8": "Tomonlarning pasport ma'lumotlari",
+        "doc9": "Kommunal to‘lovlar bo‘yicha qarzning yo‘qligini tasdiqlovchi ma’lumotnoma",
+        "doc10": "Obyektni qabul qilish-qaytarish akti"
+      },
+      "timeframes": {
+        "time_icon_alt": "Vaqt ikonkasi",
+        "time1": "Standart kvartira yoki uy: 1-3 ish kuni",
+        "time2": "Tijorat mulk: 3-7 ish kuni",
+        "time3": "Murakkab obyektlar (ko‘p egalari yoki yuklamalari bor): 7-15 ish kuni"
+      }
+    },
+    "infoReviewsBuy": {
+      "title": "Biz sotib olishni qanday amalga oshiramiz",
+      "faq_question_1": "Maqsadlar va byudjetni belgilash",
+      "faq_answer_1": "Birinchi bosqichda biz sizning sotib olish maqsadlaringizni aniqlaymiz:\n - Hayot uchun yashash joyi\n - Daromad olish maqsadida investitsiyalar\n - Tijorat foydalanishi.\n Shuningdek, byudjetni shakllantiramiz va sizning imkoniyatlaringiz va kutganlaringizga mos obyektlarni tanlaymiz.",
+      "faq_question_2": "Obyektlarni qidirish",
+      "faq_answer_2": "Biz ko'chmas mulk bozorini puxta tahlil qilamiz va sizning talablaringiz asosida eng yaxshi takliflarni tanlaymiz.\nBizning mutaxassislarimiz barcha mos obyektlar haqida batafsil ma'lumot taqdim etadilar, jumladan ularning narxi, joylashuvi va afzalliklari.",
+      "faq_question_3": "Obyektlarni ko'rish",
+      "faq_answer_3": "Ushbu bosqichda siz mulkni shaxsan ko'rishingiz, infratuzilmani baholashingiz va qiziqtirgan savollarni berishingiz mumkin.",
+      "faq_question_4": "Shartnoma tuzish",
+      "faq_answer_4": "Biz sizni bitimni rasmiylashtirishning barcha bosqichlarida qo'llab-quvvatlaymiz:\n- Obyektning yuridik tozaligini tekshirish\n- Barcha zarur hujjatlarni tayyorlash\n- Sotib olish-sotish shartnomasini imzolash",
+      "faq_question_5": "Yakuni bosqich",
+      "faq_answer_5": "Oxirgi bosqichda biz bitimni muvaffaqiyatli yakunlashni ta'minlaymiz:\n- Obyektga mulk huquqini ro'yxatdan o'tkazish\n- Kalitlarni topshirish va tomonlarning barcha majburiyatlarini bajarish\nBiz bilan ko'chmas mulk sotib olish xavfsiz, shaffof va qo'shimcha qiyinchiliklarsiz o'tadi."
+    },
+    "PopularReviewsBuy": {
+      "title": "Ko‘p beriladigan savollar",
+      "faq_question_1": "Ko‘chmas mulk sotib olish uchun qanday hujjatlar kerak?",
+      "faq_answer_1": "Birlashgan Arab Amirliklarida ko‘chmas mulk sotib olish uchun quyidagi hujjatlar kerak bo‘ladi:\n- Xaridor va sotuvchining pasporti\n- Ob’ektning kadastr rejalari\n- Mulk huquqini tasdiqlovchi guvohnoma\n- Ob’ektning texnik pasporti\n- Sotib olish-sotish shartnomasi\n- Notarial tasdiqlangan vakolatnomalar (zarur bo‘lsa)\n\nBizning mutaxassislarimiz hujjatlarni tayyorlash va tekshirish bo‘yicha barcha savollaringizga maslahat berishadi.",
+      "faq_question_2": "Qanday qilib mos ko‘chmas mulkni tanlash mumkin?",
+      "faq_answer_2": "Ko‘chmas mulk tanlash sizning maqsadlaringizga bog‘liq:\n- Shaxsiy yashash uchun uy-joy\n- Yuqori daromadli investitsiya obyektlari\n- Biznes uchun tijorat joylari\n\nBiz sizga takliflarni tahlil qilish va to‘liq talablaringizga javob beradigan obyektni tanlashda yordam beramiz.",
+      "faq_question_3": "Ko‘chmas mulkning narxidan tashqari qanday xarajatlar bo‘ladi?",
+      "faq_answer_3": "Ko‘chmas mulk obyektining narxidan tashqari, xaridorlar quyidagi xarajatlarni hisobga olishlari kerak:\n- Ko‘chmas mulkni ro‘yxatdan o‘tkazish solig‘i\n- Notarius va yuridik qo‘llab-quvvatlash xizmatlari\n- Rieltor komissiyasi\n- Ipoteka hujjatlarini tayyorlash bo‘yicha qo‘shimcha xarajatlar (agar qo‘llanilsa)\n\nBarcha xarajatlar oldindan kelishiladi va bitim rejasiga kiritiladi.",
+      "faq_question_4": "Ko‘chmas mulkning yuridik tozaligini qanday tekshirish mumkin?",
+      "faq_answer_4": "Bizning professional jamoamiz ko‘chmas mulk obyektining to‘liq tekshiruvini amalga oshiradi:\n- Huquqiy hujjatlarni tahlil qilish\n- Qarz va yuklamalarning yo‘qligini tekshirish\n- Bitimning yuridik ekspertizasi\n\nBiz har bir bitimning xavfsizligi va shaffofligini kafolatlaymiz."
+    },
+    "SchemeBuy": {
+      "title": "Ish jarayoni",
+      "marker_alt": "Markerni ikonasi",
+      "step1_title": "Maqsadlar va byudjetni belgilash",
+      "step1_description": "Moliyaviy imkoniyatlarni baholash. Sotib olish maqsadlarini belgilash.",
+      "step2_title": "Obyektlarni qidirish va tanlash",
+      "step2_description": "E’lonlarni ko‘rib chiqish va mijoz talablariga mos obyektlarni tanlash.",
+      "step3_title": "Obyektlarni ko‘rish",
+      "step3_description": "Tanlangan obyektlarni mijoz bilan birgalikda ko‘rishlarini tashkil etish.",
+      "step4_title": "Hujjatlarni yuridik tekshirish",
+      "step4_description": "Obyektlarning yuridik holatini va cheklovlarning mavjudligini tekshirish.",
+      "step5_title": "Shartnoma tuzish",
+      "step5_description": "Zarur hujjatlarni tayyorlash, imzolash va tekshirish.",
+      "step6_title": "Asosiy shartnomani imzolash",
+      "step6_description": "Sotib olish-sotish shartnomasini notarial ravishda tasdiqlash.",
+      "step7_title": "Yakuni bosqich",
+      "step7_description": "Kalitlarni olish va bitimni yakunlash."
+    },
+    "BlockCardsSell": {
+      "title": "Ko'chmas mulkning sotilishi",
+      "description": "Biz sizning obyektingizni foydali tarzda taqdim etishga yordam beramiz: professional fotosuratdan tortib, samarali reklama materiallarini yaratishgacha, ko'proq qiziqqan xaridorlarni jalb qilish uchun.",
+      "block1_title": "Obyektni sotishga tayyorlash",
+      "block1_image_alt": "Yangi binolar fotosi",
+      "block2_title": "Strategiyani ishlab chiqish va marketing",
+      "block2_image_alt": "Yangi binolar ro'yxati fotosi",
+      "block3_title": "Yuridik qo'llab-quvvatlash va maslahatlar",
+      "block3_image_alt": "Yangi binolar fotosi",
+      "block4_title": "Muzokaralar o'tkazish va bitimlarni rasmiylashtirish",
+      "block4_image_alt": "Yangi binolar ro'yxati fotosi",
+      "block5_title": "Strategiyani ishlab chiqish va marketing",
+      "block5_image_alt": "Yangi binolar ro'yxati fotosi"
+    },
+    "SellDocBlock": {
+      "title": "Kerakli hujjatlar va muddatlar",
+      "document_icon_alt": "Hujjat ikonkasi",
+      "documents": {
+        "doc1": "Obyektning kadastr rejalari",
+        "doc2": "Mulk huquqini tasdiqlovchi guvohnoma",
+        "doc3": "Obyektning texnik pasporti",
+        "doc4": "Sotib olish-sotish shartnomasi (loyiha)",
+        "doc5": "Yuklamalarning yo‘qligini tasdiqlovchi hujjatlar (Rosreestrdan olingan ma’lumotnoma yoki EGRNdan chiqarma)",
+        "doc6": "Yerga mulk huquqini tasdiqlovchi hujjatlar (agar qo‘llanilsa)",
+        "doc7": "EGRNdan chiqarma (Yagona davlat mulk reestri)",
+        "doc8": "Bitim tomonlarining pasport ma’lumotlari",
+        "doc9": "Kommunal to‘lovlar bo‘yicha qarzning yo‘qligini tasdiqlovchi ma’lumotnoma",
+        "doc10": "Obyektni qabul qilish-qaytarish akti (yakuniy bosqichda tayyorlanadi)"
+      },
+      "time_icon_alt": "Vaqt ikonkasi",
+      "timeframes": {
+        "time1": "Standart kvartira yoki uy: 1–3 ish kuni",
+        "time2": "Tijorat mulk: 3–7 ish kuni",
+        "time3": "Murakkab obyektlar (yuklamalari yoki bir nechta egalari bilan): 7–15 ish kuni"
+      }
+    },
+    "infoReviewsSell": {
+      "title": "Как мы проводим покупку",
+      "faq_question_1": "Определение целей и бюджета",
+      "faq_answer_1": "На первом этапе мы определяем ваши цели покупки:\n - Жилье для жизни\n - Инвестиции с целью получения дохода\n - Коммерческое использование.\n Также формируем бюджет и подбираем объекты, которые соответствуют вашим возможностям и ожиданиям.",
+      "faq_question_2": "Поиск объектов",
+      "faq_answer_2": "Мы проводим тщательный анализ рынка недвижимости и подбираем лучшие предложения на основе ваших требований.\nНаши специалисты предоставляют детальный обзор всех подходящих объектов, включая их стоимость, расположение и преимущества.",
+      "faq_question_3": "Осмотр объектов",
+      "faq_answer_3": "На этом этапе вы сможете увидеть недвижимость лично, оценить инфраструктуру и задать интересующие вопросы.",
+      "faq_question_4": "Заключение договора",
+      "faq_answer_4": "Мы сопровождаем вас на всех этапах оформления сделки:\n- Проверка юридической чистоты объекта\n- Подготовка всех необходимых документов\n- Подписание договора купли-продажи",
+      "faq_question_5": "Заключительный этап",
+      "faq_answer_5": "На финальной стадии мы обеспечиваем успешное завершение сделки:\n- Регистрация права собственности на объект\n- Передача ключей и выполнение всех обязательств сторон\nС нами покупка недвижимости проходит безопасно, прозрачно и без лишних сложностей."
+    },
+    "PopularReviewsSell": {
+      "title": "Ko‘p beriladigan savollar",
+      "faq_question_1": "Ko‘chmas mulk sotish uchun qanday hujjatlar kerak?",
+      "faq_answer_1": "Ko‘chmas mulk sotish uchun quyidagi hujjatlar kerak bo‘ladi:\n\n- Sotuvchining pasporti.\n\n- Identifikatsion kod.\n\n- Ko‘chmas mulkka mulk huquqini tasdiqlovchi hujjat (mulk huquqini tasdiqlovchi guvohnoma, reestrdan olingan chiqarma).\n\n- Ko‘chmas mulk obyektining texnik pasporti.\n\n- Kommunal to‘lovlar bo‘yicha qarzning yo‘qligini tasdiqlovchi ma’lumotnoma.\n\n- Notarial tasdiqlangan sotib olish-sotish shartnomasi.\n\n- Ba’zi hollarda, agar ko‘chmas mulk birgalikda egallangan bo‘lsa, turmush o‘rtog‘ining (lar) roziligi talab qilinishi mumkin.\n\n- Agar xaridor ipoteka ishlatsa, qo‘shimcha hujjatlar talab qilinishi mumkin.",
+      "faq_question_2": "Ko‘chmas mulkni tez sotish uchun nima qilish kerak?",
+      "faq_answer_2": "Ko‘chmas mulk sotish jarayonini tezlashtirish uchun:\n\n- Bozorda mavjud bo‘lgan shunga o‘xshash takliflarni solishtirib, raqobatbardosh narxni belgilab oling.\n\n- Ko‘chmas mulkning tashqi ko‘rinishini yaxshilash uchun kosmetik remont qiling yoki kamchiliklarni bartaraf eting.\n\n- Potensial xaridorlarni tez topadigan tajribali ko‘chmas mulk agenti bilan hamkorlik qiling.\n\n- Professional fotosuratlar oling va ularni mashhur platformalarda onlayn reklama uchun ishlating.\n\n- Bitimni rasmiylashtirishda kechikishlardan qochish uchun barcha hujjatlarni oldindan tayyorlab qo‘ying.\n\n- Muzokaralarga tayyor bo‘ling va bitim shartlari bo‘yicha moslashuvchanlikni saqlang.",
+      "faq_question_3": "Ko‘chmas mulkning narxidan tashqari qanday xarajatlar bo‘ladi?",
+      "faq_answer_3": "Sotuvchi ko‘chmas mulkka quyidagi xarajatlarni amalga oshirishi mumkin:\n\n- Sotib olish-sotish shartnomasini rasmiylashtirish uchun notarius xizmatlari uchun to‘lov.\n\n- Ko‘chmas mulk sotishdan olingan daromaddan soliq to‘lash (masalan, foyda solig‘i).\n\n- Agar sotuv ko‘chmas mulk agentligi orqali amalga oshirilsa, rieltor xizmatlari uchun to‘lov.\n\n- Xaridor rasmiy baholashni talab qilsa, ko‘chmas mulk baholash uchun to‘lov.\n\n- Hujjatlarni tayyorlash (chiqarma, ma’lumotnomalar) uchun mumkin bo‘lgan xarajatlar.\n\n- Agar ipoteka mavjud bo‘lsa, uning oldindan to‘lash uchun qo‘shimcha yig‘imlar bo‘lishi mumkin.",
+      "faq_question_4": "Xaridorning yuridik tozaligini qanday tekshirish mumkin?",
+      "faq_answer_4": "Xaridorning yuridik tozaligini tekshirish uchun:\n\n- Uning identifikatsion hujjatlari (pasport, IIN) ning haqiqiyligini tekshiring.\n\n- Xaridorning bitimga ta’sir qilishi mumkin bo‘lgan suddagi taqiqlar yoki qarzlari yo‘qligiga ishonch hosil qiling.\n\n- Agar xaridor ipoteka ishlatsa, bankdan uning ipotekasining tasdiqlanganligini aniqlang.\n\n- Mümkin bo‘lgan firibgarlik sxemalaridan qochish uchun yuridik maslahatchi yoki agent bilan bitim tuzing.\n\n- Xaridor bitim uchun barcha zarur hujjatlarni, jumladan to‘lovni tasdiqlovchi hujjatlarni taqdim etishi kerak."
+    },
+    "SchemeSell": {
+      "title": "Sotish sxemasi",
+      "markerAlt": "Belgisi",
+      "steps": {
+        "01": "01",
+        "01Title": "Ob'ektni tayyorlash",
+        "01Description": "Sotishdan oldin ob'ektni tartibga keltirish (ta'mirlash, tozalash, bezash)",
+        "02": "02",
+        "02Title": "Reklama yaratish",
+        "02Description": "Professional foto va video suratga olish hamda e'lon joylashtirish",
+        "03": "03",
+        "03Title": "Ko'rsatmalar o'tkazish",
+        "03Description": "Qiziqqan xaridorlar uchun ko'rsatmalarni tashkil etish va o'tkazish",
+        "04": "04",
+        "04Title": "Bitimni yakunlash",
+        "04Description": "Shartlarni kelishish va sotib olish-sotish shartnomasini tuzish",
+        "05": "05",
+        "05Title": "Hujjatlarni imzolash",
+        "05Description": "Mulkiy huquq o'tishini rasmiylashtirish va ro'yxatdan o'tkazish",
+        "06": "06",
+        "06Title": "Ob'ektni topshirish",
+        "06Description": "Kalitlar va barcha hujjatlarni yangi egaga topshirish",
+        "07": "07",
+        "07Title": "Ob'ektni topshirish",
+        "07Description": "Kalitlar va hujjatlarni yangi egaga topshirish"
+      }
+    },
+    "ShemeeRent": {
+      "header": "Ish Jarayoni",
+      "block1": {
+        "title": "Mulk Tayyorlash",
+        "paragraph": "Ijaraga berish uchun barcha zarur hujjatlarning mavjudligini tekshirish, mahalliy bozor standartlariga moslik"
+      },
+      "block2": {
+        "title": "Bozor Tahlili",
+        "paragraph": "Joylashuv va mulk turini hisobga olgan holda Dubaydagi bozor ijarasi qiymatini baholash"
+      },
+      "block3": {
+        "title": "E'lon Joylashtirish",
+        "paragraph": "Mashhur platformalarda e'lonlarni joylashtirish"
+      },
+      "block4": {
+        "title": "Ko‘rgazmalar O‘tkazish",
+        "paragraph": "Ijarachilar uchun qulay vaqtni tashkil etish. Barcha asosiy xususiyatlarni namoyish etish"
+      },
+      "block5": {
+        "title": "Ijarachi Tanlash",
+        "paragraph": "Ijarachilarni moliyaviy imkoniyatini va Dubay qonunchiligiga mosligini tekshirish"
+      },
+      "block6": {
+        "title": "Mulkni O‘tkazish",
+        "paragraph": "BAE qonunchilik talablariga mos ravishda qabul qilish-tashish aktini tuzish"
+      },
+      "block7": {
+        "title": "Monitoring va Qo‘llab-quvvatlash",
+        "paragraph": "Mulk holatini davriy tekshirish"
+      }
+    },
+    "BlockCardsRent": {
+      "header": "Mulkni Ijaraga Berish",
+      "subheader": "Ijara bo'yicha to'liq qo'llab-quvvatlash sikli: mulkni tayyorlashdan kontrakt tuzishga",
+      "card1": {
+        "title": "Mulkni Ijaraga Tayyorlash",
+        "alt": "Yangi Bino Rasm"
+      },
+      "card2": {
+        "title": "Mashhur Platformalarda E'lon Joylashtirish",
+        "alt": "Yangi Bino Ro'yxati Rasm"
+      },
+      "card3": {
+        "title": "Muzokaralar O'tkazish va Shartnomalarni Rasmiylashtirish",
+        "alt": "Yangi Bino Rasm"
+      },
+      "card4": {
+        "title": "Ijara Strategiyasini Ishlab Chiqish va Konsultatsiyalar",
+        "alt": "Yangi Bino Ro'yxati Rasm"
+      },
+      "card5": {
+        "title": "Mashhur Platformalarda E'lon Joylashtirish",
+        "alt": "Yangi Bino Ro'yxati Rasm"
+      }
+    },
+    "infoReviewsRent": {
+      "header": "Biz Mulkni Ijaraga Qanday Beramiz",
+      "faq1": {
+        "question": "Mulkni Tayyorlash",
+        "answer": "Ijarachilarga topshiriladigan mebel va texnikaning holatini tekshiramiz. Mulkni ijaraga olish bozorida sifatli taqdim etish uchun professional fotosurat olishni tashkil qilamiz."
+      },
+      "faq2": {
+        "question": "Mulkni Reklamalash",
+        "answer": "Mos ijarachilarni tezda topish uchun onlayn va offlayn reklama platformalarida jozibali e'lonlar yaratamiz."
+      },
+      "faq3": {
+        "question": "Mulkni Ko'rsatish",
+        "answer": "Potensial ijarachilar uchun mulkni ko'rsatishni tashkil etamiz, mulkning holati va ijaraga olish shartlari haqida to'liq ma'lumot taqdim etamiz."
+      },
+      "faq4": {
+        "question": "Ijara Shartnomasini Yozish",
+        "answer": "Har ikkala tomonning manfaatlarini hisobga olgan holda, xavfsiz va ochiq ijaraga olish shartnomasini tuzishda sizga yordam beramiz."
+      },
+      "faq5": {
+        "question": "Mulkni Topsirish",
+        "answer": "Shartnoma imzolangandan so'ng, ijarachilarga kalitlarni topshirishni va barcha kerakli hujjatlarni tayyorlashni tashkil etamiz."
+      }
+    },
+    "RentDocBlock": {
+      "header": "Kerakli Hujjatlar va Muddatlar",
+      "documents": {
+        "alt": "Hujjat Ikonasi",
+        "item1": "Mulkning Kadastaviy Rejasi",
+        "item2": "Mulkiyat Hujjati",
+        "item3": "Mulkning Texnik Pasporti",
+        "item4": "Ijara Shartnomasi (tomonlar tomonidan kelishilgan)",
+        "item5": "Ijara berish huquqini tasdiqlovchi hujjatlar",
+        "item6": "Tomonlarning (Ijaro beruvchi va Ijarachi) Pasport Ma'lumotlari",
+        "item7": "Kommunal to'lovlar bo'yicha qarzdorlik bo'lmaslik haqidagi ma'lumotnoma",
+        "item8": "Mulkni Qabul-Qayta Berish Akti",
+        "item9": "Mulkni jihozli va mebelli holda ijaraga berish uchun batafsil jihozlar ro'yxati",
+        "item10": "Mulk holati haqida ma'lumotnoma (agar topshirish vaqtida tasdiqlash talab etilsa)"
+      },
+      "times": {
+        "alt": "Vaqt Ikonasi",
+        "item1": "Yashash uchun mo'ljallangan kvartira yoki uy: 1-2 ish kuni",
+        "item2": "Savdo mulkiyati: 2-5 ish kuni",
+        "item3": "Murakkab obyektlar (huquqiy nozikliklar yoki roziliklar bilan): 5-10 ish kuni"
+      }
+    },
+    "PopularReviewsRent": {
+      "header": "Tez-tez So‘raladigan Savollar",
+      "faq1": {
+        "question": "Kvartirani ijaraga olish narxi qanday?",
+        "answer": "Kvartirani ijaraga olish narxi bir nechta omillarga bog‘liq:\n\n - Joylashuv (shahar markaziga yoki muhim infratuzilma obyektlariga qanchalik yaqin bo‘lsa, narxi shunchalik yuqori).\n\n - Kvartira maydoni (katta maydon – yuqori ijara haqi).\n\n - Mulk holati (yangi remont qilingan kvartira eskirganiga qaraganda qimmatroq bo‘ladi).\n\n - Mebel va texnikaning mavjudligi (to‘liq jihozlangan kvartiralar odatda qimmatroq bo‘ladi).\n\nAniq narx ma’lumotlari uchun bevosita ijarachi yoki ko‘chmas mulk agentligi bilan bog‘lanishingiz kerak."
+      },
+      "faq2": {
+        "question": "Kvartirani ijaraga olish uchun qanday hujjatlar kerak?",
+        "answer": "Kvartirani ijaraga olish uchun quyidagi hujjatlarga ega bo‘lishingiz mumkin:\n\n - Pasport.\n\n - Identifikatsiya kodi (agar ijarachi bu talab qilsa).\n\n - Ijara shartnomasi, unda ijaraning shartlari, muddati va narxi ko‘rsatilgan bo‘ladi.\n\nBa’zi hollarda, moliyaviy imkoniyatlaringizni tasdiqlovchi qo‘shimcha hujjatlar talab qilinishi mumkin (masalan, daromad haqidagi ma’lumotnoma)."
+      },
+      "faq3": {
+        "question": "Ijara shartnomasini qanday qilib oldindan bekor qilish mumkin?",
+        "answer": "Ijara shartnomasini oldindan bekor qilish uchun quyidagilarni bajarishingiz kerak:\n\n - Ijara shartnomasida belgilangan bekor qilish shartlarini o‘rganish (masalan, 30 kun oldin xabar berish talab qilinishi mumkin).\n\n - Ijarani bekor qilish niyatini rasmiy ravishda ijarachi tomoniga bildirish.\n\n - Ba’zi hollarda, oldindan bekor qilish uchun qo‘shimcha kompensatsiyalar yoki jarimalar talab qilinishi mumkin.\n\n - Shartnomaning barcha bekor qilish shartlari bajarilganligiga ishonch hosil qilish, huquqiy oqibatlardan qochish uchun muhimdir."
+      },
+      "faq4": {
+        "question": "Ijara shartnomasini imzolash jarayoni qanday amalga oshiriladi?",
+        "answer": "Ijara shartnomasini imzolash odatda quyidagicha amalga oshiriladi:\n\n - Tomonlar (ijarachi va ijarachi beruvchi) ijaraning shartlari haqida kelishib oladilar: muddat, ijara haqi, mulkdan foydalanish qoidalari.\n\n - Shartnoma yozma shaklda tuziladi va ijaraga oid barcha muhim punktlarni o‘z ichiga oladi (to‘lov shartlari, tomonlarning majburiyatlari, oldindan bekor qilish huquqlari va hk.).\n\n - Barcha shartlar kelishilganidan so‘ng, har ikkala tomon shartnomani imzolar.\n\n - Shartnoma notarius tomonidan tasdiqlanishi mumkin, lekin bu majburiy emas (mahalliy qonunchilik va tomonlarning xohishiga bog‘liq).\n\n - Shartnoma imzolanganidan so‘ng, ijarachi odatda kafolat va birinchi oy ijara haqini to‘laydi."
+      }
+    }
   }
 }

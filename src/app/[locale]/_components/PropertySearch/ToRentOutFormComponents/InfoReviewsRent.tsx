@@ -6,53 +6,30 @@ import closedIcon from "@/public/svg/button-arrow-bottom.png";
 import Image from 'next/image';
 
 interface FaqItem {
-    question: string;
-    answer: string;
+    questionKey: string;
+    answerKey: string;
 }
-
-// const faqData: FaqItem[] = [
-//     {
-//         question: "faq_question_1",
-//         answer: "faq_answer_1"
-//     },
-//     {
-//         question: "faq_question_2",
-//         answer: "faq_answer_2"
-//     },
-//     {
-//         question: "faq_question_3",
-//         answer: "faq_answer_3"
-//     },
-//     {
-//         question: "faq_question_4",
-//         answer: "faq_answer_4"
-//     },
-//     {
-//         question: "faq_question_5",
-//         answer: "faq_answer_5"
-//     }
-// ];
 
 const faqData: FaqItem[] = [
     {
-        question: "Подготовка недвижимости",
-        answer: "faq_answer_1"
+        questionKey: "faq1.question",
+        answerKey: "faq1.answer"
     },
     {
-        question: "Рекламирование недвижимости",
-        answer: "faq_answer_2"
+        questionKey: "faq2.question",
+        answerKey: "faq2.answer"
     },
     {
-        question: "Показ объекта",
-        answer: "faq_answer_3"
+        questionKey: "faq3.question",
+        answerKey: "faq3.answer"
     },
     {
-        question: "Заключение договора аренды",
-        answer: "faq_answer_4"
+        questionKey: "faq4.question",
+        answerKey: "faq4.answer"
     },
     {
-        question: "Передача объекта",
-        answer: "faq_answer_5"
+        questionKey: "faq5.question",
+        answerKey: "faq5.answer"
     }
 ];
 
@@ -85,8 +62,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
 );
 
 const FaqSection: React.FC = () => {
-    const t = useTranslations('');
-    // const t = useTranslations('investmentsDubai.PopularReviews');
+    const t = useTranslations('PropertySearch.infoReviewsRent');
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -98,7 +74,7 @@ const FaqSection: React.FC = () => {
             <div className="flex flex-col 2xl:flex-row justify-between">
                 {/* Заголовок */}
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium mb-6 2xl:w-1/3 max-w-[471px]">
-                    Как мы сдаем в аренду
+                    {t('header')}
                 </h2>
 
                 {/* Список вопросов и ответов */}
@@ -113,7 +89,7 @@ const FaqSection: React.FC = () => {
                                     className={`text-[22px] mdx:text-[26px] xl:text-[30px] max-mdx:max-w-[80%] ${openIndex === index ? 'text-corporate' : 'text-black'
                                         } transition-all duration-700`}
                                 >
-                                    {t(item.question)}
+                                    {t(item.questionKey)}
                                 </span>
                                 <span className="flex-shrink-0">
                                     <Arrow isOpen={openIndex === index} />
@@ -123,7 +99,7 @@ const FaqSection: React.FC = () => {
                                 className={`border-b border-[#E1E1E1] overflow-hidden transition-all duration-700 ${openIndex === index ? 'max-h-screen' : 'max-h-0'
                                     }`}
                             >
-                                <p className="p-4 text-[15px] mdx:text-[20px]">{t(item.answer)}</p>
+                                <p className="p-4 text-[15px] mdx:text-[20px]">{t(item.answerKey)}</p>
                             </div>
                         </div>
                     ))}

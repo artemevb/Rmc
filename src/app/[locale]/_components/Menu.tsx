@@ -1,13 +1,13 @@
 'use client';
 import { useEffect, useRef, ChangeEvent, useTransition } from "react";
-// import { useState} from "react";
+import { useState} from "react";
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import close from "@/public/svg/close-white.svg";
-// import arrow_black from "@/public/svg/arrow-down-black.svg";
-// import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
+import arrow_black from "@/public/svg/arrow-down-black.svg";
+import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
 import { NavItem } from "./Header/NavItem";
 import { useTranslations } from 'next-intl';
 import axios from 'axios';
@@ -22,7 +22,7 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
   const t = useTranslations('Header');
   const [isPending, startTransition] = useTransition();
-  // const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
@@ -57,9 +57,9 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
     };
   }, [menuRef]);
 
-  // const toggleServicesMenu = () => {
-  //   setServicesMenuOpen(!servicesMenuOpen);
-  // };
+  const toggleServicesMenu = () => {
+    setServicesMenuOpen(!servicesMenuOpen);
+  };
 
   const handlePhoneClick = async (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault(); // Prevent default behavior temporarily
@@ -125,9 +125,9 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </div>
         </div>
       </div>
-      <nav className="flex flex-col font-semibold mt-2">
-        {/* <div className="pt-4" onClick={toggleServicesMenu}>
-          <div className="flex justify-start mx-4 items-center cursor-pointer">
+      <nav className="flex flex-col mt-2 ">
+        <div className="pt-4" onClick={toggleServicesMenu}>
+          <div className="flex justify-start mx-5 items-center cursor-pointer">
             <p
               className={`text-[20px] font-medium mdx:text-[24px] ${servicesMenuOpen ? 'text-corporate' : ''
                 }`}
@@ -145,23 +145,23 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
               />
             </span>
           </div>
-        </div> */}
+        </div>
 
-        {/* {servicesMenuOpen && (
+         {servicesMenuOpen && (
           <div className="pl-[34px] font-normal ">
             <div
               onClick={closeMenu}
               className="pt-2"
             >
               <div className="flex flex-col justify-between text-[16px] mdx:text-[20px] gap-[12px]">
-                <Link href={`/${locale}/buy`}>{t('nav.servicesOptions.buy')}</Link>
-                <Link href={`/${locale}/rent`}>{t('nav.servicesOptions.rent')}</Link>
-                <Link href={`/${locale}/sell`}>{t('nav.servicesOptions.sell')}</Link>
-                <Link href={`/${locale}/evaluation`}>{t('nav.servicesOptions.evaluation')}</Link>
+                <Link href={`/${locale}/property-search`}>{t('nav.servicesOptions.buy')}</Link>
+                <Link href={`/${locale}/property-search`}>{t('nav.servicesOptions.rent')}</Link>
+                <Link href={`/${locale}/property-search`}>{t('nav.servicesOptions.sell')}</Link>
+                {/* <Link href={`/${locale}/evaluation`}>{t('nav.servicesOptions.evaluation')}</Link> */}
               </div>
             </div>
           </div>
-        )} */}
+        )}
 
         {/* Other Navigation Items */}
         {navOptions.slice(4).map((item, index) => (
@@ -189,7 +189,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           >
             {t('nav.about')}
           </Link>
-          <Link
+          {/* <Link
             onClick={() => {
               closeMenu();
               router.push(`/${locale}/new-buildings`);
@@ -197,7 +197,7 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
             href={`/${locale}/new-buildings`}
           >
             {t('nav.buildings')}
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               closeMenu();

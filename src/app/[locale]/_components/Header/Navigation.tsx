@@ -1,7 +1,6 @@
-// import necessary modules
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import arrow_black from "@/public/svg/arrow-down-black.svg";
 import arrow_yellow from "@/public/svg/arrow-up-yellow.svg";
 import Image from "next/image";
@@ -18,8 +17,6 @@ interface NavItem {
   slug: string;
 }
 
-
-
 interface NavigationProps {
   navOptions: NavItem[];
   locale: string;
@@ -28,26 +25,42 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const t = useTranslations('Header');
   const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const servicesOptions: ServiceOption[] = [
-    { title: t('nav.servicesOptions.buy'), slug: 'buy' },
-    { title: t('nav.servicesOptions.rent'), slug: 'rent' },
-    { title: t('nav.servicesOptions.sell'), slug: 'sell' },
-    { title: t('nav.servicesOptions.evaluation'), slug: 'evaluation' }
+    { title: t('nav.servicesOptions.buy'), slug: 'property-search' },
+    { title: t('nav.servicesOptions.rent'), slug: 'property-search' },
+    { title: t('nav.servicesOptions.sell'), slug: 'property-search' },
+    // { title: t('nav.servicesOptions.evaluation'), slug: 'evaluation' }
   ];
-  const handleServicesClick = (): void => {
-    setIsServicesOpen(!isServicesOpen);
+
+  const handleMouseEnter = (): void => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = (): void => {
+    timeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 200); // Delay to prevent immediate closing
   };
 
   return (
     <nav className="h-full flex gap-10 items-center max-2xl:hidden relative font-normal">
       {navOptions.map((item, i) => {
-        if (item.title === t('nav.services'))  {
+        if (item.title === t('nav.services')) {
           return (
-            <div key={i} className="relative">
-              <div onClick={handleServicesClick} className="cursor-pointer flex items-center">
+            <div
+              key={i}
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="flex items-center cursor-pointer">
                 <span
-                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap font-normal ${isServicesOpen ? 'text-corporate' : 'text-[#252324] hover:text-corporate'}`}
+                  className={`font-medium text-[18px] transition-all duration-300 whitespace-nowrap ${isServicesOpen ? 'text-corporate' : 'text-[#252324] hover:text-corporate'}`}
                 >
                   {item.title}
                 </span>
@@ -62,7 +75,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
                 </span>
               </div>
               {isServicesOpen && (
-                <div className="absolute top-full mt-2 bg-white shadow-lg rounded-md z-50 w-[340px]">
+                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg z-50 w-[340px]">
                   {servicesOptions.map((service, index) => (
                     <Link href={`/${locale}/${service.slug}`} key={index}>
                       <div className="px-4 py-[10px] text-[18px] font-normal hover:bg-[#FCE8E9] hover:text-corporate cursor-pointer border-b last:border-none">

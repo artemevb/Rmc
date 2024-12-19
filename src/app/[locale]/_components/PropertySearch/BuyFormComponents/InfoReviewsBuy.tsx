@@ -10,48 +10,25 @@ interface FaqItem {
     answer: string;
 }
 
-// const faqData: FaqItem[] = [
-//     {
-//         question: "faq_question_1",
-//         answer: "faq_answer_1"
-//     },
-//     {
-//         question: "faq_question_2",
-//         answer: "faq_answer_2"
-//     },
-//     {
-//         question: "faq_question_3",
-//         answer: "faq_answer_3"
-//     },
-//     {
-//         question: "faq_question_4",
-//         answer: "faq_answer_4"
-//     },
-//     {
-//         question: "faq_question_5",
-//         answer: "faq_answer_5"
-//     }
-// ];
-
 const faqData: FaqItem[] = [
     {
-        question: "Определение целей и бюджета",
+        question: "faq_question_1",
         answer: "faq_answer_1"
     },
     {
-        question: "Поиск объектов",
+        question: "faq_question_2",
         answer: "faq_answer_2"
     },
     {
-        question: "Осмотр объектов",
+        question: "faq_question_3",
         answer: "faq_answer_3"
     },
     {
-        question: "Заключение договора",
+        question: "faq_question_4",
         answer: "faq_answer_4"
     },
     {
-        question: "Заключительный этап",
+        question: "faq_question_5",
         answer: "faq_answer_5"
     }
 ];
@@ -85,8 +62,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
 );
 
 const FaqSection: React.FC = () => {
-    const t = useTranslations('');
-    // const t = useTranslations('investmentsDubai.PopularReviews');
+    const t = useTranslations('PropertySearch.infoReviewsBuy');
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -98,7 +74,7 @@ const FaqSection: React.FC = () => {
             <div className="flex flex-col 2xl:flex-row justify-between">
                 {/* Заголовок */}
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium mb-6 2xl:w-1/3 2xl:max-w-[471px]">
-                    Как мы проводим покупку
+                    {t('title')}
                 </h2>
 
                 {/* Список вопросов и ответов */}
@@ -125,7 +101,9 @@ const FaqSection: React.FC = () => {
                                     openIndex === index ? 'max-h-screen' : 'max-h-0'
                                 }`}
                             >
-                                <p className="p-4 text-[15px] mdx:text-[20px]">{t(item.answer)}</p>
+                                <p className="p-4 text-[15px] mdx:text-[20px] whitespace-pre-line">
+                                    {t(item.answer)}
+                                </p>
                             </div>
                         </div>
                     ))}

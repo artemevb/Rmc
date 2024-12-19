@@ -538,7 +538,7 @@
       "house": "House",
       "entrance": "Entrance",
       "area": "Area",
-      "m":"m",
+      "m": "m",
       "rooms": "Rooms",
       "clear": "Reset everything",
       "AllRooms": "All rooms",
@@ -771,5 +771,291 @@
     "rent": "Rent",
     "mainTitle": "Residential solutions for your future",
     "subtitle": "Find your ideal home with us"
+  },
+  "PropertySearch": {
+    "BlockCardsBuy": {
+      "title": "Real Estate Purchase",
+      "description": "Full support cycle when purchasing real estate: from selecting an object to successfully completing the transaction",
+      "card1_title": "Selecting the Ideal Property",
+      "card1_image_alt": "New Buildings Photo",
+      "card2_title": "Developing Marketing Strategy and Advertising",
+      "card2_image_alt": "New Buildings List Photo",
+      "card3_title": "Legal Support and Consultations",
+      "card3_image_alt": "New Buildings Photo",
+      "card4_title": "Conducting Negotiations and Finalizing Deals",
+      "card4_image_alt": "New Buildings List Photo",
+      "card5_title": "Strategy Development and Consultations",
+      "card5_image_alt": "New Buildings List Photo"
+    },
+    "ByDockBlock": {
+      "title": "Required Documents and Timelines",
+      "documents": {
+        "document_icon_alt": "Document Icon",
+        "doc1": "Cadastral Plan",
+        "doc2": "Certificate of Ownership",
+        "doc3": "Technical Passport of the Property",
+        "doc4": "Purchase and Sale Agreement",
+        "doc5": "Documents Confirming No Encumbrances",
+        "doc6": "Documents Confirming Land Ownership",
+        "doc7": "Extract from the Unified State Register of Real Estate (USRRE)",
+        "doc8": "Passport Details of the Parties",
+        "doc9": "Certificate of No Debt for Utility Payments",
+        "doc10": "Property Handover Act"
+      },
+      "timeframes": {
+        "time_icon_alt": "Time Icon",
+        "time1": "Standard Apartment or House: 1-3 Working Days",
+        "time2": "Commercial Real Estate: 3-7 Working Days",
+        "time3": "Complex Objects (with Multiple Owners or Encumbrances): 7-15 Working Days"
+      }
+    },
+    "infoReviewsBuy": {
+      "title": "How We Conduct Purchases",
+      "faq_question_1": "Defining Goals and Budget",
+      "faq_answer_1": "In the first stage, we define your purchase goals:\n - Housing for living\n - Investments for income generation\n - Commercial use.\n We also set a budget and select properties that match your capabilities and expectations.",
+      "faq_question_2": "Property Search",
+      "faq_answer_2": "We conduct a thorough analysis of the real estate market and select the best offers based on your requirements.\nOur specialists provide a detailed overview of all suitable properties, including their cost, location, and advantages.",
+      "faq_question_3": "Property Viewing",
+      "faq_answer_3": "At this stage, you can personally view the property, assess the infrastructure, and ask any questions you may have.",
+      "faq_question_4": "Contract Signing",
+      "faq_answer_4": "We accompany you through all stages of the transaction process:\n- Checking the legal cleanliness of the property\n- Preparing all necessary documents\n- Signing the purchase and sale agreement",
+      "faq_question_5": "Final Stage",
+      "faq_answer_5": "In the final stage, we ensure the successful completion of the transaction:\n- Registering ownership of the property\n- Handing over the keys and fulfilling all parties' obligations\nWith us, purchasing real estate is safe, transparent, and without unnecessary complications."
+    },
+    "PopularReviewsBuy": {
+      "title": "Frequently Asked Questions",
+      "faq_question_1": "What documents are required to purchase real estate?",
+      "faq_answer_1": "To purchase real estate in the UAE, you will need the following documents:\n- Buyer and seller passports\n- Property cadastral plan\n- Certificate of ownership\n- Technical passport of the property\n- Purchase and sale agreement\n- Notarized powers of attorney (if necessary)\n\nOur specialists will consult you on all matters related to document preparation and verification.",
+      "faq_question_2": "How to choose the right property?",
+      "faq_answer_2": "Choosing real estate depends on your goals:\n- Housing for personal residence\n- Investment properties with high returns\n- Commercial premises for business\n\nWe will help you analyze the offers and select a property that fully meets your requirements.",
+      "faq_question_3": "What expenses, besides the cost of the property, will I incur?",
+      "faq_answer_3": "In addition to the cost of the real estate object, buyers should consider:\n- Real estate registration tax\n- Notary and legal support services\n- Realtor commission\n- Additional expenses for mortgage processing (if applicable)\n\nAll expenses are agreed upon in advance and included in the transaction plan.",
+      "faq_question_4": "How to verify the legal cleanliness of the property?",
+      "faq_answer_4": "Our team of professionals conducts a full check of the real estate object:\n- Analysis of property ownership documents\n- Checking for encumbrances and debts\n- Legal expertise of the transaction\n\nWe guarantee the safety and transparency of each transaction."
+    },
+    "SchemeBuy": {
+      "title": "Work Process",
+      "marker_alt": "Marker Icon",
+      "step1_title": "Defining Goals and Budget",
+      "step1_description": "Assessing financial capabilities. Establishing purchase goals.",
+      "step2_title": "Property Search and Selection",
+      "step2_description": "Reviewing listings and selecting properties that meet client requirements.",
+      "step3_title": "Property Viewing",
+      "step3_description": "Organizing viewings of selected properties with the client.",
+      "step4_title": "Legal Document Verification",
+      "step4_description": "Verifying the legal status of properties and the presence of any restrictions.",
+      "step5_title": "Contract Conclusion",
+      "step5_description": "Preparing, signing, and verifying necessary documents.",
+      "step6_title": "Signing the Main Contract",
+      "step6_description": "Notarizing the purchase and sale agreement.",
+      "step7_title": "Final Stage",
+      "step7_description": "Receiving the keys and completing the transaction."
+    },
+    "BlockCardsSell": {
+      "title": "Real Estate Sales",
+      "description": "We will help you effectively present your property: from professional photography to creating effective advertising materials to attract more interested buyers.",
+      "block1_title": "Preparing the Property for Sale",
+      "block1_image_alt": "New Buildings Photo",
+      "block2_title": "Developing Strategy and Marketing",
+      "block2_image_alt": "New Buildings List Photo",
+      "block3_title": "Legal Support and Consultations",
+      "block3_image_alt": "New Buildings Photo",
+      "block4_title": "Conducting Negotiations and Finalizing Deals",
+      "block4_image_alt": "New Buildings List Photo",
+      "block5_title": "Developing Strategy and Marketing",
+      "block5_image_alt": "New Buildings List Photo"
+    },
+    "SellDocBlock": {
+      "title": "Required Documents and Timelines",
+      "document_icon_alt": "Document Icon",
+      "documents": {
+        "doc1": "Cadastral Plan of the Property",
+        "doc2": "Certificate of Ownership",
+        "doc3": "Technical Passport of the Property",
+        "doc4": "Purchase and Sale Agreement (Draft)",
+        "doc5": "Documents Confirming No Encumbrances (Certificate from Rosreestr or Extract from USRRE)",
+        "doc6": "Documents Confirming Land Ownership (if applicable)",
+        "doc7": "Extract from the USRRE (Unified State Register of Real Estate)",
+        "doc8": "Passport Details of the Transaction Parties",
+        "doc9": "Certificate of No Debt for Utility Payments",
+        "doc10": "Property Handover Act (prepared at the final stage)"
+      },
+      "time_icon_alt": "Time Icon",
+      "timeframes": {
+        "time1": "Standard Apartment or House: 1–3 Working Days",
+        "time2": "Commercial Real Estate: 3–7 Working Days",
+        "time3": "Complex Objects (with Encumbrances or Multiple Owners): 7–15 Working Days"
+      }
+    },
+    "infoReviewsSell": {
+      "title": "How We Conduct Sales",
+      "faq_question_1": "Marketing and Advertising",
+      "faq_answer_1": "We develop an effective advertising campaign to attract buyers, place listings on the most popular platforms, and utilize our marketing tools.",
+      "faq_question_2": "Organizing Viewings",
+      "faq_answer_2": "We conduct property viewings with potential buyers, provide all necessary information about the home, and answer questions.",
+      "faq_question_3": "Contract Conclusion",
+      "faq_answer_3": "We help you prepare and conclude all necessary documents, including the purchase and sale agreement, and verify the legal cleanliness of the transaction.",
+      "faq_question_4": "Final Stage",
+      "faq_answer_4": "We finalize the sales process, organize the transfer of property to the new owner, and close all associated documents."
+    },
+    "PopularReviewsSell": {
+      "title": "Frequently Asked Questions",
+      "faq_question_1": "What documents are required to sell real estate?",
+      "faq_answer_1": "The following documents are required to sell real estate:\n\n- Seller's passport.\n\n- Identification code.\n\n- Document confirming ownership of the property (certificate of ownership, extract from the registry).\n\n- Technical passport of the real estate object.\n\n- Certificate of no debt for utility payments.\n\n- Notarized purchase and sale agreement.\n\n- In some cases, consent from the spouse(s) may be required if the property is jointly owned.\n\n- Additional documents may be required if the buyer uses a mortgage.",
+      "faq_question_2": "How to sell real estate quickly?",
+      "faq_answer_2": "To accelerate the real estate selling process:\n\n- Set a competitive price by comparing similar offers on the market.\n\n- Conduct cosmetic repairs or eliminate deficiencies to improve the property's appearance.\n\n- Collaborate with an experienced real estate agent who can quickly find potential buyers.\n\n- Take professional photos and use them for online advertising on popular platforms.\n\n- Prepare all documents in advance to avoid delays in the transaction process.\n\n- Be prepared for negotiations and maintain flexibility on transaction terms.",
+      "faq_question_3": "What expenses, besides the cost of the property, will I incur?",
+      "faq_answer_3": "The seller may incur the following expenses:\n\n- Notary fees for drafting the purchase and sale agreement.\n\n- Payment of taxes on income from the sale of real estate (e.g., income tax).\n\n- Payment for real estate agency services (if the sale is conducted through a realtor).\n\n- Payment for property appraisal (if the buyer requires an official appraisal).\n\n- Possible expenses for document preparation (extracts, certificates).\n\n- If there is a mortgage, there may be additional fees for its early repayment.",
+      "faq_question_4": "How to verify the legal cleanliness of the buyer?",
+      "faq_answer_4": "To verify the legal cleanliness of the buyer:\n\n- Check the authenticity of their identification documents (passport, TIN).\n\n- Ensure that the buyer has no court bans or debts that could affect the transaction.\n\n- If the buyer uses a mortgage, confirm with the bank whether their mortgage is approved.\n\n- It is important to enter into a contract with a lawyer or agent to avoid potential fraudulent schemes.\n\n- The buyer must provide all necessary documents for the transaction, including proof of payment.",
+      "open_icon_alt": "Open",
+      "closed_icon_alt": "Closed"
+    },
+    "SchemeSell": {
+      "title": "Ish jarayoni",
+      "markerAlt": "Marker",
+      "steps": {
+        "01": "01",
+        "01Title": "Preparing the Property",
+        "01Description": "Getting the property ready for sale (repairs, cleaning, decorating)",
+        "02": "02",
+        "02Title": "Creating Advertising",
+        "02Description": "Professional photography, videography, and listing placement",
+        "03": "03",
+        "03Title": "Conducting Showings",
+        "03Description": "Organizing and conducting showings for interested buyers",
+        "04": "04",
+        "04Title": "Closing the Deal",
+        "04Description": "Negotiating terms and drafting the purchase agreement",
+        "05": "05",
+        "05Title": "Signing Documents",
+        "05Description": "Processing and registering the transfer of ownership",
+        "06": "06",
+        "06Title": "Transferring the Property",
+        "06Description": "Handing over keys and all documents to the new owner",
+        "07": "07",
+        "07Title": "Transferring the Property",
+        "07Description": "Handing over keys and documents to the new owner"
+      }
+    },
+    "ShemeeRent": {
+      "header": "Process of Work",
+      "block1": {
+        "title": "Property Preparation",
+        "paragraph": "Verification of all necessary documents for rental, compliance with local market standards"
+      },
+      "block2": {
+        "title": "Market Analysis",
+        "paragraph": "Assessment of the market rental value in Dubai considering location and property type"
+      },
+      "block3": {
+        "title": "Advertisement Posting",
+        "paragraph": "Posting advertisements on popular platforms"
+      },
+      "block4": {
+        "title": "Conducting Viewings",
+        "paragraph": "Organizing convenient times for tenants. Showcasing all key features"
+      },
+      "block5": {
+        "title": "Tenant Selection",
+        "paragraph": "Checking tenants for financial viability and compliance with Dubai legislation requirements"
+      },
+      "block6": {
+        "title": "Property Transfer",
+        "paragraph": "Drafting the acceptance-transfer act in accordance with UAE legislation requirements"
+      },
+      "block7": {
+        "title": "Monitoring and Support",
+        "paragraph": "Periodic inspection of the property's condition"
+      }
+    },
+    "BlockCardsRent": {
+      "header": "Property Rental",
+      "subheader": "Full support cycle for rental: from property preparation to contract signing",
+      "card1": {
+        "title": "Property Preparation for Rent",
+        "alt": "New Buildings Photo"
+      },
+      "card2": {
+        "title": "Posting Advertisements on Popular Platforms",
+        "alt": "New Buildings List Photo"
+      },
+      "card3": {
+        "title": "Conducting Negotiations and Contract Formalization",
+        "alt": "New Buildings Photo"
+      },
+      "card4": {
+        "title": "Developing Rental Strategy and Consultations",
+        "alt": "New Buildings List Photo"
+      },
+      "card5": {
+        "title": "Posting Advertisements on Popular Platforms",
+        "alt": "New Buildings List Photo"
+      }
+    },
+    "infoReviewsRent": {
+      "header": "How We Rent Out Properties",
+      "faq1": {
+        "question": "Property Preparation",
+        "answer": "We conduct inspections of furniture and appliances that will be handed over to tenants. We organize professional photography of the property to present it effectively on the rental market."
+      },
+      "faq2": {
+        "question": "Property Advertising",
+        "answer": "We create attractive advertisements for online and offline advertising platforms to quickly find suitable tenants."
+      },
+      "faq3": {
+        "question": "Property Showings",
+        "answer": "We organize property viewings for potential tenants, providing complete information about the condition and rental terms."
+      },
+      "faq4": {
+        "question": "Lease Agreement Signing",
+        "answer": "We help you sign a safe and transparent lease agreement, considering the interests of both parties."
+      },
+      "faq5": {
+        "question": "Property Handover",
+        "answer": "After signing the agreement, we organize the handover of keys to tenants and prepare all necessary documents."
+      }
+    },
+    "RentDocBlock": {
+      "header": "Required Documents and Timelines",
+      "documents": {
+        "alt": "Document Icon",
+        "item1": "Cadastral Plan of the Property",
+        "item2": "Certificate of Ownership",
+        "item3": "Technical Passport of the Property",
+        "item4": "Lease Agreement (agreed by both parties)",
+        "item5": "Documents Confirming the Right to Rent Out",
+        "item6": "Passport Details of Both Parties (Landlord and Tenant)",
+        "item7": "Certificate of No Outstanding Utility Payments",
+        "item8": "Property Handover Act",
+        "item9": "Detailed Inventory of Assets (when renting out furnished and equipped properties)",
+        "item10": "Certificate of Property Condition (if confirmation is required at the time of handover)"
+      },
+      "times": {
+        "alt": "Time Icon",
+        "item1": "Residential Apartment or House: 1-2 Business Days",
+        "item2": "Commercial Property: 2-5 Business Days",
+        "item3": "Complex Objects (with legal nuances or approvals): 5-10 Business Days"
+      }
+    },
+    "PopularReviewsRent": {
+      "header": "Frequently Asked Questions",
+      "faq1": {
+        "question": "What is the cost of renting an apartment?",
+        "answer": "The cost of renting an apartment depends on several factors:\n\n - Location (the closer to the city center or important infrastructure objects, the more expensive).\n\n - Apartment size (larger area – higher rent).\n\n - Property condition (an apartment with a new renovation will be more expensive than an outdated one).\n\n - Availability of furniture and appliances (apartments with full amenities are generally more expensive).\n\nFor precise pricing information, you need to contact the landlord or real estate agency directly."
+      },
+      "faq2": {
+        "question": "What documents are required to rent an apartment?",
+        "answer": "To rent an apartment, you may need the following documents:\n\n - Passport.\n\n - Identification code (if required by the landlord).\n\n - Lease agreement, which will specify the rental conditions, duration, and price.\n\nIn some cases, additional documents confirming your financial solvency may be required (e.g., income certificate)."
+      },
+      "faq3": {
+        "question": "How to terminate a lease agreement early?",
+        "answer": "To terminate a lease agreement early, you need to:\n\n - Review the terms outlined in the lease agreement regarding termination (a notification period may be required, for example, 30 days).\n\n - Inform the landlord in writing of your intention to terminate the agreement.\n\n - In some cases, additional compensation or penalties for early termination may be required.\n\n - It is important to ensure that all conditions for termination are met to avoid potential legal consequences."
+      },
+      "faq4": {
+        "question": "How does the lease agreement signing process work?",
+        "answer": "The lease agreement signing process typically proceeds as follows:\n\n - The parties (tenant and landlord) agree on rental terms: duration, rent amount, rules for using the property.\n\n - The agreement is drafted in written form and includes all important points related to the lease (payment terms, responsibilities of the parties, rights to early termination, etc.).\n\n - After agreeing on all terms, both parties sign the agreement.\n\n - The agreement may be notarized, but this is not mandatory (depends on local legislation and the parties' preference).\n\n - After signing the agreement, the tenant usually pays the deposit and the first month's rent."
+      }
+    }
   }
 }

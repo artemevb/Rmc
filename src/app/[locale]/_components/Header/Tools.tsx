@@ -86,7 +86,7 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
       <div className="h-full items-center flex gap-[8px] xl:gap-[12px]">
         <button
           className="px-3 py-3 rounded-full max-mdx:px-3 max-mdx:py-3"
-          onClick={() => setShowSearchModal(true)} 
+          onClick={() => setShowSearchModal(true)}
         >
           <Image
             src={searchIcon}

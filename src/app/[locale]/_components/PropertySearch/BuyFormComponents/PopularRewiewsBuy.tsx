@@ -4,11 +4,13 @@ import { useTranslations } from 'next-intl';
 import openIcon from "@/public/svg/button-arrow-top.png";
 import closedIcon from "@/public/svg/button-arrow-bottom.png";
 import Image from 'next/image';
+
 interface FaqItem {
   question: string;
   answer: string;
 }
 
+// Используем ключи для вопросов и ответов
 const faqData: FaqItem[] = [
   {
     question: "faq_question_1",
@@ -25,14 +27,6 @@ const faqData: FaqItem[] = [
   {
     question: "faq_question_4",
     answer: "faq_answer_4"
-  },
-  {
-    question: "faq_question_5",
-    answer: "faq_answer_5"
-  },
-  {
-    question: "faq_question_6",
-    answer: "faq_answer_6"
   }
 ];
 
@@ -65,7 +59,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
 );
 
 const FaqSection: React.FC = () => {
-  const t = useTranslations('investmentsDubai.PopularReviews');
+  const t = useTranslations('PropertySearch.PopularReviewsBuy'); // Укажите пространство имен
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -78,10 +72,10 @@ const FaqSection: React.FC = () => {
       {faqData.map((item, index) => (
         <div key={index} className="mb-4">
           <button
-            className="w-full flex justify-between items-start text-left p-4 text-lg transition-all duration-700 "
+            className="w-full flex justify-between items-start text-left p-4 text-lg transition-all duration-700"
             onClick={() => toggleFAQ(index)}
           >
-            <span className={`text-[22px] mdx:text-[26px] xl:text-[30px] max-mdx:max-w-[80%] ${openIndex === index ? '' : 'text-black transition-all duration-1000'}`}>
+            <span className={`text-[22px] mdx:text-[26px] xl:text-[30px] max-mdx:max-w-[80%] ${openIndex === index ? 'text-corporate' : 'text-black transition-all duration-1000'}`}>
               {t(item.question)}
             </span>
             <span className="flex-shrink-0">
@@ -89,7 +83,9 @@ const FaqSection: React.FC = () => {
             </span>
           </button>
           <div className={`border-b border-[#E1E1E1] overflow-hidden transition-all duration-700 ${openIndex === index ? 'max-h-screen' : 'max-h-0'}`}>
-            <p className="p-4 text-[15px] mdx:text-[20px]">{t(item.answer)}</p>
+            <p className="p-4 text-[15px] mdx:text-[20px]" style={{ whiteSpace: 'pre-line' }}>
+              {t(item.answer)}
+            </p>
           </div>
         </div>
       ))}

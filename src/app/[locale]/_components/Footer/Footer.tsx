@@ -133,16 +133,16 @@ export default function Footer({ locale }: LocaleProps) {
             </div>
           </div>
           <div className="mdx:flex flex-row xl:gap-[138px]">
-            <div className="lg:w-1/2 xl:max-w-[200px] w-full flex max-mdx:gap-5 xl:gap-[138px]">{/*было xl:max-w-[406px]*/}
-              {/* <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[110px]">
+            <div className="lg:w-1/2 xl:max-w-[406px] w-full flex max-mdx:gap-5 xl:gap-[138px]">{/*было xl:max-w-[200px], если нужно убрать одну колонку*/}
+              <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] lg:pr-7 xl:pr-0 xl:max-w-[110px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('services')}
                 </h2>
-                <Link href={`/${locale}/calculator`}>{t('buy')}</Link>
-                <Link href={`/${locale}/calculator`}>{t('rent')}</Link>
-                <Link href={`/${locale}/calculator`}>{t('sell')}</Link>
-                <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link>
-              </div> */}
+                <Link href={`/${locale}/property-search`}>{t('buy')}</Link>
+                <Link href={`/${locale}/property-search`}>{t('rent')}</Link>
+                <Link href={`/${locale}/property-search`}>{t('sell')}</Link>
+                {/* <Link href={`/${locale}/calculator`}>{t('evaluate')}</Link> */}
+              </div>
               <div className="flex-1 flex flex-col text-[16px] mdx:text-[18px] xl:text-[20px] gap-[5px] mdx:gap-[10px] text-[#333333] xl:max-w-[163px]">
                 <h2 className="text-[20px] mdx:text-[22px] xl:text-[24px] font-medium text-[#252324] ">
                   {t('real_estate')}

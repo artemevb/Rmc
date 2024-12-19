@@ -3,14 +3,14 @@ import Marker from "@/public/images/investmentsDubai/Marker.svg";
 import Image from 'next/image';
 
 export default function Scheme() {
-    const t = useTranslations('investmentsDubai.Scheme');
+    const t = useTranslations('PropertySearch.ShemeeRent');
 
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto max-3xl:px-[10px] flex flex-col gap-10">
             <div className="flex flex-col gap-16">
                 <div className="flex flex-col gap-2">
                     <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium leading-[38px] mdx:leading-[50px] xl:leading-[60px]">
-                        {t('title')}
+                        {t('header')}
                     </h2>
                 </div>
                 {/** 
@@ -39,10 +39,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Подготовка недвижимости
+                                    {t('block1.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Проверка наличия и состояния всех предметов мебели и техники
+                                    {t('block1.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -66,10 +66,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Анализ рынка
+                                    {t('block2.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Оценка рыночной стоимости аренды. Определение, какой типов арендаторов
+                                    {t('block2.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -93,10 +93,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
-                                    Размещение объявления
+                                    {t('block3.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Размещение объявлений на популярных платформах
+                                    {t('block3.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -120,10 +120,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Проведение просмотров
+                                    {t('block4.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Организация удобного времени для арендаторов. Показ все ключевых особенностей
+                                    {t('block4.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -147,10 +147,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Выбор арендатора
+                                    {t('block5.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Проверка потенциальных арендаторов на наличие задолженностей
+                                    {t('block5.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -174,10 +174,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Передача недвижимости
+                                    {t('block6.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Составление акта приема-передачи, где зафиксировано состояние имущества и ключи
+                                    {t('block6.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -201,10 +201,10 @@ export default function Scheme() {
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Мониторинг и поддержка
+                                    {t('block7.title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Периодическая проверка состояния недвижимости
+                                    {t('block7.paragraph')}
                                 </p>
                             </div>
                         </div>
@@ -215,6 +215,7 @@ export default function Scheme() {
         </div>
     )
 }
+
 
 
 

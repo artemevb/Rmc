@@ -3,7 +3,7 @@ import Marker from "@/public/images/investmentsDubai/Marker.svg";
 import Image from 'next/image';
 
 export default function Scheme() {
-    const t = useTranslations('investmentsDubai.Scheme');
+    const t = useTranslations('PropertySearch.SchemeSell');
 
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto max-3xl:px-[10px] flex flex-col gap-10">
@@ -26,7 +26,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -35,14 +35,14 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                01
+                                {t('steps.01')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Подготовка объекта
+                                    {t('steps.01Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Приведение объекта в порядок (ремонт, уборка, декорирование)
+                                    {t('steps.01Description')}
                                 </p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -62,14 +62,14 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                02
+                                {t('steps.02')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Оценка недвижимости
+                                    {t('steps.02Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Проведение исследования рынка и установление конкурентоспособной цены
+                                    {t('steps.02Description')}
                                 </p>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -89,14 +89,14 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row xl:flex-col mdl:gap-[15px] slg:gap-[35px] justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                03
+                                {t('steps.03')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
-                                    Создание рекламы
+                                    {t('steps.03Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Профессиональная фотосъемка и видеосъемка объекта
+                                    {t('steps.03Description')}
                                 </p>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -116,14 +116,14 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                04
+                                {t('steps.04')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Проведение показов
+                                    {t('steps.04Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Планирование и проведение показа объекта для покупателей
+                                    {t('steps.04Description')}
                                 </p>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -143,14 +143,14 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                05
+                                {t('steps.05')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Заключение сделки
+                                    {t('steps.05Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Составление и согласование договора купли-продажи
+                                    {t('steps.05Description')}
                                 </p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -170,25 +170,25 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                06
+                                {t('steps.06')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Подписание документов
+                                    {t('steps.06Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Оформление и регистрирация перехода права собственности на объект
+                                    {t('steps.06Description')}
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     {/** Блок 7 */}
-                    <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
+                    {/* <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt={t('markerAlt')}
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -197,24 +197,21 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                07
+                                {t('steps.07')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
-                                    Передача объекта
+                                    {t('steps.07Title')}
                                 </h1>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
-                                    Передача ключей и документов новому владельцу
+                                    {t('steps.07Description')}
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
         </div>
     )
 }
-
-
-

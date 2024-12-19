@@ -10,49 +10,22 @@ interface FaqItem {
     answer: string;
 }
 
-// const faqData: FaqItem[] = [
-//     {
-//         question: "faq_question_1",
-//         answer: "faq_answer_1"
-//     },
-//     {
-//         question: "faq_question_2",
-//         answer: "faq_answer_2"
-//     },
-//     {
-//         question: "faq_question_3",
-//         answer: "faq_answer_3"
-//     },
-//     {
-//         question: "faq_question_4",
-//         answer: "faq_answer_4"
-//     },
-//     {
-//         question: "faq_question_5",
-//         answer: "faq_answer_5"
-//     }
-// ];
-
 const faqData: FaqItem[] = [
     {
-        question: "Подготовка к продаже",
+        question: "faq_question_1",
         answer: "faq_answer_1"
     },
     {
-        question: "Маркетинг и реклама",
+        question: "faq_question_2",
         answer: "faq_answer_2"
     },
     {
-        question: "Организация показов",
+        question: "faq_question_3",
         answer: "faq_answer_3"
     },
     {
-        question: "Заключение договора",
+        question: "faq_question_4",
         answer: "faq_answer_4"
-    },
-    {
-        question: "Заключительный этап",
-        answer: "faq_answer_5"
     }
 ];
 
@@ -85,8 +58,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
 );
 
 const FaqSection: React.FC = () => {
-    const t = useTranslations('');
-    // const t = useTranslations('investmentsDubai.PopularReviews');
+    const t = useTranslations('PropertySearch.infoReviewsSell');
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -95,10 +67,10 @@ const FaqSection: React.FC = () => {
 
     return (
         <div className="w-full max-w-[1440px] 5xl:max-w-[2000px] mx-auto max-3xl:px-[10px]">
-            <div className="flex flex-col 2xl:flex-row justify-between ">
+            <div className="flex flex-col 2xl:flex-row justify-between">
                 {/* Заголовок */}
                 <h2 className="text-[30px] mdx:text-[45px] xl:text-[55px] font-medium mb-6 2xl:w-1/3 max-w-[471px]">
-                    Как мы проводим продажу
+                    {t('title')}
                 </h2>
 
                 {/* Список вопросов и ответов */}
@@ -123,7 +95,9 @@ const FaqSection: React.FC = () => {
                                 className={`border-b border-[#E1E1E1] overflow-hidden transition-all duration-700 ${openIndex === index ? 'max-h-screen' : 'max-h-0'
                                     }`}
                             >
-                                <p className="p-4 text-[15px] mdx:text-[20px]">{t(item.answer)}</p>
+                                <p className="p-4 text-[15px] mdx:text-[20px]" style={{ whiteSpace: 'pre-line' }}>
+                                    {t(item.answer)}
+                                </p>
                             </div>
                         </div>
                     ))}
