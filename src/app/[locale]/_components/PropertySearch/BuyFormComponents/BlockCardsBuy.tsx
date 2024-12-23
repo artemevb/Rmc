@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-// import rent1 from "@/public/images/main/about_company/home.png";
+import rent1 from "@/public/images/main/about_company/home.png";
 import Illustration from "@/public/images/main/about_company/Illustration.png";
 import divan from "@/public/images/main/about_company/divan.png";
 import rent3 from "@/public/images/main/about_company/uprv.png";
@@ -18,16 +18,16 @@ export default function BlockCardsBuy() {
             </p>
             <div className="w-full flex flex-col 3xl:flex-row gap-[16px] mt-[40px] xl:mt-[50px] 3xl:grid 3xl:grid-cols-3">
                 <div className="w-full flex flex-col gap-[16px] mdl:flex-row">
-                    <div className='w-full pt-[24px] pl-[24px] bg-[#EDF3F5] h-[350px] 3xl:h-[540px] relative overflow-hidden'>
+                <div className='w-full pt-[24px] pl-[24px] bg-[#EDF3F5] h-[350px] 3xl:h-[540px] relative overflow-hidden'>
                         <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[294px]'>{t('card1_title')}</h3>
-                        <div className='absolute bottom-[35px] 3xl:bottom-[-30px] right-[-20px] h-[45%]'>
+                        <div className='absolute bottom-[35px] 3xl:bottom-[-30px] right-[-10px] sm:right-[-20px] md:right-[-30px] h-[45%]'>
                             <Image
-                                src="/images/main/about_company/home.png"
+                                src={rent1}
                                 quality={100}
                                 width={1500}
                                 height={1500}
                                 alt={t('card1_image_alt')}
-                                className="w-full h-full object-cover min-h-[225px] "
+                                className="w-full h-full object-cover min-h-[225px]"
                             />
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export default function BlockCardsBuy() {
                     </div>
                     <div className='w-full pt-[24px] px-[20px] bg-[#EDF3F5] h-[350px] 3xl:h-[260px] relative overflow-hidden'>
                         <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[336px]'>{t('card4_title')}</h3>
-                        <div className='absolute bottom-[0px] right-[-40px] 3xl:right-[-10px] h-[70%] '>
+                        <div className='absolute bottom-[0px] right-[-10px] sm:right-[-20px] md:right-[-30px] 3xl:right-[-10px] h-[70%]'>
                             <Image
                                 src={divan}
                                 quality={100}
