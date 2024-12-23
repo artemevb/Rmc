@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import rent1 from "@/public/images/main/about_company/home.png";
+// import rent1 from "@/public/images/main/about_company/home.png";
 import Illustration from "@/public/images/main/about_company/Illustration.png";
 import divan from "@/public/images/main/about_company/divan.png";
 import rent3 from "@/public/images/main/about_company/uprv.png";
