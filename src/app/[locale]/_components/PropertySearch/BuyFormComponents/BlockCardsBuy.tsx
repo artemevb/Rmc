@@ -101,25 +101,25 @@ export default function BlockCardsBuy() {
 
 
 
-            <div className="w-full flex flex-col gap-[16px] mt-[40px] xl:mt-[50px] 3xl:hidden">
-                <div className="w-full flex flex-col gap-[16px] mdl:flex-row">
-                    <div className='w-full h-full pt-[24px] pl-[24px] bg-[#EDF3F5] min-h-[350px] relative overflow-hidden'>
-                        <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[294px]'>{t('card1_title')}</h3>
-                        <div className='absolute bottom-[35px] right-[-20px] h-[45%]'>
+            <div className="w-full flex flex-col gap-4 mt-10 xl:mt-12 3xl:hidden">
+                <div className="w-full flex flex-col gap-4 mdl:flex-row">
+                    <div className='w-full h-full pt-6 pl-6 bg-[#EDF3F5] min-h-[350px] relative overflow-hidden'>
+                        <h3 className='text-lg mdx:text-2xl max-w-[294px]'>{t('card1_title')}</h3>
+                        <div className='absolute bottom-8 right-[-20px] md:right-[-40px] h-2/5'>
                             <Image
                                 src={rent1}
                                 quality={100}
                                 width={1500}
                                 height={1500}
                                 alt={t('card1_image_alt')}
-                                className="w-full h-full object-cover min-h-[225px] "
+                                className="w-full h-full object-cover min-h-[225px]"
                             />
                         </div>
                     </div>
 
-                    <div className='w-full pt-[24px] px-[20px] bg-[#EDF3F5] h-[350px] relative overflow-hidden'>
-                        <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[336px]'>{t('card2_title')}</h3>
-                        <div className='absolute bottom-[0px] right-0 w-[66%]'>
+                    <div className='w-full pt-6 px-5 bg-[#EDF3F5] h-[350px] relative overflow-hidden'>
+                        <h3 className='text-lg mdx:text-2xl max-w-[336px]'>{t('card2_title')}</h3>
+                        <div className='absolute bottom-0 right-0 w-2/3'>
                             <Image
                                 src={rent3}
                                 quality={100}
@@ -132,23 +132,23 @@ export default function BlockCardsBuy() {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col gap-[16px]">
-                    <div className='w-full pt-[24px] pl-[24px] bg-[#EDF3F5] h-[350px]  relative overflow-hidden'>
-                        <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[294px]'>{t('card3_title')}</h3>
-                        <div className='absolute bottom-[-20px] right-0 h-[60%]'>
+                <div className="w-full flex flex-col gap-4">
+                    <div className='w-full pt-6 pl-6 bg-[#EDF3F5] h-[350px] relative overflow-hidden'>
+                        <h3 className='text-lg mdx:text-2xl max-w-[294px]'>{t('card3_title')}</h3>
+                        <div className='absolute bottom-[-20px] right-0 h-3/5 md:h-2/3'>
                             <Image
                                 src={Illustration}
                                 quality={100}
                                 width={1500}
                                 height={1500}
                                 alt={t('card3_image_alt')}
-                                className="w-full h-full object-cover "
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </div>
-                    <div className='w-full pt-[24px] px-[20px] bg-[#EDF3F5] h-[350px] relative overflow-hidden'>
-                        <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[336px]'>{t('card4_title')}</h3>
-                        <div className='absolute bottom-[0px] right-[-40px] h-[70%] '>
+                    <div className='w-full pt-6 px-5 bg-[#EDF3F5] h-[350px] relative overflow-hidden'>
+                        <h3 className='text-lg mdx:text-2xl max-w-[336px]'>{t('card4_title')}</h3>
+                        <div className='absolute bottom-0 right-[-40px] md:right-[-60px] h-7/10'>
                             <Image
                                 src={divan}
                                 quality={100}
@@ -161,6 +161,7 @@ export default function BlockCardsBuy() {
                     </div>
                 </div>
             </div>
+
         </div >
     )
 }
