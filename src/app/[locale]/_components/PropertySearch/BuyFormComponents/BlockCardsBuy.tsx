@@ -63,7 +63,7 @@ export default function BlockCardsBuy() {
                     </div>
                     <div className='w-full pt-[24px] px-[20px] bg-[#EDF3F5] h-[350px] 3xl:h-[260px] relative mdx:overflow-hidden'>
                         <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[336px]'>{t('card4_title')}</h3>
-                        <div className='absolute bottom-[0px] right-[0px] mdx:right-[-40px] 3xl:right-[-10px] h-[65%] '>
+                        <div className='absolute bottom-[0px] right-[0px] mdx:right-[-40px] 3xl:right-[-10px] h-[50%] w-auto'>
                             <Image
                                 src={divan}
                                 quality={100}
