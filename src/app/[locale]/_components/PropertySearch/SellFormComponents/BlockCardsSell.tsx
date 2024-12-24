@@ -24,7 +24,7 @@ export default function BlockCardsSell() {
                         <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[294px]'>
                             {t('block1_title')}
                         </h3>
-                        <div className='absolute bottom-[35px] 3xl:bottom-[-30px] right-[-20px] h-[45%]'>
+                        <div className='absolute mdx:bottom-[35px] 3xl:bottom-[-30px] right-[-20px] mdx:h-[45%] bottom-[-20px] h-auto max-mdx:w-[84%]'>
                             <Image
                                 src={rent1}
                                 quality={100}
@@ -75,7 +75,7 @@ export default function BlockCardsSell() {
                         <h3 className='text-[18px] mdx:text-[24px] top-0 max-w-[336px]'>
                             {t('block4_title')}
                         </h3>
-                        <div className='absolute bottom-[0px] right-[-40px] 3xl:right-[-10px] h-[70%]'>
+                        <div className='absolute bottom-[0px] mdx:right-[-40px] 3xl:right-[-10px] mdx:h-[70%] h-auto max-mdx:w-[221px] right-0'>
                             <Image
                                 src={divan}
                                 quality={100}
