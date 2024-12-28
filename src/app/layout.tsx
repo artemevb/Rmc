@@ -118,11 +118,11 @@ export default async function LocaleLayout({
         <link rel="canonical" href={canonicalUrl} />
         <meta
           property="og:image"
-          content="https://rmcdeluxe.com/og-image.jpg?v=2"
+          content="https://rmcdeluxe.com/og-image.jpg"
         />
         <meta
           name="twitter:image"
-          content="https://rmcdeluxe.com/og-image.jpg?v=2"
+          content="https://rmcdeluxe.com/og-image.jpg"
         />
         <title>{t.title}</title>
         <meta name="description" content={t.description} />
