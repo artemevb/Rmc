@@ -1,4 +1,4 @@
-// Pagination.tsx
+
 import React from 'react';
 import Image from 'next/image';
 import rightArrow from "@/public/svg/arrowrightbanners.svg";
