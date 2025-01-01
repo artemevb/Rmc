@@ -38,7 +38,6 @@ export default function NewsComp({ locale }: LocaleProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Настройки слайдера
   const settings = {
     infinite: true,
     speed: 1500,
@@ -75,7 +74,6 @@ export default function NewsComp({ locale }: LocaleProps) {
     ],
   };
 
-  // Функция для форматирования даты
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');
@@ -84,7 +82,6 @@ export default function NewsComp({ locale }: LocaleProps) {
     return `${day}.${month}.${year}`;
   };
 
-  // Функция для получения новостей из Sanity
   const fetchNews = async () => {
     try {
       const query = `*[_type == "news"] | order(date desc) {
