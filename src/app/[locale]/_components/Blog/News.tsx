@@ -151,7 +151,7 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
           {/* Sort Dropdown */}
           {isSortOpen && (
-            <ul className="absolute right-0 w-[223px] bg-white shadow-lg z-10">
+            <ul className="absolute right-0 w-[223px] bg-white shadow-lg z-[999]">
               {sortOptions.map((option) => (
                 <li key={option.value}>
                   <button
