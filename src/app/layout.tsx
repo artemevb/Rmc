@@ -1,4 +1,3 @@
-// app/[locale]/layout.tsx
 import '@/src/app/[locale]/_styles/globals.css';
 import Head from 'next/head';
 import { ReactNode } from 'react';

@@ -46,8 +46,6 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        // If you plan to use the menu for a language switcher, uncomment and use setLanguageMenu
-        // setLanguageMenu(false);
       }
     };
 
@@ -82,12 +80,10 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
       className={`fixed z-[9999] top-0 right-0 w-full max-w-[300px] bg-white h-full shadow-md ${menu ? "animate-slideInFromRight" : "transform translate-x-full"} transition-transform duration-300 ease-in-out`}
 
     >
-      {/* Header with Language Switcher and Close Button */}
       <div className="border-b py-4 flex">
         <div className="w-full flex justify-end mx-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center justify-center gap-[12px]">
-              {/* Language Switcher */}
               <label className='inline-flex items-center text-[19px] font-normal bg-white focus:outline-none  px-4 py-3'>
                 <span className='sr-only'>{t('menu.changeLanguage')}</span>
                 <select
@@ -163,7 +159,6 @@ const Menu: React.FC<MenuProps> = ({ menu, closeMenu, navOptions, locale }) => {
           </div>
         )}
 
-        {/* Other Navigation Items */}
         {navOptions.slice(4).map((item, index) => (
           <Link
             onClick={() => {
