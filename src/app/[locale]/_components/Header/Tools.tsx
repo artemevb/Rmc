@@ -169,14 +169,14 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
                     Ru
                   </button>
                 </li>
-                {/* <li>
+                <li>
                   <button
                     onClick={() => handleLanguageSelect('uz')}
                     className="w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     O`z
                   </button>
-                </li> */}
+                </li>
               </ul>
             </div>
           )}

@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     languages: {
       ru: '/ru',
       en: '/en',
+      uz: '/uz',
     },
   },
 };
@@ -61,9 +62,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale?: string };
 }>) {
-  const locale: Locales =
-    params?.locale === 'en' ? 'en' : 'ru';
-
+  const locale: Locales = 
+  params?.locale === 'en' ? 'en' :
+  params?.locale === 'uz' ? 'uz' :
+  'ru';
+  
   unstable_setRequestLocale(locale);
 
   const messages = await getMessages({ locale });
@@ -76,7 +79,9 @@ export default async function RootLayout({
     "url": 'https://rmcdeluxe.com',
     "description": locale === 'en'
       ? "RMC De Luxe provides rental and sales services for real estate in UAE. Professional approach for individual and corporate clients."
-      : "RMC De Luxe provides rental and sales services for real estate in UAE. Professional approach for individual and corporate clients.", 
+      : locale === 'uz'
+        ? "RMC De Luxe BAAdagi ko'chmas mulkni ijaraga berish va sotish xizmatlarini taklif qiladi. Jismoniy va yuridik shaxslar uchun professional yondashuv."
+        : "RMC De Luxe предоставляет услуги по аренде и продаже недвижимости в ОАЭ. Профессиональный подход для физических и юридических лиц.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Deira, Baniyas road, Twin Towers, 20th floor, Office number 10",
@@ -89,6 +94,7 @@ export default async function RootLayout({
     "image": "https://rmcdeluxe.com/og-image.jpg?v=2",
     "priceRange": "AED"
   };
+
 
   return (
     <html lang={locale}>
