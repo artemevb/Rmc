@@ -46,12 +46,10 @@ interface News {
 export const dynamic = 'force-dynamic';
 
 function extractLocaleTitle(news: News, locale: Locales) {
-  // news.title = { en: '...', ru: '...', uz: '...' }
   return news.title?.[locale] || news.title?.en || 'Default Title';
 }
 
 function extractLocaleDescription(news: News, locale: Locales) {
-  // Ищем первый textBlock с description для конкретной локали
   const textBlock = news.content.find((block) => block._type === 'textBlock');
 
   const rawDescription = textBlock?.description?.[locale]

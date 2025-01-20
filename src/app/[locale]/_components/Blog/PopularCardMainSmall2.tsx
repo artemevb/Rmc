@@ -1,15 +1,13 @@
 'use client';
 import Image from 'next/image';
-
 import Arrow_White from '@/public/svg/arrow-right-white.svg';
 import Eyes from '@/public/svg/eyes-slider.svg';
 import { useTranslations } from 'next-intl';
 
-// Интерфейс для пропсов
 interface NewCardProps {
     subtitle: string;
     date: string;
-    views: string;  // Количество просмотров
+    views: string;
     imageSrc: string;
 
 }
@@ -20,25 +18,21 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
     return (
 
         <a className="w-full bg-white h-full flex flex-col justify-between relative group cursor-pointer ">
-            <div className="relative">
+            <div className="relative h-full w-full">
                 <Image
                     src={imageSrc}
                     width={1500}
                     height={1500}
                     quality={100}
                     alt={`News Image`}
-                    className="w-full h-auto object-cover xl:max-h-[290px] 2xl:min-h-[220px] 3xl:min-h-[290px]"
+                    className="w-full h-full object-cover xl:max-h-[290px] 2xl:min-h-[220px] 3xl:min-h-[290px]"
                 />
                 <div className="absolute inset-0 bg-black/25 to-transparent"></div>
                 <div className="absolute inset-0  opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 xl:p-5">
-
                     <div className="flex justify-between items-center">
-                        {/* Дата */}
                         <p className="text-[16px] xl:text-[20px] text-[#fff] rounded">
                             {date}
                         </p>
-
-                        {/* Просмотры */}
                         <div className="flex items-center space-x-1  text-[16px] xl:text-[20px] text-[#fff] rounded">
                             <Image
                                 src={Eyes}
@@ -51,8 +45,6 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
                             <p>{views}</p>
                         </div>
                     </div>
-
-                    {/* Нижняя часть наложения: Заголовок и кнопка */}
                     <div className="flex flex-col">
                         <p className="text-[20px] mdx:text-[22px] lh font-medium text-[#fff] mt-[8px] line-clamp-2">
                             {subtitle}

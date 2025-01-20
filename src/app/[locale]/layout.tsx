@@ -62,11 +62,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale?: string };
 }>) {
-  const locale: Locales = 
-  params?.locale === 'en' ? 'en' :
-  params?.locale === 'uz' ? 'uz' :
-  'ru';
-  
+  const locale: Locales =
+    params?.locale === 'en' ? 'en' :
+      params?.locale === 'uz' ? 'uz' :
+        'ru';
+
   unstable_setRequestLocale(locale);
 
   const messages = await getMessages({ locale });

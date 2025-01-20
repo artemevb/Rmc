@@ -20,14 +20,14 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
     return (
 
         <a className="w-full bg-white h-full flex flex-col justify-between relative group cursor-pointer ">
-            <div className="relative">
+            <div className="relative w-full h-full">
                 <Image
                     src={imageSrc}
-                    width={1500}
-                    height={1500}
+                    width={2000}
+                    height={2000}
                     quality={100}
                     alt={`News Image`}
-                    className="w-full h-auto object-cover max-h-[600px]"
+                    className="w-full h-full object-cover max-h-[700px]"
                 />
                 <div className="absolute inset-0 bg-black/25 to-transparent"></div>
                 <div className="absolute inset-0  opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 xl:p-5">
