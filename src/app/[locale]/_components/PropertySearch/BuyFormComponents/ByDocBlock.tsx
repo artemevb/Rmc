@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import document from "@/public/svg/tools/document.svg";
-import time from "@/public/svg/tools/time.svg";
+// import time from "@/public/svg/tools/time.svg";
 
 export default function ByDockBlock() {
     const t = useTranslations('PropertySearch.ByDockBlock');
@@ -13,7 +13,7 @@ export default function ByDockBlock() {
                 {t('title')}
             </h2>
             <div className='w-full flex flex-col xl:flex-row gap-[12px] mdx:gap-[20px] text-[16px] mdx:text-[20px]'>
-                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
+                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-auto'>
                     <Image
                         src={document}
                         quality={100}
@@ -35,7 +35,7 @@ export default function ByDockBlock() {
                         <p>{t('documents.doc10')}</p> */}
                     </div>
                 </div>
-                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
+                {/* <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
                     <Image
                         src={time}
                         quality={100}
@@ -47,7 +47,7 @@ export default function ByDockBlock() {
                     <p>{t('timeframes.time1')}</p>
                     <p>{t('timeframes.time2')}</p>
                     <p>{t('timeframes.time3')}</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )

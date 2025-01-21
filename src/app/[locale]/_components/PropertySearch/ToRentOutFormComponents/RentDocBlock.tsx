@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import document from "@/public/svg/tools/document.svg";
-import time from "@/public/svg/tools/time.svg";
+// import time from "@/public/svg/tools/time.svg";
 
 export default function RentDocBlock() {
     const t = useTranslations('PropertySearch.RentDocBlock');
@@ -14,7 +14,7 @@ export default function RentDocBlock() {
             </h2>
             <div className='w-full flex flex-col xl:flex-row gap-[12px] mdx:gap-[20px] text-[16px] mdx:text-[20px]'>
                 {/* Documents Section */}
-                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
+                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-auto'>
                     <Image
                         src={document}
                         quality={100}
@@ -38,7 +38,7 @@ export default function RentDocBlock() {
                 </div>
 
                 {/* Timelines Section */}
-                <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
+                {/* <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>
                     <Image
                         src={time}
                         quality={100}
@@ -50,7 +50,7 @@ export default function RentDocBlock() {
                     <p>{t('times.item1')}</p>
                     <p>{t('times.item2')}</p>
                     <p>{t('times.item3')}</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
