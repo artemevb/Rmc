@@ -38,6 +38,12 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://rmcdeluxe.com/en/property-search</loc>
+  <lastmod>2024-10-16T06:10:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
   <loc>https://rmcdeluxe.com/ru</loc>
   <lastmod>2024-10-16T06:10:30+00:00</lastmod>
   <priority>1.00</priority>
@@ -68,6 +74,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://rmcdeluxe.com/ru/property-search</loc>
+  <lastmod>2024-10-16T06:10:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://rmcdeluxe.com/uz</loc>
   <lastmod>2024-10-16T06:10:30+00:00</lastmod>
   <priority>1.00</priority>
@@ -94,6 +105,11 @@
 </url>
 <url>
   <loc>https://rmcdeluxe.com/uz/new-buildings</loc>
+  <lastmod>2024-10-16T06:10:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://rmcdeluxe.com/uz/property-search</loc>
   <lastmod>2024-10-16T06:10:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
