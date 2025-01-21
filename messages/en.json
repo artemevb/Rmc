@@ -225,8 +225,8 @@
       "text-2-subtitle": "After selecting the property, the process of paying the booking fee and awaiting the sale and purchase agreement (SPA) from the developer begins.",
       "text-3": "Payment of the first installment – down payment",
       "text-3-subtitle": "The amount of the first installment depends on the payment plan of the specific development and is usually 10 or 20% of the property value.",
-      "text-4": "Registration with the Land Department",
-      "text-4-subtitle": "Once all the documents are in place, registration takes about one day. After that, the buyer receives the Title Deed (proof of ownership)."
+      "text-4": "Registration in the Land Department",
+      "text-4-subtitle": "After signing the Sales and Purchase Agreement (SPA), the buyer receives the Oqood document, which confirms the registration of ownership at the construction stage. The final ownership document (Title Deed) is issued upon completion of construction and key handover."
     },
     "PopularReviews": {
       "title": "Frequently Asked Questions",
@@ -791,16 +791,17 @@
       "title": "Required Documents and Timelines",
       "documents": {
         "document_icon_alt": "Document Icon",
-        "doc1": "Cadastral Plan",
-        "doc2": "Certificate of Ownership",
-        "doc3": "Technical Passport of the Property",
-        "doc4": "Purchase and Sale Agreement",
-        "doc5": "Documents Confirming No Encumbrances",
-        "doc6": "Documents Confirming Land Ownership",
-        "doc7": "Extract from the Unified State Register of Real Estate (USRRE)",
-        "doc8": "Passport Details of the Parties",
-        "doc9": "Certificate of No Debt for Utility Payments",
-        "doc10": "Property Handover Act"
+        "doc1": "Title Deed",
+        "doc2": "Memorandum of Understanding (MOU)",
+        "doc3": "NOC from the developer (document confirming no outstanding debts)",
+        "doc4": "Passport details of both parties",
+        "doc5": "Emirates ID and visa (if available)",
+        "doc6": "Deposit cheque (usually around 10%)",
+
+        "doc7": "Паспортные данные сторон",
+        "doc8": "Справка об отсутствии задолженности по коммунальным платежам",
+        "doc9": "Эмиратский ID (Emirates ID) и виза (если имеются)",
+        "doc10": "Акт приема-передачи объекта"
       },
       "timeframes": {
         "time_icon_alt": "Time Icon",
@@ -844,10 +845,8 @@
       "step3_description": "Organizing viewings of selected properties with the client.",
       "step4_title": "Legal Document Verification",
       "step4_description": "Verifying the legal status of properties and the presence of any restrictions.",
-      "step5_title": "Contract Conclusion",
-      "step5_description": "Preparing, signing, and verifying necessary documents.",
-      "step6_title": "Signing the Main Contract",
-      "step6_description": "Notarizing the purchase and sale agreement.",
+      "step6_title": "Signing the Main Agreement",
+      "step6_description": "Preparation, signing, and verification of necessary documents. Notarization of the purchase and sale agreement.",
       "step7_title": "Final Stage",
       "step7_description": "Receiving the keys and completing the transaction."
     },
@@ -874,7 +873,7 @@
         "doc3": "Technical Passport of the Property",
         "doc4": "Purchase and Sale Agreement (Draft)",
         "doc5": "Documents Confirming No Encumbrances (Certificate from Rosreestr or Extract from USRRE)",
-        "doc6": "Documents Confirming Land Ownership (if applicable)",
+        "doc6": "",
         "doc7": "Extract from the USRRE (Unified State Register of Real Estate)",
         "doc8": "Passport Details of the Transaction Parties",
         "doc9": "Certificate of No Debt for Utility Payments",

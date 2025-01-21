@@ -130,7 +130,7 @@ export default function Scheme() {
                     </div>
 
                     {/** Блок 5 */}
-                    <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2 xl:col-span-1">
+                    {/* <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2 xl:col-span-1">
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
@@ -154,7 +154,7 @@ export default function Scheme() {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/** Блок 6 */}
                     <div className="max-xl:border-l-2 relative border-[#EAEAEA] xl:border-t-2">
@@ -170,7 +170,7 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                06
+                                05
                             </div>
                             <div className="max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh">
@@ -197,7 +197,7 @@ export default function Scheme() {
                         </div>
                         <div className='flex flex-col mdl:flex-row mdl:gap-[15px] slg:gap-[35px] xl:flex-col justify-start items-start max-xl:pl-8 xl:mt-[40px]'>
                             <div className='rounded-full w-[50px] h-[50px] mdx:w-[70px] mdx:h-[70px] xl:w-[102px] xl:h-[102px] bg-corporate flex items-center justify-center text-white text-[20px] mdx:text-[25px] xl:text-[35px] font-medium xl:font-semibold'>
-                                07
+                                06
                             </div>
                             <div className="max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
                                 <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh">

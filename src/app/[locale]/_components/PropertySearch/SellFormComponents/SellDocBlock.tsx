@@ -29,7 +29,7 @@ export default function Scheme() {
                         <p>{t('documents.doc3')}</p>
                         <p>{t('documents.doc4')}</p>
                         <p>{t('documents.doc5')}</p>
-                        <p>{t('documents.doc6')}</p>
+                        {/* <p>{t('documents.doc6')}</p> */}
                         <p>{t('documents.doc7')}</p>
                         <p>{t('documents.doc8')}</p>
                         <p>{t('documents.doc9')}</p>

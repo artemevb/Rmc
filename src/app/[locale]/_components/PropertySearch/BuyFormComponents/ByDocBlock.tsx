@@ -29,10 +29,10 @@ export default function ByDockBlock() {
                         <p>{t('documents.doc4')}</p>
                         <p>{t('documents.doc5')}</p>
                         <p>{t('documents.doc6')}</p>
-                        <p>{t('documents.doc7')}</p>
+                        {/* <p>{t('documents.doc7')}</p>
                         <p>{t('documents.doc8')}</p>
                         <p>{t('documents.doc9')}</p>
-                        <p>{t('documents.doc10')}</p>
+                        <p>{t('documents.doc10')}</p> */}
                     </div>
                 </div>
                 <div className='px-[20px] mdx:px-[40px] mdx:py-[40px] py-[25px] border w-full'>

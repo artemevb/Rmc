@@ -225,8 +225,8 @@
       "text-2-subtitle": "Ob'ektni tanlaganingizdan so'ng, bron to'lovini amalga oshirish va quruvchidan sotib olish va sotish shartnomasini (SPA) kutish jarayoni boshlanadi.",
       "text-3": "Birinchi to'lov — down payment",
       "text-3-subtitle": "Birinchi to'lovning miqdori muayyan kompleksning to'lov rejasiga bog'liq bo'lib, odatda ob'ekt narxining 10 yoki 20 foiziga teng bo'ladi.",
-      "text-4": "Yer bo'limida ro'yxatga olish",
-      "text-4-subtitle": "Barcha hujjatlar tayyor bo'lsa, ro'yxatga olish bir kun davom etadi. Shundan so'ng, xaridor mulk huquqi to'g'risidagi hujjat — Title Deed (egalik huquqini tasdiqlovchi hujjat)ni oladi."
+      "text-4": "Yer departamentida ro'yxatdan o'tish",
+      "text-4-subtitle": "Savdo-sotib olish shartnomasini (SPA) imzolagandan so'ng, xaridor qurilish bosqichida mulk huquqini ro'yxatdan o'tkazishni tasdiqlovchi Oqood hujjatini oladi. Mulk huquqining yakuniy hujjati (Title Deed) qurilish tugagandan va kalitlar topshirilgandan so'ng beriladi."
     },
     "PopularReviews": {
       "title": "Tez-tez So'raladigan Savollar",
@@ -784,17 +784,18 @@
     "ByDockBlock": {
       "title": "Kerakli hujjatlar va muddatlar",
       "documents": {
-        "document_icon_alt": "Hujjat ikonkasi",
-        "doc1": "Kadastr reja",
-        "doc2": "Mulk huquqini tasdiqlovchi guvohnoma",
-        "doc3": "Obyektning texnik pasporti",
-        "doc4": "Sotib olish-sotish shartnomasi",
-        "doc5": "Yuklamalarning yo‘qligini tasdiqlovchi hujjatlar",
-        "doc6": "Yerga mulk huquqini tasdiqlovchi hujjatlar",
-        "doc7": "EGRN (Yagona davlat mulk reestridan olingan chiqarma)",
-        "doc8": "Tomonlarning pasport ma'lumotlari",
-        "doc9": "Kommunal to‘lovlar bo‘yicha qarzning yo‘qligini tasdiqlovchi ma’lumotnoma",
-        "doc10": "Obyektni qabul qilish-qaytarish akti"
+        "document_icon_alt": "Hujjat belgisi",
+        "doc1": "Mulkkorlik guvohnomasi (Title Deed)",
+        "doc2": "Savdo-shartnoma (MOU)",
+        "doc3": "Tadbirkordan NOC (qarzdorlik yo‘qligini tasdiqlovchi hujjat)",
+        "doc4": "Har ikki tomonning pasport ma'lumotlari",
+        "doc5": "Emirates ID va viza (agar mavjud bo‘lsa)",
+        "doc6": "Garov cheki (odatda taxminan 10%)",
+
+        "doc7": "Паспортные данные сторон",
+        "doc8": "Справка об отсутствии задолженности по коммунальным платежам",
+        "doc9": "Эмиратский ID (Emirates ID) и виза (если имеются)",
+        "doc10": "Акт приема-передачи объекта"
       },
       "timeframes": {
         "time_icon_alt": "Vaqt ikonkasi",
@@ -838,10 +839,8 @@
       "step3_description": "Tanlangan obyektlarni mijoz bilan birgalikda ko‘rishlarini tashkil etish.",
       "step4_title": "Hujjatlarni yuridik tekshirish",
       "step4_description": "Obyektlarning yuridik holatini va cheklovlarning mavjudligini tekshirish.",
-      "step5_title": "Shartnoma tuzish",
-      "step5_description": "Zarur hujjatlarni tayyorlash, imzolash va tekshirish.",
       "step6_title": "Asosiy shartnomani imzolash",
-      "step6_description": "Sotib olish-sotish shartnomasini notarial ravishda tasdiqlash.",
+      "step6_description": "Zarur hujjatlarni tayyorlash, imzolash va tekshirish. Oldi-sotdi shartnomasini notarial tasdiqlash.",
       "step7_title": "Yakuni bosqich",
       "step7_description": "Kalitlarni olish va bitimni yakunlash."
     },
@@ -868,7 +867,7 @@
         "doc3": "Obyektning texnik pasporti",
         "doc4": "Sotib olish-sotish shartnomasi (loyiha)",
         "doc5": "Yuklamalarning yo‘qligini tasdiqlovchi hujjatlar (Rosreestrdan olingan ma’lumotnoma yoki EGRNdan chiqarma)",
-        "doc6": "Yerga mulk huquqini tasdiqlovchi hujjatlar (agar qo‘llanilsa)",
+        "doc6": "",
         "doc7": "EGRNdan chiqarma (Yagona davlat mulk reestri)",
         "doc8": "Bitim tomonlarining pasport ma’lumotlari",
         "doc9": "Kommunal to‘lovlar bo‘yicha qarzning yo‘qligini tasdiqlovchi ma’lumotnoma",
@@ -882,17 +881,17 @@
       }
     },
     "infoReviewsSell": {
-      "title": "Как мы проводим покупку",
-      "faq_question_1": "Определение целей и бюджета",
-      "faq_answer_1": "На первом этапе мы определяем ваши цели покупки:\n - Жилье для жизни\n - Инвестиции с целью получения дохода\n - Коммерческое использование.\n Также формируем бюджет и подбираем объекты, которые соответствуют вашим возможностям и ожиданиям.",
-      "faq_question_2": "Поиск объектов",
-      "faq_answer_2": "Мы проводим тщательный анализ рынка недвижимости и подбираем лучшие предложения на основе ваших требований.\nНаши специалисты предоставляют детальный обзор всех подходящих объектов, включая их стоимость, расположение и преимущества.",
-      "faq_question_3": "Осмотр объектов",
-      "faq_answer_3": "На этом этапе вы сможете увидеть недвижимость лично, оценить инфраструктуру и задать интересующие вопросы.",
-      "faq_question_4": "Заключение договора",
-      "faq_answer_4": "Мы сопровождаем вас на всех этапах оформления сделки:\n- Проверка юридической чистоты объекта\n- Подготовка всех необходимых документов\n- Подписание договора купли-продажи",
-      "faq_question_5": "Заключительный этап",
-      "faq_answer_5": "На финальной стадии мы обеспечиваем успешное завершение сделки:\n- Регистрация права собственности на объект\n- Передача ключей и выполнение всех обязательств сторон\nС нами покупка недвижимости проходит безопасно, прозрачно и без лишних сложностей."
+      "title": "Qanday qilib sotib olish jarayoni amalga oshiriladi",
+      "faq_question_1": "Maqsadlar va byudjetni aniqlash",
+      "faq_answer_1": "Birinchi bosqichda biz sizning sotib olish maqsadlaringizni aniqlaymiz:\n - Yashash uchun uy-joy\n - Daromad olish uchun investitsiya\n - Tijorat foydalanish.\n Shuningdek, byudjetni shakllantirib, sizning imkoniyatlaringiz va kutishlaringizga mos keladigan obyektlarni tanlaymiz.",
+      "faq_question_2": "Obyektlarni qidirish",
+      "faq_answer_2": "Biz ko'chmas mulk bozorini batafsil tahlil qilamiz va talablaringizga mos keladigan eng yaxshi takliflarni tanlaymiz.\nMutaxassislarimiz barcha mos obyektlarning batafsil sharhini taqdim etadi, jumladan ularning narxi, joylashuvi va afzalliklari.",
+      "faq_question_3": "Obyektlarni ko'rib chiqish",
+      "faq_answer_3": "Ushbu bosqichda siz ko'chmas mulkni shaxsan ko'rishingiz, infratuzilmani baholashingiz va qiziqtirgan savollaringizni berishingiz mumkin.",
+      "faq_question_4": "Shartnoma tuzish",
+      "faq_answer_4": "Biz sizni bitimning barcha bosqichlarida kuzatamiz:\n- Obyektning huquqiy tozaligini tekshirish\n- Kerakli hujjatlarni tayyorlash\n- Oldi-sotdi shartnomasini imzolash",
+      "faq_question_5": "Yakuniy bosqich",
+      "faq_answer_5": "Oxirgi bosqichda biz bitimning muvaffaqiyatli yakunlanishini ta'minlaymiz:\n- Obyektga mulk huquqini ro'yxatdan o'tkazish\n- Kalitlarni topshirish va tomonlarning barcha majburiyatlarini bajarish\nBiz bilan ko'chmas mulk sotib olish xavfsiz, shaffof va ortiqcha qiyinchiliklarsiz amalga oshiriladi."
     },
     "PopularReviewsSell": {
       "title": "Ko‘p beriladigan savollar",
