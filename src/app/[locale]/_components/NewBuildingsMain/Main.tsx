@@ -242,9 +242,9 @@ export default function Invest({ locale }: InvestProps) {
     return (
         <>
             <div className='w-full h-auto flex flex-col mx-auto px-4 max-w-full md:max-w-[1440px]'>
-                <h3 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-w-[710px]'>
+                <h2 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[38px] mdx:leading-[50px] xl:leading-[70px] max-w-[710px]'>
                     {t('title')}
-                </h3>
+                </h2>
                 <div ref={filtersRef} className='flex flex-wrap gap-[8px] mdx:gap-[12px] mt-[20px] mdx:mt-[40px] xl:mt-[50px] relative'>
                     {/* Фильтр District */}
                     <div className='relative'>

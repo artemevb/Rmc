@@ -36,7 +36,7 @@ const metadataByLocale: LocaleMetadata = {
         'Explore a wide range of properties in Dubai with RMC De Luxe. Our expert team provides full support—whether you are renting, buying, or investing. Let us help you find the perfect home or investment opportunity.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Logo',
@@ -51,7 +51,7 @@ const metadataByLocale: LocaleMetadata = {
         'Find your ideal Dubai property with RMC De Luxe. From new developments to luxury villas, our filters make it easy to discover your next home or investment.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Property Search',
@@ -80,7 +80,7 @@ const metadataByLocale: LocaleMetadata = {
         'Откройте для себя широкий выбор недвижимости в Дубае с RMC De Luxe. Мы помогаем с покупкой, арендой и инвестициями, обеспечивая полную прозрачность и надежность.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Logo',
@@ -95,7 +95,7 @@ const metadataByLocale: LocaleMetadata = {
         'Найдите недвижимость вашей мечты в Дубае вместе с RMC De Luxe. Удобные фильтры, юридическая поддержка и 14 лет опыта на рынке.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Logo',
@@ -124,7 +124,7 @@ const metadataByLocale: LocaleMetadata = {
         'RMC De Luxe bilan Dubayda keng turdagi ko‘chmas mulkni o‘rganing. Ijaraga, sotib olishga yoki investitsiya kiritishga yordam beramiz — hammasi ishonchli va shaffof tarzda amalga oshadi.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Logo',
@@ -139,7 +139,7 @@ const metadataByLocale: LocaleMetadata = {
         'Dubaydagi orzuingizdagi ko‘chmas mulkni RMC De Luxe bilan toping. Filtrlash tizimimiz barcha turdagi obyektlarni tez va oson qidirishga yordam beradi.',
       images: [
         {
-          url: 'https://rmcdeluxe.com/property-search-og-image.jpg',
+          url: 'https://rmcdeluxe.com/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'RMC De Luxe - Logo',

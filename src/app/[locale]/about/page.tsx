@@ -20,7 +20,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Discover RMC De Luxe, a real estate agency with 14 years of experience in property rentals and sales. Your data is secure, and every step is transparent and reliable.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - About Us',
@@ -34,7 +34,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Discover RMC De Luxe, a real estate agency with 14 years of experience in property rentals and sales. Your data is secure, and every step is transparent and reliable.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - About Us',
@@ -51,7 +51,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Узнайте больше о RMC De Luxe, риэлторском агентстве с 14-летним опытом, предоставляющем услуги аренды и продажи недвижимости. Ваши данные под надежной защитой, а каждый шаг прозрачен и предсказуем.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - О нас',
@@ -65,7 +65,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Узнайте больше о RMC De Luxe, риэлторском агентстве с 14-летним опытом, предоставляющем услуги аренды и продажи недвижимости. Ваши данные под надежной защитой, а каждый шаг прозрачен и предсказуем.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - О нас',
@@ -82,7 +82,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'RMC De Luxe — ko‘chmas mulk ijarasi va savdosi bo‘yicha 14 yillik tajribaga ega agentlik. Xizmatlarimiz xavfsiz, har bir bosqich aniq va ishonchli.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - Biz haqimizda',
@@ -96,7 +96,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'RMC De Luxe — ko‘chmas mulk ijarasi va savdosi bo‘yicha 14 yillik tajribaga ega agentlik. Xizmatlarimiz xavfsiz, har bir bosqich aniq va ishonchli.',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/about-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'RMC De Luxe - Biz haqimizda',
