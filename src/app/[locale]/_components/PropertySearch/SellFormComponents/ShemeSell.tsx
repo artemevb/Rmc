@@ -38,9 +38,9 @@ export default function Scheme() {
                                 {t('steps.01')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.01Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.01Description')}
                                 </p>
@@ -65,9 +65,9 @@ export default function Scheme() {
                                 {t('steps.02')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.02Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.02Description')}
                                 </p>
@@ -92,9 +92,9 @@ export default function Scheme() {
                                 {t('steps.03')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
                                     {t('steps.03Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.03Description')}
                                 </p>
@@ -119,9 +119,9 @@ export default function Scheme() {
                                 {t('steps.04')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.04Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.04Description')}
                                 </p>
@@ -146,9 +146,9 @@ export default function Scheme() {
                                 {t('steps.05')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.05Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.05Description')}
                                 </p>
@@ -173,9 +173,9 @@ export default function Scheme() {
                                 {t('steps.06')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.06Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.06Description')}
                                 </p>
@@ -200,9 +200,9 @@ export default function Scheme() {
                                 {t('steps.07')}
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('steps.07Title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('steps.07Description')}
                                 </p>

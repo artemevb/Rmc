@@ -16,10 +16,8 @@ interface News {
   content?: ContentItem[];
 }
 
-// Тип для элементов массива content
 type ContentItem = TextBlock | ImageBlock;
 
-// Интерфейс для текстового блока
 interface TextBlock {
   _type: 'textBlock';
   subtitle?: { [key: string]: string };

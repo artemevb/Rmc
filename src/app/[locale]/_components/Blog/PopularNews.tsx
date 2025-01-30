@@ -50,8 +50,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                     mainImage
                 }`;
                 const data: NewsItem[] = await client.fetch(query);
-
-                // Форматируем дату и проверяем наличие mainImage
                 const formattedData = data.map(item => ({
                     ...item,
                     date: formatDate(item.date),
@@ -67,9 +65,9 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
 
     return (
         <div className='w-full max-w-[1440px] mx-auto px-2 flex flex-col gap-8 mb-[90px] mdx:mb-[150px] 2xl:mb-[190px] '>
-            <h2 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
+            <h1 className='text-[30px] mdx:text-[35px] mdl:text-[40px] xl:text-[50px] font-medium'>
                 {t("title-popular")}
-            </h2>
+            </h1>
             <div className='w-full h-full grid mdx:grid-cols-2 2xl:grid-cols-12 gap-[12px] mdx:gap-[16px] xl:max-h-[600px]'>
                 {/* Первый блок (популярная новость) */}
                 {visibleNews[0] && (
@@ -84,7 +82,6 @@ const NewsComp: React.FC<NewsCompProps> = ({ locale }) => {
                         </Link>
                     </div>
                 )}
-                {/* Остальные блоки (маленькие карточки) */}
                 <div className="mdx:col-span-2 2xl:col-span-4 grid grid-cols-1 gap-[12px] mdx:grid-cols-2 2xl:grid-cols-1 ">
                     {visibleNews.slice(1).map((item, i) => (
                         <Link key={i} href={`/${locale}/blog/${item.slug}`} passHref>

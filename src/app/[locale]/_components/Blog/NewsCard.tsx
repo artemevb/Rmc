@@ -66,11 +66,11 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
           </p>
           <Image
             src={Arrow_Gold}
-            width={20} // Adjusted to match the className width
-            height={20} // Adjusted to match the className width
+            width={20}
+            height={20}
             quality={100}
             alt="Arrow Icon"
-            className="w-[25px] h-[25px]" // Ensure height matches for consistent sizing
+            className="w-[25px] h-[25px]"
           />
         </div>
       </div>

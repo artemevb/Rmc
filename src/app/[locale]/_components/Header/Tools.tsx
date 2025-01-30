@@ -193,8 +193,6 @@ const LocalSwitcher: React.FC<NavigationProps> = ({ navOptions, locale }) => {
             className="w-6 h-6 max-mdx:w-[20px] max-mdx:h-[20px]"
           />
         </button>
-
-        {/* Рендер компонента Menu */}
         {menu && (
           <Menu menu={menu} closeMenu={handleCloseMenu} navOptions={navOptions} locale={locale} />
         )}

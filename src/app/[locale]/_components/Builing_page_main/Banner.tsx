@@ -113,12 +113,12 @@ export default function Banner({ locale, data }: BannerProps) {
               {/* Градиентный затемнитель */}
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent opacity-50"></div>
               <div className="absolute bottom-10 2xl:bottom-14 ml-[10px] mdx:ml-[20px] xl:left-10 3xl:left-[10%] text-white">
-                <h2
+                <h1
                   className="text-[35px] mdx:text-[55px] mdl:text-[60px] lg:text-[70px] xl:text-[75px] 3xl:text-[80px] font-medium max-w-[520px] lg:max-w-[650px] xl:max-w-[710px]"
                   style={{ lineHeight: '1.1' }}
                 >
                   {getLocalizedField(data.subtitle) || t('default-subtitle')}
-                </h2>
+                </h1>
                 <p className="text-[16px] mdx:text-[20px] mb-[25px] mdx:mb-[35px] mt-[10px]">
                   {data?.price ? `${data.price.toLocaleString()}` : t('default-price')}
                 </p>
@@ -149,7 +149,7 @@ export default function Banner({ locale, data }: BannerProps) {
               src={arrowLeft.src}
               width={70}
               height={70}
-              alt="Previous"
+              alt="Previous arrow"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
           </div>
@@ -162,7 +162,7 @@ export default function Banner({ locale, data }: BannerProps) {
               width={70}
               height={70}
               src={arrowRight.src}
-              alt="Next"
+              alt="Next arrow"
               className="w-[50px] h-[50px] mdx:h-[60px] mdx:w-[60px] xl:w-[70px] xl:h-[70px]"
             />
           </div>

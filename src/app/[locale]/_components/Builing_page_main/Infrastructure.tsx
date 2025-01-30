@@ -114,7 +114,7 @@ export default function Infrastructure({ locale, complexSlug }: InfrastructurePr
           <div className="w-full h-full overflow-hidden xl:max-w-[710px] xl:max-h-[564px] max-mdx:mt-[25px] mdx:mt-[40px] xl:mt-0">
             <Image
               src={apiData[category].images.desktop}
-              alt="Buildings"
+              alt="Buildings image"
               quality={100}
               className="object-cover w-full h-full"
               width={1500}

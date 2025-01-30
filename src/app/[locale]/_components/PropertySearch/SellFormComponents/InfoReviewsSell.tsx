@@ -38,7 +38,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
         {isOpen ? (
             <Image
                 src={openIcon}
-                alt="Open"
+                alt="Open icon"
                 width={50}
                 height={50}
                 quality={100}
@@ -47,7 +47,7 @@ const Arrow: React.FC<ArrowProps> = ({ isOpen }) => (
         ) : (
             <Image
                 src={closedIcon}
-                alt="Closed"
+                alt="Closed icon"
                 width={50}
                 height={50}
                 quality={100}

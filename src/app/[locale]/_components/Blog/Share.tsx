@@ -16,7 +16,6 @@ interface ShareProps {
 export default function Share({ news }: ShareProps) {
     const t = useTranslations('Blog.Share');
 
-    // Extracting the first available image URL from the news content
     const newsImage = news.content.find(item => item._type === 'image')?.imageUrl;
 
     const icons = [
@@ -53,7 +52,6 @@ export default function Share({ news }: ShareProps) {
             <ToastContainer />
             <div className='mdl:mx-auto max-w-[1440px]'>
                 <div className='max-xl:mx-[15px] xl:flex xl:flex-row mdl:items-center mdl:justify-between xl:justify-center relative mdl:py-4'>
-                    {/* Render the image block only if newsImage exists */}
                     {newsImage && (
                         <div className='mdl:items-center mdl:flex flex justify-start content-left xl:mt-[13%]'>
                             <Image

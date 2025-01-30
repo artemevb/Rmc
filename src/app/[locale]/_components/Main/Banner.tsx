@@ -38,7 +38,7 @@ interface Slide {
     uz?: string;
     en: string;
   };
-  buttonText?: { // Make buttonText optional
+  buttonText?: {
     ru?: string;
     uz?: string;
     en?: string;

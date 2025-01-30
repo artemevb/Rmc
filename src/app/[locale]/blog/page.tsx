@@ -23,7 +23,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Explore insightful articles on real estate sales, market trends, and tips for buying or selling properties. Stay informed with RMC De Luxe!',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/articles-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'logo',
@@ -37,7 +37,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Explore insightful articles on real estate sales, market trends, and tips for buying or selling properties. Stay informed with RMC De Luxe!',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/articles-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'logo',
@@ -54,7 +54,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Изучите статьи о продаже недвижимости, рыночных трендах и советах по покупке или продаже. Будьте в курсе с RMC De Luxe!',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/articles-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'logo',
@@ -68,7 +68,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Изучите статьи о продаже недвижимости, рыночных трендах и советах по покупке или продаже. Будьте в курсе с RMC De Luxe!',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/articles-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'logo',
@@ -99,7 +99,7 @@ const metadataByLocale: LocaleMetadata = {
             description: 'Ko‘chmas mulk savdosi, bozor tendensiyalari va mulk sotib olish yoki sotish bo‘yicha maslahatlarni o‘rganing. RMC De Luxe bilan xabardor bo‘ling!',
             images: [
                 {
-                    url: 'https://rmcdeluxe.com/articles-og-image.jpg',
+                    url: 'https://rmcdeluxe.com/og-image.jpg',
                     width: 1200,
                     height: 630,
                     alt: 'logo',

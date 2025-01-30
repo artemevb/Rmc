@@ -34,7 +34,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
                     width={500}
                     quality={100}
                     height={500}
-                    alt="Sort Icon"
+                    alt="sent Icon"
                     className='w-[80px] h-full mdx:w-[90px]'
                 />
                 <h2 className="text-[20px] mdx:text-[25px] text-corporate font-medium mb-[4px] mt-[20px]">{t("your_message_sent")}</h2>

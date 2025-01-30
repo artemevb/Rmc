@@ -38,13 +38,13 @@ export default function Invest() {
                 <Image
                     src={build2}
                     quality={100}
-                    alt="Banner Image"
+                    alt="building Image"
                     className="w-full h-auto object-cover min-h-[200px] xl:hidden"
                 />
                 <Image
                     src={build2}
                     quality={100}
-                    alt="Banner Image"
+                    alt="building Image"
                     layout="responsive"
                     className="w-full h-full object-cover hidden xl:block "
                 />

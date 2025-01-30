@@ -455,7 +455,7 @@ interface PageContentProps {
                                 <Image
                                     src={arrowRightWhite}
                                     quality={100}
-                                    alt="Arrow icon"
+                                    alt="Arrow right icon"
                                     width={24}
                                     height={24}
                                 />

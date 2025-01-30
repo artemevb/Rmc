@@ -19,7 +19,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px]  max-xl:-left-[14px]  xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Medical Equipment"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -32,9 +32,9 @@ export default function Scheme() {
                                 01
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('text-1')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('text-1-subtitle')}
                                 </p>
@@ -45,7 +45,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Medical Equipment"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -58,9 +58,9 @@ export default function Scheme() {
                                 02
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('text-2')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('text-2-subtitle')}
                                 </p>
@@ -71,7 +71,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Medical Equipment"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -84,9 +84,9 @@ export default function Scheme() {
                                 03
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
                                     {t('text-3')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('text-3-subtitle')}
                                 </p>
@@ -97,7 +97,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Medical Equipment"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -110,9 +110,9 @@ export default function Scheme() {
                                 04
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('text-4')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('text-4-subtitle')}
                                 </p>

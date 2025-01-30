@@ -7,83 +7,206 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Script from 'next/script';
-import CookieConsent from "./_components/CookieConsent";
+import CookieConsent from './_components/CookieConsent';
+
+export type Locales = 'ru' | 'en' | 'uz';
 
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
-
-export const metadata: Metadata = {
-  title: 'RMC De Luxe | Real Estate Sales, Rentals & Property Management in Dubai',
-  description:
-    'RMC De Luxe offers comprehensive real estate services in Dubai: property sales and purchases, rentals and management, plus consultations on company formation, account opening, and mortgage processing.',
-  keywords:
-    'Dubai real estate, property sales, property purchases, rentals, property management, company formation, mortgage processing, RMC De Luxe',
-  authors: [{ name: 'RMC De Luxe', url: 'https://rmcdeluxe.com' }],
-  viewport: 'width=device-width, initial-scale=1',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://rmcdeluxe.com',
-    title: 'RMC De Luxe | Real Estate Sales, Rentals & Property Management in Dubai',
+const metadataByLocale: Record<Locales, Metadata> = {
+  en: {
+    title: 'RMC De Luxe | Rental, Sale & Purchase of Real Estate in Dubai',
     description:
-      'Comprehensive real estate services: property sales and purchases, rentals, management, and guidance on company formation, account setup, and mortgage processes in Dubai.',
-    siteName: 'RMC De Luxe',
-    images: [
-      {
-        url: 'https://rmcdeluxe.com/og-image.jpg?v=2',
-        width: 1200,
-        height: 630,
-        alt: 'RMC De Luxe - Dubai Real Estate Services',
-      },
+      'RMC De Luxe provides professional real estate services: renting, selling, and buying property in Dubai. Expert guidance on company formation, banking, and mortgages.',
+    keywords: [
+      'Dubai real estate',
+      'rent apartments in Dubai',
+      'buy property in UAE',
+      'mortgage consulting',
+      'company formation',
+      'RMC De Luxe'
     ],
+    authors: [{ name: 'RMC De Luxe', url: 'https://rmcdeluxe.com' }],
+    viewport: 'width=device-width, initial-scale=1',
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: 'https://rmcdeluxe.com/en',
+      title: 'RMC De Luxe – Dubai Real Estate Agency',
+      description:
+        'Comprehensive real estate solutions for apartments, villas, and commercial properties in Dubai. Sales, rentals, and investment consulting.',
+      siteName: 'RMC De Luxe',
+      images: [
+        {
+          url: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+          width: 1200,
+          height: 630,
+          alt: 'RMC De Luxe - Dubai Real Estate Services',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'RMC De Luxe | Real Estate in Dubai',
+      description:
+        'Professional agency for rentals, sales, and property management in Dubai.',
+      images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+    },
+    icons: {
+      icon: '/favicon.ico',
+    },
+    alternates: {
+      canonical: 'https://rmcdeluxe.com/en',
+      languages: {
+        en: '/en',
+        ru: '/ru',
+        uz: '/uz',
+      },
+    },
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'RMC De Luxe | Real Estate Sales, Rentals & Property Management in Dubai',
+  ru: {
+    title: 'RMC De Luxe | Аренда, Продажа и Покупка Недвижимости в Дубае',
     description:
-      'Full real estate solutions in Dubai: sales and purchases, rental services, and expert support for company formation and mortgage processing.',
-    images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+      'RMC De Luxe — профессиональные услуги по аренде, продаже и покупке недвижимости в Дубае. Консультации по открытию компаний и ипотеке.',
+    keywords: [
+      'недвижимость в дубае',
+      'купить квартиру в оаэ',
+      'аренда недвижимости дубай',
+      'ипотека в дубае',
+      'формирование компании',
+      'RMC De Luxe'
+    ],
+    authors: [{ name: 'RMC De Luxe', url: 'https://rmcdeluxe.com' }],
+    viewport: 'width=device-width, initial-scale=1',
+    openGraph: {
+      type: 'website',
+      locale: 'ru_RU',
+      url: 'https://rmcdeluxe.com/ru',
+      title: 'RMC De Luxe – Недвижимость в Дубае',
+      description:
+        'Все услуги в сфере недвижимости: аренда, продажа и покупка квартир, вилл и коммерческих объектов в Дубае.',
+      siteName: 'RMC De Luxe',
+      images: [
+        {
+          url: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+          width: 1200,
+          height: 630,
+          alt: 'RMC De Luxe - Недвижимость в Дубае',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'RMC De Luxe | Недвижимость в Дубае',
+      description:
+        'Аренда, продажа и покупка недвижимости в Дубае. Полный спектр услуг и консультаций.',
+      images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+    },
+    icons: {
+      icon: '/favicon.ico',
+    },
+    alternates: {
+      canonical: 'https://rmcdeluxe.com/ru',
+      languages: {
+        en: '/en',
+        ru: '/ru',
+        uz: '/uz',
+      },
+    },
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
-  alternates: {
-    canonical: 'https://rmcdeluxe.com',
-    languages: {
-      en: '/en',
-      ru: '/ru',
-      uz: '/uz',
+  uz: {
+    title: 'RMC De Luxe | Dubayda Ko‘chmas Mulk: Ijara, Sotish va Sotib Olish',
+    description:
+      'RMC De Luxe Dubayda ko‘chmas mulk bo‘yicha profesional xizmatlar: ijara, sotish, sotib olish. Kompaniya ochish va ipoteka bo‘yicha maslahatlar.',
+    keywords: [
+      'Dubay ko‘chmas mulk',
+      'Dubayda kvartira sotish',
+      'ijara xizmatlari',
+      'ipoteka maslahati',
+      'kompaniya ro‘yxatdan o‘tkazish',
+      'RMC De Luxe'
+    ],
+    authors: [{ name: 'RMC De Luxe', url: 'https://rmcdeluxe.com' }],
+    viewport: 'width=device-width, initial-scale=1',
+    openGraph: {
+      type: 'website',
+      locale: 'uz_UZ',
+      url: 'https://rmcdeluxe.com/uz',
+      title: 'RMC De Luxe – Dubayda Ko‘chmas Mulk Xizmatlari',
+      description:
+        'Kvartira va villalarni ijaraga olish, sotish yoki sotib olish. Shuningdek, kompaniya ro‘yxatdan o‘tkazish va ipoteka bo‘yicha maslahatlar.',
+      siteName: 'RMC De Luxe',
+      images: [
+        {
+          url: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+          width: 1200,
+          height: 630,
+          alt: 'RMC De Luxe - Dubay Ko‘chmas Mulk',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'RMC De Luxe | Dubay Ko‘chmas Mulk',
+      description:
+        'Dubayda ijara, sotish va sotib olish bo‘yicha profesional xizmatlar. Ipoteka va kompaniya ochish bo‘yicha maslahatlar.',
+      images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
+    },
+    icons: {
+      icon: '/favicon.ico',
+    },
+    alternates: {
+      canonical: 'https://rmcdeluxe.com/uz',
+      languages: {
+        en: '/en',
+        ru: '/ru',
+        uz: '/uz',
+      },
     },
   },
 };
 
-export type Locales = 'ru' | 'en' | 'uz';
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale?: string };
+}): Promise<Metadata> {
+  const localeParam = params.locale;
+  let locale: Locales;
+
+  if (localeParam === 'ru') {
+    locale = 'ru';
+  } else if (localeParam === 'uz') {
+    locale = 'uz';
+  } else {
+    locale = 'en';
+  }
+
+  return metadataByLocale[locale];
+}
 
 export default async function RootLayout({
   children,
   params,
-}: Readonly<{
+}: {
   children: React.ReactNode;
   params: { locale?: string };
-}>) {
-  // Force English for this example or auto-detect based on params
-  // Here we keep it flexible but default to English
+}) {
+  const localeParam = params.locale;
   const locale: Locales =
-    params?.locale === 'en' ? 'en' :
-    params?.locale === 'uz' ? 'uz' :
-    'ru';
+    localeParam === 'ru' ? 'ru'
+    : localeParam === 'uz' ? 'uz'
+    : 'en';
 
   unstable_setRequestLocale(locale);
-
   const messages = await getMessages({ locale });
 
-  // You can also update your structured data to be in English only if you wish
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "RMC De Luxe",
-    "url": "https://rmcdeluxe.com",
-    "description": "We provide property sales, purchases, rentals, management, and advisory services for company formation and mortgages in Dubai.",
+    "url": `https://rmcdeluxe.com/${locale}`,
+    "description": "We provide real estate services (rent, sale, purchase) in Dubai, plus expert advice on company formation and mortgages.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Dubai Marina, Marina Plaza, 25th floor",
@@ -94,37 +217,7 @@ export default async function RootLayout({
     "telephone": "+97142255220",
     "openingHours": "Mo-Fr 09:00-18:00",
     "image": "https://rmcdeluxe.com/og-image.jpg?v=2",
-    "priceRange": "AED 500,000 - 15,000,000",
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "name": "Real Estate Sales and Purchases",
-        "itemOffered": {
-          "@type": "Apartment",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dubai Marina",
-            "addressCountry": "AE"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "name": "Rentals and Property Management",
-        "itemOffered": {
-          "@type": "RealEstateListing",
-          "description": "Comprehensive rental and management services for residential and commercial properties."
-        }
-      },
-      {
-        "@type": "Offer",
-        "name": "Company Formation & Mortgage Consulting",
-        "itemOffered": {
-          "@type": "FinancialService",
-          "description": "Guidance on business setup, bank accounts, and mortgage processes in Dubai."
-        }
-      }
-    ]
+    "priceRange": "AED 500,000 - 15,000,000"
   };
 
   return (
@@ -132,16 +225,15 @@ export default async function RootLayout({
       <body className={lato.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
-          {children}
+            {children}
           <Footer locale={locale} />
-
           <Script
             id="structured-data"
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(structuredData),
+            }}
           />
-
-          {/* Example FAQ structured data (English only) */}
           <Script
             id="faq-structured-data"
             type="application/ld+json"
@@ -152,25 +244,24 @@ export default async function RootLayout({
                 "mainEntity": [
                   {
                     "@type": "Question",
-                    "name": "What are the main real estate services offered by RMC De Luxe in Dubai?",
+                    "name": "What services does RMC De Luxe offer?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "RMC De Luxe specializes in property sales, purchases, rentals, and property management. We also offer expert consultations on company formation, account opening, and mortgage processes in Dubai."
+                      "text": "RMC De Luxe specializes in property rentals, sales, and purchases in Dubai, with additional support for company formation and mortgage consulting."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "How do I get started with renting or selling a property in Dubai?",
+                    "name": "How do I buy or rent property in Dubai through RMC De Luxe?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Simply contact us with your requirements, and our team will provide personalized recommendations and property tours. We handle everything from paperwork to property management."
+                      "text": "Contact us to discuss your needs. We'll provide property listings, arrange viewings, handle paperwork, and guide you through the entire process."
                     }
                   }
                 ]
               })
             }}
           />
-
           <Script
             id="yandex-metrika"
             strategy="lazyOnload"

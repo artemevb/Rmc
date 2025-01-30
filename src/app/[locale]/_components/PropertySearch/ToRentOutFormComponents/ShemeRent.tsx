@@ -26,7 +26,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -38,9 +38,9 @@ export default function Scheme() {
                                 01
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block1.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block1.paragraph')}
                                 </p>
@@ -53,7 +53,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -65,9 +65,9 @@ export default function Scheme() {
                                 02
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block2.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block2.paragraph')}
                                 </p>
@@ -80,7 +80,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -92,9 +92,9 @@ export default function Scheme() {
                                 03
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px] xl:max-w-[293px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] font-semibold lh ">
                                     {t('block3.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block3.paragraph')}
                                 </p>
@@ -107,7 +107,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -119,9 +119,9 @@ export default function Scheme() {
                                 04
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block4.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block4.paragraph')}
                                 </p>
@@ -134,7 +134,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -146,9 +146,9 @@ export default function Scheme() {
                                 05
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block5.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block5.paragraph')}
                                 </p>
@@ -161,7 +161,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -173,9 +173,9 @@ export default function Scheme() {
                                 06
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block6.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block6.paragraph')}
                                 </p>
@@ -188,7 +188,7 @@ export default function Scheme() {
                         <div className="absolute xl:-top-[6px] max-xl:-left-[14px] max-xl:-top-[-30px] max-mdx:top-[20px] xl:left-[38px] px-2 5xl:px-3 text-black">
                             <Image
                                 src={Marker}
-                                alt="Marker"
+                                alt="Marker icon"
                                 width={1000}
                                 height={1000}
                                 quality={100}
@@ -200,9 +200,9 @@ export default function Scheme() {
                                 07
                             </div>
                             <div className=" max-xl:pb-12 xl:pt-6 xl:pr-8 flex flex-col gap-2 max-mdl:mt-[10px]">
-                                <h1 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
+                                <h4 className="text-[22px] mdx:text-[28px] xl:text-[30px] lh font-semibold">
                                     {t('block7.title')}
-                                </h1>
+                                </h4>
                                 <p className="max-xl:max-w-[600px] text-[16px] mdx:text-[20px] text-[#858585]">
                                     {t('block7.paragraph')}
                                 </p>

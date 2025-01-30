@@ -72,7 +72,7 @@ export default function Banner() {
                         <div className="w-[32%] h-[50%] left-[145px] aspect-w-4 aspect-h-1 absolute bottom-[-30px] z-10">
                             <Image
                                 src={test1}
-                                alt="Medical Equipment"
+                                alt="buildings1"
                                 quality={100}
                                 layout="fill"
                                 objectFit="cover"

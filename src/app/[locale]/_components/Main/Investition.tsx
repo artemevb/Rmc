@@ -19,7 +19,7 @@ interface local {
 
 export default function Banner({ locale }: local) {
     const t = useTranslations('Main.Investition');
-    const [isHovered, setIsHovered] = useState(false); // Хук для отслеживания состояния наведения
+    const [isHovered, setIsHovered] = useState(false); 
 
     const processText = (text: string) => {
         return text.split('\n').map((line, index) => (
@@ -47,10 +47,10 @@ export default function Banner({ locale }: local) {
                             >
                                 <span>{t('button')}</span>
                                 <Image
-                                    src={isHovered ? ArrowRigtWhite : ArrowRigt} // Условная замена иконки
+                                    src={isHovered ? ArrowRigtWhite : ArrowRigt}
                                     quality={100}
                                     alt="Arrow Right"
-                                    width={20}  // Можно задать размер иконки
+                                    width={20}
                                     height={20}
                                     className="ml-2 transition-all duration-300"
                                 />
@@ -88,7 +88,7 @@ export default function Banner({ locale }: local) {
                             <Image
                                 src={test1}
                                 quality={100}
-                                alt="Medical Equipment"
+                                alt="buildings"
                                 layout="fill"
                                 objectFit="cover"
                             />

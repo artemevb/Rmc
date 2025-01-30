@@ -30,7 +30,7 @@ export default function Invest() {
                 <div className='xl:flex flex-row xl:gap-[80px] 4xl:gap-[142px] xl:items-center justify-between w-full h-full'>
                     <div className='xl:w-full xl:max-w-[1092px] xl:ml-[2.3%] 4xl:ml-[12%]'>
                         <div className='font-medium text-[35px] mdx:text-[60px] xl:text-[80px] leading-[43px] mdx:leading-[55px] xl:leading-[80px] max-w-[446px] mb-[20px] block max-xl:mt-[25px] 4xl:mt-[30px]'>
-                            <p className='inline'>{t('title-1')}</p>
+                            <h1 className='inline'>{t('title-1')}</h1>
                             <br />
                             <p className='inline text-corporate'>{t('title-2')}</p>
                         </div>
@@ -77,14 +77,14 @@ export default function Invest() {
                         <Image
                             src={build1}
                             quality={100}
-                            alt="Banner Image"
+                            alt="building Image"
                             layout="responsive"
                             className="w-full h-auto object-cover xl:hidden"
                         />
                         <Image
                             src={build2}
                             quality={100}
-                            alt="Banner Image"
+                            alt="building Image"
                             layout="responsive"
                             className="w-full h-full object-cover hidden xl:block xl:max-w-[828px]"
                         />

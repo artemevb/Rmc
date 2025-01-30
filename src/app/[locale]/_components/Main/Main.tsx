@@ -22,7 +22,7 @@ export default function Main({ locale }: NewsCompProps) {
     <div className=" bg-white flex flex-col gap-[90px] mdl:gap-[130px] xl:gap-[180px]">
       <ScrollToCounter />
       <Banner locale={locale} />
-      <AboutUs locale={locale}/>
+      <AboutUs locale={locale} />
       <PartnersSlider />
       <Investition locale={locale} />
       <Service />

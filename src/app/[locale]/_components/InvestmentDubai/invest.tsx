@@ -18,9 +18,9 @@ export default function Invest() {
             <div>
                 <div className='xl:flex flex-row-reverse xl:gap-[80px] xl:items-center'>
                     <div className='xl:max-w-[772px]'>
-                        <h3 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[30px] mdl:leading-[40px] xl:leading-[50px]'>
+                        <h1 className='font-medium text-[30px] mdx:text-[45px] xl:text-[55px] leading-[30px] mdl:leading-[40px] xl:leading-[50px]'>
                             {formatText(t('title'))}
-                        </h3>
+                        </h1>
                         <div className='text-[16px] font-normal mdx:text-[20px] text-[#858585] mt-[25px] mdx:mt-[30px] xl:mt-[25px]'>
                             {formatText(t('subtitle'))}
                         </div>
@@ -52,14 +52,14 @@ export default function Invest() {
                         <Image
                             src={build1}
                             quality={100}
-                            alt="Banner Image"
+                            alt="build Image"
                             layout="responsive"
                             className="w-full h-auto object-cover xl:hidden"
                         />
                         <Image
                             src={build2}
                             quality={100}
-                            alt="Banner Image"
+                            alt="build Image"
                             layout="responsive"
                             className="w-full h-auto object-cover hidden xl:block"
                         />

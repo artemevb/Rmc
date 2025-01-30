@@ -99,12 +99,11 @@ export default function NewsComp({ locale }: LocaleProps) {
 
       const newsItems: NewsItem[] = await client.fetch<NewsItem[]>(query);
 
-      // Преобразование данных новостей в нужный формат
       const mappedNews: MappedNewsItem[] = newsItems.map((item: NewsItem) => ({
         slug: item.slug.current,
         title: item.title[locale] || item.title['ru'] || '',
         date: formatDate(item.date),
-        viewCounter: item.viewCounter ?? 0, // Используем оператор нулевого слияния
+        viewCounter: item.viewCounter ?? 0, 
         mainImageUrl: item.mainImage?.asset?.url || '',
       }));
 
@@ -117,7 +116,6 @@ export default function NewsComp({ locale }: LocaleProps) {
     }
   };
 
-  // Получение новостей при изменении локали
   useEffect(() => {
     fetchNews();
   }, [locale]);

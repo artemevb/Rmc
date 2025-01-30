@@ -40,20 +40,20 @@ export default function Services() {
                                     <Image
                                         src={key}
                                         quality={100}
-                                        alt={t('card2.imageAlt')}
+                                        alt={t('key image')}
                                         width={450}
                                         height={450}
                                         className='w-full h-full object-cover'
                                     />
                                 </div>
                                 <div className='max-w-[223px] mt-[20px] w-full'>
-                                    {/* Показываем сразу текст и изображения */}
                                     <div className='flex gap-[8px]'>
+                                        {/* Показываем сразу текст и изображения */}
                                         <div className='rounded-full min-w-[18px] min-h-[18px] max-w-[18px] max-h-[18px] bg-corporate flex items-center justify-center'>
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check image"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -65,7 +65,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check image"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -82,7 +82,7 @@ export default function Services() {
                                 <Image
                                     src={key}
                                     quality={100}
-                                    alt={t('card2.imageAlt')}
+                                    alt={t('key image')}
                                     width={450}
                                     height={450}
                                     className='w-full h-full object-cover'
@@ -94,7 +94,7 @@ export default function Services() {
                                         <Image
                                             src={check}
                                             quality={100}
-                                            alt="check"
+                                            alt="check logo"
                                             objectFit="cover"
                                             className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                         />
@@ -106,7 +106,7 @@ export default function Services() {
                                         <Image
                                             src={check}
                                             quality={100}
-                                            alt="check"
+                                            alt="check logo"
                                             objectFit="cover"
                                             className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                         />
@@ -130,7 +130,7 @@ export default function Services() {
                                     <Image
                                         src={scoop}
                                         quality={100}
-                                        alt={t('card3.imageAlt')}
+                                        alt={t('scoop image')}
                                         width={450}
                                         height={450}
                                         className='w-full h-full object-cover'
@@ -143,7 +143,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check logo"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -155,7 +155,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check logo"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -167,7 +167,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check logo"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -184,7 +184,7 @@ export default function Services() {
                                 <Image
                                     src={scoop}
                                     quality={100}
-                                    alt={t('card3.imageAlt')}
+                                    alt={t('scoop image')}
                                     width={450}
                                     height={450}
                                     className='w-full h-full object-cover'
@@ -196,7 +196,7 @@ export default function Services() {
                                         <Image
                                             src={check}
                                             quality={100}
-                                            alt="check"
+                                            alt="check logo"
                                             objectFit="cover"
                                             className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                         />
@@ -208,7 +208,7 @@ export default function Services() {
                                         <Image
                                             src={check}
                                             quality={100}
-                                            alt="check"
+                                            alt="check logo"
                                             objectFit="cover"
                                             className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                         />
@@ -220,7 +220,7 @@ export default function Services() {
                                         <Image
                                             src={check}
                                             quality={100}
-                                            alt="check"
+                                            alt="check logo"
                                             objectFit="cover"
                                             className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                         />
@@ -245,7 +245,7 @@ export default function Services() {
                                 <Image
                                     src={nedvijimost}
                                     quality={100}
-                                    alt={t('card2.imageAlt')}
+                                    alt={t('home image')}
                                     width={450}
                                     height={450}
                                     className='w-full h-full object-cover'
@@ -259,7 +259,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check logo"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />
@@ -278,7 +278,7 @@ export default function Services() {
                                 <Image
                                     src={nedvijimost}
                                     quality={100}
-                                    alt={t('card4.imageAlt')}
+                                    alt={t('home image')}
                                     width={350}
                                     height={350}
                                     className='w-full h-full object-cover'
@@ -292,7 +292,7 @@ export default function Services() {
                                             <Image
                                                 src={check}
                                                 quality={100}
-                                                alt="check"
+                                                alt="check logo"
                                                 objectFit="cover"
                                                 className='min-w-[14.211px] min-h-[13.263px] max-w-[14.211px] max-h-[13.263px] w-full'
                                             />

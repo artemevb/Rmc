@@ -25,9 +25,9 @@ export default function Banner() {
     return (
         <div className='w-full h-auto flex flex-col mx-auto max-w-[1440px]'>
             <div className='mx-[10px]'>
-                <h2 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px]  leading-[23px] mdl:leading-[34px] xl:leading-[53px]">
+                <h1 className="text-[30px] mdx:text-[40px] mdl:text-[45px] xl:text-[50px] 2xl:text-[55px] font-medium lh pb-[40px]  leading-[23px] mdl:leading-[34px] xl:leading-[53px]">
                     {processText(t('title'))}
-                </h2>
+                </h1>
                 <div className='grid mdl:grid-cols-2 xl:grid-cols-3 max-xl:gap-5 xl:gap-y-[100px] '>
                     <div className='w-full flex flex-col gap-[16px] xl:max-w-[412px] xl:flex-row'>
                         <div className='w-full max-w-[40px] h-[40px]'>

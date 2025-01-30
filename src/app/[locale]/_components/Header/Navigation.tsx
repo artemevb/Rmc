@@ -11,7 +11,6 @@ interface ServiceOption {
   slug: string;
 }
 
-// Define the structure of navOptions items
 interface NavItem {
   title: string;
   slug: string;
@@ -44,7 +43,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
   const handleMouseLeave = (): void => {
     timeoutRef.current = setTimeout(() => {
       setIsServicesOpen(false);
-    }, 200); // Delay to prevent immediate closing
+    }, 200); 
   };
 
   return (
@@ -69,7 +68,7 @@ const Navigation: React.FC<NavigationProps> = ({ navOptions, locale }) => {
                     src={isServicesOpen ? arrow_yellow : arrow_black}
                     width={50}
                     height={50}
-                    alt="arrow"
+                    alt="arrow icon"
                     className="h-full w-[12%] mdx:h-[20px] mdx:w-auto"
                   />
                 </span>

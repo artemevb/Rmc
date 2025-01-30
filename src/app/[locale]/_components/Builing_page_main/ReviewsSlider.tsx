@@ -9,18 +9,16 @@ import { useTranslations } from 'next-intl';
 import arrow from "@/public/svg/arrow-right-gold.svg"
 import Modal from "../Modal/Reviews_equipment"
 
-// Define the structure of a single review
 interface Review {
     id: number;
     clientName: string;
-    createdDate: string; // ISO date string
+    createdDate: string;
     comment: string;
 }
 
 export default function ReviewsSlider() {
     const t = useTranslations('Building_page_main.Reviews');
 
-    // Initialize reviews with the defined type
     const [reviews] = useState<Review[]>([
         {
             id: 1,
@@ -40,10 +38,8 @@ export default function ReviewsSlider() {
             createdDate: '2024-06-15T14:50:30Z',
             comment: 'Their solutions have significantly improved our workflow. We are extremely satisfied with the results.',
         },
-        // Add more fake reviews as needed
     ])
 
-    // Define the type for the selected review (can be null)
     const [selectedReview, setSelectedReview] = useState<Review | null>(null)
 
     // Function to truncate the description
@@ -124,7 +120,7 @@ export default function ReviewsSlider() {
                                                 {t('read-more')}
                                                 <Image
                                                     src={arrow}
-                                                    alt='Arrow'
+                                                    alt='Arrow icon'
                                                     quality={100}
                                                     className="object-cover h-[20px] w-[20px]"
                                                 />
@@ -157,7 +153,7 @@ export default function ReviewsSlider() {
                                         {t('read-more')}
                                         <Image
                                             src={arrow}
-                                            alt='Arrow'
+                                            alt='Arrow icon'
                                             quality={100}
                                             className="object-cover h-[20px] w-[20px]"
                                         />

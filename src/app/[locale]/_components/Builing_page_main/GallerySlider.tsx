@@ -11,19 +11,16 @@ import { useTranslations } from 'next-intl';
 import ReactPlayer from 'react-player';
 import arrowleft from "@/public/svg/ArrowLeftSlider.png";
 import arrowright from "@/public/svg/ArrowRightSlider.png";
-import { GalleryData, GalleryItem, GalleryImage} from '@/src/sanity/typesGallery';
+import { GalleryData, GalleryItem, GalleryImage } from '@/src/sanity/typesGallery';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-// Инициализация imageUrlBuilder для URL изображений
 const builder = imageUrlBuilder(client);
 const urlFor = (source: SanityImageSource) => builder.image(source);
 
-// Динамический импорт Slider с отключённым SSR
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-// Интерфейсы для кастомных стрелок
 interface CustomArrowProps {
     className?: string;
     style?: React.CSSProperties;
@@ -33,18 +30,17 @@ interface CustomArrowProps {
 // Компонент кастомной следующей стрелки
 const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div className="absolute top-[-100px] right-2 z-10 cursor-pointer" onClick={onClick}>
-        <Image src={arrowright} alt="Next" width={70} height={70} />
+        <Image src={arrowright} alt="Next arrow icon" width={70} height={70} />
     </div>
 );
 
 // Компонент кастомной предыдущей стрелки
 const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div className="absolute top-[-100px] right-[85px] z-10 cursor-pointer" onClick={onClick}>
-        <Image src={arrowleft} alt="Previous" width={70} height={70} />
+        <Image src={arrowleft} alt="Previous arrow icon" width={70} height={70} />
     </div>
 );
 
-// Интерфейс для настроек Slider
 interface SliderSettings {
     arrows: boolean;
     dots: boolean;
@@ -64,12 +60,10 @@ interface SliderSettings {
     }[];
 }
 
-// Интерфейс пропсов для компонента Gallery
 interface GalleryProps {
-    data?: GalleryData; // Сделано опциональным, чтобы компонент не рендерился без данных
+    data?: GalleryData;
 }
 
-// **Функция Type Predicate**
 // Эта функция проверяет, является ли GalleryItem типом GalleryImage с непустым asset.
 const isGalleryImageWithAsset = (item: GalleryItem): item is GalleryImage & { asset: NonNullable<GalleryImage['asset']> } =>
     item._type === 'image' && item.asset !== null;

@@ -22,21 +22,21 @@ export function generateMetadata({ params }: InvestmentDubaiPageProps): Metadata
       title: "Новостройки в Дубае – Инвестиции и покупка недвижимости",
       description:
         "Подбор новостроек в Дубае. Квартиры, апартаменты, виллы от застройщиков. Узнайте о ценах, планировках и выгодных инвестиционных возможностях.",
-      keywords: "дубай, новостройки, недвижимость, инвестиции, купить",
+      keywords: "квартиры оаэ, новостройки, недвижимость в эмиратах, инвестиции, купить, жилого комплекса, жилые комплексы, цены новостройки, жк комплексы, квартиры новостройки, квартиры в эмиратах",
       url: "https://rmcdeluxe.com/ru/new-buildings",
     },
     en: {
       title: "New Developments in Dubai – Property Investments & Purchases",
       description:
         "Discover the latest property developments in Dubai. Apartments, villas, and investment opportunities. Learn about prices, floor plans, and ROI.",
-      keywords: "dubai, real estate, new developments, investments, purchase",
+      keywords: "UAE apartments, new buildings, real estate in the Emirates, investments, buy, residential complex, residential complexes, new building prices, residential complexes, new building apartments, apartments in the Emirates",
       url: "https://rmcdeluxe.com/en/new-buildings",
     },
     uz: {
       title: "Dubaydagi yangi qurilishlar – Investitsiya va ko‘chmas mulk",
       description:
         "Dubaydagi eng so‘nggi qurilish loyihalarini kashf eting. Xonadonlar, villalar va investitsiya imkoniyatlari haqida ma’lumot oling.",
-      keywords: "dubay, yangi qurilish, ko‘chmas mulk, investitsiya, sotib olish",
+      keywords: "BAA kvartiralari, yangi qurilgan binolar, Amirlikdagi ko'chmas mulk, investitsiyalar, sotib olish, turar-joy majmuasi, turar-joy majmualari, yangi binolar narxlari, turar-joy majmualari, yangi qurilgan kvartiralar, Amirlikdagi kvartiralar",
       url: "https://rmcdeluxe.com/uz/new-buildings",
     },
   };
@@ -71,7 +71,6 @@ export function generateMetadata({ params }: InvestmentDubaiPageProps): Metadata
       description: currentSEO.description,
       images: ["https://rmcdeluxe.com/og-image.jpg"],
     },
-    // canonical и hreflang
     alternates: {
       canonical: currentSEO.url,
       languages: {
@@ -133,7 +132,7 @@ export default function InvestmentDubaiPage({ params }: InvestmentDubaiPageProps
                     "@type": "PostalAddress",
                     "addressLocality": "Dubai",
                   },
-                  "image": "https://example.com/images/mangrove.jpg",
+                  "image": "https://rmcdeluxe.com/og-image.jpg",
                 },
               },
               {
@@ -148,7 +147,7 @@ export default function InvestmentDubaiPage({ params }: InvestmentDubaiPageProps
                     "@type": "PostalAddress",
                     "addressLocality": "Dubai",
                   },
-                  "image": "https://example.com/images/violet3.jpg",
+                  "image": "https://rmcdeluxe.com/og-image.jpg",
                 },
               },
             ],

@@ -3,16 +3,15 @@ import React from 'react';
 import Image from 'next/image';
 
 interface NewCardProps {
-  subtitle: string;       // Название новостройки (или подзаголовок)
-  imageSrc: string;       // Ссылка на изображение
-  coast: string;          // Цена
-  buildingType?: string;  // Тип новостройки (optional, т.к. не всегда может быть заполнен)
+  subtitle: string;
+  imageSrc: string;
+  coast: string;
+  buildingType?: string;
 }
 
 const NewCard: React.FC<NewCardProps> = ({ coast, subtitle, imageSrc, buildingType }) => {
   return (
     <div className="w-full bg-white h-full flex flex-col overflow-hidden ">
-      {/* Изображение */}
       <div className="relative w-full">
         <Image
           src={imageSrc}
@@ -24,7 +23,6 @@ const NewCard: React.FC<NewCardProps> = ({ coast, subtitle, imageSrc, buildingTy
         />
       </div>
 
-      {/* Текстовая часть */}
       <div className="w-full flex flex-col gap-2">
         <h3 className="text-[20px] mdx:text-[24px] xl:text-[28px] font-semibold text-gray-900">
           {subtitle}

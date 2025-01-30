@@ -275,7 +275,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <Image
                                 quality={100}
                                 src={isFloorDropdownOpen ? arrow_top : arrow}
-                                alt="arrow"
+                                alt="arrow icon"
                                 width={20}
                                 height={20}
                             />
@@ -342,7 +342,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                             <Image
                                 quality={100}
                                 src={isPriceDropdownOpen ? arrow_top : arrow}
-                                alt="arrow"
+                                alt="arrow icon"
                                 width={20}
                                 height={20}
                             />
@@ -471,7 +471,7 @@ export default function Layout({ locale, complexSlug }: LayoutProps) {
                         <Image
                             quality={100}
                             src={isRoomsDropdownOpen ? arrow_top : arrow}
-                            alt="arrow"
+                            alt="arrow icon"
                             width={20}
                             height={20}
                         />

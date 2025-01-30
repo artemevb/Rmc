@@ -39,7 +39,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
                                 width={24}
                                 height={24}
                                 quality={100}
-                                alt={`Views`}
+                                alt={`Eyes icon`}
                                 className="w-[24px] h-[24px] object-contain"
                             />
                             <p>{views}</p>
@@ -58,7 +58,7 @@ const NewCard: React.FC<NewCardProps> = ({ subtitle, imageSrc, date, views }) =>
                                 width={20}
                                 height={20}
                                 quality={100}
-                                alt="Стрелка"
+                                alt="arrow icon"
                                 className="w-[20px] h-[20px] object-contain"
                             />
                         </div>
