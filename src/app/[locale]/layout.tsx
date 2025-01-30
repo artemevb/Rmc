@@ -15,7 +15,7 @@ const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] });
 
 const metadataByLocale: Record<Locales, Metadata> = {
   en: {
-    title: 'RMC De Luxe | Rental, Sale & Purchase of Real Estate in Dubai',
+    title: 'Real Estate Purchase in Dubai, Rental and Sale | RMC De Luxe',
     description:
       'RMC De Luxe provides professional real estate services: renting, selling, and buying property in Dubai. Expert guidance on company formation, banking, and mortgages.',
     keywords: [
@@ -32,7 +32,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
       type: 'website',
       locale: 'en_US',
       url: 'https://rmcdeluxe.com/en',
-      title: 'RMC De Luxe – Dubai Real Estate Agency',
+      title: 'Real Estate Purchase in Dubai, Rental and Sale | RMC De Luxe',
       description:
         'Comprehensive real estate solutions for apartments, villas, and commercial properties in Dubai. Sales, rentals, and investment consulting.',
       siteName: 'RMC De Luxe',
@@ -47,7 +47,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'RMC De Luxe | Real Estate in Dubai',
+      title: 'Real Estate Purchase in Dubai, Rental and Sale | RMC De Luxe',
       description:
         'Professional agency for rentals, sales, and property management in Dubai.',
       images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
@@ -65,7 +65,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
     },
   },
   ru: {
-    title: 'RMC De Luxe | Аренда, Продажа и Покупка Недвижимости в Дубае',
+    title: 'Покупка Недвижимости в Дубае, Аренда и Продажа | RMC De Luxe',
     description:
       'RMC De Luxe — профессиональные услуги по аренде, продаже и покупке недвижимости в Дубае. Консультации по открытию компаний и ипотеке.',
     keywords: [
@@ -82,7 +82,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
       type: 'website',
       locale: 'ru_RU',
       url: 'https://rmcdeluxe.com/ru',
-      title: 'RMC De Luxe – Недвижимость в Дубае',
+      title: 'Покупка Недвижимости в Дубае, Аренда и Продажа | RMC De Luxe',
       description:
         'Все услуги в сфере недвижимости: аренда, продажа и покупка квартир, вилл и коммерческих объектов в Дубае.',
       siteName: 'RMC De Luxe',
@@ -97,7 +97,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'RMC De Luxe | Недвижимость в Дубае',
+      title: 'Покупка Недвижимости в Дубае, Аренда и Продажа | RMC De Luxe',
       description:
         'Аренда, продажа и покупка недвижимости в Дубае. Полный спектр услуг и консультаций.',
       images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
@@ -115,7 +115,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
     },
   },
   uz: {
-    title: 'RMC De Luxe | Dubayda Ko‘chmas Mulk: Ijara, Sotish va Sotib Olish',
+    title: 'Dubayda Ko‘chmas Mulk Xaridi, Ijara va Sotish | RMC De Luxe',
     description:
       'RMC De Luxe Dubayda ko‘chmas mulk bo‘yicha profesional xizmatlar: ijara, sotish, sotib olish. Kompaniya ochish va ipoteka bo‘yicha maslahatlar.',
     keywords: [
@@ -132,7 +132,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
       type: 'website',
       locale: 'uz_UZ',
       url: 'https://rmcdeluxe.com/uz',
-      title: 'RMC De Luxe – Dubayda Ko‘chmas Mulk Xizmatlari',
+      title: 'Dubayda Ko‘chmas Mulk Xaridi, Ijara va Sotish | RMC De Luxe',
       description:
         'Kvartira va villalarni ijaraga olish, sotish yoki sotib olish. Shuningdek, kompaniya ro‘yxatdan o‘tkazish va ipoteka bo‘yicha maslahatlar.',
       siteName: 'RMC De Luxe',
@@ -147,7 +147,7 @@ const metadataByLocale: Record<Locales, Metadata> = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'RMC De Luxe | Dubay Ko‘chmas Mulk',
+      title: 'Dubayda Ko‘chmas Mulk Xaridi, Ijara va Sotish | RMC De Luxe',
       description:
         'Dubayda ijara, sotish va sotib olish bo‘yicha profesional xizmatlar. Ipoteka va kompaniya ochish bo‘yicha maslahatlar.',
       images: 'https://rmcdeluxe.com/og-image.jpg?v=2',
